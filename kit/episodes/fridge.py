@@ -19,18 +19,19 @@ META = dict(
 )
 
 BEATS = [
-    dict(dur=5.5, title="HOW DOES A FRIDGE MAKE COLD?", caption="Ever wondered how your fridge keeps your food cold?"),
-    dict(dur=5.5, title="IT MOVES HEAT", caption="Here's the secret: a fridge doesn't make cold. It moves heat out."),
+    dict(dur=5.5, title="HOW DOES A FRIDGE MAKE COLD?", caption="Ever wondered how your fridge keeps your food cold, day and night?"),
+    dict(dur=5.5, title="IT MOVES HEAT", caption="Here's the secret: a fridge doesn't make cold at all. It moves heat out."),
     dict(dur=6.0, title=None, caption="The trick? When a liquid evaporates, it soaks up the heat around it.", card='evap'),
-    dict(dur=5.5, title="THE REFRIGERANT", caption="So a special fluid, the refrigerant, flows in a closed loop of pipes."),
+    dict(dur=5.5, title="THE REFRIGERANT", caption="So a special fluid, the refrigerant, travels endlessly in a closed loop of pipes."),
     dict(dur=6.5, title="1 · THE EVAPORATOR", caption="Inside, it evaporates at low pressure and pulls heat out of your food."),
     dict(dur=6.0, title=None, caption="The compressor sucks in that vapor and squeezes it. Squeezed gas gets hot!", card='comp'),
     dict(dur=6.0, title="3 · THE CONDENSER", caption="At the back, the hot gas gives its heat to the kitchen and turns liquid again."),
     dict(dur=5.0, title="WHY IS THE BACK WARM?", caption="That's why the back of your fridge feels warm: it's your food's heat!"),
     dict(dur=6.0, title=None, caption="Then a tiny tube drops the pressure. The liquid turns ice cold again.", card='capi'),
-    dict(dur=6.0, title="AND AGAIN, AND AGAIN…", caption="And the loop restarts: heat in on the inside, heat out at the back."),
+    dict(dur=6.0, title="AND AGAIN, AND AGAIN…", caption="And the loop restarts, again and again: heat in on the inside, heat out at the back."),
     dict(dur=6.5, title=None, caption="When it's cold enough, the thermostat stops the compressor. Silence!", card='thermo'),
-    dict(dur=5.5, title="A FRIDGE = A HEAT PUMP", caption="Well done! You now know how a fridge really makes cold."),
+    dict(dur=5.5, title="A FRIDGE = A HEAT PUMP", caption="Well done! Now you know how a fridge really makes cold. Pretty clever, right?"),
+    dict(dur=5.5, title="PRO TIP", caption="Repair tech tip: leave a gap behind your fridge so its heat can escape."),
 ]
 
 SFX = [(5.9, 'whoosh'), (22.8, 'pop'), (29.4, 'pop'), (35.4, 'pop'), (41.2, 'sizzle'), (46.4, 'pop'),
@@ -478,4 +479,9 @@ def state(t):
 CARDS = {'evap': card_evap, 'comp': card_comp, 'capi': card_capi, 'thermo': card_thermo}
 
 def draw(ctx, t, E):
-    draw_fridge(ctx, t, state(t))
+    st = state(t)
+    if t > 70.0:   # pro-tip beat: show the heat leaving at the back
+        st['heat_out'] = win(t, 70.2, 75.5); st['warm'] = win(t, 70.2, 75.5)
+    draw_fridge(ctx, t, st)
+    if t > 70.0:
+        tag(ctx, "LEAVE A GAP!", 930, 470, RED, win(t, 70.6, 75.5), 30)
