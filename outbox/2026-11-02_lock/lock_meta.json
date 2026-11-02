@@ -1,0 +1,41 @@
+{
+  "slug": "lock",
+  "title": "How does a lock know it's YOUR key? \ud83d\udd11",
+  "description": "Tiny spring-loaded pins and one invisible line: the pin tumbler lock in your front door, explained.\n\n#Shorts #howthingswork #lock #key #engineering #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "lock",
+    "key",
+    "engineering",
+    "science",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Pin_tumbler_lock",
+    "https://www.britannica.com/technology/lock-security",
+    "https://www.britannica.com/biography/Linus-Yale",
+    "https://theengineeringmindset.com/how-padlocks-work/",
+    "https://lockwiki.com/index.php/Pin-tumbler"
+  ],
+  "duration": 78.62,
+  "words": 196,
+  "beat_starts": [
+    0.0,
+    4.818,
+    9.752,
+    15.256,
+    20.295,
+    25.786,
+    31.254,
+    35.33,
+    39.544,
+    43.573,
+    48.368,
+    54.103,
+    58.271,
+    62.601,
+    67.071,
+    72.633
+  ]
+}

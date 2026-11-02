@@ -1,0 +1,16 @@
+How does a door lock know this key is yours, and not your neighbor's?
+The secret: tiny spring-loaded pins stop the lock from turning.
+It all happens on one invisible line, between a turning part and a fixed part.
+The plug is the cylinder your key turns, inside a fixed shell.
+Each hole holds a stack: a key pin, a driver pin, and a spring.
+With no key, springs push the drivers across the line. Jammed!
+Your key's bumps and valleys lift each stack to a different height.
+The right key puts every gap exactly on the line, all at once.
+Nothing crosses the line, so the plug turns and pulls back the bolt.
+Wrong key? One pin too high or too low, and nothing moves.
+Surprise: ancient Egyptians used wooden pin locks about four thousand years ago!
+Linus Yale Junior shrank it to pocket size in the 1860s.
+Five or six pins with several heights give thousands of different keys.
+So your key is a code: a row of heights only your lock understands.
+Tech tip: stiff lock? Use graphite powder, not oil, which traps dust.
+Cogwise: how things work. Follow for the next one!
