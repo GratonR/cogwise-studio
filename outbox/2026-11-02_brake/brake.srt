@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:04,729
+How can one light push of your foot stop a car that weighs over a ton?
+
+2
+00:00:04,899 --> 00:00:10,349
+The secret: a liquid you can't squeeze carries your push to the wheels.
+
+3
+00:00:10,519 --> 00:00:15,689
+Push on a fluid in a closed pipe: the pressure is equal everywhere.
+
+4
+00:00:15,859 --> 00:00:20,078
+The pedal is a lever, and a booster adds even more force.
+
+5
+00:00:20,248 --> 00:00:25,047
+It pushes a small piston in the master cylinder, pressurizing the fluid.
+
+6
+00:00:25,217 --> 00:00:28,344
+Brake lines carry that pressure to each wheel.
+
+7
+00:00:28,514 --> 00:00:33,057
+The caliper's piston is much wider, so the force gets multiplied.
+
+8
+00:00:33,227 --> 00:00:38,363
+The caliper squeezes two pads onto the spinning disc, like pinching fingers.
+
+9
+00:00:38,533 --> 00:00:43,204
+The disc is bolted to the wheel, so gripping it slows the whole car.
+
+10
+00:00:43,374 --> 00:00:49,172
+Friction turns motion into heat, about 130 degrees Celsius in normal braking.
+
+11
+00:00:49,342 --> 00:00:53,619
+Many discs have inner fins, like a fan, to shed that heat.
+
+12
+00:00:53,789 --> 00:00:58,367
+Surprise: disc brakes helped Jaguar win Le Mans in 1953!
+
+13
+00:00:58,537 --> 00:01:02,233
+Lift your foot, the pressure drops, and the pads let go.
+
+14
+00:01:02,403 --> 00:01:06,587
+So: fluid multiplies your push, friction turns speed into heat.
+
+15
+00:01:06,757 --> 00:01:11,812
+Tech tip: brake fluid soaks up water, so change it about every two years.
+
+16
+00:01:11,982 --> 00:01:17,683
+Cogwise: how things work. Follow for the next one!
