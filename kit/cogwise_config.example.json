@@ -1,0 +1,5 @@
+{
+  "elevenlabs_api_key": "PASTE_KEY_HERE",
+  "voice_id": "PASTE_VOICE_ID_HERE",
+  "model_id": "eleven_multilingual_v2"
+}
