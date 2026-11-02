@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:04,242
+Ever wondered how your fridge keeps your food cold, day and night?
+
+2
+00:00:04,412 --> 00:00:10,116
+Here's the secret: a fridge doesn't make cold at all. It moves heat out.
+
+3
+00:00:10,286 --> 00:00:15,318
+The trick? When a liquid evaporates, it soaks up the heat around it.
+
+4
+00:00:15,488 --> 00:00:21,019
+So a special fluid, the refrigerant, travels endlessly in a closed loop of pipes.
+
+5
+00:00:21,189 --> 00:00:26,046
+Inside, it evaporates at low pressure and pulls heat out of your food.
+
+6
+00:00:26,216 --> 00:00:31,618
+The compressor sucks in that vapor and squeezes it. Squeezed gas gets hot!
+
+7
+00:00:31,788 --> 00:00:36,390
+At the back, the hot gas gives its heat to the kitchen and turns liquid again.
+
+8
+00:00:36,560 --> 00:00:40,894
+That's why the back of your fridge feels warm: it's your food's heat!
+
+9
+00:00:41,064 --> 00:00:45,573
+Then a tiny tube drops the pressure. The liquid turns ice cold again.
+
+10
+00:00:45,743 --> 00:00:51,100
+And the loop restarts, again and again: heat in on the inside, heat out at the back.
+
+11
+00:00:51,270 --> 00:00:55,674
+When it's cold enough, the thermostat stops the compressor. Silence!
+
+12
+00:00:55,844 --> 00:01:00,771
+Well done! Now you know how a fridge really makes cold. Pretty clever, right?
+
+13
+00:01:00,941 --> 00:01:05,612
+Repair tech tip: leave a gap behind your fridge so its heat can escape.
+
+14
+00:01:05,782 --> 00:01:11,649
+Cogwise: how things work. Follow for the next one!
