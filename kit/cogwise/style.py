@@ -203,13 +203,16 @@ def _wrap(ctx, text, maxw):
 
 def caption(ctx, text, a):
     if a <= 0 or not text: return
-    ctx.select_font_face(CAPTION_FONT, 0, 0); ctx.set_font_size(46)
-    lines = _wrap(ctx, text, 920)
-    y0 = 1752 - (len(lines) - 1) * 31
+    ctx.select_font_face(CAPTION_FONT, 0, 0)
+    for size in (46, 42, 38, 34):            # shrink until it fits on 2 lines
+        ctx.set_font_size(size); lines = _wrap(ctx, text, 920)
+        if len(lines) <= 2: break
+    lh = size * 1.35
+    y0 = 1752 - (len(lines) - 1) * lh / 2
     ctx.new_path()
     for i, ln in enumerate(lines):
         w = ctx.text_extents(ln).x_advance
-        ctx.move_to(W/2 - w/2, y0 + i*62); ctx.text_path(ln)
+        ctx.move_to(W/2 - w/2, y0 + i*lh); ctx.text_path(ln)
     ctx.set_line_join(cairo.LINE_JOIN_ROUND)
     setc(ctx, INK, a); ctx.set_line_width(9); ctx.stroke_preserve()
     setc(ctx, WHITE, a); ctx.fill()
