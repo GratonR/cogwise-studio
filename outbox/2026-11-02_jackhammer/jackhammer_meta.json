@@ -1,0 +1,40 @@
+{
+  "slug": "jackhammer",
+  "title": "How does a jackhammer hit 18 times a second? \ud83d\udd28",
+  "description": "No motor inside: just squeezed air, a valve and a flying piston. The jackhammer, explained.\n\n#Shorts #howthingswork #jackhammer #construction #engineering #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "jackhammer",
+    "construction",
+    "engineering",
+    "science",
+    "cogwise"
+  ],
+  "sources": [
+    "https://dealers.doosanportablepower.com/emea/documents/Marketing/03.Product/06_Construction%20Tools/Pneumatic%20tools%20encyclopedia%20DII%20Rev.201303.pptx.pdf",
+    "https://engineerfix.com/how-a-pneumatic-jack-hammer-works-and-when-to-use-one/",
+    "https://atlascopco.com/en-us/construction-equipment/products/tools-us/breakers/heavy-breakers/pneumatic-tex-40pe",
+    "https://www.firgelliauto.com/blogs/mechanisms/pneumatic-hammer"
+  ],
+  "duration": 77.03,
+  "words": 189,
+  "beat_starts": [
+    0.0,
+    5.48,
+    10.995,
+    15.871,
+    19.853,
+    24.161,
+    28.526,
+    32.938,
+    38.684,
+    43.561,
+    48.089,
+    52.268,
+    56.785,
+    61.73,
+    66.2,
+    71.204
+  ]
+}
