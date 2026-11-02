@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:05,310
+How does a jackhammer hit concrete so fast, with no motor inside?
+
+2
+00:00:05,480 --> 00:00:10,825
+The secret: squeezed air, and a heavy piston bouncing inside a tube.
+
+3
+00:00:10,995 --> 00:00:15,701
+Air at six bar pushes about six kilos on every square centimeter.
+
+4
+00:00:15,871 --> 00:00:19,683
+A compressor feeds the air in through the hose and trigger.
+
+5
+00:00:19,853 --> 00:00:23,991
+A small valve sends the air to the top of the cylinder first.
+
+6
+00:00:24,161 --> 00:00:28,356
+The air drives the steel piston down, faster and faster.
+
+7
+00:00:28,526 --> 00:00:32,768
+It slams into the chisel, and the chisel smashes the concrete.
+
+8
+00:00:32,938 --> 00:00:38,514
+The piston never touches concrete: the blow travels through the steel as a shock wave.
+
+9
+00:00:38,684 --> 00:00:43,391
+At the bottom, exhaust holes open and the valve flips the air below.
+
+10
+00:00:43,561 --> 00:00:47,919
+Now air pushes the piston back up, and it all starts again.
+
+11
+00:00:48,089 --> 00:00:52,098
+That's about eighteen blows a second, over a thousand per minute!
+
+12
+00:00:52,268 --> 00:00:56,615
+Surprise: the expanding exhaust air gets so cold it can ice up!
+
+13
+00:00:56,785 --> 00:01:01,560
+It's brutally loud, about a hundred decibels up close: wear ear protection.
+
+14
+00:01:01,730 --> 00:01:06,030
+So: the valve flips the air, the piston hammers, the chisel breaks.
+
+15
+00:01:06,200 --> 00:01:11,034
+Tech tip: oil the air inlet with pneumatic tool oil, never diesel.
+
+16
+00:01:11,204 --> 00:01:16,978
+Cogwise: how things work. Follow for the next one!
