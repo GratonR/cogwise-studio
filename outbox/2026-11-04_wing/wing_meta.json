@@ -1,0 +1,40 @@
+{
+  "slug": "wing",
+  "title": "How does a wing hold up a 400-ton plane? \u2708\ufe0f",
+  "description": "A curved, tilted wing throws air down, and the air pushes it up. How lift really works.\n\n#Shorts #howthingswork #aviation #airplane #physics #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "aviation",
+    "airplane",
+    "physics",
+    "science",
+    "cogwise"
+  ],
+  "sources": [
+    "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/bernoulli-and-newton",
+    "https://www.eng.cam.ac.uk/news/how-wings-really-work",
+    "https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/lift-equation",
+    "https://migflug.com/afterburner/angle-of-attack-and-the-stall-explained/"
+  ],
+  "duration": 77.81,
+  "words": 209,
+  "beat_starts": [
+    0.0,
+    4.214,
+    8.916,
+    13.549,
+    18.611,
+    23.917,
+    28.352,
+    32.438,
+    37.047,
+    41.947,
+    46.811,
+    50.329,
+    56.227,
+    61.092,
+    66.223,
+    71.784
+  ]
+}
