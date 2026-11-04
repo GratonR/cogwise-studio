@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:04,044
+How can a metal plane weighing hundreds of tons just hang in the sky?
+
+2
+00:00:04,214 --> 00:00:08,746
+The secret: its wings throw a huge amount of air downward, every second.
+
+3
+00:00:08,916 --> 00:00:13,379
+Push air down, and the air pushes the wing up. That's Newton's third law.
+
+4
+00:00:13,549 --> 00:00:18,441
+Look at a wing from the side: a rounded nose, a curved top, a sharp tail.
+
+5
+00:00:18,611 --> 00:00:23,747
+It meets the air tilted slightly up. Pilots call this the angle of attack.
+
+6
+00:00:23,917 --> 00:00:28,182
+Air bending over the curved top speeds up, and its pressure drops.
+
+7
+00:00:28,352 --> 00:00:32,268
+Underneath, the air piles up a little, so the pressure rises.
+
+8
+00:00:32,438 --> 00:00:36,877
+Low pressure pulling, high pressure pushing: together they lift the wing.
+
+9
+00:00:37,047 --> 00:00:41,777
+Behind the wing, the whole airflow leaves angled down. That's the lift!
+
+10
+00:00:41,947 --> 00:00:46,641
+Surprise: the top air doesn't wait for the bottom air. It arrives first!
+
+11
+00:00:46,811 --> 00:00:50,159
+And fly twice as fast, and you get four times the lift.
+
+12
+00:00:50,329 --> 00:00:56,057
+Tilt too far, about sixteen degrees, and the air tears off the top. Lift collapses.
+
+13
+00:00:56,227 --> 00:01:00,922
+That's why flaps slide out for takeoff and landing, adding curve at low speed.
+
+14
+00:01:01,092 --> 00:01:06,053
+So: a curved, tilted wing turns air down, and the air holds it up.
+
+15
+00:01:06,223 --> 00:01:11,614
+Tip: on your next flight, sit by the wing and watch the flaps before landing.
+
+16
+00:01:11,784 --> 00:01:17,762
+Cogwise: how things work. Follow for the next one!
