@@ -81,8 +81,9 @@ def to_screen(x, y, alpha_deg, fl=0.0):
         y = hy - dx * math.sin(d) + dyy * math.cos(d)
     a = math.radians(alpha_deg)
     px = (x - 0.3) * CH; py = -y * CH
-    rx = px * math.cos(a) + py * math.sin(a)
-    ry = -px * math.sin(a) + py * math.cos(a)
+    # positive alpha = nose UP into the oncoming air (screen y grows downward)
+    rx = px * math.cos(a) - py * math.sin(a)
+    ry = px * math.sin(a) + py * math.cos(a)
     return LE[0] + 0.3 * CH + rx, LE[1] + ry
 
 def wing_path(ctx, ad, fl):
@@ -216,15 +217,16 @@ def draw_all(ctx, t, st):
     ad = st['aoa']
     # angle-of-attack protractor
     if st['h_aoa'] > 0:
-        a = st['h_aoa']; ox, oy = LE
-        ctx.move_to(ox - 40, oy); ctx.line_to(ox + 700, oy); ctx.set_dash([12, 9])
-        setc(ctx, INK, a); ctx.set_line_width(3); ctx.stroke(); ctx.set_dash([])
+        a = st['h_aoa']
         te = to_screen(1.0, 0.0, ad); le = to_screen(0.0, 0.0, ad)
-        ctx.move_to(le[0] - 40 * math.cos(math.radians(ad)), le[1] + 40 * math.sin(math.radians(ad)))
-        ctx.line_to(te[0] + 60 * math.cos(math.radians(ad)), te[1] - 60 * math.sin(math.radians(ad)))
+        # dashed line = direction of the oncoming air, through the leading edge
+        ctx.move_to(le[0] - 40, le[1]); ctx.line_to(le[0] + 740, le[1]); ctx.set_dash([12, 9])
+        setc(ctx, INK, a); ctx.set_line_width(3); ctx.stroke(); ctx.set_dash([])
+        ctx.move_to(le[0] - 40 * math.cos(math.radians(ad)), le[1] - 40 * math.sin(math.radians(ad)))
+        ctx.line_to(te[0] + 60 * math.cos(math.radians(ad)), te[1] + 60 * math.sin(math.radians(ad)))
         setc(ctx, ORANGE, a); ctx.set_line_width(3); ctx.stroke()
-        ctx.new_path(); ctx.arc_negative(le[0], le[1], 560, 0, -math.radians(ad)); setc(ctx, ORANGE, a); ctx.set_line_width(5); ctx.stroke()
-        text_c(ctx, "%d°" % round(ad), 860, oy - 30 - 4 * ad, 34, ORANGE, True, 0, a)
+        ctx.new_path(); ctx.arc(le[0], le[1], 560, 0, math.radians(ad)); setc(ctx, ORANGE, a); ctx.set_line_width(5); ctx.stroke()
+        text_c(ctx, "%d°" % round(ad), 860, le[1] + 60 + 9 * ad, 34, ORANGE, True, 0, a)
     # lift arrow
     if st['lift'] > 0:
         cx, cy = to_screen(0.3, 0.1, ad)
@@ -309,7 +311,7 @@ def mini_wing(ctx, x0, y0, ch, ad, a, fill=WINGC):
     pts = []
     for (x, y) in UP[::-1] + LO[1:]:
         px, py = (x - 0.3) * ch, -y * ch
-        pts.append((x0 + px * math.cos(ar) + py * math.sin(ar), y0 - px * math.sin(ar) + py * math.cos(ar)))
+        pts.append((x0 + px * math.cos(ar) - py * math.sin(ar), y0 + px * math.sin(ar) + py * math.cos(ar)))
     ctx.move_to(*pts[0])
     for q in pts[1:]: ctx.line_to(*q)
     ctx.close_path(); fill_stroke(ctx, fill, lw=4, alpha=a)
