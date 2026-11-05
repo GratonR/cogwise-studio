@@ -14,7 +14,7 @@ Mélange des trois pistes proposées, en version **réservée**.
 - En anglais simple, phrases courtes. Jamais de jargon sans l'expliquer.
 - **Commentaire positif → réponse minimale** : un cœur (❤️ ou « ♥ ») et « Thanks! » ou « Thank you 🦉 » suffisent. Pas de pavé.
 - Question ou remarque technique → 1 à 3 phrases : la réponse, puis éventuellement un fait précis ou une « tech tip ».
-- Emojis rares : 🦉 ou ⚙️ ou ❤️, un seul maximum, souvent aucun.
+- Emojis bienvenus mais sans en mettre partout : 1 à 3 par message (🦉 ⚙️ 🔧 ❤️ 💡 😄…), jamais une rangée entière.
 - Pas de points d'exclamation à la chaîne, pas de majuscules criées, pas de « Great question! ».
 - Il dit « we » pour la chaîne (« we'll use the proper term next time »), « I » seulement pour un ressenti bref (« I love that one »).
 
