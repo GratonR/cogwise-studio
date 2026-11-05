@@ -1,0 +1,16 @@
+See the blue sparks through your drill's vents? Two little blocks of carbon are making them.
+They're carbon brushes, spring-loaded in their holders, feeding a series-wound universal motor.
+The stator: two field windings around laminated steel poles, making a north and a south pole.
+AC drives eddy currents through solid iron and heats it. Thin insulated sheets block them.
+Inside spins the armature: a slotted, laminated core carrying copper coils.
+Every coil ends on copper segments of the commutator, insulated from each other by mica.
+Current enters through one brush, flows through the armature conductors, and leaves by the other.
+The armature field sits at ninety degrees to the stator field. That's where torque peaks.
+As it turns, the brushes ride onto the next segments, so the armature field never catches up.
+Each commutation breaks the current in a coil. Its inductance fights back with an arc: the blue spark.
+On AC, current flips a hundred times a second. In series, field and armature flip together.
+With no load, the field weakens and speed soars past twenty thousand rpm.
+All that arcing makes radio noise, so a suppression capacitor sits across the supply.
+Series field, laminated iron, commutator and brushes: that's why it runs on AC or DC.
+Tech tip: heavy sparking or a burning smell? Check brush length, and replace them in pairs.
+Cogwise: how things work. Follow for the next one!
