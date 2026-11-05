@@ -1,0 +1,41 @@
+{
+  "slug": "iss-oxygen",
+  "title": "How the ISS makes the air astronauts breathe \ud83d\ude80",
+  "description": "No windows to open, 400 km up. The station splits water into oxygen, scrubs CO2 with zeolite and turns it back into water.\n\n#Shorts #howthingswork #space #ISS #science #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "space",
+    "ISS",
+    "science",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://www.nasa.gov/wp-content/uploads/2020/10/g-281237_eclss_0.pdf",
+    "https://ntrs.nasa.gov/api/citations/20190033322/downloads/20190033322.pdf",
+    "https://nasa.gov/wp-content/uploads/2015/05/design_iss_environment_control_and_life_support_systems.pdf",
+    "https://www.britannica.com/science/zeolite"
+  ],
+  "duration": 74.47,
+  "words": 225,
+  "beat_starts": [
+    0.0,
+    4.342,
+    8.44,
+    12.945,
+    17.705,
+    22.094,
+    26.122,
+    31.556,
+    36.06,
+    40.008,
+    45.0,
+    48.622,
+    52.511,
+    56.749,
+    61.578,
+    65.235,
+    69.833
+  ]
+}

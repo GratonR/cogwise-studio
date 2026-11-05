@@ -1,0 +1,67 @@
+1
+00:00:00,000 --> 00:00:04,172
+No windows to open, 400 kilometers up. So where does the air come from?
+
+2
+00:00:04,342 --> 00:00:08,270
+Here's the secret: the station makes its own oxygen, out of plain water.
+
+3
+00:00:08,440 --> 00:00:12,775
+The trick? Run electricity through water, and it splits into oxygen and hydrogen.
+
+4
+00:00:12,945 --> 00:00:17,535
+It starts with water, recycled from humidity, sweat, and even the crew's urine.
+
+5
+00:00:17,705 --> 00:00:21,924
+Solar panels power the electrolyzer. Oxygen bubbles out and flows into the cabin.
+
+6
+00:00:22,094 --> 00:00:25,952
+Every breath adds carbon dioxide. Zeolite beads trap it from the air.
+
+7
+00:00:26,122 --> 00:00:31,386
+Zeolite is a mineral crystal of silicon, aluminum and oxygen, full of molecule-sized tunnels.
+
+8
+00:00:31,556 --> 00:00:35,890
+Carbon dioxide sticks to the tunnel walls, while oxygen and nitrogen slip right through.
+
+9
+00:00:36,060 --> 00:00:39,838
+Heat the beads, and they let the carbon dioxide go again, ready to be reused.
+
+10
+00:00:40,008 --> 00:00:44,830
+In a hot reactor, that carbon dioxide meets the leftover hydrogen from the electrolyzer.
+
+11
+00:00:45,000 --> 00:00:48,452
+Out come water and methane. The water goes back to make more oxygen.
+
+12
+00:00:48,622 --> 00:00:52,341
+The methane is useless on board, so it's simply vented out into space.
+
+13
+00:00:52,511 --> 00:00:56,579
+But methane carries hydrogen away, so only about half that oxygen comes back.
+
+14
+00:00:56,749 --> 00:01:01,408
+That's why cargo ships still bring water and oxygen, with chemical oxygen candles as backup.
+
+15
+00:01:01,578 --> 00:01:05,065
+So the air on the station is mostly yesterday's water, split by sunlight.
+
+16
+00:01:05,235 --> 00:01:09,663
+Well done! Now you know where astronauts get every single breath. Pretty clever, right?
+
+17
+00:01:09,833 --> 00:01:14,418
+Cogwise: how things work. Follow for the next one!
