@@ -38,7 +38,16 @@ def main():
     if a.tts:
         cfg = json.load(open(a.tts))
         _, starts, vlen = voice.elevenlabs(captions, vpath, cfg['elevenlabs_api_key'], cfg['voice_id'],
-                                           cfg.get('model_id', 'eleven_multilingual_v2'))
+                                           cfg.get('model_id', 'eleven_multilingual_v2'),
+                                           speed=float(cfg.get('speed', 1.0)))
+        tempo = float(cfg.get('tempo', 1.0))   # post time-stretch (pitch kept), e.g. 1.1 = 10% faster
+        if abs(tempo - 1.0) > 1e-3:
+            import subprocess
+            tmp = vpath + '.tmp.mp3'
+            subprocess.run(['ffmpeg', '-v', 'error', '-y', '-i', vpath, '-filter:a', f'atempo={tempo}',
+                            '-b:a', '128k', tmp], check=True)
+            os.replace(tmp, vpath)
+            starts = [s / tempo for s in starts]; vlen = voice._duration(vpath)
     elif a.voice:
         shutil.copy(a.voice, vpath)
         _, starts, vlen = voice.align_existing(captions, vpath)

@@ -1,0 +1,39 @@
+{
+  "slug": "universal-motor",
+  "title": "Why your drill sparks: the universal motor \u26a1",
+  "description": "Carbon brushes, a commutator and two windings in series: why the motor in your drill runs on AC or DC.\n\n#Shorts #howthingswork #electricmotor #engineering #appliancerepair #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "electricmotor",
+    "engineering",
+    "appliancerepair",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Universal_motor",
+    "https://www.electricaleasy.com/2014/02/universal-motor-construction-working.html",
+    "https://en.wikipedia.org/wiki/Commutator_(electric)",
+    "https://en.wikipedia.org/wiki/Eddy_current"
+  ],
+  "duration": 76.43,
+  "words": 233,
+  "beat_starts": [
+    0.0,
+    4.0441666666666665,
+    8.669166666666667,
+    13.931666666666667,
+    18.943333333333335,
+    23.5775,
+    28.27916666666667,
+    33.27166666666667,
+    37.59583333333334,
+    42.25000000000001,
+    47.774166666666666,
+    52.5925,
+    56.53,
+    61.20333333333334,
+    66.495,
+    71.57416666666667
+  ]
+}

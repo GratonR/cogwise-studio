@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:03,874
+See the blue sparks through your drill's vents? Two little blocks of carbon are making them.
+
+2
+00:00:04,044 --> 00:00:08,499
+They're carbon brushes, spring-loaded in their holders, feeding a series-wound universal motor.
+
+3
+00:00:08,669 --> 00:00:13,762
+The stator: two field windings around laminated steel poles, making a north and a south pole.
+
+4
+00:00:13,932 --> 00:00:18,773
+AC drives eddy currents through solid iron and heats it. Thin insulated sheets block them.
+
+5
+00:00:18,943 --> 00:00:23,408
+Inside spins the armature: a slotted, laminated core carrying copper coils.
+
+6
+00:00:23,578 --> 00:00:28,109
+Every coil ends on copper segments of the commutator, insulated from each other by mica.
+
+7
+00:00:28,279 --> 00:00:33,102
+Current enters through one brush, flows through the armature conductors, and leaves by the other.
+
+8
+00:00:33,272 --> 00:00:37,426
+The armature field sits at ninety degrees to the stator field. That's where torque peaks.
+
+9
+00:00:37,596 --> 00:00:42,080
+As it turns, the brushes ride onto the next segments, so the armature field never catches up.
+
+10
+00:00:42,250 --> 00:00:47,604
+Each commutation breaks the current in a coil. Its inductance fights back with an arc: the blue spark.
+
+11
+00:00:47,774 --> 00:00:52,423
+On AC, current flips a hundred times a second. In series, field and armature flip together.
+
+12
+00:00:52,592 --> 00:00:56,360
+With no load, the field weakens and speed soars past twenty thousand rpm.
+
+13
+00:00:56,530 --> 00:01:01,033
+All that arcing makes radio noise, so a suppression capacitor sits across the supply.
+
+14
+00:01:01,203 --> 00:01:06,325
+Series field, laminated iron, commutator and brushes: that's why it runs on AC or DC.
+
+15
+00:01:06,495 --> 00:01:11,404
+Tech tip: heavy sparking or a burning smell? Check brush length, and replace them in pairs.
+
+16
+00:01:11,574 --> 00:01:16,377
+Cogwise: how things work. Follow for the next one!
