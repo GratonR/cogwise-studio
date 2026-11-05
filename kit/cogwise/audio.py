@@ -54,9 +54,18 @@ KINDS = {  # name -> (generator, gain dB)
     'sizzle': (sizzle, -32), 'ding': (lambda: bell(1047, 1.2), -21),
 }
 
+import os
+# Synthesized SFX were judged too harsh (2026-11-05): voice only by default until real sound files replace them.
+# Set COGWISE_SFX=synth to bring the old synthesized cues back.
+SFX_MODE = os.environ.get("COGWISE_SFX", "off")
+
 def build_sfx(ep, out_wav):
     """Auto cues (intro pop, card whooshes, outro whoosh + bell) + episode SFX/HUM, mapped to real time."""
     N = int((ep.length + 0.5) * SR); buf = np.zeros(N)
+    if SFX_MODE == "off":
+        with wave.open(out_wav, 'wb') as w:
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(np.zeros(N, dtype=np.int16).tobytes())
+        return
     def put(sig, t, g):
         i = int(max(t, 0) * SR)
         if i >= N: return
