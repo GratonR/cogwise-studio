@@ -55,17 +55,43 @@ KINDS = {  # name -> (generator, gain dB)
 }
 
 import os
-# Synthesized SFX were judged too harsh (2026-11-05): voice only by default until real sound files replace them.
-# Set COGWISE_SFX=synth to bring the old synthesized cues back.
-SFX_MODE = os.environ.get("COGWISE_SFX", "off")
+# SFX modes: "samples" (default) = real recorded-style sounds chosen by Guillaume on 2026-11-05
+# (ElevenLabs Sound Effects: tag = pencil tick, card = soft low whoosh, end = two felt marimba notes),
+# "off" = voice only, "synth" = the old synthesized cues (judged too harsh).
+SFX_MODE = os.environ.get("COGWISE_SFX", "samples")
+_SFX_DIR = os.path.join(os.path.dirname(__file__), "sfx")
+_CACHE = {}
+def sample(name):
+    if name not in _CACHE:
+        with wave.open(os.path.join(_SFX_DIR, name + ".wav")) as w:
+            x = np.frombuffer(w.readframes(w.getnframes()), dtype=np.int16).astype(float) / 32768
+        _CACHE[name] = x / (np.abs(x).max() + 1e-9)
+    return _CACHE[name]
+# episode cue name -> (sample, gain dB); cues with no good real equivalent are dropped
+SAMPLE_KINDS = {'pop': ('tag', -16), 'click': ('tag', -16), 'whoosh': ('card', -17), 'ding': ('end', -17), 'sizzle': None}
 
 def build_sfx(ep, out_wav):
     """Auto cues (intro pop, card whooshes, outro whoosh + bell) + episode SFX/HUM, mapped to real time."""
     N = int((ep.length + 0.5) * SR); buf = np.zeros(N)
-    if SFX_MODE == "off":
+    def write(buf):
+        buf = np.clip(buf, -1, 1)
         with wave.open(out_wav, 'wb') as w:
-            w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR); w.writeframes(np.zeros(N, dtype=np.int16).tobytes())
-        return
+            w.setnchannels(1); w.setsampwidth(2); w.setframerate(SR)
+            w.writeframes((buf * 32767).astype(np.int16).tobytes())
+    if SFX_MODE == "off":
+        return write(buf)
+    if SFX_MODE == "samples":
+        def put_s(sig, t, g):
+            i = int(max(t, 0) * SR)
+            if i >= N: return
+            j = min(N, i + len(sig)); buf[i:j] += sig[:j-i] * db(g)
+        for i, b in enumerate(ep.beats):
+            if b.get('card'): put_s(sample('card'), ep.R[i] - .05, -17)
+        for (td, kind) in getattr(ep.mod, 'SFX', []):
+            m = SAMPLE_KINDS.get(kind)
+            if m: put_s(sample(m[0]), ep.to_real(td), m[1])
+        put_s(sample('end'), ep.R[-2] + .45, -14)
+        return write(buf)
     def put(sig, t, g):
         i = int(max(t, 0) * SR)
         if i >= N: return
