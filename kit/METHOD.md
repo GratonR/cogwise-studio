@@ -7,7 +7,7 @@ description: Produire et publier un short explicatif Cogwise (« how things work
 
 Cogwise = chaîne anglophone de shorts « how things work ». Une vidéo = un objet du quotidien expliqué
 en coupe, style manuel vintage (papier crème, encre, rouge/moutarde/bleu-vert), voix off ElevenLabs « Jesse »,
-sous-titres incrustés, effets sonores synthétisés, carte de fin hibou + wordmark COGWISE « HOW THINGS WORK ».
+sous-titres incrustés, 3 bruitages réels (`kit/cogwise/sfx/` : trait de crayon, souffle doux, marimba de fin), carte de fin hibou + wordmark COGWISE « HOW THINGS WORK ».
 
 La tâche planifiée « Cogwise daily short » pilote tout (phases A → D) ; ses consignes priment sur ce fichier.
 Ce fichier décrit le métier : comment bien faire un épisode.
@@ -49,7 +49,8 @@ WebSearch sur 2–3 sources fiables (fabricants, encyclopédies, sites technique
 Simplifier sans dire faux ; mention « Simplified educational model » déjà incrustée. Employer le vrai terme quand il existe (ex. « compressed air », pas seulement « squeezed air »).
 
 ### 3. Écrire le script (anglais)
-- **13 à 15 beats, 185–215 mots au total** (≈ 2,8 mots/s → 66–77 s + carte de fin). Une phrase courte par beat (10–17 mots).
+- **13 à 15 beats, 175–200 mots au total** (débit réel de Jesse ≈ 2,5 mots/s → 70–80 s + carte de fin). Une phrase courte par beat (10–17 mots).
+- **Ne jamais accélérer la voix pour tenir la durée** : couper des mots. Au-delà de ~2,7 mots/s le débit est jugé trop rapide (retour du créateur sur l'ISS, 2026-11-05).
 - **L'accroche (3 premières secondes) compte plus que tout** : la rétention chute au début. Paradoxe, chiffre choc ou question qui pique.
 - Structure : accroche → « the secret » → principe physique (carte) → parties numérotées « 1 · PART » dans l'ordre du flux → 1 fait surprenant → boucle / sécurité / contrôle (carte) → récap « X = Y » → (outro automatique).
 - Ton : simple, vivant, tutoiement implicite (« your fridge »), zéro jargon non expliqué.
@@ -62,7 +63,7 @@ Copier le patron de `episodes/fridge.py` et `README.md` :
 - Un dessin principal en coupe dans la zone y 300–1500, x ~250–900, animé par `state(t)` (fenêtres `win(t, a, b)` calées sur les débuts de beats = somme des `dur`).
 - Étiquettes `tag()` numérotées + `highlight()` sur la partie expliquée ; flèches `wavy_arrow` pour chaleur/énergie/flux ; particules le long d'un chemin pour les fluides.
 - `CARDS` (3–4) : `card_frame(...)` puis un mini-schéma animé lisible en 2 s.
-- `SFX` : `pop` à chaque nouvelle étiquette, `click` pour un interrupteur, `sizzle` chaleur ; `HUM` si une machine tourne.
+- `SFX` : `pop` à chaque nouvelle étiquette, `click` pour un interrupteur (les deux → trait de crayon). Les encarts et la fin ont leur son automatiquement. `sizzle` et `HUM` sont ignorés en mode `samples` (par défaut ; `COGWISE_SFX=off` = voix seule).
 
 ### 5. Regarder avant de rendre — CONTRÔLE PHYSIQUE (obligatoire)
 `python -m cogwise.run stills episodes/<slug>.py /tmp/stills <t…>` aux moments les plus chargés (chaque carte, chaque étiquette, récap, fin). Lire les PNG et vérifier, point par point, que le dessin dit la même chose que le script :
