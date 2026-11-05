@@ -86,7 +86,7 @@ URL publique de la vidéo : `https://raw.githubusercontent.com/<owner>/cogwise-s
 
 ### 9. Validation (obligatoire)
 Carte « Vidéo à valider » dans le Control Room : vidéo, durée, sources, contrôle du dessin, et les textes par plateforme
-(YouTube titre + description + tags ; TikTok/Instagram/Facebook légende + 3–5 hashtags dont #howthingswork ; X ≤ 250 car.).
+(YouTube titre + description + tags ; TikTok/Instagram/Facebook légende + 3–5 hashtags dont #howthingswork ; X ≤ 250 car.). Légendes écrites dans la voix de Cog, la persona de la chaîne : voir `kit/PERSONA.md`.
 Notification push + e-mail. Puis **attendre** le « go » (ou les corrections → reprendre l'étape concernée).
 
 ### 10. Publication (après « go » seulement)
