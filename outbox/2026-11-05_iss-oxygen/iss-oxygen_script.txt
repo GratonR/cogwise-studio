@@ -1,17 +1,17 @@
 No windows to open, 400 kilometers up. So where does the air come from?
-Here's the secret: the station makes its own oxygen, out of plain water.
-The trick? Run electricity through water, and it splits into oxygen and hydrogen.
-It starts with water, recycled from humidity, sweat, and even the crew's urine.
-Solar panels power the electrolyzer. Oxygen bubbles out and flows into the cabin.
-Every breath adds carbon dioxide. Zeolite beads trap it from the air.
-Zeolite is a mineral crystal of silicon, aluminum and oxygen, full of molecule-sized tunnels.
-Carbon dioxide sticks to the tunnel walls, while oxygen and nitrogen slip right through.
-Heat the beads, and they let the carbon dioxide go again, ready to be reused.
-In a hot reactor, that carbon dioxide meets the leftover hydrogen from the electrolyzer.
-Out come water and methane. The water goes back to make more oxygen.
-The methane is useless on board, so it's simply vented out into space.
-But methane carries hydrogen away, so only about half that oxygen comes back.
-That's why cargo ships still bring water and oxygen, with chemical oxygen candles as backup.
-So the air on the station is mostly yesterday's water, split by sunlight.
-Well done! Now you know where astronauts get every single breath. Pretty clever, right?
+The station makes its own oxygen, out of plain water.
+Run electricity through water, and it splits into oxygen and hydrogen.
+The water is recycled from humidity, sweat, even the crew's urine.
+Solar power runs the electrolyzer. Oxygen bubbles out into the cabin.
+Every breath adds carbon dioxide. Zeolite beads trap it.
+Zeolite is a mineral crystal, full of molecule-sized tunnels.
+Carbon dioxide sticks to the walls. Oxygen and nitrogen slip through.
+Heat the beads, and they release the carbon dioxide.
+In a hot reactor, it meets the leftover hydrogen.
+Out come water and methane. The water goes back to the start.
+The methane is useless on board, so it's vented into space.
+That methane carries hydrogen away, so only half the oxygen comes back.
+So cargo ships still bring water and oxygen, plus backup oxygen candles.
+The station's air is mostly yesterday's water, split by sunlight.
+Now you know where every breath up there comes from. Pretty clever, right?
 Cogwise: how things work. Follow for the next one!

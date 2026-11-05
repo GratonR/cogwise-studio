@@ -1,67 +1,67 @@
 1
-00:00:00,000 --> 00:00:04,172
+00:00:00,000 --> 00:00:05,217
 No windows to open, 400 kilometers up. So where does the air come from?
 
 2
-00:00:04,342 --> 00:00:08,270
-Here's the secret: the station makes its own oxygen, out of plain water.
+00:00:05,387 --> 00:00:09,153
+The station makes its own oxygen, out of plain water.
 
 3
-00:00:08,440 --> 00:00:12,775
-The trick? Run electricity through water, and it splits into oxygen and hydrogen.
+00:00:09,323 --> 00:00:14,052
+Run electricity through water, and it splits into oxygen and hydrogen.
 
 4
-00:00:12,945 --> 00:00:17,535
-It starts with water, recycled from humidity, sweat, and even the crew's urine.
+00:00:14,222 --> 00:00:18,917
+The water is recycled from humidity, sweat, even the crew's urine.
 
 5
-00:00:17,705 --> 00:00:21,924
-Solar panels power the electrolyzer. Oxygen bubbles out and flows into the cabin.
+00:00:19,087 --> 00:00:24,188
+Solar power runs the electrolyzer. Oxygen bubbles out into the cabin.
 
 6
-00:00:22,094 --> 00:00:25,952
-Every breath adds carbon dioxide. Zeolite beads trap it from the air.
+00:00:24,358 --> 00:00:29,226
+Every breath adds carbon dioxide. Zeolite beads trap it.
 
 7
-00:00:26,122 --> 00:00:31,386
-Zeolite is a mineral crystal of silicon, aluminum and oxygen, full of molecule-sized tunnels.
+00:00:29,396 --> 00:00:33,917
+Zeolite is a mineral crystal, full of molecule-sized tunnels.
 
 8
-00:00:31,556 --> 00:00:35,890
-Carbon dioxide sticks to the tunnel walls, while oxygen and nitrogen slip right through.
+00:00:34,087 --> 00:00:39,362
+Carbon dioxide sticks to the walls. Oxygen and nitrogen slip through.
 
 9
-00:00:36,060 --> 00:00:39,838
-Heat the beads, and they let the carbon dioxide go again, ready to be reused.
+00:00:39,532 --> 00:00:43,124
+Heat the beads, and they release the carbon dioxide.
 
 10
-00:00:40,008 --> 00:00:44,830
-In a hot reactor, that carbon dioxide meets the leftover hydrogen from the electrolyzer.
+00:00:43,294 --> 00:00:46,920
+In a hot reactor, it meets the leftover hydrogen.
 
 11
-00:00:45,000 --> 00:00:48,452
-Out come water and methane. The water goes back to make more oxygen.
+00:00:47,090 --> 00:00:52,330
+Out come water and methane. The water goes back to the start.
 
 12
-00:00:48,622 --> 00:00:52,341
-The methane is useless on board, so it's simply vented out into space.
+00:00:52,500 --> 00:00:56,254
+The methane is useless on board, so it's vented into space.
 
 13
-00:00:52,511 --> 00:00:56,579
-But methane carries hydrogen away, so only about half that oxygen comes back.
+00:00:56,424 --> 00:01:01,641
+That methane carries hydrogen away, so only half the oxygen comes back.
 
 14
-00:00:56,749 --> 00:01:01,408
-That's why cargo ships still bring water and oxygen, with chemical oxygen candles as backup.
+00:01:01,811 --> 00:01:07,167
+So cargo ships still bring water and oxygen, plus backup oxygen candles.
 
 15
-00:01:01,578 --> 00:01:05,065
-So the air on the station is mostly yesterday's water, split by sunlight.
+00:01:07,337 --> 00:01:11,928
+The station's air is mostly yesterday's water, split by sunlight.
 
 16
-00:01:05,235 --> 00:01:09,663
-Well done! Now you know where astronauts get every single breath. Pretty clever, right?
+00:01:12,098 --> 00:01:16,433
+Now you know where every breath up there comes from. Pretty clever, right?
 
 17
-00:01:09,833 --> 00:01:14,418
+00:01:16,603 --> 00:01:22,882
 Cogwise: how things work. Follow for the next one!
