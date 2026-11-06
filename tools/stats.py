@@ -100,7 +100,7 @@ def main():
     prev = list(load_dir(os.path.join(a.db, "snapshots")).values())
     prev = max(prev, key=lambda s: s.get("at", "")) if prev else {}
     now = dt.datetime.now(dt.timezone.utc)
-    posts, new_comments, followers = {}, [], {}
+    posts, new_comments, followers, retention = {}, [], {}, {}
 
     # ---------- YouTube ----------
     yk = K.get("YOUTUBE_API_KEY")
@@ -144,6 +144,24 @@ def main():
                     p = posts.get("yt-" + row[0])
                     if p:
                         p["avg_watch_s"], p["avg_pct"] = row[2], round(row[3], 1)
+                # second-by-second retention curve (100 points), refreshed at most every 20 h per video
+                old_rc = prev.get("retention") or {}
+                for k_, p in posts.items():
+                    if not k_.startswith("yt-") or not p.get("episode"):
+                        continue
+                    vid, o = k_[3:], old_rc.get(p["episode"]) or {}
+                    if o.get("pts") and o.get("at") and (now - dt.datetime.fromisoformat(o["at"].replace("Z", "+00:00"))).total_seconds() < 20 * 3600:
+                        retention[p["episode"]] = o; continue
+                    q2 = urllib.parse.urlencode({"ids": "channel==MINE", "startDate": "2026-10-01", "endDate": now.date().isoformat(),
+                                                 "metrics": "audienceWatchRatio,relativeRetentionPerformance", "dimensions": "elapsedVideoTimeRatio", "filters": "video==" + vid})
+                    rc = safe("YouTube rétention", lambda: http("https://youtubeanalytics.googleapis.com/v2/reports?" + q2,
+                                                               headers={"Authorization": "Bearer " + tok["access_token"]}, kind="youtube")) or {}
+                    rows = rc.get("rows") or []
+                    if rows:
+                        retention[p["episode"]] = {"video": vid, "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"),
+                                                   "pts": [[round(r[0], 2), round(r[1], 3), round(r[2], 3)] for r in rows]}
+                    elif o:
+                        retention[p["episode"]] = o
 
     # ---------- Facebook + Instagram (Meta Graph) ----------
     pid, pt = K.get("FB_PAGE_ID"), urllib.parse.quote(K.get("FB_PAGE_TOKEN", ""))
@@ -231,6 +249,16 @@ def main():
     # keep last known values for posts a source failed to return this time
     for k, v in (prev.get("posts") or {}).items():
         posts.setdefault(k, dict(v, stale=True))
+        # a metric that vanished or collapsed (>20 % drop) is a partial API answer, not a real fall: keep the last value
+        cur = posts[k]
+        for f in ("views", "likes", "avg_watch_s"):
+            old_v, new_v = v.get(f), cur.get(f)
+            if not old_v:
+                continue
+            if new_v is None or (f != "avg_watch_s" and new_v < 0.8 * old_v):
+                cur[f] = old_v; cur["stale"] = True
+    for k, v in (prev.get("retention") or {}).items():
+        retention.setdefault(k, v)
 
     # ---------- totals, Buffer call counter ----------
     totals = {}
@@ -246,7 +274,7 @@ def main():
               "calls_estimated": runs + sent_this_month * 6, "limit_30d": 3000, "limit_24h": 600}
     paris = now.astimezone(dt.timezone(dt.timedelta(hours=1)))
     snap = {"at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
-            "totals": totals, "posts": posts, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
+            "totals": totals, "posts": posts, "retention": retention, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
             "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer"}
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
