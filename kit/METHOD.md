@@ -19,6 +19,7 @@ Ce fichier décrit le métier : comment bien faire un épisode.
 - **Exactitude** : chaque affirmation technique vérifiée sur ≥ 2 sources fiables avant d'écrire le script.
 - **Contrôle physique du dessin** avant tout rendu final (voir étape 5).
 - **Aucune mention d'IA** dans les titres, descriptions, légendes, hashtags ou tags (ni « AI voice », ni #AIvoice).
+- **Unités : toujours le système international (°C, mètres, kg, km/h…) suivi de l'équivalent américain** (°F, pieds, livres, mph), dans la voix off (« minus eighteen Celsius, zero Fahrenheit ») comme à l'écran (« -18 °C · 0 °F »). Ne jamais dire « degrees » sans préciser l'échelle (demande du créateur, 2026-11-06).
 - **Ne pas surcharger** l'image : un seul objet en coupe, 1–2 accessoires de décor max, pas de personnage.
 
 ## Où sont les choses
