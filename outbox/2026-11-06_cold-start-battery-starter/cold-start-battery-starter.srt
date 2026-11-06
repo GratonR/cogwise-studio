@@ -1,0 +1,63 @@
+1
+00:00:00,000 --> 00:00:08,027
+At minus eighteen Celsius, zero Fahrenheit, your battery has lost half its punch. And your engine wants more.
+
+2
+00:00:08,197 --> 00:00:13,100
+Starting a car is a tug of war: power supplied versus power demanded.
+
+3
+00:00:13,270 --> 00:00:18,150
+A battery makes current by a chemical reaction, and cold slows it down.
+
+4
+00:00:18,320 --> 00:00:26,336
+At zero Celsius, thirty-two Fahrenheit, it gives about twenty percent less. At minus eighteen, nearly half.
+
+5
+00:00:26,506 --> 00:00:30,144
+Turn the key, and a small current wakes the starter's solenoid.
+
+6
+00:00:30,314 --> 00:00:35,798
+The solenoid pushes a tiny gear into the flywheel, then closes the big contact.
+
+7
+00:00:35,968 --> 00:00:39,582
+Now the starter motor gulps around four hundred and fifty amps.
+
+8
+00:00:39,752 --> 00:00:45,840
+The little gear spins ten to fifteen times for each engine turn, multiplying its force.
+
+9
+00:00:46,010 --> 00:00:50,832
+But cold oil turns thick, like honey, so the crankshaft fights back.
+
+10
+00:00:51,002 --> 00:00:55,627
+Less power in, more effort needed. That's the double squeeze.
+
+11
+00:00:55,797 --> 00:01:00,155
+A weak battery sags so low that the solenoid only clicks.
+
+12
+00:01:00,325 --> 00:01:05,775
+Once the engine fires, a one-way clutch lets go, and the little gear springs back.
+
+13
+00:01:05,945 --> 00:01:09,339
+Then the alternator refills the battery while you drive.
+
+14
+00:01:09,509 --> 00:01:13,994
+So cold weakens the battery, and thickens the oil it has to fight.
+
+15
+00:01:14,164 --> 00:01:19,509
+Tech tip: crank ten seconds max, then let the battery rest thirty seconds.
+
+16
+00:01:19,679 --> 00:01:25,572
+Cogwise: how things work. Follow for the next one!

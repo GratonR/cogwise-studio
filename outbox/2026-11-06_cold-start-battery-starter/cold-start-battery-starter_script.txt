@@ -1,0 +1,16 @@
+At minus eighteen Celsius, zero Fahrenheit, your battery has lost half its punch. And your engine wants more.
+Starting a car is a tug of war: power supplied versus power demanded.
+A battery makes current by a chemical reaction, and cold slows it down.
+At zero Celsius, thirty-two Fahrenheit, it gives about twenty percent less. At minus eighteen, nearly half.
+Turn the key, and a small current wakes the starter's solenoid.
+The solenoid pushes a tiny gear into the flywheel, then closes the big contact.
+Now the starter motor gulps around four hundred and fifty amps.
+The little gear spins ten to fifteen times for each engine turn, multiplying its force.
+But cold oil turns thick, like honey, so the crankshaft fights back.
+Less power in, more effort needed. That's the double squeeze.
+A weak battery sags so low that the solenoid only clicks.
+Once the engine fires, a one-way clutch lets go, and the little gear springs back.
+Then the alternator refills the battery while you drive.
+So cold weakens the battery, and thickens the oil it has to fight.
+Tech tip: crank ten seconds max, then let the battery rest thirty seconds.
+Cogwise: how things work. Follow for the next one!
