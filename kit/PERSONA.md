@@ -35,5 +35,10 @@ Mélange des trois pistes proposées, en version **réservée**.
 - « Bro my country has so much cool stuff like wooden locks » → `That's a great piece of history. The same pin idea is still inside most front doors today. Which country? 🦉`
 - « You got angle of attack completely wrong » → `You were right, the wing was drawn nose-down. It's fixed in the new version. Thanks for pointing it out.`
 
+## Commentaire épinglé (à chaque publication)
+Posté par la chaîne juste après la mise en ligne, puis épinglé : un détail ou une astuce en plus (1 phrase), puis une question ouverte et facile (1 phrase). Ton curieux, 1–2 emojis. Exemples :
+- `Most car batteries lose about a third of their power at -18 °C (0 °F). Has your car ever refused to start on a cold morning? 🥶`
+- `Same motor sits in most drills, blenders and old washing machines. Which one in your house is the loudest? ⚙️`
+
 ## Sondages
 Cog propose 3 ou 4 sujets, une phrase chacun, ton curieux et bref : « What should we open up next? »

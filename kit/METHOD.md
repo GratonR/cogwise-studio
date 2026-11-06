@@ -15,7 +15,7 @@ Ce fichier décrit le métier : comment bien faire un épisode.
 **Règles non négociables**
 - **Rythme : c'est le créateur qui décide.** Sujets variés, jamais de doublon.
 - **Jamais de publication sans le « go »** donné dans le Control Room (carte « Vidéo à valider »).
-- **Durée finale 65–80 s par défaut** (> 61 s pour TikTok Creator Rewards et Facebook). Une version courte (~40–45 s) est possible si elle est demandée.
+- **Durée finale STRICTEMENT sous 60 s : cible 45–55 s, plafond 58 s** (décision du créateur, 2026-11-06). Si le montage dépasse 58 s, on coupe du texte, jamais on n'accélère la voix. Un format long (3–5 min, un appareil entier composant par composant) viendra plus tard, à part.
 - **Exactitude** : chaque affirmation technique vérifiée sur ≥ 2 sources fiables avant d'écrire le script.
 - **Contrôle physique du dessin** avant tout rendu final (voir étape 5).
 - **Aucune mention d'IA** dans les titres, descriptions, légendes, hashtags ou tags (ni « AI voice », ni #AIvoice).
@@ -50,12 +50,14 @@ WebSearch sur 2–3 sources fiables (fabricants, encyclopédies, sites technique
 Simplifier sans dire faux ; mention « Simplified educational model » déjà incrustée. Employer le vrai terme quand il existe (ex. « compressed air », pas seulement « squeezed air »).
 
 ### 3. Écrire le script (anglais)
-- **13 à 15 beats, 175–200 mots au total** (débit réel de Jesse ≈ 2,5 mots/s → 70–80 s + carte de fin). Une phrase courte par beat (10–17 mots).
+- **8 à 10 beats, 100–125 mots au total** (débit réel de Jesse ≈ 2,5 mots/s → 40–50 s de voix + ~4 s d'outro). Une phrase courte par beat (8–14 mots).
+- **Monter d'un cran d'abstraction** : un seul principe + 3 pièces maximum, le reste saute. Mieux vaut un mécanisme bien compris que cinq survolés. Chaque mot technique est soit expliqué en 4–5 mots, soit remplacé.
+- **Les 10 premières secondes décident** : sur nos courbes YouTube, ~30 % des spectateurs partent avant 8 s et la moitié avant ~16 s. L'image doit bouger dès la 1re seconde (pas d'écran posé), l'accroche tient en une phrase, et le « secret » arrive avant 8 s.
 - **Ne jamais accélérer la voix pour tenir la durée** : couper des mots. Au-delà de ~2,7 mots/s le débit est jugé trop rapide (retour du créateur sur l'ISS, 2026-11-05).
 - **L'accroche (3 premières secondes) compte plus que tout** : la rétention chute au début. Paradoxe, chiffre choc ou question qui pique.
-- Structure : accroche → « the secret » → principe physique (carte) → parties numérotées « 1 · PART » dans l'ordre du flux → 1 fait surprenant → boucle / sécurité / contrôle (carte) → récap « X = Y » → (outro automatique).
+- Structure courte : accroche (≤ 3 s) → « the secret » (avant 8 s) → principe (carte) → 2–3 parties numérotées « 1 · PART » dans l'ordre du flux → 1 fait surprenant → récap « X = Y » → (outro automatique). La boucle/sécurité ne reste que si c'est le cœur du sujet.
 - Ton : simple, vivant, tutoiement implicite (« your fridge »), zéro jargon non expliqué.
-- Titres de beat EN MAJUSCULES courts ; 3–4 beats avec `card` (encart zoom), sans titre (l'encart a le sien).
+- Titres de beat EN MAJUSCULES courts ; 2 beats avec `card` (encart zoom) maximum, sans titre (l'encart a le sien).
 
 ### 4. Coder l'épisode `episodes/<slug>.py`
 Copier le patron de `episodes/fridge.py` et `README.md` :
@@ -76,7 +78,7 @@ Corriger et recommencer jusqu'à propre.
 
 ### 6. Voix + montage
 `python -m cogwise.run build episodes/<slug>.py out/ --tts /tmp/cogwise_config.json`
-(ElevenLabs avec horodatage par caractère → chaque beat démarre pile sur sa phrase). Si la durée < 61 s : rallonger le script (1–2 beats) et relancer.
+(ElevenLabs avec horodatage par caractère → chaque beat démarre pile sur sa phrase). Si la durée > 58 s : retirer 1–2 beats ou raccourcir des phrases, et relancer.
 
 ### 7. Vérifier
 - Planche contact du MP4 final (ffmpeg `fps=1/4,tile`), la lire : sous-titres = voix, rien de coupé, carte de fin présente.
@@ -89,6 +91,7 @@ URL publique de la vidéo : `https://raw.githubusercontent.com/<owner>/cogwise-s
 ### 9. Validation (obligatoire)
 Carte « Vidéo à valider » dans le Control Room : vidéo, durée, sources, contrôle du dessin, et les textes par plateforme
 (YouTube titre + description + tags ; TikTok/Instagram/Facebook légende + 3–5 hashtags dont #howthingswork ; X ≤ 250 car.). Légendes écrites dans la voix de Cog, la persona de la chaîne : voir `kit/PERSONA.md`.
+Plus le **commentaire épinglé** (YouTube, Instagram, Facebook) : 1–2 phrases de Cog, un détail ou une astuce qui n'est pas dans la vidéo, puis une question simple qui invite à répondre (ex. « Ever heard your starter click without turning? 🔧 »). Pas de demande d'abonnement. On remplace ainsi toute phrase d'appel en fin de vidéo (qui rallongerait).
 Notification push + e-mail. Puis **attendre** le « go » (ou les corrections → reprendre l'étape concernée).
 
 ### 10. Publication (après « go » seulement)
