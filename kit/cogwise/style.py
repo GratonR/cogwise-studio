@@ -275,3 +275,48 @@ def end_card(ctx, t, a):
     owl(ctx, 540, 215 + math.sin(t*4)*5, 0.5)
     wordmark(ctx, 560, 425, 86)
     ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
+
+
+# ---- micro-beat format (R&D 2026-11): HUD counter, big word pops, corner mark
+def corner_mark(ctx):
+    """Small COGWISE mark top-right, used when an episode has no outro (loop format)."""
+    ctx.push_group(); wordmark(ctx, 900, 92, 34, tagline=False); ctx.pop_group_to_source(); ctx.paint_with_alpha(0.85)
+
+def hud(ctx, label, value, sub=None, a=1.0, color=None, flash=0.0, x=40, y=150, w=520):
+    """Ink 'counter' box top-left: small label, BIG value, optional sub line. flash 0..1 tints the value."""
+    if a <= 0: return
+    color = color or MUSTARD
+    h = 150 if sub else 118
+    rrect(ctx, x, y, w, h, 14); setc(ctx, INK, 0.92 * a); ctx.fill_preserve()
+    setc(ctx, color, a); ctx.set_line_width(3); ctx.stroke()
+    ctx.select_font_face(SANS, 0, 1); ctx.set_font_size(24); setc(ctx, CREAM, a)
+    ctx.move_to(x + 22, y + 38); ctx.show_text(label)
+    ctx.select_font_face(CAPTION_FONT, 0, 0); ctx.set_font_size(64)
+    setc(ctx, lerpc(CREAM, color, clamp(0.35 + flash)), a); ctx.move_to(x + 20, y + 104); ctx.show_text(value)
+    if sub:
+        ctx.select_font_face(SANS, 0, 1); ctx.set_font_size(24); setc(ctx, color, a)
+        ctx.move_to(x + 22, y + 138); ctx.show_text(sub)
+    ctx.new_path()
+
+def pop_word(ctx, text, lt, dur, color=None, cx=None, cy=760, size=150):
+    """Big word that pops in (overshoot), holds, and fades. lt = local time since it appeared."""
+    if lt < 0 or lt > dur: return
+    color = color or RED
+    k = clamp(lt / 0.22); s = 1 + 0.25 * math.sin(k * math.pi) if k < 1 else 1.0
+    s *= lerp(0.6, 1.0, ease(k))
+    a = ease(k) * (1 - ease((lt - dur + 0.25) / 0.25))
+    cx = W / 2 if cx is None else cx
+    ctx.save(); ctx.translate(cx, cy); ctx.scale(s, s)
+    ctx.select_font_face(CAPTION_FONT, 0, 0); ctx.set_font_size(size)
+    e = ctx.text_extents(text); ctx.move_to(-e.x_advance / 2, size * 0.36); ctx.text_path(text)
+    ctx.set_line_join(cairo.LINE_JOIN_ROUND); setc(ctx, INK, a); ctx.set_line_width(16); ctx.stroke_preserve()
+    setc(ctx, color, a); ctx.fill(); ctx.restore()
+
+def cam_track(keys, t, move=0.7):
+    """keys = [(t, cx, cy, zoom), ...] sorted: from time t the camera glides (eased, `move` s) to that framing."""
+    pos = keys[0][1:]
+    for i in range(1, len(keys)):
+        if t < keys[i][0]: break
+        u = ease(clamp((t - keys[i][0]) / move))
+        pos = tuple(lerp(pos[j], keys[i][1 + j], u) for j in range(3))
+    return pos

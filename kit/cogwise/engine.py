@@ -10,6 +10,9 @@ An episode is a Python module that defines:
   SFX    = [(design_t, 'pop'|'click'|'whoosh'|'sizzle'|'ding'), ...]   optional
   HUM    = [(design_t0, design_t1), ...]                                 optional machine hum
   ANCHOR = (560, 1500)     optional: point the stage shrinks toward when a card is shown
+  CAM(t) -> (cx, cy, zoom) optional camera on the stage (design time): (540, 900, 1) = no move
+  draw_hud(ctx, t, E)      optional overlay drawn on top of everything except captions (counters, big words)
+  OUTRO = False            optional: no brand beat at the end (loop-friendly); a small mark stays top-right
 
 Design time = the timeline written in BEATS (durations you choose).
 Real time   = the voice-over timeline. The engine warps design -> real beat by beat,
@@ -31,7 +34,10 @@ def load_episode(path):
 class Episode:
     def __init__(self, mod, starts=None, voice_len=None):
         self.mod = mod
-        self.beats = [dict(b) for b in mod.BEATS] + [dict(dur=BRAND_DUR, title=None, caption=S.OUTRO, card=None, brand=True)]
+        self.outro = getattr(mod, 'OUTRO', True)
+        self.beats = [dict(b) for b in mod.BEATS]
+        if self.outro:
+            self.beats.append(dict(dur=BRAND_DUR, title=None, caption=S.OUTRO, card=None, brand=True))
         self.D = [0.0]
         for b in self.beats: self.D.append(self.D[-1] + b['dur'])
         self.design_len = self.D[-1]
@@ -40,7 +46,7 @@ class Episode:
         else:
             n = len(self.beats)
             assert len(starts) == n, f"need {n} beat start times, got {len(starts)}"
-            self.R = [0.0] + [starts[i] - LEAD for i in range(1, n)] + [voice_len + TAIL]
+            self.R = [0.0] + [starts[i] - LEAD for i in range(1, n)] + [voice_len + (TAIL if self.outro else 0.5)]
         self.length = self.R[-1]
         self.cards = getattr(mod, 'CARDS', {})
         self.anchor = getattr(mod, 'ANCHOR', (560, 1500))
@@ -101,6 +107,10 @@ class Episode:
         sc = min(S.lerp(1.0, 0.78, ca), S.lerp(1.0, 0.86, brand_a))
         ax, ay = self.anchor
         ctx.save(); ctx.translate(ax, ay); ctx.scale(sc, sc); ctx.translate(-ax, -ay)
+        if hasattr(self.mod, 'CAM'):
+            ctx.rectangle(0, 0, S.W, 1500); ctx.clip()      # camera moves never spill onto the floor/caption band
+            cx, cy, z = self.mod.CAM(td)
+            ctx.translate(540, 900); ctx.scale(z, z); ctx.translate(-cx, -cy)
         self.mod.draw(ctx, td, self)
         ctx.restore()
         if b.get('title'):
@@ -111,6 +121,8 @@ class Episode:
             self.cards[card](ctx, td, lt, ca)
             ctx.restore()
         S.end_card(ctx, td, brand_a)
+        if hasattr(self.mod, 'draw_hud'): self.mod.draw_hud(ctx, td, self)
+        if not self.outro: S.corner_mark(ctx)
         # captions follow real time
         ri = bi
         cap_a = S.win(t_real, self.R[ri] if ri else -1, self.R[ri+1] + (1 if b.get('brand') else 0), 0.2)
