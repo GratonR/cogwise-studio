@@ -90,7 +90,7 @@ def build_sfx(ep, out_wav):
         for (td, kind) in getattr(ep.mod, 'SFX', []):
             m = SAMPLE_KINDS.get(kind)
             if m: put_s(sample(m[0]), ep.to_real(td), m[1])
-        put_s(sample('end'), ep.R[-2] + .45, -14)
+        if ep.outro: put_s(sample('end'), ep.R[-2] + .45, -14)
         return write(buf)
     def put(sig, t, g):
         i = int(max(t, 0) * SR)
