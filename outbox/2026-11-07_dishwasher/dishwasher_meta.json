@@ -1,0 +1,34 @@
+{
+  "slug": "dishwasher",
+  "title": "Your dishwasher never fills up \ud83c\udf7d\ufe0f",
+  "description": "It cleans a full load with one hot puddle: pumped, sprayed, filtered, again and again.\n\n#Shorts #howthingswork #dishwasher #appliances #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "dishwasher",
+    "appliances",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://www.whirlpool.com/blog/kitchen/how-does-a-dishwasher-work.html",
+    "https://reviewed.com/dishwashers/features/what-actually-happens-inside-a-dishwasher",
+    "https://www.epa.gov/system/files/documents/2023-08/ws-homes-TRM-6-DishwashersTechSheet.pdf",
+    "https://patents.google.com/patent/US8905053B2/en"
+  ],
+  "duration": 56.84,
+  "words": 133,
+  "beat_starts": [
+    0.0,
+    4.412,
+    9.892,
+    13.862,
+    18.611,
+    24.033,
+    28.99,
+    33.588,
+    38.847,
+    46.313,
+    51.131
+  ]
+}
