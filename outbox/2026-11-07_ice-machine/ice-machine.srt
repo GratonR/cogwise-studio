@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:05,124
+This machine makes ice by freezing water, then blasting it with heat.
+
+2
+00:00:05,294 --> 00:00:10,314
+The secret: it never fills a tray. It freezes a waterfall.
+
+3
+00:00:10,484 --> 00:00:15,074
+A pump lifts water and pours it over an ice-cold metal plate.
+
+4
+00:00:15,244 --> 00:00:20,276
+Inside the plate, refrigerant boils and pulls the heat out of the water.
+
+5
+00:00:20,446 --> 00:00:24,583
+Ice grows in each little cell, one thin layer at a time.
+
+6
+00:00:24,753 --> 00:00:28,495
+Air and minerals stay in the moving water and wash away.
+
+7
+00:00:28,665 --> 00:00:31,224
+That's why the cubes come out crystal clear.
+
+8
+00:00:31,394 --> 00:00:35,078
+When the ice is thick enough, a probe ends the freeze.
+
+9
+00:00:35,248 --> 00:00:40,930
+A valve sends hot refrigerant gas into the plate. The cubes slip off and drop.
+
+10
+00:00:41,100 --> 00:00:46,235
+Running water, a cold plate, then a blast of heat: clear ice.
+
+11
+00:00:46,405 --> 00:00:52,266
+Cogwise: how things work. Follow for the next one!

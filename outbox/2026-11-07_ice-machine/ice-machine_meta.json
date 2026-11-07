@@ -1,0 +1,33 @@
+{
+  "slug": "ice-machine",
+  "title": "It makes ice\u2026 then heats it \ud83e\uddca",
+  "description": "A pro ice machine freezes a waterfall, layer by layer, then melts the cubes loose with hot gas.\n\n#Shorts #howthingswork #icemachine #refrigeration #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "icemachine",
+    "refrigeration",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://www.manualslib.com/manual/318009/Scotsman-Cse60.html?page=9",
+    "https://www.katom.com/learning-center/water-to-ice-how-a-commercial-ice-machine-refrigeration-system-works.html",
+    "https://www.appliancepartspros.com/b/?p=25439"
+  ],
+  "duration": 52.32,
+  "words": 126,
+  "beat_starts": [
+    0.0,
+    5.294,
+    10.484,
+    15.244,
+    20.446,
+    24.753,
+    28.665,
+    31.394,
+    35.248,
+    41.1,
+    46.405
+  ]
+}
