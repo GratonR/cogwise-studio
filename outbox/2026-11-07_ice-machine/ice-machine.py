@@ -19,16 +19,16 @@ META = dict(
 )
 
 BEATS = [
-    dict(dur=4.8, title="ICE… THEN HEAT", caption="This machine makes ice by freezing water, then blasting it with heat."),
-    dict(dur=4.6, title="THE SECRET: A WATERFALL", caption="The secret: it never fills a tray. It freezes a waterfall."),
-    dict(dur=4.8, title="WATER ON A COLD PLATE", caption="A pump lifts water and pours it over an ice-cold metal plate."),
-    dict(dur=5.0, title="1 · EVAPORATOR", caption="Inside the plate, refrigerant boils and pulls the heat out of the water."),
-    dict(dur=4.2, title=None, caption="Ice grows in each little cell, one thin layer at a time.", card='layers'),
-    dict(dur=4.2, title="AIR + MINERALS WASH AWAY", caption="Air and minerals stay in the moving water and wash away."),
-    dict(dur=3.6, title=None, caption="That's why the cubes come out crystal clear.", card='clear'),
-    dict(dur=4.4, title="2 · PROBE", caption="When the ice is thick enough, a probe ends the freeze."),
-    dict(dur=6.4, title="3 · HOT GAS VALVE", caption="A valve sends hot refrigerant gas into the plate. The cubes slip off and drop."),
-    dict(dur=4.8, title="WATERFALL + COLD + HEAT", caption="Running water, a cold plate, then a blast of heat: clear ice."),
+    dict(dur=4.8, title="ICE… THEN HEAT", caption="This machine makes ice, then blasts it with heat."),
+    dict(dur=4.6, title="THE SECRET: A WATERFALL", caption="Its secret: it freezes a waterfall."),
+    dict(dur=4.8, title="WATER ON A COLD PLATE", caption="A pump pours water over an ice-cold plate."),
+    dict(dur=5.0, title="1 · EVAPORATOR", caption="Inside, refrigerant boils and pulls the heat out."),
+    dict(dur=4.2, title=None, caption="Ice grows layer by layer.", card='layers'),
+    dict(dur=4.2, title="AIR + MINERALS WASH AWAY", caption="Air and minerals wash away,"),
+    dict(dur=3.6, title=None, caption="so the cubes come out crystal clear.", card='clear'),
+    dict(dur=4.4, title="2 · PROBE", caption="Once the ice is thick, a probe stops the freeze."),
+    dict(dur=6.4, title="3 · HOT GAS VALVE", caption="Hot gas floods the plate, and the cubes slip off."),
+    dict(dur=4.8, title="WATERFALL + COLD + HEAT", caption="Water, cold, then heat: clear ice."),
 ]
 
 ST = [0.0]

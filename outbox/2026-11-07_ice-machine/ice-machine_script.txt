@@ -1,11 +1,11 @@
-This machine makes ice by freezing water, then blasting it with heat.
-The secret: it never fills a tray. It freezes a waterfall.
-A pump lifts water and pours it over an ice-cold metal plate.
-Inside the plate, refrigerant boils and pulls the heat out of the water.
-Ice grows in each little cell, one thin layer at a time.
-Air and minerals stay in the moving water and wash away.
-That's why the cubes come out crystal clear.
-When the ice is thick enough, a probe ends the freeze.
-A valve sends hot refrigerant gas into the plate. The cubes slip off and drop.
-Running water, a cold plate, then a blast of heat: clear ice.
+This machine makes ice, then blasts it with heat.
+Its secret: it freezes a waterfall.
+A pump pours water over an ice-cold plate.
+Inside, refrigerant boils and pulls the heat out.
+Ice grows layer by layer.
+Air and minerals wash away,
+so the cubes come out crystal clear.
+Once the ice is thick, a probe stops the freeze.
+Hot gas floods the plate, and the cubes slip off.
+Water, cold, then heat: clear ice.
 Cogwise: how things work. Follow for the next one!
