@@ -1,0 +1,43 @@
+1
+00:00:00,000 --> 00:00:04,242
+Your dishwasher never fills up. It cleans everything with one puddle.
+
+2
+00:00:04,412 --> 00:00:09,722
+Just four liters, one gallon, in the bottom. A float stops the valve.
+
+3
+00:00:09,892 --> 00:00:13,692
+A pump sucks that puddle up and blasts it through the spray arms.
+
+4
+00:00:13,862 --> 00:00:18,441
+The arms have no motor: angled jets push them around, like a sprinkler.
+
+5
+00:00:18,611 --> 00:00:23,863
+A heater warms it to about sixty Celsius, a hundred forty Fahrenheit.
+
+6
+00:00:24,033 --> 00:00:28,820
+On every pass, a filter catches the food, so the water stays usable.
+
+7
+00:00:28,990 --> 00:00:33,418
+Same water: sprayed, caught, pumped again, for many minutes.
+
+8
+00:00:33,588 --> 00:00:38,677
+Then it drains, rinses with fresh water, drains again, and dries.
+
+9
+00:00:38,847 --> 00:00:46,143
+Whole cycle: about thirteen liters, three and a half gallons. By hand: up to a hundred liters.
+
+10
+00:00:46,313 --> 00:00:50,961
+So: one hot puddle, pumped in a loop, filtered on every pass.
+
+11
+00:00:51,131 --> 00:00:56,786
+Cogwise: how things work. Follow for the next one!
