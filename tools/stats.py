@@ -8,7 +8,8 @@ KEYS.env      lines KEY=value (BUFFER_API_KEY, YOUTUBE_API_KEY, YT_CLIENT_ID, YT
               other lines (explanations, BOM, YT_AUTH_URL) are ignored. Never printed.
 TOKEN.txt     the YouTube refresh token (file "Cogwise — jeton YouTube" on the Drive).
 DUMP_DIR      ArtifactData dumps (out_dir) of: episodes, comments, and the latest snapshot (collection "snapshots").
-OUT_DIR       receives snapshot.json (one new document for collection "snapshots"),
+OUT_DIR       receives snapshot.json (one new document for collection "snapshots"), retention.json (doc meta/retention),
+              daily.json (doc daily/<date>),
               comments_new_<n>.json (batch writes, <= 50 each) and summary.txt (French, short).
 
 Nothing secret is ever written to OUT_DIR or stdout.
@@ -99,6 +100,11 @@ def main():
     known_comments = set(load_dir(os.path.join(a.db, "comments")))
     prev = list(load_dir(os.path.join(a.db, "snapshots")).values())
     prev = max(prev, key=lambda s: s.get("at", "")) if prev else {}
+    # retention curves live in meta/retention (kept out of snapshots so the page can load many snapshots cheaply)
+    _rf = os.path.join(a.db, "meta", "retention.json")
+    if os.path.exists(_rf):
+        _r = json.load(open(_rf, encoding="utf-8")); _r = _r.get("data", _r) if isinstance(_r, dict) and "data" in _r and "curves" not in _r else _r
+        if not prev.get("retention"): prev = dict(prev, retention=_r.get("curves") or {})
     now = dt.datetime.now(dt.timezone.utc)
     posts, new_comments, followers, retention = {}, [], {}, {}
 
@@ -274,9 +280,13 @@ def main():
               "calls_estimated": runs + sent_this_month * 6, "limit_30d": 3000, "limit_24h": 600}
     paris = now.astimezone(dt.timezone(dt.timedelta(hours=1)))
     snap = {"at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
-            "totals": totals, "posts": posts, "retention": retention, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
+            "totals": totals, "posts": posts, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
             "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer"}
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    # small side documents: meta/retention (curves) and daily/<date> (totals + followers, for the history chart)
+    json.dump({"at": snap["at"], "curves": retention}, open(os.path.join(a.out, "retention.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    json.dump({"date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers},
+              open(os.path.join(a.out, "daily.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
     for i in range(0, len(new_comments), 50):
         batch = [{"op": "set", "collection": "comments", "doc_id": cid, "data": d} for cid, d in new_comments[i:i + 50]]
