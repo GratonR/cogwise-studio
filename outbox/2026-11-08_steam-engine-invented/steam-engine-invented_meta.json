@@ -1,0 +1,37 @@
+{
+  "slug": "steam-engine-invented",
+  "title": "The first steam engine was pushed by air \ud83d\udca8",
+  "description": "The first working steam engine didn't push with steam: steam made a vacuum, and the air did the work.\n\n#Shorts #howthingswork #steamengine #history #engineering #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "steamengine",
+    "history",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine",
+    "https://collection.sciencemuseumgroup.org.uk/objects/co50900/newcomen-atmospheric-engine-atmospheric-steam-engine",
+    "https://www.asme.org/wwwasmeorg/media/ResourceFiles/AboutASME/Who We Are/Engineering History/Landmarks/70-Newcomen-Engine.pdf",
+    "https://www.britannica.com/biography/Thomas-Newcomen",
+    "https://www.lindahall.org/about/news/scientist-of-the-day/thomas-newcomen/"
+  ],
+  "duration": 70.39,
+  "words": 173,
+  "beat_starts": [
+    0.0,
+    4.934,
+    9.137,
+    13.444,
+    17.798,
+    22.907,
+    27.098,
+    33.611,
+    38.696,
+    44.814,
+    52.199,
+    57.539,
+    64.203
+  ]
+}
