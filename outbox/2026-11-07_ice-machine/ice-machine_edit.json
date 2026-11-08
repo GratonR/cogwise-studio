@@ -1,0 +1,43 @@
+{
+ "blur": [],
+ "fade": {
+  "in": 0.3,
+  "out": 0.8
+ },
+ "loudnorm": true,
+ "texts": [
+  {
+   "a": 0,
+   "b": 2.5,
+   "box": true,
+   "box_color": "#e4472f",
+   "box_opacity": 0.9,
+   "color": "#ffffff",
+   "font": "Poppins",
+   "size": 88,
+   "text": "IT HEATS ITS\nOWN ICE?!",
+   "x": 0.5,
+   "y": 0.13
+  }
+ ],
+ "tracks": {
+  "mix": {
+   "gain": -2,
+   "mute": false
+  }
+ },
+ "trim": [
+  0.3,
+  36.5
+ ],
+ "video": {
+  "brightness": 0,
+  "contrast": 1.05,
+  "cx": 0.5,
+  "cy": 0.5,
+  "flip": false,
+  "rotate": 0,
+  "saturation": 1.1,
+  "zoom": 1
+ }
+}
