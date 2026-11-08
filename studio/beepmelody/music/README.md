@@ -13,3 +13,8 @@ Guillaume asked for music in the spirit of "Mirage Melody" (Patrick Patrikios, Y
 Pilot v2 (`episodes/altitude_lofi.py`, `python3 altitude_lofi.py audio <wav>`) keeps "every record = one note" but on a lo-fi bed:
 88 BPM, e-piano chords Fmaj7–Em7–Dm7–Cmaj7, soft swung drums, round sub bass, vinyl crackle; data notes = kalimba-like bell
 on C major pentatonic, one step up per record, dotted-8th echo. Visual style: light "clear sky" palette instead of neon.
+
+## Update 2026-11-08 (pilot v3 feedback on v1: "slow rhythm, change the music, another chord")
+`episodes/altitude_v3.py`: 150 BPM straight (8th-note grid, events snapped to it), progression F–G–Em–Am instead of Cm–Ab–Bb–G,
+8th-note octave bass, 16th chord arpeggio in busy sections, two data voices (square lead = all-time records, bell + triangle = plane records).
+Still the shared pi_audio.py synth, unmodified.
