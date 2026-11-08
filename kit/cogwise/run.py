@@ -41,6 +41,9 @@ def main():
         cfg = json.load(open(a.tts))
         _, starts, vlen = voice.elevenlabs(captions, vpath, cfg['elevenlabs_api_key'], cfg['voice_id'],
                                            cfg.get('model_id', 'eleven_multilingual_v2'),
+                                           stability=float(cfg.get('stability', 0.45)),
+                                           similarity=float(cfg.get('similarity', 0.8)),
+                                           style=float(cfg.get('style', 0.15)),
                                            speed=float(cfg.get('speed', 1.0)))
         tempo = float(cfg.get('tempo', 1.0))   # post time-stretch (pitch kept), e.g. 1.1 = 10% faster
         if abs(tempo - 1.0) > 1e-3:

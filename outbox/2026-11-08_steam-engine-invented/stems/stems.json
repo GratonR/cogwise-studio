@@ -1,0 +1,41 @@
+{
+  "duration": 70.4,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "steam-engine-invented",
+  "title": "The first steam engine was pushed by air 💨",
+  "beat_starts": [
+    0.0,
+    4.934,
+    9.137,
+    13.444,
+    17.798,
+    22.907,
+    27.098,
+    33.611,
+    38.696,
+    44.814,
+    52.199,
+    57.539,
+    64.203
+  ]
+}
