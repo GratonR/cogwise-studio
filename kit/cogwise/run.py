@@ -17,6 +17,8 @@ def main():
     ap.add_argument('episode'); ap.add_argument('out')
     ap.add_argument('times', nargs='*', type=float)
     ap.add_argument('--tts'); ap.add_argument('--voice')
+    ap.add_argument('--starts', help='META.json of a previous build: reuse its beat_starts with --voice (no TTS, no alignment)')
+    ap.add_argument('--no-stems', action='store_true', help='do not export stems/ for the Montage tab')
     a = ap.parse_args()
     mod = engine.load_episode(a.episode)
 
@@ -48,6 +50,10 @@ def main():
                             '-b:a', '128k', tmp], check=True)
             os.replace(tmp, vpath)
             starts = [s / tempo for s in starts]; vlen = voice._duration(vpath)
+    elif a.voice and a.starts:
+        # re-render with the exact timing of a previous build (montage level 2): no TTS, no alignment
+        if os.path.abspath(a.voice) != os.path.abspath(vpath): shutil.copy(a.voice, vpath)
+        starts = json.load(open(a.starts))['beat_starts']; vlen = voice._duration(vpath)
     elif a.voice:
         shutil.copy(a.voice, vpath)
         _, starts, vlen = voice.align_existing(captions, vpath)
@@ -61,11 +67,18 @@ def main():
     audio.mux(silent, vpath, sfx, final, ep.length)
     ep.srt(os.path.join(a.out, f"{slug}.srt"))
     meta = dict(mod.META); meta.update(duration=round(ep.length, 2), words=words, beat_starts=starts)
-    json.dump(meta, open(os.path.join(a.out, f"{slug}_meta.json"), 'w'), indent=2)
+    meta_path = os.path.join(a.out, f"{slug}_meta.json")
+    json.dump(meta, open(meta_path, 'w'), indent=2)
+    if not a.no_stems:
+        # separate tracks + light previews for the Control Room "Montage" tab (see tools/stems.py)
+        import subprocess
+        tools = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))), 'tools', 'stems.py')
+        subprocess.run([sys.executable, tools, 'make', '--video', silent, '--track', f'voice={vpath}', '--track', f'sfx={sfx}',
+                        '--meta', meta_path, '--out', os.path.join(a.out, 'stems')], check=True)
     os.remove(silent); os.remove(sfx)
     print("final", final, round(ep.length, 2), "s")
-    if ep.length < 61:
-        print("WARNING: under 61 s -> not eligible for TikTok Creator Rewards / Snapchat; lengthen the script.")
+    if ep.length > 58:
+        print("WARNING: over 58 s -> METHOD.md wants strictly under 60 s; cut text (never speed up the voice).")
 
 if __name__ == '__main__':
     main()
