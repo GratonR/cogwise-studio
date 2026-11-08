@@ -1,51 +1,51 @@
 1
-00:00:00,000 --> 00:00:04,288
-That pot lid that sticks when it cools? That's how the steam engine started.
+00:00:00,000 --> 00:00:05,670
+Hot tea in a capped bottle crushes it as it cools. That's how the steam engine started.
 
 2
-00:00:04,458 --> 00:00:08,108
+00:00:05,840 --> 00:00:09,826
 Inside, the steam turns back into a few drops of water.
 
 3
-00:00:08,278 --> 00:00:13,216
-Steam takes up over a thousand times more room, so almost nothing is left.
+00:00:09,996 --> 00:00:14,946
+Steam takes over a thousand times more room, so almost nothing is left.
 
 4
-00:00:13,386 --> 00:00:17,396
-Now the air outside presses the lid down. It's stuck.
+00:00:15,116 --> 00:00:19,532
+Now the air outside wins. It squeezes the bottle flat.
 
 5
-00:00:17,566 --> 00:00:25,964
-Air presses about one kilo on every square centimetre: up to three hundred kilos on this lid. Seven hundred pounds.
+00:00:19,702 --> 00:00:27,787
+Air presses about one kilo on every square centimetre, from every side. Fourteen pounds per square inch.
 
 6
-00:00:26,134 --> 00:00:30,886
-Now swap the lid for a piston in a tall tube, roped to a bucket.
+00:00:27,957 --> 00:00:31,653
+Now use a metal tube with a piston, roped to a bucket.
 
 7
-00:00:31,056 --> 00:00:35,995
+00:00:31,823 --> 00:00:37,342
 Boil a little water underneath. Steam lifts the piston, and a latch holds it.
 
 8
-00:00:36,165 --> 00:00:40,871
+00:00:37,512 --> 00:00:41,963
 Take away the fire. The steam turns back to water and leaves a vacuum.
 
 9
-00:00:41,041 --> 00:00:45,945
+00:00:42,133 --> 00:00:47,548
 Release the latch. The air slams the piston down, and the bucket shoots up.
 
 10
-00:00:46,115 --> 00:00:50,205
+00:00:47,718 --> 00:00:51,576
 No steam pushed that bucket. The weight of the air did.
 
 11
-00:00:50,375 --> 00:00:56,881
-Denis Papin built exactly this in 1690. Newcomen scaled it up to pump flooded mines.
+00:00:51,746 --> 00:00:57,323
+Denis Papin built this in 1690. Newcomen scaled it up to pump flooded mines.
 
 12
-00:00:57,051 --> 00:01:02,628
-Steam makes the vacuum. Air does the work. It all started with a lid.
+00:00:57,493 --> 00:01:01,665
+Steam makes the vacuum. Air does the work. Like your bottle.
 
 13
-00:01:02,798 --> 00:01:08,985
+00:01:01,835 --> 00:01:07,731
 Cogwise: how things work. Follow for the next one!
