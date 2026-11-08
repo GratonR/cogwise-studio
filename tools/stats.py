@@ -3,6 +3,14 @@
 
 Usage:
   python tools/stats.py --keys KEYS.env --yt-token TOKEN.txt --db DUMP_DIR --out OUT_DIR
+  python tools/stats.py --channel beepmelody --keys KEYS.env --chan-keys CHAN_KEYS.txt --db DUMP_DIR --out OUT_DIR
+
+--channel     channel id in the Control Room (default cogwise). Episodes are filtered on it; every comment and the snapshot
+              carry it.
+--chan-keys   the channel's own key file (Drive "Studio — clés <slug>"): YT_CHANNEL_ID, YT_REFRESH_TOKEN, FB_PAGE_ID,
+              FB_PAGE_TOKEN, IG_USERNAME, optional BUFFER_API_KEY / BUFFER_ORG_ID / SOCIAL_HANDLE. Overrides KEYS.env, which
+              still provides the shared YOUTUBE_API_KEY, YT_CLIENT_ID, YT_CLIENT_SECRET. Without a Buffer key for the channel,
+              TikTok and X are skipped (no error).
 
 KEYS.env      lines KEY=value (BUFFER_API_KEY, YOUTUBE_API_KEY, YT_CLIENT_ID, YT_CLIENT_SECRET, FB_PAGE_ID, FB_PAGE_TOKEN);
               other lines (explanations, BOM, YT_AUTH_URL) are ignored. Never printed.
@@ -92,13 +100,25 @@ def ep_for(episodes, platform, key=None, text="", date=None):
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--keys", required=True); ap.add_argument("--yt-token")
+    ap.add_argument("--channel", default="cogwise"); ap.add_argument("--chan-keys")
     ap.add_argument("--db", required=True); ap.add_argument("--out", required=True)
     a = ap.parse_args()
     K = keys(a.keys)
+    global CHANNEL, BUFFER_ORG
+    CH = a.channel
+    if a.chan_keys:
+        ck = keys(a.chan_keys)
+        if CH != "cogwise":   # a channel never borrows Cogwise's Buffer account
+            K.pop("BUFFER_API_KEY", None)
+        K.update(ck)
+    CHANNEL = K.get("YT_CHANNEL_ID") or CHANNEL
+    BUFFER_ORG = K.get("BUFFER_ORG_ID") or (BUFFER_ORG if CH == "cogwise" else "")
+    IG_HANDLE = K.get("IG_USERNAME") or "cogwisehtw"
+    HANDLE = K.get("SOCIAL_HANDLE") or ("cogwisehtw" if CH == "cogwise" else CH)
     os.makedirs(a.out, exist_ok=True)
-    episodes = load_dir(os.path.join(a.db, "episodes"))
+    episodes = {k: v for k, v in load_dir(os.path.join(a.db, "episodes")).items() if (v.get("channel") or "cogwise") == CH}
     known_comments = set(load_dir(os.path.join(a.db, "comments")))
-    prev = list(load_dir(os.path.join(a.db, "snapshots")).values())
+    prev = [x for x in load_dir(os.path.join(a.db, "snapshots")).values() if (x.get("channel") or "cogwise") == CH]
     prev = max(prev, key=lambda s: s.get("at", "")) if prev else {}
     # retention curves live in meta/retention (kept out of snapshots so the page can load many snapshots cheaply)
     _rf = os.path.join(a.db, "meta", "retention.json")
@@ -115,7 +135,7 @@ def main():
     if ch and ch.get("items"):
         followers["youtube"] = int(ch["items"][0]["statistics"].get("subscriberCount", 0))
         up = ch["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
-        pl = safe("YouTube vidéos", lambda: http(f"{Y}playlistItems?part=contentDetails&maxResults=50&playlistId={up}&key={yk}", kind="youtube")) or {}
+        pl = {} if ch["items"][0]["statistics"].get("videoCount") == "0" else safe("YouTube vidéos", lambda: http(f"{Y}playlistItems?part=contentDetails&maxResults=50&playlistId={up}&key={yk}", kind="youtube")) or {}
         ids = [i["contentDetails"]["videoId"] for i in pl.get("items", [])]
         if ids:
             vs = safe("YouTube stats", lambda: http(f"{Y}videos?part=statistics,snippet&id={','.join(ids)}&key={yk}", kind="youtube")) or {}
@@ -152,8 +172,8 @@ def main():
                                          in_reply_to_author=top["snippet"].get("authorDisplayName", ""))
                             new_comments.append((cid, d))
         # retention (YouTube Analytics, 1-2 days lag)
-        if a.yt_token and os.path.exists(a.yt_token):
-            rt = open(a.yt_token, encoding="utf-8-sig").read().strip().split("=")[-1].strip()
+        if K.get("YT_REFRESH_TOKEN") or (a.yt_token and os.path.exists(a.yt_token)):
+            rt = K.get("YT_REFRESH_TOKEN") or open(a.yt_token, encoding="utf-8-sig").read().strip().split("=")[-1].strip()
             tok = safe("YouTube jeton", lambda: http("https://oauth2.googleapis.com/token", {"client_id": K["YT_CLIENT_ID"], "client_secret": K["YT_CLIENT_SECRET"],
                                                                                          "refresh_token": rt, "grant_type": "refresh_token"}))
             if tok and tok.get("access_token"):
@@ -237,7 +257,7 @@ def main():
                     for c in cs:
                         items = [(c, None)] + [(rc, c) for rc in ((c.get("replies") or {}).get("data") or [])]
                         for x, parent in items:
-                            if x.get("username") == "cogwisehtw":
+                            if x.get("username") == IG_HANDLE:
                                 continue
                             cid = "ig-" + x["id"]
                             if cid in known_comments:
@@ -250,7 +270,7 @@ def main():
 
     # ---------- TikTok + X (Buffer) ----------
     q = '{ posts(first: 100, input:{organizationId:"%s"}){ edges{ node{ id channelService status externalLink sentAt text metrics{ type value } } } } }' % BUFFER_ORG
-    bf = safe("Buffer", lambda: http("https://api.buffer.com", json.dumps({"query": q}),
+    bf = {} if not (K.get("BUFFER_API_KEY") and BUFFER_ORG) else safe("Buffer", lambda: http("https://api.buffer.com", json.dumps({"query": q}),
                                      headers={"Authorization": "Bearer " + K.get("BUFFER_API_KEY", ""), "Content-Type": "application/json"}, kind="buffer")) or {}
     sent_this_month = 0
     for e in ((bf.get("data") or {}).get("posts") or {}).get("edges", []):
@@ -265,11 +285,11 @@ def main():
         if svc == "tiktok":
             vid = (re.findall(r"/video/(\d+)", link) or [n["id"]])[0]
             posts["tt-" + vid] = {"platform": "TikTok", "episode": ep_for(episodes, "TikTok", vid, n.get("text", ""), n.get("sentAt")),
-                                  "link": f"https://www.tiktok.com/@cogwisehtw/video/{vid}", "views": m.get("views"), "likes": m.get("reactions"),
+                                  "link": f"https://www.tiktok.com/@{HANDLE}/video/{vid}", "views": m.get("views"), "likes": m.get("reactions"),
                                   "comments": m.get("comments"), "shares": m.get("shares"), "reach": m.get("reach"), "avg_watch_s": m.get("averageTimeWatched"), "source": "API Buffer"}
         elif svc == "twitter":
             sid = (re.findall(r"/status/(\d+)", link) or [n["id"]])[0]
-            p = {"platform": "X", "episode": ep_for(episodes, "X", sid, n.get("text", ""), n.get("sentAt")), "link": f"https://x.com/cogwisehtw/status/{sid}",
+            p = {"platform": "X", "episode": ep_for(episodes, "X", sid, n.get("text", ""), n.get("sentAt")), "link": f"https://x.com/{HANDLE}/status/{sid}",
                  "likes": m.get("reactions"), "comments": m.get("comments"), "shares": m.get("reposts"), "source": "API Buffer"}
             if m.get("impressions"):
                 p["views"] = m["impressions"]
@@ -306,17 +326,17 @@ def main():
     buffer = {"month": month, "stats_runs": runs, "posts_sent": sent_this_month,
               "calls_estimated": runs + sent_this_month * 6, "limit_30d": 3000, "limit_24h": 600}
     paris = now.astimezone(dt.timezone(dt.timedelta(hours=1)))
-    snap = {"at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
+    snap = {"channel": CH, "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
             "totals": totals, "posts": posts, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
-            "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer"}
+            "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer" + ("" if bf else " (pas de clé Buffer : TikTok et X non relevés)")}
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
     # small side documents: meta/retention (curves) and daily/<date> (totals + followers, for the history chart)
     json.dump({"at": snap["at"], "curves": retention}, open(os.path.join(a.out, "retention.json"), "w", encoding="utf-8"), ensure_ascii=False)
-    json.dump({"date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers},
+    json.dump({"channel": CH, "date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers},
               open(os.path.join(a.out, "daily.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
     for i in range(0, len(new_comments), 50):
-        batch = [{"op": "set", "collection": "comments", "doc_id": cid, "data": d} for cid, d in new_comments[i:i + 50]]
+        batch = [{"op": "set", "collection": "comments", "doc_id": cid, "data": dict(d, channel=CH)} for cid, d in new_comments[i:i + 50]]
         json.dump(batch, open(os.path.join(a.out, f"comments_new_{i // 50 + 1}.json"), "w", encoding="utf-8"), ensure_ascii=False)
     line = " · ".join(f"{p} {t['views']:,}".replace(",", " ") for p, t in sorted(totals.items(), key=lambda x: -x[1]["views"]))
     summary = f"Vues : {line}. Nouveaux commentaires : {len(new_comments)}. Buffer : ~{buffer['calls_estimated']}/3000 ce mois."
