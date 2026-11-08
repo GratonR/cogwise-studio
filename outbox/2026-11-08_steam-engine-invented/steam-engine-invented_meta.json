@@ -1,7 +1,7 @@
 {
   "slug": "steam-engine-invented",
-  "title": "Your stuck pot lid started the steam engine \ud83c\udf72",
-  "description": "That pot lid that sticks as it cools is the trick behind the first piston steam engine: steam makes a vacuum, the air does the work.\n\n#Shorts #howthingswork #steamengine #physics #history #cogwise",
+  "title": "Your crushed bottle started the steam engine \ud83e\uded9",
+  "description": "A capped bottle of hot tea crushes itself as it cools. Same trick as the first piston steam engine: steam makes a vacuum, the air does the work.\n\n#Shorts #howthingswork #steamengine #physics #history #cogwise",
   "hashtags": [
     "Shorts",
     "howthingswork",
@@ -11,27 +11,28 @@
     "cogwise"
   ],
   "sources": [
-    "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/48.27.html",
+    "https://spark.iop.org/collapsing-bottle",
+    "https://webarchive.library.unt.edu/eot2008/20081019094609/http:/www.srh.noaa.gov/jetstream/atmos/ll_crunch.htm",
     "https://gracesguide.co.uk/Denis_Papin",
     "https://en.wikipedia.org/wiki/History_of_the_steam_engine",
     "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine",
     "https://www.britannica.com/biography/Denis-Papin"
   ],
-  "duration": 69.03,
-  "words": 175,
+  "duration": 67.78,
+  "words": 167,
   "beat_starts": [
     0.0,
-    4.458,
-    8.278,
-    13.386,
-    17.566,
-    26.134,
-    31.056,
-    36.165,
-    41.041,
-    46.115,
-    50.375,
-    57.051,
-    62.798
+    5.84,
+    9.996,
+    15.116,
+    19.702,
+    27.957,
+    31.823,
+    37.512,
+    42.133,
+    47.718,
+    51.746,
+    57.493,
+    61.835
   ]
 }
