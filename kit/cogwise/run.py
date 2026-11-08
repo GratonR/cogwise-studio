@@ -77,8 +77,10 @@ def main():
                         '--meta', meta_path, '--out', os.path.join(a.out, 'stems')], check=True)
     os.remove(silent); os.remove(sfx)
     print("final", final, round(ep.length, 2), "s")
-    if ep.length > 58:
-        print("WARNING: over 58 s -> METHOD.md wants strictly under 60 s; cut text (never speed up the voice).")
+    if ep.length < 62:
+        print("WARNING: under 62 s -> METHOD.md wants 63-70 s (TikTok rewards need > 1 min); add a beat (never slow the voice).")
+    elif ep.length > 75:
+        print("WARNING: over 75 s -> METHOD.md ceiling is 75 s; cut text (never speed up the voice).")
 
 if __name__ == '__main__':
     main()
