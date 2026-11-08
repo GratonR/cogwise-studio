@@ -1,0 +1,13 @@
+key,value,unit,label,source_1,source_2
+energy_per_fission_MeV,200,MeV,"energy released per U-235 fission (recoverable, ~200 MeV)",https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy,https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/
+energy_per_fission_J,3.2e-11,J,"same, in joules (WNA: 3.2e-11 J; Wikipedia U-235: 3.24e-11 J for 202.5 MeV)",https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy,https://en.wikipedia.org/wiki/Uranium-235
+neutrons_per_fission,2.43,neutrons,"average neutrons per thermal U-235 fission (2 or 3; WNA: average ~2.45)",https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/,https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy
+example_reaction,U-235 + n -> Ba-144 + Kr-90 + 2n,,"one possible split (mass 236 = 144+90+2; charge 92 = 56+36)",https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy,https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/
+nucleus_composition,92 protons + 143 neutrons,,"U-235: Z=92, N=235-92",https://en.wikipedia.org/wiki/Uranium-235,https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy
+splits_per_joule,3.125e10,splits,"1 J / 3.2e-11 J (computed)",computed,computed
+atoms_per_gram,2.56e21,atoms,"6.022e23 / 235 (nuclear-power.com: about 2.5e21 nuclei per gram)",https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/,computed (Avogadro / 235)
+energy_per_gram_J,8.2e10,J,"complete fission of 1 g U-235 (WNA 82 TJ/kg; Wikipedia 83.14 TJ/kg)",https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy,https://en.wikipedia.org/wiki/Uranium-235
+energy_per_gram_kWh,23000,kWh,"8.2e10 J / 3.6e6 J/kWh = 22 800 kWh (Euronuclear: about 1 MWd = 24 000 kWh)",https://old.euronuclear.org/info/encyclopedia/m/mwd.htm,https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/
+reactor_steady,1,neutron,"one neutron per fission sustains the chain at steady controlled criticality",https://www.world-nuclear.org/information-library/nuclear-fuel-cycle/introduction/physics-of-nuclear-energy,https://www.nuclear-power.com/nuclear-power/fission/energy-release-from-fission/
+apple_1J,1.0,J,"lifting ~102 g by 1 m: 0.102 kg x 9.81 m/s2 x 1 m = 1.0 J (3.3 ft)",computed,computed
+model_note,idealized,,"the chain shown doubles each generation (2 new splits per split) - an idealization, stated on screen",,
