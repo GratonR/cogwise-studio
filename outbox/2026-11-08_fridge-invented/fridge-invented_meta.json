@@ -1,0 +1,37 @@
+{
+  "slug": "fridge-invented",
+  "title": "In 1755, a doctor made ice by boiling something \ud83e\uddca",
+  "description": "William Cullen boiled ether under a vacuum pump and froze the water around it. Your fridge still runs on that trick, in a closed loop.\n\n#Shorts #howthingswork #fridge #physics #history #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "fridge",
+    "physics",
+    "history",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/William_Cullen",
+    "https://www.asme.org/About-ASME/Engineering-History/Landmarks/274-Perkins-Vapor-Compression-Cycle-for-Refrigeration",
+    "https://science.howstuffworks.com/innovation/inventions/who-invented-the-refrigerator.htm",
+    "https://en.wikipedia.org/wiki/Jacob_Perkins",
+    "https://biologyinsights.com/why-does-sweating-lower-body-temperature/"
+  ],
+  "duration": 72.25,
+  "words": 161,
+  "beat_starts": [
+    0.0,
+    5.921,
+    11.923,
+    16.962,
+    21.827,
+    26.923,
+    30.72,
+    37.279,
+    42.144,
+    47.914,
+    53.637,
+    60.836,
+    66.188
+  ]
+}

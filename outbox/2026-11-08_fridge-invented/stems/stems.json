@@ -1,0 +1,41 @@
+{
+  "duration": 72.233,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "fridge-invented",
+  "title": "In 1755, a doctor made ice by boiling something 🧊",
+  "beat_starts": [
+    0.0,
+    5.921,
+    11.923,
+    16.962,
+    21.827,
+    26.923,
+    30.72,
+    37.279,
+    42.144,
+    47.914,
+    53.637,
+    60.836,
+    66.188
+  ]
+}
