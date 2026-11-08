@@ -55,6 +55,9 @@ Simplifier sans dire faux ; mention « Simplified educational model » déjà in
 - **Les 10 premières secondes décident** : sur nos courbes YouTube, ~30 % des spectateurs partent avant 8 s et la moitié avant ~16 s. L'image doit bouger dès la 1re seconde (pas d'écran posé), l'accroche tient en une phrase, et le « secret » arrive avant 8 s.
 - **Ne jamais accélérer la voix pour tenir la durée** : couper des mots. Au-delà de ~2,7 mots/s le débit est jugé trop rapide (retour du créateur sur l'ISS, 2026-11-05).
 - **L'accroche (3 premières secondes) compte plus que tout** : la rétention chute au début. Paradoxe, chiffre choc ou question qui pique.
+- **Une seule idée par épisode** (prospection du 8 nov. : les shorts qui percent n'ont qu'une révélation). Pas d'empilement Newton + Bernoulli + décrochage : on choisit LA chose surprenante et on la montre. Pas de « tip » final dans la vidéo : le détail en plus va dans le commentaire épinglé.
+- **Titre et première phrase en anomalie / surprise**, jamais « How does X work? » : « Why your fridge has a hot back », « Your toilet has a hidden tube », « Why a Humvee has no ignition key ». La réponse visuelle apparaît à l'écran avant la 2e seconde. Le script doit tenir la promesse du titre (pas de clickbait).
+- Série possible : « How you accidentally invented X » (le spectateur résout les problèmes jusqu'à l'invention), condensée sous 60 s.
 - Structure courte : accroche (≤ 3 s) → « the secret » (avant 8 s) → principe (carte) → 2–3 parties numérotées « 1 · PART » dans l'ordre du flux → 1 fait surprenant → récap « X = Y » → (outro automatique). La boucle/sécurité ne reste que si c'est le cœur du sujet.
 - Ton : simple, vivant, tutoiement implicite (« your fridge »), zéro jargon non expliqué.
 - Titres de beat EN MAJUSCULES courts ; 2 beats avec `card` (encart zoom) maximum, sans titre (l'encart a le sien).
