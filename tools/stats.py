@@ -125,17 +125,32 @@ def main():
                                           "link": "https://youtube.com/shorts/" + v["id"], "views": int(st.get("viewCount", 0)),
                                           "likes": int(st.get("likeCount", 0)), "comments": int(st.get("commentCount", 0)), "source": "API YouTube"}
                 if int(st.get("commentCount", 0)) > 0:
-                    ct = safe("YouTube commentaires", lambda: http(f"{Y}commentThreads?part=snippet&videoId={v['id']}&maxResults=100&textFormat=plainText&key={yk}", kind="youtube")) or {}
+                    ct = safe("YouTube commentaires", lambda: http(f"{Y}commentThreads?part=snippet,replies&videoId={v['id']}&maxResults=100&textFormat=plainText&key={yk}", kind="youtube")) or {}
+                    ep_slug = posts["yt-" + v["id"]]["episode"]
                     for t in ct.get("items", []):
-                        s = t["snippet"]["topLevelComment"]["snippet"]
-                        if (s.get("authorChannelId") or {}).get("value") == CHANNEL:
-                            continue
-                        cid = "yt-" + t["id"]
-                        if cid not in known_comments:
-                            new_comments.append((cid, {"platform": "YouTube", "episode": posts["yt-" + v["id"]]["episode"], "author": s.get("authorDisplayName", "?"),
-                                                       "text": s.get("textDisplay", ""), "published_at": s.get("publishedAt"), "likes": s.get("likeCount", 0),
-                                                       "replies": t["snippet"].get("totalReplyCount", 0), "link": f"https://www.youtube.com/watch?v={v['id']}&lc={t['id']}",
-                                                       "reply_status": "à traiter"}))
+                        top = t["snippet"]["topLevelComment"]
+                        # the thread itself + its replies (people often answer Cog's pinned comment instead of posting a new one)
+                        items = [(t["id"], top["snippet"], None)]
+                        if t["snippet"].get("totalReplyCount", 0):
+                            reps = (t.get("replies") or {}).get("comments") or []
+                            if len(reps) < t["snippet"]["totalReplyCount"]:
+                                more = safe("YouTube réponses", lambda: http(f"{Y}comments?part=snippet&parentId={t['id']}&maxResults=100&textFormat=plainText&key={yk}", kind="youtube")) or {}
+                                reps = more.get("items", reps)
+                            items += [(r["id"], r["snippet"], t["id"]) for r in reps]
+                        for rid, s, parent in items:
+                            if (s.get("authorChannelId") or {}).get("value") == CHANNEL:
+                                continue
+                            cid = "yt-" + rid
+                            if cid in known_comments:
+                                continue
+                            d = {"platform": "YouTube", "episode": ep_slug, "author": s.get("authorDisplayName", "?"),
+                                 "text": s.get("textDisplay", ""), "published_at": s.get("publishedAt"), "likes": s.get("likeCount", 0),
+                                 "replies": 0 if parent else t["snippet"].get("totalReplyCount", 0),
+                                 "link": f"https://www.youtube.com/watch?v={v['id']}&lc={rid}", "reply_status": "à traiter"}
+                            if parent:
+                                d.update(parent_id=parent, in_reply_to=top["snippet"].get("textDisplay", "")[:300],
+                                         in_reply_to_author=top["snippet"].get("authorDisplayName", ""))
+                            new_comments.append((cid, d))
         # retention (YouTube Analytics, 1-2 days lag)
         if a.yt_token and os.path.exists(a.yt_token):
             rt = open(a.yt_token, encoding="utf-8-sig").read().strip().split("=")[-1].strip()
@@ -189,15 +204,21 @@ def main():
             if m.get("post_video_avg_time_watched") is not None: p["avg_watch_s"] = round(m["post_video_avg_time_watched"] / 1000, 1)
             posts["fb-" + r["id"]] = {k: v for k, v in p.items() if v is not None}
             if p.get("comments"):
-                cs = (safe("Facebook commentaires", lambda: g(f"{r['id']}/comments?fields=id,from,message,created_time,like_count,comment_count&limit=100")) or {}).get("data", [])
+                cs = (safe("Facebook commentaires", lambda: g(f"{r['id']}/comments?fields=id,from,message,created_time,like_count,comment_count,comments.limit(50){{id,from,message,created_time,like_count}}&limit=100")) or {}).get("data", [])
                 for c in cs:
-                    if (c.get("from") or {}).get("id") == pid:
-                        continue
-                    cid = "fb-" + c["id"]
-                    if cid not in known_comments:
-                        new_comments.append((cid, {"platform": "Facebook", "episode": slug, "author": (c.get("from") or {}).get("name", "(anonyme)"),
-                                                   "text": c.get("message", ""), "published_at": c.get("created_time"), "likes": c.get("like_count", 0),
-                                                   "replies": c.get("comment_count", 0), "link": "https://www.facebook.com/reel/" + r["id"], "reply_status": "à traiter"}))
+                    items = [(c, None)] + [(rc, c) for rc in ((c.get("comments") or {}).get("data") or [])]
+                    for x, parent in items:
+                        if (x.get("from") or {}).get("id") == pid:
+                            continue
+                        cid = "fb-" + x["id"]
+                        if cid in known_comments:
+                            continue
+                        d = {"platform": "Facebook", "episode": slug, "author": (x.get("from") or {}).get("name", "(anonyme)"),
+                             "text": x.get("message", ""), "published_at": x.get("created_time"), "likes": x.get("like_count", 0),
+                             "replies": 0 if parent else x.get("comment_count", 0), "link": "https://www.facebook.com/reel/" + r["id"], "reply_status": "à traiter"}
+                        if parent:
+                            d.update(parent_id=parent["id"], in_reply_to=parent.get("message", "")[:300], in_reply_to_author=(parent.get("from") or {}).get("name", ""))
+                        new_comments.append((cid, d))
         ig = page.get("instagram_business_account") or {}
         if ig.get("id"):
             followers["instagram"] = ig.get("followers_count")
@@ -212,14 +233,20 @@ def main():
                 if m.get("ig_reels_avg_watch_time") is not None: p["avg_watch_s"] = round(m["ig_reels_avg_watch_time"] / 1000, 1)
                 posts["ig-" + (slug or md["id"])] = {k: v for k, v in p.items() if v is not None}
                 if md.get("comments_count"):
-                    cs = (safe("Instagram commentaires", lambda: g(f"{md['id']}/comments?fields=id,username,text,timestamp,like_count&limit=100")) or {}).get("data", [])
+                    cs = (safe("Instagram commentaires", lambda: g(f"{md['id']}/comments?fields=id,username,text,timestamp,like_count,replies{{id,username,text,timestamp,like_count}}&limit=100")) or {}).get("data", [])
                     for c in cs:
-                        if c.get("username") == "cogwisehtw":
-                            continue
-                        cid = "ig-" + c["id"]
-                        if cid not in known_comments:
-                            new_comments.append((cid, {"platform": "Instagram", "episode": slug, "author": "@" + c.get("username", "?"), "text": c.get("text", ""),
-                                                       "published_at": c.get("timestamp"), "likes": c.get("like_count", 0), "link": md.get("permalink"), "reply_status": "à traiter"}))
+                        items = [(c, None)] + [(rc, c) for rc in ((c.get("replies") or {}).get("data") or [])]
+                        for x, parent in items:
+                            if x.get("username") == "cogwisehtw":
+                                continue
+                            cid = "ig-" + x["id"]
+                            if cid in known_comments:
+                                continue
+                            d = {"platform": "Instagram", "episode": slug, "author": "@" + x.get("username", "?"), "text": x.get("text", ""),
+                                 "published_at": x.get("timestamp"), "likes": x.get("like_count", 0), "link": md.get("permalink"), "reply_status": "à traiter"}
+                            if parent:
+                                d.update(parent_id=parent["id"], in_reply_to=parent.get("text", "")[:300], in_reply_to_author="@" + parent.get("username", ""))
+                            new_comments.append((cid, d))
 
     # ---------- TikTok + X (Buffer) ----------
     q = '{ posts(first: 100, input:{organizationId:"%s"}){ edges{ node{ id channelService status externalLink sentAt text metrics{ type value } } } } }' % BUFFER_ORG
