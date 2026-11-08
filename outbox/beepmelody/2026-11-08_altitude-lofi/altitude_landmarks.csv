@@ -1,0 +1,4 @@
+key,metres,label,source_1,source_2
+everest,8849,"Mount Everest, 8,848.86 m (2020 Nepal-China survey)",https://www.britannica.com/place/Mount-Everest,https://www.nationalgeographic.com/science/article/mount-everest-is-taller-than-previously-thought
+karman,100000,"Karman line, 100 km: FAI boundary of space",https://www.fai.org/page/icare-boundary,https://en.wikipedia.org/wiki/K%C3%A1rm%C3%A1n_line
+moon_avg,384400000,"average Earth-Moon distance, 384,400 km",https://science.nasa.gov/moon/facts/,https://en.wikipedia.org/wiki/Lunar_distance
