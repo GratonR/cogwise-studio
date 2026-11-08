@@ -1,0 +1,29 @@
+date,value_m,approx,kind,label,detail,source_1,source_2
+1783-10-15,26,0,balloon,FIRST BALLOON,"DE ROZIER, TETHERED",https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/early_balloon_flight/LTA1.htm
+1783-10-19,105,0,balloon,DE ROZIER + GIROUD,PARIS,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jean-Francois-Pilatre-de-Rozier
+1783-11-21,1000,1,balloon,FIRST FREE FLIGHT,"DE ROZIER + D'ARLANDES",https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jean-Francois-Pilatre-de-Rozier
+1783-12-01,2700,1,balloon,HYDROGEN BALLOON,JACQUES CHARLES ALONE,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jacques-Charles
+1784-06-23,4000,1,balloon,DE ROZIER + PROUST,MONTGOLFIER BALLOON,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/technology/balloon-flight
+1804-09-16,7016,0,balloon,GAY-LUSSAC,SCIENCE IN THIN AIR,https://www.britannica.com/biography/Joseph-Louis-Gay-Lussac,https://en.wikipedia.org/wiki/Joseph_Louis_Gay-Lussac
+1862-09-05,9000,1,balloon,GLAISHER + COXWELL,PASSED OUT (EST.),https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/James-Glaisher
+1901-07-31,10800,0,balloon,BERSON + SURING,BOTTLED OXYGEN,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/early_scientific_balloons/LTA7.htm
+1927-11-04,13222,0,balloon,HAWTHORNE GRAY,DIED ON THE WAY DOWN,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1931-05-27,15781,0,balloon,PICCARD + KIPFER,FIRST SEALED GONDOLA,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1932-08-18,16201,0,balloon,PICCARD + COSYNS,HYDROGEN BALLOON,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1933-09-30,18501,0,balloon,USSR-1,SOVIET BALLOON,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1933-11-20,18592,0,balloon,CENTURY OF PROGRESS,SETTLE + FORDNEY,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1934-01-30,21946,0,balloon,OSOAVIAKHIM-1,CREW OF 3 LOST,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1935-11-10,22066,0,balloon,EXPLORER II,STEVENS + ANDERSON,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1951-08-15,24230,0,plane,SKYROCKET,BILL BRIDGEMAN,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://en.wikipedia.org/wiki/Bill_Bridgeman
+1953-08-21,25370,0,plane,SKYROCKET,MARION CARL,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.airandspaceforces.com/this-day-in-airpower/august-21-1953
+1954-08-26,27566,0,plane,BELL X-1A,ARTHUR MURRAY,https://www.whiteeagleaerospace.com/x1a-highest-flight/,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1956-09-07,38466,0,plane,BELL X-2,IVEN KINCHELOE,https://www.thisdayinaviation.com/tag/iven-kincheloe/,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1961-03-30,51694,0,plane,X-15,JOE WALKER,https://en.wikipedia.org/wiki/X-15_Flight_35,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1961-04-12,327000,0,rocket,VOSTOK 1,"GAGARIN, FIRST IN ORBIT",https://www.thisdayinaviation.com/tag/vostok-1/,https://www.guinnessworldrecords.com/world-records/472200-highest-altitude-in-elliptical-orbit-for-a-spacecraft--single-astronaut-fai-app
+1964-10-12,336000,0,rocket,VOSKHOD 1,FIRST CREW OF THREE,https://en.wikipedia.org/wiki/Voskhod_1,https://spacelaunchnow.me/launch/voskhod-voskhod-1
+1965-03-18,475000,0,rocket,VOSKHOD 2,FIRST SPACEWALK,https://en.wikipedia.org/wiki/Voskhod_2,https://www.thisdayinaviation.com/tag/voskhod-2/
+1966-07-21,763400,0,rocket,GEMINI 10,YOUNG + COLLINS,https://cia.fai.org/record/9427,https://en.wikipedia.org/wiki/Gemini_10
+1966-09-15,1369000,0,rocket,GEMINI 11,CONRAD + GORDON,https://cia.fai.org/record/9537,https://en.wikipedia.org/wiki/Gemini_11
+1968-12-24,377668900,0,capsule,APOLLO 8,FIRST AROUND THE MOON,https://www.fai.org/node/189158,https://www.planetary.org/space-missions/apollo-8
+1970-04-15,400171000,0,capsule,APOLLO 13,BEHIND THE MOON,https://www.scientificamerican.com/article/nasas-artemis-ii-astronauts-break-apollos-distance-record,https://www.collectspace.com/news/news-040626a-artemis-ii-surpasses-apollo-13-distance-record.html
+2026-04-06,406771000,0,capsule,ARTEMIS II,NEW ALL-TIME RECORD,https://www.guinnessworldrecords.com/world-records/farthest-distance-from-earth-reached-by-humans,https://scientificamerican.com/article/nasas-artemis-ii-moon-mission-reaches-greatest-distance-from-earth

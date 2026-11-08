@@ -1,0 +1,18 @@
+{
+  "duration": 67.0,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "music",
+      "label": "Musique",
+      "file": "music.m4a",
+      "preview": "preview/music.webm"
+    }
+  ]
+}
