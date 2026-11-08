@@ -19,6 +19,7 @@ META = dict(
         "https://collection.sciencemuseumgroup.org.uk/objects/co50900/newcomen-atmospheric-engine-atmospheric-steam-engine",
         "https://www.asme.org/wwwasmeorg/media/ResourceFiles/AboutASME/Who We Are/Engineering History/Landmarks/70-Newcomen-Engine.pdf",
         "https://www.britannica.com/biography/Thomas-Newcomen",
+        "https://www.lindahall.org/about/news/scientist-of-the-day/thomas-newcomen/",
     ],
 )
 
@@ -27,12 +28,14 @@ BEATS = [
     dict(dur=4.4, title="THE TRICK", caption="The trick? Steam only fills the cylinder. Then you cool it."),
     dict(dur=4.2, title="A VACUUM", caption="It collapses into a few drops of water, leaving a vacuum."),
     dict(dur=3.8, title="AIR PUSHES", caption="Now the air outside shoves the piston down. Hard."),
-    dict(dur=4.2, title=None, caption="First, low-pressure steam fills the cylinder as the piston rises."),
+    dict(dur=5.0, title=None, caption="First, low-pressure steam from the boiler fills the cylinder as the piston rises."),
     dict(dur=4.4, title=None, caption="Then a jet of cold water condenses the steam in an instant."),
-    dict(dur=4.2, title="3 · AIR STROKE", caption="The air slams the piston down and rocks a giant beam."),
-    dict(dur=3.6, title=None, caption="That beam pumps water out of flooded mines."),
+    dict(dur=6.4, title="3 · AIR STROKE", caption="Nothing is left underneath, so the air slams the piston down and rocks a giant wooden beam."),
+    dict(dur=6.4, title=None, caption="The other end of the beam lifts a pump rod and drags water out of a flooded mine."),
+    dict(dur=6.4, title="THE SEAL", caption="A puddle of water on top of the piston seals the gap, so the air can't sneak under."),
     dict(dur=7.0, title=None, caption="Air presses about one kilo on every square centimetre: on this piston, two tonnes. Forty-four hundred pounds.", card='force'),
-    dict(dur=4.4, title="RECAP", caption="Newcomen, 1712. Steam makes the vacuum. Air does the work."),
+    dict(dur=5.4, title="NONSTOP", caption="Twelve strokes a minute, each one lifting about forty-five litres. Twelve gallons."),
+    dict(dur=5.4, title="RECAP", caption="Newcomen, 1712, near Dudley Castle. Steam makes the vacuum. Air does the work."),
 ]
 
 ST = [0.0]
@@ -85,7 +88,7 @@ def track(t, keys):
     return keys[-1][1]
 
 T_CYC = B(7) + 0.2      # from here the engine runs on its own cycle
-PERIOD = 3.4
+PERIOD = 5.0      # 12 strokes per minute, like the 1712 engine
 
 def cycle(t):
     """One stroke: steam in (piston up) -> cold jet (condense) -> air stroke (piston down) -> rest."""
@@ -129,11 +132,14 @@ def state(t):
     st['h_jet'] = bw(t, 5)
     st['h_beam'] = bw(t, 6)
     st['h_pump'] = bw(t, 7)
-    st['l_steam'] = bw(t, 4) + win(t, B(9) + 0.3, B(10) + 2, 0.3)
+    st['h_seal'] = bw(t, 8)
+    st['l_seal'] = bw(t, 8)
+    st['l_rate'] = bw(t, 10)
+    st['l_steam'] = bw(t, 4) + win(t, B(11) + 0.3, B(12) + 2, 0.3)
     st['l_jet'] = bw(t, 5)
-    st['l_air'] = bw(t, 6) + win(t, B(9) + 1.0, B(10) + 2, 0.3)
+    st['l_air'] = bw(t, 6) + win(t, B(11) + 1.0, B(12) + 2, 0.3)
     st['l_pump'] = bw(t, 7)
-    st['l_date'] = win(t, B(9) + 0.1, B(10) + 2, 0.3)
+    st['l_date'] = win(t, B(11) + 0.1, B(12) + 2, 0.3)
     return st
 
 # ---------------------------------------------------------------- drawing
@@ -263,7 +269,7 @@ def draw_cylinder(ctx, t, st):
     ctx.rectangle(CYL_X0, CYL_BOT, CYL_X1 - CYL_X0, 20); fill_stroke(ctx, IRON_D, lw=4)
     # piston + rod
     ctx.rectangle(ix0 + 2, py, ix1 - ix0 - 4, P_H); fill_stroke(ctx, IRON_D, lw=4)
-    ctx.move_to(ix0 + 4, py + 6); ctx.line_to(ix1 - 4, py + 6); setc(ctx, WATER, 0.6); ctx.set_line_width(3); ctx.stroke()  # water seal
+    ctx.rectangle(ix0 + 2, py - 9, ix1 - ix0 - 4, 9); setc(ctx, WATER, 0.85); ctx.fill()   # water seal ON TOP of the piston
     rod_top = py - 200
     ctx.rectangle(CX - 8, rod_top, 16, 200); fill_stroke(ctx, IRON_L, lw=3)
     chain(ctx, CX, PIV[1], rod_top)
@@ -347,6 +353,7 @@ def draw_all(ctx, t, st):
     highlight(ctx, INJ_X + 40, 1010, 110, 80, COLD, st['h_jet'], t)
     highlight(ctx, PIV[0] - 10, PIV[1], 360, 90, MUSTARD, st['h_beam'], t)
     highlight(ctx, 860, 1040, 120, 120, COLD, st['h_pump'], t)
+    highlight(ctx, CX, piston_y(st['s']) - 2, 130, 34, COLD, st['h_seal'], t)
     # tags
     tag(ctx, "1 · STEAM IN", 560, 1260, RED, st['l_steam'] * (1 - st['l_date']))
     tag(ctx, "STEAM = VACUUM", 540, 1260, INK, st['l_date'])
@@ -355,6 +362,9 @@ def draw_all(ctx, t, st):
     tag(ctx, "AIR = WORK", 490, 690, AIR, st['l_date'])
     tag(ctx, "PUMP", 930, 1350, COLD, st['l_pump'])
     tag(ctx, "NEWCOMEN · 1712", 770, 760, INK, st['l_date'])
+    tag(ctx, "WATER SEAL", 520, piston_y(st['s']) - 4, COLD, st['l_seal'])
+    tag(ctx, "12 STROKES / MIN", 770, 1215, INK, st['l_rate'])
+    tag(ctx, "≈ 45 L · 12 gal EACH", 770, 1285, COLD, st['l_rate'])
 
 OVER = (540, 940, 0.98)
 CAMKEYS = [(0, 330, 880, 1.25),
@@ -363,7 +373,8 @@ CAMKEYS = [(0, 330, 880, 1.25),
            (B(5), 280, 900, 1.25),       # cistern + injection pipe + cylinder
            (B(6), *OVER),                # beam rocking
            (B(7), 760, 960, 1.25),        # pump + spout
-           (B(8), *OVER)]
+           (B(8), 330, 860, 1.4),        # piston top: the water seal
+           (B(9), *OVER)]
 def CAM(t): return cam_track(CAMKEYS, t)
 
 def draw_set(ctx):
@@ -376,7 +387,8 @@ def draw_hud(ctx, t, E):
     pop_word(ctx, "AIR!", t - 0.6, 1.6, RED, cx=830, cy=760, size=130)
 
 SFX = [(0.6, 'pop'), (5.4, 'click'), (8.4, 'click'), (B(4) + 0.3, 'pop'), (B(5) + 0.3, 'pop'),
-       (B(6) + 0.3, 'pop'), (B(7) + 0.3, 'pop'), (B(9) + 0.3, 'pop')]
+       (B(6) + 0.3, 'pop'), (B(7) + 0.3, 'pop'), (B(8) + 0.3, 'pop'),
+       (B(10) + 0.3, 'pop'), (B(11) + 0.3, 'pop')]
 HUM = []
 
 # ---------------------------------------------------------------- card
