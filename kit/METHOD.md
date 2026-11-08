@@ -15,7 +15,7 @@ Ce fichier décrit le métier : comment bien faire un épisode.
 **Règles non négociables**
 - **Rythme : c'est le créateur qui décide.** Sujets variés, jamais de doublon.
 - **Jamais de publication sans le « go »** donné dans le Control Room (carte « Vidéo à valider »).
-- **Durée finale STRICTEMENT sous 60 s : cible 45–55 s, plafond 58 s** (décision du créateur, 2026-11-06). Si le montage dépasse 58 s, on coupe du texte, jamais on n'accélère la voix. Un format long (3–5 min, un appareil entier composant par composant) viendra plus tard, à part.
+- **Durée finale : cible 63–70 s, jamais sous 62 s, plafond 75 s** (décision du créateur, 2026-11-08, qui remplace « sous 60 s » du 06/11). Raison : le programme de rémunération TikTok (Creator Rewards) ne paie que les vidéos de plus d'une minute ; 62 s laisse une marge contre les ré-encodages qui rognent quelques images. Trop court → on ajoute un beat (un détail, une conséquence), trop long → on coupe du texte ; jamais on n'accélère ni ne ralentit la voix. Un format long (3–5 min, un appareil entier composant par composant) viendra plus tard, à part.
 - **Exactitude** : chaque affirmation technique vérifiée sur ≥ 2 sources fiables avant d'écrire le script.
 - **Contrôle physique du dessin** avant tout rendu final (voir étape 5).
 - **Aucune mention d'IA** dans les titres, descriptions, légendes, hashtags ou tags (ni « AI voice », ni #AIvoice).
@@ -50,14 +50,14 @@ WebSearch sur 2–3 sources fiables (fabricants, encyclopédies, sites technique
 Simplifier sans dire faux ; mention « Simplified educational model » déjà incrustée. Employer le vrai terme quand il existe (ex. « compressed air », pas seulement « squeezed air »).
 
 ### 3. Écrire le script (anglais)
-- **8 à 10 beats, 100–125 mots au total** (débit réel de Jesse ≈ 2,5 mots/s → 40–50 s de voix + ~4 s d'outro). Une phrase courte par beat (8–14 mots).
+- **10 à 12 beats, 145–165 mots au total** (débit réel de Jesse ≈ 2,5 mots/s → 58–66 s de voix + la fin). Une phrase courte par beat (8–14 mots). Toujours UNE seule idée : la minute en plus sert à montrer le mécanisme plus en détail (un plan de plus sur la pièce clé, une conséquence concrète), pas à empiler un deuxième sujet. La règle des 10 premières secondes reste la même.
 - **Monter d'un cran d'abstraction** : un seul principe + 3 pièces maximum, le reste saute. Mieux vaut un mécanisme bien compris que cinq survolés. Chaque mot technique est soit expliqué en 4–5 mots, soit remplacé.
 - **Les 10 premières secondes décident** : sur nos courbes YouTube, ~30 % des spectateurs partent avant 8 s et la moitié avant ~16 s. L'image doit bouger dès la 1re seconde (pas d'écran posé), l'accroche tient en une phrase, et le « secret » arrive avant 8 s.
 - **Ne jamais accélérer la voix pour tenir la durée** : couper des mots. Au-delà de ~2,7 mots/s le débit est jugé trop rapide (retour du créateur sur l'ISS, 2026-11-05).
 - **L'accroche (3 premières secondes) compte plus que tout** : la rétention chute au début. Paradoxe, chiffre choc ou question qui pique.
 - **Une seule idée par épisode** (prospection du 8 nov. : les shorts qui percent n'ont qu'une révélation). Pas d'empilement Newton + Bernoulli + décrochage : on choisit LA chose surprenante et on la montre. Pas de « tip » final dans la vidéo : le détail en plus va dans le commentaire épinglé.
 - **Titre et première phrase en anomalie / surprise**, jamais « How does X work? » : « Why your fridge has a hot back », « Your toilet has a hidden tube », « Why a Humvee has no ignition key ». La réponse visuelle apparaît à l'écran avant la 2e seconde. Le script doit tenir la promesse du titre (pas de clickbait).
-- Série possible : « How you accidentally invented X » (le spectateur résout les problèmes jusqu'à l'invention), condensée sous 60 s.
+- Série possible : « How you accidentally invented X » (le spectateur résout les problèmes jusqu'à l'invention), condensée en 63–70 s.
 - Structure courte : accroche (≤ 3 s) → « the secret » (avant 8 s) → principe (carte) → 2–3 parties numérotées « 1 · PART » dans l'ordre du flux → 1 fait surprenant → récap « X = Y » → (outro automatique). La boucle/sécurité ne reste que si c'est le cœur du sujet.
 - Ton : simple, vivant, tutoiement implicite (« your fridge »), zéro jargon non expliqué.
 - Titres de beat EN MAJUSCULES courts ; 2 beats avec `card` (encart zoom) maximum, sans titre (l'encart a le sien).
@@ -81,7 +81,7 @@ Corriger et recommencer jusqu'à propre.
 
 ### 6. Voix + montage
 `python -m cogwise.run build episodes/<slug>.py out/ --tts /tmp/cogwise_config.json`
-(ElevenLabs avec horodatage par caractère → chaque beat démarre pile sur sa phrase). Si la durée > 58 s : retirer 1–2 beats ou raccourcir des phrases, et relancer.
+(ElevenLabs avec horodatage par caractère → chaque beat démarre pile sur sa phrase). Si la durée sort de 62–75 s : ajouter ou retirer un beat (ou raccourcir des phrases), et relancer.
 
 ### 7. Vérifier
 - Planche contact du MP4 final (ffmpeg `fps=1/4,tile`), la lire : sous-titres = voix, rien de coupé, carte de fin présente.

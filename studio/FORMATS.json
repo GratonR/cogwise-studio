@@ -17,8 +17,8 @@
         "size": "1080x1920",
         "fps": 30,
         "duration_s": [
-          45,
-          58
+          62,
+          75
         ]
       },
       "render": "cd kit && python3 -m cogwise.run build episodes/<slug>.py <out> --tts <config.json>  (also writes <out>/stems for the Montage tab)",
@@ -36,7 +36,7 @@
           "Bruitages"
         ],
         "formats": [
-          "Moins de 60 s"
+          "62 à 75 s"
         ]
       },
       "montage": {
@@ -94,7 +94,7 @@
         "size": "1080x1920",
         "fps": 30,
         "duration_s": [
-          45,
+          62,
           90
         ]
       },
@@ -118,8 +118,7 @@
           "Sons programmés (chaque événement fait une note)"
         ],
         "formats": [
-          "Moins de 60 s",
-          "1 à 3 min"
+          "62 à 75 s"
         ],
         "da": "Pixel art néon (180×320 agrandi), police VT323, panneau HUD en haut, graphe en bas, chaque événement = une note"
       },
