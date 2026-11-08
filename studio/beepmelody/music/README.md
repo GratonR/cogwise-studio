@@ -7,3 +7,9 @@ Choice: **A · Chiptune 8-bit, programmed** (not generated). Reference clip: dem
 - Events get denser toward the climax; the final record gets a rising arpeggio (root, 5th, octave, 12th).
 - Implementation for episodes: the event-driven synth in studio/this-melody-is/engine/pi_audio.py (same principle). Theme variants (e.g. marimba for living things) are possible, validated per episode.
 - demo_styles.py also keeps the rejected B (synthwave) and C (cinematic) for reference.
+
+## Update 2026-11-08 (pilot v2 feedback)
+Guillaume asked for music in the spirit of "Mirage Melody" (Patrick Patrikios, YouTube Audio Library): chill lo-fi.
+Pilot v2 (`episodes/altitude_lofi.py`, `python3 altitude_lofi.py audio <wav>`) keeps "every record = one note" but on a lo-fi bed:
+88 BPM, e-piano chords Fmaj7–Em7–Dm7–Cmaj7, soft swung drums, round sub bass, vinyl crackle; data notes = kalimba-like bell
+on C major pentatonic, one step up per record, dotted-8th echo. Visual style: light "clear sky" palette instead of neon.
