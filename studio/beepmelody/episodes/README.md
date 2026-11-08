@@ -19,3 +19,17 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
 - Son : 150 BPM droit (au lieu de 112→128), grille de croches, nouvelle grille d'accords **F – G – Em – Am** (IV–V–iii–vi, résout sur l'accord final de la mineur),
   basse en octaves à la croche, arpège en doubles croches sur les accords (évite les notes de données), records absolus = carré (lead), records avion = cloche + triangle.
 - 67,8 s. Rendu : `python3 altitude_v3.py render|final`, musique `MOD=altitude_v3 python3 pi_audio.py` (moteur non modifié).
+
+## altitude_v4 (pilote v4, 2026-11-08) — retour de Guillaume sur la v3 : « c'est pas mal mais le bip est trop strident »
+- Même données (`altitude_v3.csv`), même image (vidéo de la v3 réutilisée telle quelle), même arrangement (150 BPM, F – G – Em – Am).
+- Seule la voix des records change : `altitude_v4.py` retire du flux donné au moteur les notes de données (`digit`, `edigit`) et les clochettes (`chime`),
+  et `soft_lead.py` (propre à BeepMelody) les rend avec un timbre rond : sinus + triangle doux, une octave plus bas (plafond La5 = 880 Hz au lieu de La6),
+  attaque 8 ms, filtre passe-bas 2,5 kHz, petite réverbe ; clochettes → glockenspiel grave et court. Moteur non modifié.
+- Mesure : part d'énergie 2–8 kHz sur les notes de record 1,8 % (v3) → 0,1 % (v4) ; les notes restent ≈ +4,5 dB au-dessus de la moyenne du mix.
+- Rendu :
+  ```bash
+  cd studio/this-melody-is/engine; EP=../../beepmelody/episodes; OUT=$EP/out_altitude_v4; export PYTHONPATH=$EP
+  MOD=altitude_v4 python3 pi_audio.py $OUT/backing.wav
+  python3 $EP/soft_lead.py altitude_v4 $OUT/backing.wav $OUT/music.wav     # LEAD_GAIN=2.5 par défaut
+  ffmpeg -i <vidéo v3 sans son> -i $OUT/music.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest beepmelody_altitude_v4.mp4
+  ```
