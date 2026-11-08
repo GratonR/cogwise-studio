@@ -29,6 +29,13 @@ BRAND_DUR = 4.0
 def load_episode(path):
     spec = importlib.util.spec_from_file_location("episode", path)
     mod = importlib.util.module_from_spec(spec); spec.loader.exec_module(mod)
+    # Montage, level 2: COGWISE_OVERRIDES=overrides.json {"titles": ["NEW TITLE" | null, ...]} replaces beat
+    # titles without touching captions (the voice-over stays valid, so no new TTS is needed).
+    ov = os.environ.get("COGWISE_OVERRIDES")
+    if ov and os.path.exists(ov):
+        o = json.load(open(ov))
+        for i, t in enumerate(o.get("titles") or []):
+            if t is not None and i < len(mod.BEATS): mod.BEATS[i] = dict(mod.BEATS[i], title=(t.strip() or None))
     return mod
 
 class Episode:
