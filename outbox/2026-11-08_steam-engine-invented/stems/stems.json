@@ -1,5 +1,5 @@
 {
-  "duration": 70.4,
+  "duration": 69.033,
   "size": [
     1080,
     1920
@@ -22,20 +22,20 @@
     }
   ],
   "slug": "steam-engine-invented",
-  "title": "The first steam engine was pushed by air 💨",
+  "title": "Your stuck pot lid started the steam engine 🍲",
   "beat_starts": [
     0.0,
-    4.934,
-    9.137,
-    13.444,
-    17.798,
-    22.907,
-    27.098,
-    33.611,
-    38.696,
-    44.814,
-    52.199,
-    57.539,
-    64.203
+    4.458,
+    8.278,
+    13.386,
+    17.566,
+    26.134,
+    31.056,
+    36.165,
+    41.041,
+    46.115,
+    50.375,
+    57.051,
+    62.798
   ]
 }
