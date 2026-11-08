@@ -1,51 +1,51 @@
 1
-00:00:00,000 --> 00:00:04,764
-The first working steam engine didn't run on steam. It ran on air.
+00:00:00,000 --> 00:00:04,288
+That pot lid that sticks when it cools? That's how the steam engine started.
 
 2
-00:00:04,934 --> 00:00:08,967
-The trick? Steam only fills the cylinder. Then you cool it.
+00:00:04,458 --> 00:00:08,108
+Inside, the steam turns back into a few drops of water.
 
 3
-00:00:09,137 --> 00:00:13,274
-It collapses into a few drops of water, leaving a vacuum.
+00:00:08,278 --> 00:00:13,216
+Steam takes up over a thousand times more room, so almost nothing is left.
 
 4
-00:00:13,444 --> 00:00:17,628
-Now the air outside shoves the piston down. Hard.
+00:00:13,386 --> 00:00:17,396
+Now the air outside presses the lid down. It's stuck.
 
 5
-00:00:17,798 --> 00:00:22,737
-First, low-pressure steam from the boiler fills the cylinder as the piston rises.
+00:00:17,566 --> 00:00:25,964
+Air presses about one kilo on every square centimetre: up to three hundred kilos on this lid. Seven hundred pounds.
 
 6
-00:00:22,907 --> 00:00:26,928
-Then a jet of cold water condenses the steam in an instant.
+00:00:26,134 --> 00:00:30,886
+Now swap the lid for a piston in a tall tube, roped to a bucket.
 
 7
-00:00:27,098 --> 00:00:33,441
-Nothing is left underneath, so the air slams the piston down and rocks a giant wooden beam.
+00:00:31,056 --> 00:00:35,995
+Boil a little water underneath. Steam lifts the piston, and a latch holds it.
 
 8
-00:00:33,611 --> 00:00:38,526
-The other end of the beam lifts a pump rod and drags water out of a flooded mine.
+00:00:36,165 --> 00:00:40,871
+Take away the fire. The steam turns back to water and leaves a vacuum.
 
 9
-00:00:38,696 --> 00:00:44,644
-A puddle of water on top of the piston seals the gap, so the air can't sneak under.
+00:00:41,041 --> 00:00:45,945
+Release the latch. The air slams the piston down, and the bucket shoots up.
 
 10
-00:00:44,814 --> 00:00:52,029
-Air presses about one kilo on every square centimetre: on this piston, two tonnes. Forty-four hundred pounds.
+00:00:46,115 --> 00:00:50,205
+No steam pushed that bucket. The weight of the air did.
 
 11
-00:00:52,199 --> 00:00:57,369
-Twelve strokes a minute, each one lifting about forty-five litres. Twelve gallons.
+00:00:50,375 --> 00:00:56,881
+Denis Papin built exactly this in 1690. Newcomen scaled it up to pump flooded mines.
 
 12
-00:00:57,539 --> 00:01:04,033
-Newcomen, 1712, near Dudley Castle. Steam makes the vacuum. Air does the work.
+00:00:57,051 --> 00:01:02,628
+Steam makes the vacuum. Air does the work. It all started with a lid.
 
 13
-00:01:04,203 --> 00:01:10,343
+00:01:02,798 --> 00:01:08,985
 Cogwise: how things work. Follow for the next one!

@@ -1,37 +1,37 @@
 {
   "slug": "steam-engine-invented",
-  "title": "The first steam engine was pushed by air \ud83d\udca8",
-  "description": "The first working steam engine didn't push with steam: steam made a vacuum, and the air did the work.\n\n#Shorts #howthingswork #steamengine #history #engineering #cogwise",
+  "title": "Your stuck pot lid started the steam engine \ud83c\udf72",
+  "description": "That pot lid that sticks as it cools is the trick behind the first piston steam engine: steam makes a vacuum, the air does the work.\n\n#Shorts #howthingswork #steamengine #physics #history #cogwise",
   "hashtags": [
     "Shorts",
     "howthingswork",
     "steamengine",
+    "physics",
     "history",
-    "engineering",
     "cogwise"
   ],
   "sources": [
+    "https://web.physics.ucsb.edu/~lecturedemonstrations/Composer/Pages/48.27.html",
+    "https://gracesguide.co.uk/Denis_Papin",
+    "https://en.wikipedia.org/wiki/History_of_the_steam_engine",
     "https://en.wikipedia.org/wiki/Newcomen_atmospheric_engine",
-    "https://collection.sciencemuseumgroup.org.uk/objects/co50900/newcomen-atmospheric-engine-atmospheric-steam-engine",
-    "https://www.asme.org/wwwasmeorg/media/ResourceFiles/AboutASME/Who We Are/Engineering History/Landmarks/70-Newcomen-Engine.pdf",
-    "https://www.britannica.com/biography/Thomas-Newcomen",
-    "https://www.lindahall.org/about/news/scientist-of-the-day/thomas-newcomen/"
+    "https://www.britannica.com/biography/Denis-Papin"
   ],
-  "duration": 70.39,
-  "words": 173,
+  "duration": 69.03,
+  "words": 175,
   "beat_starts": [
     0.0,
-    4.934,
-    9.137,
-    13.444,
-    17.798,
-    22.907,
-    27.098,
-    33.611,
-    38.696,
-    44.814,
-    52.199,
-    57.539,
-    64.203
+    4.458,
+    8.278,
+    13.386,
+    17.566,
+    26.134,
+    31.056,
+    36.165,
+    41.041,
+    46.115,
+    50.375,
+    57.051,
+    62.798
   ]
 }
