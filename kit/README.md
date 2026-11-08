@@ -34,3 +34,12 @@ python -m cogwise.run build   episodes/NAME.py out/ --voice voice.mp3        # f
   Intro pop, card whooshes, outro whoosh + bell are automatic.
 - Zones: title y 60-170, cards y 150-610, stage y 300-1500, floor 1500-1650, captions 1650-1920.
 - Keep it uncluttered: one cut-away object, at most one or two backdrop props (`window()`, `counter()`).
+
+## Montage (Control Room → onglet Montage)
+`build` also writes `<out>/stems/` (copy it into the outbox folder): silent video, `voice.m4a`, `sfx.m4a`,
+`stems.json`, and `preview/` (540p proxy + Opus tracks uploaded to the app for the in-browser editor).
+- `tools/montage.py render --stems DIR --spec spec.json --out X_edit.mp4` applies the non-destructive edit list
+  (trim, per-track gain/mute, rotate/zoom/reframe/mirror, colour, blur ranges, fades, text overlays, −14 LUFS).
+- Level 2 (engine settings) re-renders without a new voice: `COGWISE_OVERRIDES=ov.json COGWISE_SFX=… python -m cogwise.run build
+  EP.py OUT --voice <stems>/voice.m4a --starts <slug>_meta.json` (beat titles from ov.json, same timing).
+- Old episodes (before stems): `python3 tools/stems.py make --video X.mp4 --out DIR` makes a single "mix" track.
