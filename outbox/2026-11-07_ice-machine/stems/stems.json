@@ -1,0 +1,33 @@
+{
+  "duration": 37.833,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "mix",
+      "label": "Son (mixé)",
+      "file": "mix.m4a",
+      "preview": "preview/mix.webm"
+    }
+  ],
+  "slug": "ice-machine",
+  "title": "It makes ice… then heats it 🧊",
+  "beat_starts": [
+    0.0,
+    3.576,
+    6.525,
+    10.147,
+    13.978,
+    16.184,
+    18.309,
+    20.921,
+    24.427,
+    28.027,
+    31.823
+  ]
+}
