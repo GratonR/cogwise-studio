@@ -1,0 +1,54 @@
+date,metres,us,approx,lane,kind,who,vehicle,note,source_1,source_2
+1783-10-15,26,85,0,balloon,balloon,PILATRE DE ROZIER,TETHERED HOT-AIR BALLOON,first human ascent,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/early_balloon_flight/LTA1.htm
+1783-10-19,105,344,0,balloon,balloon,DE ROZIER + GIROUD,TETHERED BALLOON,Paris,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jean-Francois-Pilatre-de-Rozier
+1783-11-21,1000,3300,1,balloon,balloon,DE ROZIER + D'ARLANDES,FIRST FREE FLIGHT,estimate ~910-1000 m,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jean-Francois-Pilatre-de-Rozier
+1783-12-01,2700,8900,1,balloon,balloon,JACQUES CHARLES,HYDROGEN BALLOON,solo; ~2.7 km,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/Jacques-Charles
+1784-06-23,4000,13000,1,balloon,balloon,DE ROZIER + PROUST,MONTGOLFIER BALLOON,~4 km,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/technology/balloon-flight
+1804-09-16,7016,23018,0,balloon,balloon,GAY-LUSSAC,HYDROGEN BALLOON,science flight (Robertson 1803 claim excluded: doubted),https://www.britannica.com/biography/Joseph-Louis-Gay-Lussac,https://en.wikipedia.org/wiki/Joseph_Louis_Gay-Lussac
+1862-09-05,9000,29500,1,balloon,balloon,GLAISHER + COXWELL,COAL-GAS BALLOON,estimate; Glaisher passed out,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.britannica.com/biography/James-Glaisher
+1901-07-31,10800,35433,0,balloon,balloon,BERSON + SURING,PREUSSEN + OXYGEN,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/early_scientific_balloons/LTA7.htm
+1910-10-31,2961,9714,0,plane,plane,RALPH JOHNSTONE,WRIGHT MODEL B,world airplane record at Belmont Park,https://newspapers.digitalnc.org/lccn/sn92073982/1910-11-04/ed-1/seq-1/,https://centennialofflight.net/essay/Explorers_Record_Setters_and_Daredevils/Early_US_shows/EX4.htm
+1910-12-26,3497,11474,0,plane,plane,ARCH HOXSEY,WRIGHT MODEL B,Los Angeles,https://en.wikipedia.org/wiki/Archibald_Hoxsey,https://ladailymirror.com/2010/12/27/world-record-at-la-aviation-meet/
+1912-12-11,5610,18406,0,plane,plane,ROLAND GARROS,MORANE-SAULNIER,Tunis,https://www.air-journal.fr/2023-12-08-le-8-decembre-1912-dans-le-ciel-un-record-daltitude-en-vue-pour-roland-garros-5252824.html,https://dynamic-rsnz.natlib.govt.nz/newspapers/STEP19121213.2.25
+1919-06-14,9520,31234,0,plane,plane,JEAN CASALE,NIEUPORT-DELAGE 29,FAI,https://www.thisdayinaviation.com/?p=69069,https://www.chise.org/ipfs/QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/wiki/Flight_altitude_record.html
+1920-02-27,10093,33113,0,plane,plane,RUDOLPH SCHROEDER,LUSAC-11,FAI figure,https://thisdayinaviation.com/?p=6520,https://www.airandspaceforces.com/article/0799altitude/
+1921-09-28,10518,34508,0,plane,plane,JOHN MACREADY,LUSAC-11,FAI,https://cia.fai.org/record/8381,https://thisdayinaviation.com/?p=6493
+1923-10-30,11145,36565,0,plane,plane,SADI-LECOINTE,NIEUPORT-DELAGE 40R,FAI,https://fai.org/record/8223,https://www.air-journal.fr/2020-10-30-le-30-octobre-1923-dans-le-ciel-sadi-lecointe-prend-de-laltitude-5223571.html
+1927-11-04,13222,43380,0,balloon,balloon,HAWTHORNE GRAY,HELIUM BALLOON,not ratified; Gray died on the way down,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1930-06-04,13157,43166,0,plane,plane,APOLLO SOUCEK,WRIGHT APACHE,FAI,https://fai.org/record/8237,https://airandspace.si.edu/stories/editorial/apollo-souceks-high-altitude-flying-helmet
+1931-05-27,15781,51775,0,balloon,balloon,PICCARD + KIPFER,FNRS SEALED GONDOLA,first sealed cabin,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1932-08-18,16201,53153,0,balloon,balloon,PICCARD + COSYNS,FNRS SEALED GONDOLA,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1932-09-16,13404,43976,0,plane,plane,CYRIL UWINS,VICKERS VESPA,FAI,https://ciam.fai.org/record/8224,https://www.airandspaceforces.com/article/0799altitude/
+1933-09-28,13661,44819,0,plane,plane,GUSTAVE LEMOINE,POTEZ 506,,https://en.wikipedia.org/wiki/Potez_506,https://www.airandspaceforces.com/article/0799altitude/
+1933-09-30,18501,60699,0,balloon,balloon,USSR-1 CREW,SOVIET BALLOON,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1933-11-20,18592,61000,0,balloon,balloon,SETTLE + FORDNEY,CENTURY OF PROGRESS,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1934-01-30,21946,72000,0,balloon,balloon,OSOAVIAKHIM-1,CREW OF 3 LOST,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.centennialofflight.net/essay/Lighter_than_air/race_to_strato/LTA11.htm
+1934-04-11,14433,47352,0,plane,plane,RENATO DONATI,CAPRONI CA.113,FAI,https://www.thisdayinaviation.com/?p=938,https://www.airandspaceforces.com/article/0799altitude/
+1935-11-11,22066,72395,0,balloon,balloon,STEVENS + ANDERSON,EXPLORER II,,https://en.wikipedia.org/wiki/Explorer_II,https://pioneersofflight.si.edu/content/explorer-ii-2
+1936-08-14,14843,48698,0,plane,plane,GEORGES DETRE,POTEZ 506,FAI,https://ciam.fai.org/record/8212,https://en.wikipedia.org/wiki/Potez_506
+1936-09-28,15223,49944,0,plane,plane,F.R.D. SWAIN,BRISTOL 138,FAI figure,https://archive.fai.org/record/8179,https://en.wikipedia.org/wiki/Bristol_Type_138
+1937-06-30,16440,53937,0,plane,plane,M.J. ADAM,BRISTOL 138A,,https://www.nature.com/articles/140056a0,https://en.wikipedia.org/wiki/Bristol_Type_138
+1938-10-22,17083,56047,0,plane,plane,MARIO PEZZI,CAPRONI CA.161BIS,FAI,https://fai.org/node/149902,https://www.thisdayinaviation.com/?p=28363
+1948-03-23,18119,59446,0,plane,plane,JOHN CUNNINGHAM,DE HAVILLAND VAMPIRE,FAI file 9844; first jet,https://fai.org/record/9844,https://thisdayinaviation.com/?p=45263
+1951-08-15,24230,79494,0,plane,plane,BILL BRIDGEMAN,D-558-2 SKYROCKET,planes overtake balloons,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://en.wikipedia.org/wiki/Bill_Bridgeman
+1953-08-21,25370,83235,0,plane,plane,MARION CARL,D-558-2 SKYROCKET,,https://en.wikipedia.org/wiki/List_of_flight_altitude_records,https://www.airandspaceforces.com/this-day-in-airpower/august-21-1953
+1954-08-26,27566,90440,0,plane,plane,ARTHUR MURRAY,BELL X-1A,,https://www.whiteeagleaerospace.com/x1a-highest-flight/,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1956-09-07,38466,126200,0,plane,plane,IVEN KINCHELOE,BELL X-2,,https://www.thisdayinaviation.com/tag/iven-kincheloe/,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1956-11-08,23165,76000,0,balloon,balloon,ROSS + LEWIS,STRATO-LAB I,,https://centennialofflight.net/essay/Lighter_than_air/Balloons_and_Space/LTA17.htm,https://en.wikipedia.org/wiki/Flight_altitude_record
+1957-06-02,29500,96800,1,balloon,balloon,JOE KITTINGER,MANHIGH I,sources vary 95200-96800 ft,https://en.wikipedia.org/wiki/Project_Manhigh,https://centennialofflight.net/essay/Lighter_than_air/Balloons_and_Space/LTA17.htm
+1957-08-19,30942,101516,0,balloon,balloon,DAVID SIMONS,MANHIGH II,,https://www.nmspacemuseum.org/inductee/david-g-simons/,https://en.wikipedia.org/wiki/Project_Manhigh
+1961-03-30,51694,169600,0,plane,plane,JOE WALKER,X-15,,https://en.wikipedia.org/wiki/X-15_Flight_35,https://en.wikipedia.org/wiki/List_of_flight_altitude_records
+1961-04-12,327000,203,0,space,rocket,YURI GAGARIN,VOSTOK 1,first human in space,https://www.thisdayinaviation.com/tag/vostok-1/,https://www.guinnessworldrecords.com/world-records/472200-highest-altitude-in-elliptical-orbit-for-a-spacecraft--single-astronaut-fai-app
+1961-05-04,34668,113740,0,balloon,balloon,ROSS + PRATHER,STRATO-LAB V,still the FAI balloon record,https://www.guinnessworldrecords.com/world-records/77879-official-balloon-altitude-record-absolute,https://centennialofflight.net/essay/Lighter_than_air/Balloons_and_Space/LTA17.htm
+1962-07-17,95936,314750,0,plane,plane,ROBERT WHITE,X-15,not an FAI absolute record,https://www.thisdayinaviation.com/?p=4003,https://www.af.mil/About-Us/Biographies/Display/Article/105241/major-general-robert-m-white/
+1963-08-22,107960,354200,0,plane,plane,JOE WALKER,X-15 FLIGHT 91,unofficial (never FAI-certified),https://www.nasa.gov/image-article/august-22-1963/,https://www.thisdayinaviation.com/22-august-1963-2/
+1964-10-12,336000,209,0,space,rocket,VOSKHOD 1,FIRST CREW OF THREE,,https://en.wikipedia.org/wiki/Voskhod_1,https://spacelaunchnow.me/launch/voskhod-voskhod-1
+1965-03-18,475000,295,0,space,rocket,VOSKHOD 2,FIRST SPACEWALK,,https://en.wikipedia.org/wiki/Voskhod_2,https://www.thisdayinaviation.com/tag/voskhod-2/
+1966-07-21,763400,474,0,space,rocket,YOUNG + COLLINS,GEMINI 10,,https://cia.fai.org/record/9427,https://en.wikipedia.org/wiki/Gemini_10
+1966-09-15,1369000,851,0,space,rocket,CONRAD + GORDON,GEMINI 11,,https://cia.fai.org/record/9537,https://en.wikipedia.org/wiki/Gemini_11
+1968-12-24,377668900,234671,0,space,capsule,BORMAN LOVELL ANDERS,APOLLO 8,first around the Moon,https://www.fai.org/node/189158,https://www.planetary.org/space-missions/apollo-8
+1970-04-15,400171000,248655,0,space,capsule,LOVELL SWIGERT HAISE,APOLLO 13,behind the Moon,https://www.scientificamerican.com/article/nasas-artemis-ii-astronauts-break-apollos-distance-record,https://www.collectspace.com/news/news-040626a-artemis-ii-surpasses-apollo-13-distance-record.html
+2004-10-04,112010,367487,0,plane,plane,BRIAN BINNIE,SPACESHIPONE,FAI 112.01 km,https://archive.fai.org/record/9881,https://www.guinnessworldrecords.com/world-records/454689-highest-altitude-by-a-winged-aircraft-fai-verified
+2012-10-14,38969,127852,0,balloon,balloon,FELIX BAUMGARTNER,RED BULL STRATOS,FAI exit altitude (rode up then jumped),https://fai.org/node/53039,https://en.wikipedia.org/wiki/Flight_altitude_record
+2014-10-24,41422,135899,0,balloon,balloon,ALAN EUSTACE,STRATEX BALLOON,FAI exit altitude (rode up then jumped),https://fai.org/node/200485,https://www.guinnessworldrecords.com/world-records/107932-highest-manned-balloon-flight
+2026-04-06,406771000,252756,0,space,capsule,ARTEMIS II CREW,ARTEMIS II,new all-time record,https://www.guinnessworldrecords.com/world-records/farthest-distance-from-earth-reached-by-humans,https://scientificamerican.com/article/nasas-artemis-ii-moon-mission-reaches-greatest-distance-from-earth
