@@ -1,0 +1,41 @@
+{
+  "duration": 71.4,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "washing-machine",
+  "title": "Your washing machine is full of concrete 🧱",
+  "beat_starts": [
+    0.0,
+    6.014,
+    10.635,
+    16.219,
+    20.956,
+    27.039,
+    33.181,
+    38.522,
+    43.804,
+    49.098,
+    55.101,
+    61.068,
+    65.317
+  ]
+}
