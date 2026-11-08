@@ -1,0 +1,13 @@
+In 1755, a Scottish doctor made ice by making a liquid boil.
+The secret: boiling doesn't need heat from a flame. It steals heat.
+William Cullen put ether in a glass, then pumped the air out above it.
+With less pressure pushing down, the ether boiled at room temperature.
+To turn into vapour, every gram drags heat out of whatever it touches.
+The glass got so cold that the water around it froze.
+Same as sweat: one gram of water evaporating carries off over two thousand joules.
+Problem: the vapour escaped into the room, and the ether was gone.
+In 1834, Jacob Perkins closed the loop with a pump that squeezes the vapour.
+Squeezed, it turns back into liquid and dumps the heat outside, behind your fridge.
+Your fridge does this nonstop: its liquid boils at minus twelve Celsius, eleven Fahrenheit.
+Recap: a fridge is a liquid boiling inside it, forever recycled.
+Cogwise: how things work. Follow for the next one!

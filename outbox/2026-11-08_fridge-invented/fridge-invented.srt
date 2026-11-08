@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,751
+In 1755, a Scottish doctor made ice by making a liquid boil.
+
+2
+00:00:05,921 --> 00:00:11,753
+The secret: boiling doesn't need heat from a flame. It steals heat.
+
+3
+00:00:11,923 --> 00:00:16,792
+William Cullen put ether in a glass, then pumped the air out above it.
+
+4
+00:00:16,962 --> 00:00:21,657
+With less pressure pushing down, the ether boiled at room temperature.
+
+5
+00:00:21,827 --> 00:00:26,753
+To turn into vapour, every gram drags heat out of whatever it touches.
+
+6
+00:00:26,923 --> 00:00:30,550
+The glass got so cold that the water around it froze.
+
+7
+00:00:30,720 --> 00:00:37,109
+Same as sweat: one gram of water evaporating carries off over two thousand joules.
+
+8
+00:00:37,279 --> 00:00:41,974
+Problem: the vapour escaped into the room, and the ether was gone.
+
+9
+00:00:42,144 --> 00:00:47,744
+In 1834, Jacob Perkins closed the loop with a pump that squeezes the vapour.
+
+10
+00:00:47,914 --> 00:00:53,467
+Squeezed, it turns back into liquid and dumps the heat outside, behind your fridge.
+
+11
+00:00:53,637 --> 00:01:00,666
+Your fridge does this nonstop: its liquid boils at minus twelve Celsius, eleven Fahrenheit.
+
+12
+00:01:00,836 --> 00:01:06,018
+Recap: a fridge is a liquid boiling inside it, forever recycled.
+
+13
+00:01:06,188 --> 00:01:12,198
+Cogwise: how things work. Follow for the next one!
