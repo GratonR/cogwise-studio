@@ -127,6 +127,7 @@ def main():
         if not prev.get("retention"): prev = dict(prev, retention=_r.get("curves") or {})
     now = dt.datetime.now(dt.timezone.utc)
     posts, new_comments, followers, retention = {}, [], {}, {}
+    yt_daily = dict(prev.get("yt_daily") or {})
 
     # ---------- YouTube ----------
     yk = K.get("YOUTUBE_API_KEY")
@@ -185,6 +186,12 @@ def main():
                     p = posts.get("yt-" + row[0])
                     if p:
                         p["avg_watch_s"], p["avg_pct"] = row[2], round(row[3], 1)
+                # true daily views of the channel (YouTube Analytics, dimension=day; the last 1-2 days are not final yet)
+                qd = urllib.parse.urlencode({"ids": "channel==MINE", "startDate": "2026-10-01", "endDate": now.date().isoformat(),
+                                             "metrics": "views", "dimensions": "day", "sort": "day"})
+                ad = safe("YouTube vues par jour", lambda: http("https://youtubeanalytics.googleapis.com/v2/reports?" + qd,
+                                                               headers={"Authorization": "Bearer " + tok["access_token"]}, kind="youtube")) or {}
+                if ad.get("rows"): yt_daily = {r[0]: r[1] for r in ad["rows"]}
                 # second-by-second retention curve (100 points), refreshed at most every 20 h per video
                 old_rc = prev.get("retention") or {}
                 for k_, p in posts.items():
@@ -327,12 +334,12 @@ def main():
               "calls_estimated": runs + sent_this_month * 6, "limit_30d": 3000, "limit_24h": 600}
     paris = now.astimezone(dt.timezone(dt.timedelta(hours=1)))
     snap = {"channel": CH, "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
-            "totals": totals, "posts": posts, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
+            "totals": totals, "posts": posts, "yt_daily": yt_daily, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
             "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer" + ("" if bf else " (pas de clé Buffer : TikTok et X non relevés)")}
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
     # small side documents: meta/retention (curves) and daily/<date> (totals + followers, for the history chart)
     json.dump({"at": snap["at"], "curves": retention}, open(os.path.join(a.out, "retention.json"), "w", encoding="utf-8"), ensure_ascii=False)
-    json.dump({"channel": CH, "date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers},
+    json.dump({"channel": CH, "date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers, "yt_daily": yt_daily},
               open(os.path.join(a.out, "daily.json"), "w", encoding="utf-8"), ensure_ascii=False)
 
     for i in range(0, len(new_comments), 50):
