@@ -31,15 +31,15 @@ META = dict(
 BEATS = [
     dict(dur=5.6, title="3 KM DOWN", caption="Nobody can see three kilometers underground. So drillers read what the mud brings up."),
     dict(dur=5.4, title="THE SECRET", caption="The secret: this mud is a conveyor belt from the bottom of the hole."),
-    dict(dur=5.2, title="DOWN THE PIPE", caption="Pumps push it down inside the drill pipe and out through the bit."),
+    dict(dur=5.2, title="DOWN THE PIPE", caption="Pumps push it down inside the drill pipe and out through the bit's jets."),
     dict(dur=6.0, title="UP THE GAP", caption="Then it climbs back up around the pipe, carrying the chips the bit just cut."),
     dict(dur=5.6, title="THE LONG RIDE", caption="From three kilometers, nearly two miles down, that trip up can take a whole hour."),
-    dict(dur=6.0, title="1 · SHAKER", caption="At the top, a shaking screen catches the chips, and a geologist names the rock."),
+    dict(dur=6.0, title="1 · SHAKER", caption="At the top, a shaking screen catches the chips, and a geologist names the rock under a microscope."),
     dict(dur=4.4, title=None, caption="Under ultraviolet light, rock that holds oil starts to glow.", card='uv'),
     dict(dur=5.6, title="2 · GAS TRAP", caption="Gas rides up too. A spinning beater in a gas trap shakes it loose."),
     dict(dur=4.6, title=None, caption="A detector counts it, methane to pentane, every minute or two.", card='gas'),
     dict(dur=5.6, title="OIL SHOW", caption="A sudden jump in gas, plus glowing chips? Drillers call that an oil show."),
-    dict(dur=5.4, title="RECAP", caption="Mud goes down, rock and gas come up. The hole reports on itself."),
+    dict(dur=5.4, title="RECAP", caption="Mud goes down, rock and gas come up. The hole reports on itself, meter by meter."),
 ]
 
 ST = [0.0]

@@ -1,0 +1,40 @@
+{
+  "duration": 68.9,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "drilling-mud",
+  "title": "Drillers read mud to see 3 km down 🛢️",
+  "beat_starts": [
+    0.0,
+    6.049,
+    11.111,
+    16.068,
+    21.757,
+    28.282,
+    36.037,
+    40.774,
+    45.767,
+    50.631,
+    56.401,
+    62.694
+  ]
+}

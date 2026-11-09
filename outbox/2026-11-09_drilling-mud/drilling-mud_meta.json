@@ -1,0 +1,35 @@
+{
+  "slug": "drilling-mud",
+  "title": "Drillers read mud to see 3 km down \ud83d\udee2\ufe0f",
+  "description": "Nobody can see three kilometers underground. The drilling mud carries the bottom of the hole back up, and people at the surface read it.\n\n#Shorts #howthingswork #drilling #oilandgas #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "drilling",
+    "oilandgas",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://www.drillingmanual.com/functions-of-drilling-fluids/",
+    "https://www.rigzone.com/insights/how-it-works-3/how-is-mud-logging-conducted-during-drilling-operations-427/",
+    "https://spec2000.net/log-data-acquisition/logging-mud-logging-and-mud-gas-logging-mwd.htm",
+    "https://ogj.com/home/article/17230128/gasdetection-technology-improves-reservoir-interpretation"
+  ],
+  "duration": 68.9,
+  "words": 164,
+  "beat_starts": [
+    0.0,
+    6.049,
+    11.111,
+    16.068,
+    21.757,
+    28.282,
+    36.037,
+    40.774,
+    45.767,
+    50.631,
+    56.401,
+    62.694
+  ]
+}
