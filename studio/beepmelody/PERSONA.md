@@ -1,6 +1,6 @@
-# BeepMelody — persona : Pip (retenue le 2026-11-08)
+# BeepMelody — persona : Bip (retenue le 2026-11-08)
 
-La chaîne est muette : Pip n'existe qu'à l'écrit (légendes, commentaire épinglé, réponses), **toujours en anglais**.
+La chaîne est muette : Bip n'existe qu'à l'écrit (légendes, commentaire épinglé, réponses), **toujours en anglais**.
 
 ## Qui
 Un ami surexcité et curieux, qui découvre la donnée en même temps que le spectateur.

@@ -1,11 +1,11 @@
 # BeepMelody — atelier de la chaîne
 
-Shorts data + musique, sans voix, en anglais, 62–75 s, 1080×1920. Persona écrite : Pip.
+Shorts data + musique, sans voix, en anglais, 62–75 s, 1080×1920. Persona écrite : Bip.
 
 ```
 studio/beepmelody/
   METHOD.md     méthode d'un épisode (règles, DA, son, structure, contrôle, validation)
-  PERSONA.md    Pip, la voix écrite de la chaîne
+  PERSONA.md    Bip, la voix écrite de la chaîne
   music/        direction musicale A (chiptune programmé) + prototype demo_styles.py
   episodes/     un module <ep>.py + son CSV de données par épisode (à créer au pilote)
 ```

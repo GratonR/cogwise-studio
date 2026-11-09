@@ -70,7 +70,7 @@ propre à BeepMelody vit dans `studio/beepmelody/episodes/`.
 7. **Vérifier le MP4** : `ffprobe` (durée 62–75 s, piste audio), planche contact `ffmpeg -i x.mp4 -vf fps=1/4,scale=270:-1,tile=6x3 sheet.png`, l'écouter : chaque flash a sa note.
 8. **Outbox** : copier le MP4 (+ `music.wav`, module, CSV) dans `outbox/beepmelody/YYYY-MM-DD_<sujet>/`, stems pour l'onglet Montage :
    `python3 tools/stems.py make --video <final.mp4> --track music=<out>/music.wav --out outbox/beepmelody/<dossier>/stems`. Commit, push (pas les dossiers `out_*`).
-9. **Validation (obligatoire)** : carte dans le Control Room (`channel:"beepmelody"`) avec vidéo, durée, sources, contrôle effectué, textes par plateforme écrits par **Pip** (voir PERSONA.md) et commentaire épinglé (source en une ligne + question). Notification push. **Attendre le « go ».**
+9. **Validation (obligatoire)** : carte dans le Control Room (`channel:"beepmelody"`) avec vidéo, durée, sources, contrôle effectué, textes par plateforme écrits par **Bip** (voir PERSONA.md) et commentaire épinglé (source en une ligne + question). Notification push. **Attendre le « go ».**
 10. Publication et journal : seulement après le « go », par la tâche de publication de la chaîne (à brancher, voir README.md).
 
 ## Sources de données acceptées
