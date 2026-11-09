@@ -1,0 +1,41 @@
+date,lane,time,timing,athlete,nat,venue,set_on,note,source_1,source_2
+1912-07-06,men,10.6,hand,DONALD LIPPINCOTT,USA,Stockholm,1912-07-06,,sport-record.de (S. Mueller) athletics-wr.pdf,Wikipedia Men's 100 m WR progression (IAAF Progression book) + olympics.com
+1921-04-23,men,10.4,hand,CHARLEY PADDOCK,USA,Redlands,1921-04-23,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1922-08-05,women,13.6,hand,MARIE MEJZLIKOVA,TCH,Prague,1922-08-05,FIRST WOMEN'S RECORD,Wikipedia Women's 100 m WR progression (FSFI/IAAF),olympics.com (evolution women's 100m) + efdeportes.com 143
+1922-08-20,women,12.8,hand,MARY LINES,GBR,Paris,1922-08-20,,Wikipedia (FSFI/IAAF),olympics.com + efdeportes.com 143
+1928-07-02,women,12.0,hand,MYRTLE COOK,CAN,Halifax,1928-07-02,,Wikipedia (FSFI/IAAF),efdeportes.com 143 + topendsports.com
+1930-08-09,men,10.3,hand,PERCY WILLIAMS,CAN,Toronto,1930-08-09,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1932-06-05,women,11.9,hand,TOLLIEN SCHUURMAN,NED,Haarlem,1932-06-05,,Wikipedia (FSFI/IAAF),efdeportes.com 143 + olympics.com
+1934-08-26,women,11.7,hand,STANISLAWA WALASIEWICZ,POL,Warsaw,1934-08-26,,Wikipedia (FSFI/IAAF),efdeportes.com 143
+1935-06-08,women,11.6,hand,HELEN STEPHENS,USA,Kansas City,1935-06-08,,Wikipedia (FSFI/IAAF),efdeportes.com 143
+1936-06-20,men,10.2,hand,JESSE OWENS,USA,Chicago,1936-06-20,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1948-06-13,women,11.5,hand,FANNY BLANKERS-KOEN,NED,Amsterdam,1948-06-13,,Wikipedia (IAAF),efdeportes.com 143 + topendsports.com
+1952-10-04,women,11.4,hand,MARJORIE JACKSON,AUS,Gifu,1952-10-04,,Wikipedia (IAAF),efdeportes.com 143
+1955-08-04,women,11.3,hand,SHIRLEY STRICKLAND,AUS,Warsaw,1955-08-04,,Wikipedia (IAAF),Athletics Australia Hall of Fame (Warsaw 1955) + topendsports.com
+1956-08-03,men,10.1,hand,WILLIE WILLIAMS,USA,Berlin,1956-08-03,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1960-06-21,men,10.0,hand,ARMIN HARY,FRG,Zurich,1960-06-21,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1961-07-19,women,11.2,hand,WILMA RUDOLPH,USA,Stuttgart,1961-07-19,,Wikipedia (IAAF),efdeportes.com 143 + topendsports.com
+1965-07-09,women,11.1,hand,IRENA KIRSZENSTEIN,POL,Prague,1965-07-09,,Wikipedia (IAAF),efdeportes.com 143
+1968-06-20,men,9.9,hand,JIM HINES,USA,Sacramento,1968-06-20,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1968-10-15,women,11.0,hand,WYOMIA TYUS,USA,Mexico City,1968-10-15,,Wikipedia (IAAF),efdeportes.com 143 + topendsports.com
+1973-06-07,women,10.9,hand,RENATE STECHER,GDR,Ostrava,1973-06-07,,Wikipedia (IAAF),efdeportes.com 143 + olympics.com
+1973-07-20,women,10.8,hand,RENATE STECHER,GDR,Dresden,1973-07-20,,Wikipedia (IAAF),efdeportes.com 143
+1977-01-01,men,9.95,auto,JIM HINES,USA,Mexico City,1968-10-14,ELECTRONIC ONLY FROM 1977,sport-record.de (rule note 01.01.1977),Wikipedia (IAAF) + olympics.com (auto timing mandatory 1977)
+1977-01-01,women,11.01,auto,ANNEGRET RICHTER,FRG,Montreal,1976-07-25,ELECTRONIC ONLY FROM 1977,Wikipedia (IAAF),World Athletics heritage feature (Montreal 1976 semifinal WR)
+1977-07-01,women,10.88,auto,MARLIES OELSNER,GDR,Dresden,1977-07-01,,Wikipedia (IAAF),efdeportes.com 143 + topendsports.com
+1983-06-08,women,10.81,auto,MARLIES GOHR,GDR,Berlin,1983-06-08,,Wikipedia (IAAF),efdeportes.com 143
+1983-07-03,women,10.79,auto,EVELYN ASHFORD,USA,Colorado Springs,1983-07-03,,Wikipedia (IAAF),topendsports.com
+1983-07-03,men,9.93,auto,CALVIN SMITH,USA,Colorado Springs,1983-07-03,,sport-record.de,Wikipedia (IAAF)
+1984-08-22,women,10.76,auto,EVELYN ASHFORD,USA,Zurich,1984-08-22,,Wikipedia (IAAF),olympics.com + topendsports.com
+1988-07-16,women,10.49,auto,FLORENCE GRIFFITH JOYNER,USA,Indianapolis,1988-07-16,WIND READING DISPUTED,Wikipedia (IAAF),olympics.com + topendsports.com + sport-record.de
+1988-09-24,men,9.92,auto,CARL LEWIS,USA,Seoul,1988-09-24,JOHNSON'S 9.79 ANNULLED,sport-record.de,Wikipedia (IAAF)
+1991-06-14,men,9.90,auto,LEROY BURRELL,USA,New York,1991-06-14,,sport-record.de,Wikipedia (IAAF)
+1991-08-25,men,9.86,auto,CARL LEWIS,USA,Tokyo,1991-08-25,,sport-record.de,Wikipedia (IAAF) + olympics.com
+1994-07-06,men,9.85,auto,LEROY BURRELL,USA,Lausanne,1994-07-06,,sport-record.de,Wikipedia (IAAF)
+1996-07-27,men,9.84,auto,DONOVAN BAILEY,CAN,Atlanta,1996-07-27,,sport-record.de,Wikipedia (IAAF)
+1999-06-16,men,9.79,auto,MAURICE GREENE,USA,Athens,1999-06-16,,sport-record.de,Wikipedia (IAAF)
+2005-06-14,men,9.77,auto,ASAFA POWELL,JAM,Athens,2005-06-14,,sport-record.de,Wikipedia (IAAF)
+2007-09-09,men,9.74,auto,ASAFA POWELL,JAM,Rieti,2007-09-09,,sport-record.de,Wikipedia (IAAF) + olympics.com
+2008-05-31,men,9.72,auto,USAIN BOLT,JAM,New York,2008-05-31,,sport-record.de,Wikipedia (IAAF) + olympics.com
+2008-08-16,men,9.69,auto,USAIN BOLT,JAM,Beijing,2008-08-16,,sport-record.de,Wikipedia (IAAF) + olympics.com
+2009-08-16,men,9.58,auto,USAIN BOLT,JAM,Berlin,2009-08-16,,sport-record.de,Wikipedia (IAAF) + olympics.com
