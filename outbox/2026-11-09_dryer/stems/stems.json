@@ -1,0 +1,41 @@
+{
+  "duration": 74.767,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "dryer",
+  "title": "This heat pump dryer dries your clothes with cold metal ❄️",
+  "beat_starts": [
+    0.0,
+    4.83,
+    9.892,
+    18.298,
+    23.662,
+    31.696,
+    35.725,
+    43.132,
+    49.715,
+    54.3,
+    58.271,
+    62.543,
+    68.755
+  ]
+}

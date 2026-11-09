@@ -1,0 +1,36 @@
+{
+  "slug": "dryer",
+  "title": "This heat pump dryer dries your clothes with cold metal \u2744\ufe0f",
+  "description": "Warm air can hold about five times more water than cold air. A heat pump dryer heats the air, then a cold coil makes the water rain out.\n\n#Shorts #howthingswork #dryer #appliances #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "dryer",
+    "appliances",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://energy.ec.europa.eu/news/new-measures-more-energy-efficient-household-tumble-dryers-1-july-2025-07-01_en",
+    "https://www.elektroda.com/qa,bosch-heat-pump-dryer-working.html",
+    "https://www.engineeringtoolbox.com/maximum-moisture-content-air-d_1403.html",
+    "https://pressbooks.online.ucf.edu/phy2053bc/chapter/humidity-evaporation-and-boiling/"
+  ],
+  "duration": 74.76,
+  "words": 186,
+  "beat_starts": [
+    0.0,
+    4.83,
+    9.892,
+    18.298,
+    23.662,
+    31.696,
+    35.725,
+    43.132,
+    49.715,
+    54.3,
+    58.271,
+    62.543,
+    68.755
+  ]
+}
