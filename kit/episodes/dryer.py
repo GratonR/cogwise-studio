@@ -15,8 +15,8 @@ from cogwise.style import *
 
 META = dict(
     slug="dryer",
-    title="This dryer dries your clothes with cold metal ❄️",
-    description=("Warm air can hold about five times more water than cold air. A heat-pump dryer heats the air, "
+    title="This heat pump dryer dries your clothes with cold metal ❄️",
+    description=("Warm air can hold about five times more water than cold air. A heat pump dryer heats the air, "
                  "then a cold coil makes the water rain out.\n\n#Shorts #howthingswork #dryer #appliances #cogwise"),
     hashtags=["Shorts", "howthingswork", "dryer", "appliances", "engineering", "cogwise"],
     sources=[
@@ -28,7 +28,7 @@ META = dict(
 )
 
 BEATS = [
-    dict(dur=4.2, title="THIS DRYER", caption="This dryer dries your clothes… with a cold metal coil."),
+    dict(dur=4.6, title="HEAT PUMP DRYER", caption="This heat pump dryer dries your clothes… with a cold metal coil."),
     dict(dur=5.0, title="THE SECRET", caption="The trick: warm air can hold far more water than cold air."),
     dict(dur=7.5, title=None, caption="Warm air from twenty to fifty Celsius, sixty-eight to one twenty-two Fahrenheit: it holds five times more water.", card='cubes'),
     dict(dur=6.0, title="1 · HOT COIL", caption="First, a hot coil warms the air, and a fan blows it through your clothes."),
@@ -36,7 +36,7 @@ BEATS = [
     dict(dur=4.2, title="2 · COLD COIL", caption="Then that soggy air is pushed across a cold coil."),
     dict(dur=5.4, title=None, caption="Cold air can't hold all that water, so it rains out as droplets.", card='rain'),
     dict(dur=5.6, title="NO VENT", caption="The drops run into a tank or a drain hose. No air goes outside."),
-    dict(dur=5.0, title="3 · HEAT PUMP", caption="Both coils are one heat pump, the same loop as your fridge."),
+    dict(dur=5.0, title="3 · HEAT PUMP", caption="Both coils form that heat pump, the same loop as your fridge."),
     dict(dur=5.6, title="HEAT RECYCLED", caption="Heat pulled out at the cold coil goes straight back into the hot one."),
     dict(dur=4.8, title="GENTLER", caption="So your clothes stay cooler, and it uses much less electricity."),
     dict(dur=6.0, title="RECAP", caption="Heat makes the air thirsty. Cold wrings it out. Same air, round and round."),
@@ -111,7 +111,7 @@ def state(t):
     s['drip'] = 1.0
     s['tag_coldmetal'] = win(t, 0.3, B(1) + 0.4, 0.3)
     s['h_hot'] = bw(t, 3); s['l_hot'] = max(bw(t, 3, 5), bw(t, 8, 10), bw(t, 11, 12))
-    s['h_cold'] = max(bw(t, 5), bw(t, 7)); s['l_cold'] = max(bw(t, 5, 8), bw(t, 8, 10), bw(t, 11, 12))
+    s['h_cold'] = max(win(t, 0.2, B(1) + 0.4, 0.25), bw(t, 5), bw(t, 7)); s['l_cold'] = max(bw(t, 5, 8), bw(t, 8, 10), bw(t, 11, 12))
     s['h_fan'] = bw(t, 3)
     s['evap_w'] = max(bw(t, 4), 0.6 * bw(t, 11))           # water leaving the clothes
     s['tray'] = bw(t, 7); s['novent'] = bw(t, 7)
@@ -321,8 +321,8 @@ def draw_set(ctx):
 def draw(ctx, t, E):
     draw_machine(ctx, t, state(t))
 
-# camera: open tight on the dripping cold coil (answer on screen in the 1st second), then pull back
-CAMKEYS = [(0, 400, 1230, 2.1), (2.2, 540, 960, 1.08)]
+# camera (co-pilot decision 3): open WIDE on the whole machine, cold coil circled from the 1st second, slow push-in
+CAMKEYS = [(0, 540, 990, 1.0), (4.0, 540, 960, 1.08)]
 def CAM(t): return cam_track(CAMKEYS, t, move=1.4)
 
 def draw_hud(ctx, t, E):
