@@ -1,4 +1,22 @@
-# BeepMelody — music (decided 2026-11-08)
+# BeepMelody — music
+
+## RULE (Guillaume, 2026-11-10) — supersedes the "one fixed style" decisions below
+BeepMelody is **data shown as music**, not one genre. The music fits the subject, episode by episode:
+- war, disasters, deaths → slow, dark, sparse (low drones, muted bells, no cute sounds);
+- speed, records, races → high BPM, punchy (house/funk, drums, stabs — like the 100 m episode);
+- climate, ice, long trends → ambient, slow build;
+- space, discoveries → wide, airy synths; the living world → warm, organic (marimba, kalimba, strings).
+A scale or key is optional: if the data reads better as pitch, rhythm, density or noise, use that.
+
+What stays constant (the channel signature, so a new beat never needs a new channel):
+1. **one data event = one audible hit** (note, drum, click…), placed exactly on the event — the listener *hears* the data;
+2. the hit gets **denser/faster when the data does** (the music follows the data, never the reverse);
+3. the short **"beep" sting** at the very start and on the final value (same sound every episode = the brand);
+4. pixel-art visuals of the channel, light or dark palette matched to the mood.
+Choose the mood in PHASE B and say it in one line on the validation card ("mood: dark, 70 BPM, drones + muted bell").
+
+---
+## History (kept for reference)
 
 Choice: **A · Chiptune 8-bit, programmed** (not generated). Reference clip: demo_styles.py style A.
 
