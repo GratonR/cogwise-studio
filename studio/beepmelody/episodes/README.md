@@ -47,3 +47,13 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
 - Une année = 1,5 temps à 120 BPM ; chaque année avec sommets = une note (log du nombre) + pas dans la neige ; années à zéro = silence.
 - Trois époques, trois voix comme « race to the sky » : cloche 1953-89, marimba 1990-2009, synthé doux 2010-25. DA claire, Everest de profil, file de grimpeurs (1 point = 10 sommets), histogramme linéaire en bas.
 - 67,5 s. Rendu : `python3 everest.py audio|render|final` (moteur non modifié).
+
+## kyoto-cherry (co-pilote, 2026-11-10) — « Kyoto's cherry trees now bloom 2 weeks early »
+- Module `kyoto_cherry.py` + `kyoto_cherry.csv` : date de pleine floraison à Kyoto, 812 → 2026, 838 années (série Aono, Kazui & Saito,
+  miroir GMU ; recoupée OWID / R. Olson 2026 ; JMA pour 2021-2026, colonne `jma_somei_yoshino`). Dates comparées en jour calendaire (année non bissextile).
+- Découpage : moyenne par décennie 810s → 2010s (118 notes, 820s/840s/870s sans archive = silence), puis chaque printemps 2020 → 2026 (7 notes). Plus tôt = plus aigu.
+- Son (co-pilote « instrument japonais ») : koto sur gamme « in » de La, taiko doux, flûte en bourdon, 72 BPM ; quarte grave ajoutée dès 1870 (la courbe monte), cloche rin sur 2021 et 2023.
+- Image : DA claire de printemps, cerisier au bord de la rivière, carte-calendrier, graphe date / année (le haut = plus tôt, « ^ EARLIER »), lignes « AVG APR 14 » et « OLD RECORD MAR 27 ».
+- 68,75 s. Rendu : `python3 kyoto_cherry.py audio|render|final` (moteur non modifié).
+- Contrôle des frames (étape 3) : 812 = 1er avril ; 27 mars en 1236, 1409, 1612 (record jusqu'en 2021) ; 2021 = 26 mars (19 j avant la moyenne) ; 2023 = 25 mars (20 j) ;
+  moyenne 1 200 ans = 14 avril ; 812-1899 = 15 avril ; 2020-2026 = 31 mars (≈ 2 semaines) ; 1990s = 6 avril. Axes : haut = plus tôt, annoncé. Rien de coupé (étiquettes d'axe déplacées, libellé « 1,200-YR AVG » retiré car il chevauchait la courbe).
