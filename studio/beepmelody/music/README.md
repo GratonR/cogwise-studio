@@ -11,9 +11,8 @@ A scale or key is optional: if the data reads better as pitch, rhythm, density o
 What stays constant (the channel signature, so a new beat never needs a new channel):
 1. **one data event = one audible hit** (note, drum, click…), placed exactly on the event — the listener *hears* the data;
 2. the hit gets **denser/faster when the data does** (the music follows the data, never the reverse);
-3. the short **"beep" sting** at the very start and on the final value (same sound every episode = the brand);
-4. pixel-art visuals of the channel, light or dark palette matched to the mood.
-Choose the mood in PHASE B and say it in one line on the validation card ("mood: dark, 70 BPM, drones + muted bell").
+3. pixel-art visuals of the channel, light or dark palette matched to the mood.
+No fixed jingle or sting is imposed (Guillaume, 2026-11-10). Choose the mood in PHASE B and say it in one line on the validation card ("mood: dark, 70 BPM, drones + muted bell").
 
 ---
 ## History (kept for reference)
