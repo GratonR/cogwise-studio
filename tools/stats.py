@@ -139,8 +139,9 @@ def main():
         pl = {} if ch["items"][0]["statistics"].get("videoCount") == "0" else safe("YouTube vidéos", lambda: http(f"{Y}playlistItems?part=contentDetails&maxResults=50&playlistId={up}&key={yk}", kind="youtube")) or {}
         ids = [i["contentDetails"]["videoId"] for i in pl.get("items", [])]
         if ids:
-            vs = safe("YouTube stats", lambda: http(f"{Y}videos?part=statistics,snippet&id={','.join(ids)}&key={yk}", kind="youtube")) or {}
+            vs = safe("YouTube stats", lambda: http(f"{Y}videos?part=statistics,snippet,status&id={','.join(ids)}&key={yk}", kind="youtube")) or {}
             for v in vs.get("items", []):
+                if (v.get("status") or {}).get("privacyStatus", "public") != "public": continue   # private/unlisted test videos stay out of the stats
                 st, sn = v["statistics"], v["snippet"]
                 posts["yt-" + v["id"]] = {"platform": "YouTube", "episode": ep_for(episodes, "YouTube", v["id"], sn.get("title", ""), sn.get("publishedAt")),
                                           "link": "https://youtube.com/shorts/" + v["id"], "views": int(st.get("viewCount", 0)),
