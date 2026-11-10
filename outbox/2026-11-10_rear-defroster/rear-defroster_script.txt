@@ -1,0 +1,12 @@
+Those thin lines on your back window? Every one of them is a heater.
+They're not wires. They're silver paste, printed onto the inside of the glass.
+At the factory, the glass goes into an oven, and the silver fuses into its surface.
+Down each side runs a wider strip of silver, called a bus bar.
+Press the defrost button, and twelve volts from the battery feed one bar.
+The current splits and runs across every line at once, to the other bar.
+Each line is thin, so it resists the current, and that resistance becomes heat.
+The glass climbs above zero Celsius, thirty-two Fahrenheit, and the ice melts outward from each line.
+The lines are spaced just right, so their warm bands meet in the middle.
+They're wired side by side, so one scratched line leaves just one frosty stripe.
+Silver line plus current equals a heater you can see through.
+Cogwise: how things work. Follow for the next one!
