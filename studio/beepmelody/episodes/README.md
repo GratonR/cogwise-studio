@@ -41,3 +41,9 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
   ThrustSSC / Blue Bird / Jamais Contente / Jeantaud.
 - Son (co-pilote « beep agressif, high tempo ») : 172 BPM breakbeat chiptune, synthé propre au module (`landspeed.py audio`), bang supersonique.
 - 67,0 s. Rendu : `python3 landspeed.py audio|render|final` (moteur non modifié).
+
+## everest (2026-11-10) — « The queue to the top »
+- Module `everest.py` + `everest.csv` : sommets de l'Everest par an 1953 → 2025 (Himalayan Database ; recoupé HA Expeditions + Alan Arnette ; 2025 = estimation).
+- Une année = 1,5 temps à 120 BPM ; chaque année avec sommets = une note (log du nombre) + pas dans la neige ; années à zéro = silence.
+- Trois époques, trois voix comme « race to the sky » : cloche 1953-89, marimba 1990-2009, synthé doux 2010-25. DA claire, Everest de profil, file de grimpeurs (1 point = 10 sommets), histogramme linéaire en bas.
+- 67,5 s. Rendu : `python3 everest.py audio|render|final` (moteur non modifié).
