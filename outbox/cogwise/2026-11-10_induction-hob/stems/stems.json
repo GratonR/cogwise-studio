@@ -1,0 +1,41 @@
+{
+  "duration": 70.267,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "induction-hob",
+  "title": "You can boil water on induction through a sheet of paper 📄🔥 #Shorts",
+  "beat_starts": [
+    0.0,
+    3.715,
+    8.951,
+    13.282,
+    16.626,
+    21.897,
+    27.609,
+    32.508,
+    37.314,
+    43.526,
+    53.058,
+    57.284,
+    63.251
+  ]
+}

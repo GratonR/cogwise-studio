@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:03,545
+You can boil water on an induction hob through a sheet of paper.
+
+2
+00:00:03,715 --> 00:00:08,781
+And the paper won't even scorch, because the hob itself makes no heat at all.
+
+3
+00:00:08,951 --> 00:00:13,112
+The heat is made inside the pan, in the metal of its own base.
+
+4
+00:00:13,282 --> 00:00:16,456
+Under the glass hides a flat coil of copper wire.
+
+5
+00:00:16,626 --> 00:00:21,727
+Its magnetic field flips direction over twenty thousand times every second.
+
+6
+00:00:21,897 --> 00:00:27,439
+Each flip drags electric current around in little whirlpools inside the steel base.
+
+7
+00:00:27,609 --> 00:00:32,338
+These are eddy currents, and steel resists them hard, so the metal heats up.
+
+8
+00:00:32,508 --> 00:00:37,144
+So the heat appears directly under your food, not in a burner below it.
+
+9
+00:00:37,314 --> 00:00:43,356
+Paper and glass can't carry current, so the field passes straight through them untouched.
+
+10
+00:00:43,526 --> 00:00:52,888
+They only warm up by touching the pan: with water inside, about one hundred Celsius, two hundred twelve Fahrenheit.
+
+11
+00:00:53,058 --> 00:00:57,114
+Lift the pan away, and the heating stops in an instant.
+
+12
+00:00:57,284 --> 00:01:03,081
+So an induction hob never cooks anything. It turns your pan into the stove.
+
+13
+00:01:03,251 --> 00:01:10,212
+Cogwise: how things work. Follow for the next one!
