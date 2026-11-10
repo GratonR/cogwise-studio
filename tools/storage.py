@@ -48,12 +48,14 @@ def gh_size_mb():
         return round(int(out.stdout.strip()) / 1024, 1)
     except Exception: return None
 
+EPDIR = r"/main/(outbox/(?:[^/]+/)*?\d{4}-\d{2}-\d{2}_[^/]+)/"
+
 def scan(a):
     eps = load_docs(a.db, "episodes"); drafts = load_docs(a.db, "drafts")
     vid2ep = {}
     for slug, e in eps.items():
         v = ((e.get("links") or {}).get("video") or "")
-        m = re.search(r"/main/(outbox/[^/]+)/", v)
+        m = re.search(EPDIR, v)
         if m: vid2ep[m.group(1)] = slug
     def ep_for(name):   # fallback when episodes.links.video is missing: match the folder slug (brake ~ brakes, wing-v2 ~ wing)
         base = re.sub(r"^\d{4}-\d{2}-\d{2}_", "", name); base = re.sub(r"-v\d+$", "", base)
@@ -63,11 +65,14 @@ def scan(a):
     draft_dirs = set()
     for d in drafts.values():
         for k in ("video", "video_original"):
-            m = re.search(r"/main/(outbox/[^/]+)/", d.get(k) or "")
+            m = re.search(EPDIR, d.get(k) or "")
             if m: draft_dirs.add(m.group(1))
     today = dt.date.today(); folders = []; head = 0
-    for p in sorted(glob.glob(os.path.join(a.repo, "outbox", "*"))):
-        if not os.path.isdir(p): continue
+    # episode folders live at any depth: outbox/cogwise/<date>_<slug>, outbox/beepmelody/…, outbox/_essais/…
+    cands = [p for p in glob.glob(os.path.join(a.repo, "outbox", "**", "*"), recursive=True)
+             if os.path.isdir(p) and (re.match(r"\d{4}-\d{2}-\d{2}_", os.path.basename(p)) or os.path.basename(p) == "_drafts")
+             and "/stems" not in p.replace(os.sep, "/")]
+    for p in sorted(cands):
         rel = os.path.relpath(p, a.repo).replace(os.sep, "/"); size, n = folder_size(p); head += size
         name = os.path.basename(p); m = re.match(r"(\d{4}-\d{2}-\d{2})_(.+)", name)
         date = m.group(1) if m else None; age = (today - dt.date.fromisoformat(date)).days if date else None
@@ -76,7 +81,8 @@ def scan(a):
         rebuild = bool(glob.glob(os.path.join(p, "*.py"))) and (os.path.exists(os.path.join(p, "stems", "voice.m4a")) or bool(glob.glob(os.path.join(p, "*_voice.mp3"))))
         heavy = sum(os.path.getsize(f) for _, f in heavy_files(p)) if not light else 0
         if light: kind = "allégé"
-        elif name.startswith("_"): kind = "divers"       # e.g. _drafts/voices: voice samples, never touched automatically
+        elif name.startswith("_"): kind = "divers"
+        elif "/_essais/" in rel: kind = "essai"         # test renders and rejected pilots, kept for reference       # e.g. _drafts/voices: voice samples, never touched automatically
         elif rel in draft_dirs: kind = "stock"
         elif rel in vid2ep: kind = "publié"
         elif ep and ep in vid2ep.values(): kind = "ancienne version"   # the episode was published from another folder (wing → wing-v2)
