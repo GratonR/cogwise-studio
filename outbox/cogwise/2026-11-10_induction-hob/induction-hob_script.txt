@@ -1,0 +1,13 @@
+You can boil water on an induction hob through a sheet of paper.
+And the paper won't even scorch, because the hob itself makes no heat at all.
+The heat is made inside the pan, in the metal of its own base.
+Under the glass hides a flat coil of copper wire.
+Its magnetic field flips direction over twenty thousand times every second.
+Each flip drags electric current around in little whirlpools inside the steel base.
+These are eddy currents, and steel resists them hard, so the metal heats up.
+So the heat appears directly under your food, not in a burner below it.
+Paper and glass can't carry current, so the field passes straight through them untouched.
+They only warm up by touching the pan: with water inside, about one hundred Celsius, two hundred twelve Fahrenheit.
+Lift the pan away, and the heating stops in an instant.
+So an induction hob never cooks anything. It turns your pan into the stove.
+Cogwise: how things work. Follow for the next one!
