@@ -88,8 +88,8 @@ Corriger et recommencer jusqu'à propre.
 - Durée conforme, son présent (`ffprobe`), faits conformes aux sources.
 
 ### 8. Outbox
-Copier `out/` dans `outbox/YYYY-MM-DD_<slug>/` + `episodes/<slug>.py`, commit, push.
-URL publique de la vidéo : `https://raw.githubusercontent.com/<owner>/cogwise-studio/main/outbox/YYYY-MM-DD_<slug>/<slug>.mp4`.
+Copier `out/` dans `outbox/cogwise/YYYY-MM-DD_<slug>/` + `episodes/<slug>.py`, commit, push.
+URL publique de la vidéo : `https://raw.githubusercontent.com/<owner>/cogwise-studio/main/outbox/cogwise/YYYY-MM-DD_<slug>/<slug>.mp4`.
 
 ### 9. Validation (obligatoire)
 Carte « Vidéo à valider » dans le Control Room : vidéo, durée, sources, contrôle du dessin, et les textes par plateforme

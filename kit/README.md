@@ -7,7 +7,7 @@ Explainer shorts in the Cogwise style (vintage manual: cream paper, ink, red / m
 ```
 cogwise/            the kit (style, engine, audio, voice, CLI)
 episodes/           one Python module per episode (fridge.py = reference episode)
-outbox/YYYY-MM-DD_slug/   finished videos waiting to be published (public raw URLs for Zapier)
+outbox/cogwise/YYYY-MM-DD_slug/   finished videos waiting to be published (public raw URLs for Zapier)
 METHOD.md           the daily routine, step by step
 requirements.txt
 ```
