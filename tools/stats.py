@@ -148,6 +148,7 @@ def main():
                 if int(st.get("commentCount", 0)) > 0:
                     ct = safe("YouTube commentaires", lambda: http(f"{Y}commentThreads?part=snippet,replies&videoId={v['id']}&maxResults=100&textFormat=plainText&key={yk}", kind="youtube")) or {}
                     ep_slug = posts["yt-" + v["id"]]["episode"]
+                    own = 0   # the channel's own comments/replies are not audience engagement: removed from the count
                     for t in ct.get("items", []):
                         top = t["snippet"]["topLevelComment"]
                         # the thread itself + its replies (people often answer Cog's pinned comment instead of posting a new one)
@@ -160,6 +161,7 @@ def main():
                             items += [(r["id"], r["snippet"], t["id"]) for r in reps]
                         for rid, s, parent in items:
                             if (s.get("authorChannelId") or {}).get("value") == CHANNEL:
+                                own += 1
                                 continue
                             cid = "yt-" + rid
                             if cid in known_comments:
@@ -172,6 +174,8 @@ def main():
                                 d.update(parent_id=parent, in_reply_to=top["snippet"].get("textDisplay", "")[:300],
                                          in_reply_to_author=top["snippet"].get("authorDisplayName", ""))
                             new_comments.append((cid, d))
+                    if own and ct.get("items") is not None:
+                        posts["yt-" + v["id"]]["comments"] = max(0, posts["yt-" + v["id"]]["comments"] - own)
         # retention (YouTube Analytics, 1-2 days lag)
         if K.get("YT_REFRESH_TOKEN") or (a.yt_token and os.path.exists(a.yt_token)):
             rt = K.get("YT_REFRESH_TOKEN") or open(a.yt_token, encoding="utf-8-sig").read().strip().split("=")[-1].strip()
@@ -231,11 +235,13 @@ def main():
             if m.get("post_video_avg_time_watched") is not None: p["avg_watch_s"] = round(m["post_video_avg_time_watched"] / 1000, 1)
             posts["fb-" + r["id"]] = {k: v for k, v in p.items() if v is not None}
             if p.get("comments"):
+                own = 0
                 cs = (safe("Facebook commentaires", lambda: g(f"{r['id']}/comments?fields=id,from,message,created_time,like_count,comment_count,comments.limit(50){{id,from,message,created_time,like_count}}&limit=100")) or {}).get("data", [])
                 for c in cs:
                     items = [(c, None)] + [(rc, c) for rc in ((c.get("comments") or {}).get("data") or [])]
                     for x, parent in items:
                         if (x.get("from") or {}).get("id") == pid:
+                            own += 1
                             continue
                         cid = "fb-" + x["id"]
                         if cid in known_comments:
@@ -246,6 +252,8 @@ def main():
                         if parent:
                             d.update(parent_id=parent["id"], in_reply_to=parent.get("message", "")[:300], in_reply_to_author=(parent.get("from") or {}).get("name", ""))
                         new_comments.append((cid, d))
+                if own:
+                    posts["fb-" + r["id"]]["comments"] = max(0, posts["fb-" + r["id"]]["comments"] - own)
         ig = page.get("instagram_business_account") or {}
         if ig.get("id"):
             followers["instagram"] = ig.get("followers_count")
@@ -260,11 +268,13 @@ def main():
                 if m.get("ig_reels_avg_watch_time") is not None: p["avg_watch_s"] = round(m["ig_reels_avg_watch_time"] / 1000, 1)
                 posts["ig-" + (slug or md["id"])] = {k: v for k, v in p.items() if v is not None}
                 if md.get("comments_count"):
+                    own = 0
                     cs = (safe("Instagram commentaires", lambda: g(f"{md['id']}/comments?fields=id,username,text,timestamp,like_count,replies{{id,username,text,timestamp,like_count}}&limit=100")) or {}).get("data", [])
                     for c in cs:
                         items = [(c, None)] + [(rc, c) for rc in ((c.get("replies") or {}).get("data") or [])]
                         for x, parent in items:
                             if x.get("username") == IG_HANDLE:
+                                own += 1
                                 continue
                             cid = "ig-" + x["id"]
                             if cid in known_comments:
@@ -274,6 +284,9 @@ def main():
                             if parent:
                                 d.update(parent_id=parent["id"], in_reply_to=parent.get("text", "")[:300], in_reply_to_author="@" + parent.get("username", ""))
                             new_comments.append((cid, d))
+                    if own:
+                        k = "ig-" + (slug or md["id"])
+                        posts[k]["comments"] = max(0, posts[k].get("comments", 0) - own)
 
     # ---------- TikTok + X (Buffer) ----------
     q = '{ posts(first: 100, input:{organizationId:"%s"}){ edges{ node{ id channelService status externalLink sentAt text metrics{ type value } } } } }' % BUFFER_ORG
