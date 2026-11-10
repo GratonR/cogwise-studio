@@ -101,6 +101,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--keys", required=True); ap.add_argument("--yt-token")
     ap.add_argument("--channel", default="cogwise"); ap.add_argument("--chan-keys")
+    ap.add_argument("--el-config", help="ElevenLabs config json (elevenlabs_api_key): reads the character quota, spends nothing")
     ap.add_argument("--db", required=True); ap.add_argument("--out", required=True)
     a = ap.parse_args()
     K = keys(a.keys)
@@ -350,6 +351,23 @@ def main():
     snap = {"channel": CH, "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
             "totals": totals, "posts": posts, "yt_daily": yt_daily, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
             "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer" + ("" if bf else " (pas de clé Buffer : TikTok et X non relevés)")}
+    # ElevenLabs quota (GET /v1/user/subscription is free: it never spends characters)
+    if a.el_config and os.path.exists(a.el_config):
+        def el():
+            c = json.load(open(a.el_config, encoding="utf-8")); k = c.get("elevenlabs_api_key") or c.get("api_key")
+            r = urllib.request.urlopen(urllib.request.Request("https://api.elevenlabs.io/v1/user/subscription", headers={"xi-api-key": k}), timeout=30)
+            return json.load(r)
+        sub = safe("ElevenLabs quota", el)
+        if sub:
+            used, lim = int(sub.get("character_count") or 0), int(sub.get("character_limit") or 0)
+            reset = dt.datetime.fromtimestamp(int(sub.get("next_character_count_reset_unix") or 0), dt.timezone.utc)
+            start = reset - dt.timedelta(days=30); elapsed = max((now - start).total_seconds() / 86400, 1)
+            proj = round(used / elapsed * 30)
+            snap["elevenlabs"] = {"tier": sub.get("tier"), "used": used, "limit": lim, "reset": reset.strftime("%Y-%m-%d"),
+                                  "pct": round(100 * used / lim) if lim else None, "projected": proj, "at": snap["at"]}
+            if lim and (used >= 0.8 * lim or proj > lim):
+                json.dump({"used": used, "limit": lim, "projected": proj, "reset": snap["elevenlabs"]["reset"]},
+                          open(os.path.join(a.out, "elevenlabs_alert.json"), "w", encoding="utf-8"))
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
     # small side documents: meta/retention (curves) and daily/<date> (totals + followers, for the history chart)
     json.dump({"at": snap["at"], "curves": retention}, open(os.path.join(a.out, "retention.json"), "w", encoding="utf-8"), ensure_ascii=False)
@@ -361,6 +379,8 @@ def main():
         json.dump(batch, open(os.path.join(a.out, f"comments_new_{i // 50 + 1}.json"), "w", encoding="utf-8"), ensure_ascii=False)
     line = " · ".join(f"{p} {t['views']:,}".replace(",", " ") for p, t in sorted(totals.items(), key=lambda x: -x[1]["views"]))
     summary = f"Vues : {line}. Nouveaux commentaires : {len(new_comments)}. Buffer : ~{buffer['calls_estimated']}/3000 ce mois."
+    if snap.get("elevenlabs"):
+        e = snap["elevenlabs"]; summary += f" ElevenLabs : {e['used']}/{e['limit']} car. ({e['pct']} %), projection {e['projected']} d'ici le {e['reset']}."
     if ERRORS:
         uniq = sorted(set(ERRORS)); snap["errors"] = uniq
         json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
