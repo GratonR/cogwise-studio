@@ -33,3 +33,11 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
   python3 $EP/soft_lead.py altitude_v4 $OUT/backing.wav $OUT/music.wav     # LEAD_GAIN=2.5 par défaut
   ffmpeg -i <vidéo v3 sans son> -i $OUT/music.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 192k -shortest beepmelody_altitude_v4.mp4
   ```
+
+## landspeed (2026-11-10) — « From 63 km/h to the speed of sound »
+- Module `landspeed.py` + `landspeed.csv` : 57 records de vitesse terrestre qui relèvent la marque absolue (1898 → 1997), trois couloirs
+  (électrique + vapeur / moteur à pistons / jet + fusée), 2 sources par ligne, FIA + Guinness pour le record final (1 227,985 km/h, Mach 1,02).
+- Image : DA claire (ciel + lac salé), graphe log km/h, voitures pixel par couloir, bannières en bas à droite du graphe ; final = 1 km en temps réel
+  ThrustSSC / Blue Bird / Jamais Contente / Jeantaud.
+- Son (co-pilote « beep agressif, high tempo ») : 172 BPM breakbeat chiptune, synthé propre au module (`landspeed.py audio`), bang supersonique.
+- 67,0 s. Rendu : `python3 landspeed.py audio|render|final` (moteur non modifié).
