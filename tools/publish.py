@@ -195,6 +195,7 @@ def main():
     ap.add_argument("--draft", required=True); ap.add_argument("--shared", required=True); ap.add_argument("--chan-keys", required=True)
     ap.add_argument("--out", required=True); ap.add_argument("--platforms", default="youtube,facebook,instagram,tiktok,x")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--pin", action="store_true", help="also post draft.pinned_comment under the video (off by default since 10 Nov: no API can pin it, the manual pinning cost too much)")
     ap.add_argument("--yt-category", help="YouTube categoryId (Cogwise 27 Education, BeepMelody 28 Science & Technology); default 28 or draft.youtube.categoryId")
     ap.add_argument("--yt-refresh", help="file holding only the channel's YouTube refresh token (Cogwise keeps it apart from its keys file)")
     a = ap.parse_args()
@@ -218,7 +219,7 @@ def main():
     st, _, video = http(d["video"], timeout=300)
     if st != 200 or not isinstance(video, bytes):
         raise SystemExit(f"vidéo introuvable ({st}) : {d['video']}")
-    pin = d.get("pinned_comment") or ""
+    pin = (d.get("pinned_comment") or "") if a.pin else ""
     for p, fn in (("youtube", youtube), ("facebook", facebook)):
         if p in plats:
             try:
