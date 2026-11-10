@@ -11,6 +11,7 @@ Claude in a chat) is responsible for the "go"; this script only does what it is 
 --draft      the drafts/<slug> document (JSON): video (raw URL), youtube{title,description,tags},
              captions{instagram,tiktok,facebook,x}, pinned_comment, court/titre.
 --shared     KEY=value file with YT_CLIENT_ID, YT_CLIENT_SECRET (OAuth app shared by all channels).
+--yt-refresh optional file with just the YouTube refresh token; --yt-category optional categoryId.
 --chan-keys  KEY=value file of the channel: YT_CHANNEL_ID, YT_REFRESH_TOKEN, FB_PAGE_ID, FB_PAGE_TOKEN,
              BUFFER_API_KEY, BUFFER_ORG_ID (for Cogwise, the shared file holds them all: pass it twice).
 Writes result.json = {links:{platform:url}, ids:{...}, errors:{platform:msg}, pinned:{platform:bool}}.
@@ -58,7 +59,7 @@ def youtube(d, K, video, res, pin):
     y = d.get("youtube") or {}
     title = (y.get("title") or d.get("titre") or d.get("court"))[:100]
     # duplicate guard: same title already in the channel's latest uploads
-    st, _, ch = http(f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id={K.get('YT_CHANNEL_ID','')}", headers=auth)
+    st, _, ch = http(f"https://www.googleapis.com/youtube/v3/channels?part=contentDetails&mine=true", headers=auth)
     try:
         up = ch["items"][0]["contentDetails"]["relatedPlaylists"]["uploads"]
         st, _, pl = http(f"https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&maxResults=15&playlistId={up}", headers=auth)
@@ -70,7 +71,7 @@ def youtube(d, K, video, res, pin):
     except Exception:
         pass
     if "youtube" not in res["links"]:
-        meta = {"snippet": {"title": title, "description": y.get("description", ""), "tags": y.get("tags", []), "categoryId": "28", "defaultLanguage": "en"},
+        meta = {"snippet": {"title": title, "description": y.get("description", ""), "tags": y.get("tags", []), "categoryId": str(y.get("categoryId") or K.get("YT_CATEGORY") or "28"), "defaultLanguage": "en", "defaultAudioLanguage": "en"},
                 "status": {"privacyStatus": "public", "selfDeclaredMadeForKids": False}}
         st, h, b = http("https://www.googleapis.com/upload/youtube/v3/videos?uploadType=resumable&part=snippet,status", json.dumps(meta).encode(),
                         {**auth, "Content-Type": "application/json; charset=UTF-8", "X-Upload-Content-Type": "video/mp4", "X-Upload-Content-Length": str(len(video))})
@@ -194,10 +195,16 @@ def main():
     ap.add_argument("--draft", required=True); ap.add_argument("--shared", required=True); ap.add_argument("--chan-keys", required=True)
     ap.add_argument("--out", required=True); ap.add_argument("--platforms", default="youtube,facebook,instagram,tiktok,x")
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--yt-category", help="YouTube categoryId (Cogwise 27 Education, BeepMelody 28 Science & Technology); default 28 or draft.youtube.categoryId")
+    ap.add_argument("--yt-refresh", help="file holding only the channel's YouTube refresh token (Cogwise keeps it apart from its keys file)")
     a = ap.parse_args()
     d = json.load(open(a.draft, encoding="utf-8"))
     d = d.get("data", d)
     K = {**read_keys(a.shared), **read_keys(a.chan_keys)}
+    if a.yt_refresh:
+        K["YT_REFRESH_TOKEN"] = open(a.yt_refresh, encoding="utf-8").read().strip()
+    if a.yt_category:
+        K["YT_CATEGORY"] = a.yt_category
     plats = [p.strip() for p in a.platforms.split(",") if p.strip()]
     res = {"slug": d.get("slug"), "links": {}, "ids": {}, "errors": {}, "pinned": {}, "notes": []}
     if a.dry_run:
