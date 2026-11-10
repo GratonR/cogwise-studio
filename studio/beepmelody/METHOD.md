@@ -30,7 +30,7 @@ propre à BeepMelody vit dans `studio/beepmelody/episodes/`.
 - ~128 BPM, pentatonique mineure ; mélodie carrée (pulse 12,5/25 %) = la donnée, hauteur selon log(valeur) ; basse triangle ; batterie bruit blanc ; arpège montant (fondamentale, quinte, octave, douzième) sur le record final.
 - Les événements se resserrent vers la fin : la musique accélère avec la donnée.
 - Variante de timbre possible selon le thème (ex. marimba pour le vivant), à valider épisode par épisode.
-- Référence d'écoute : `studio/beepmelody/music/demo_styles.py` (style A).
+- Musique : adaptée au sujet (sombre pour une guerre, haut BPM pour la vitesse…). Règle et signature constante : `studio/beepmelody/music/README.md` (section RULE). Pas de gamme imposée.
 
 ## Structure d'un épisode (≈ 64–70 s)
 | Temps | Bloc | Contenu |
