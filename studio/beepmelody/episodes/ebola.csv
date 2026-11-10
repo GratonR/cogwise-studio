@@ -1,7 +1,7 @@
 year,label,species,cases,deaths,source_1,source_2,check
 1976,Sudan,Sudan,284,151,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 1976,DR Congo (Yambuku),Zaire,318,280,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
-1976,United Kingdom (lab),Zaire,1,0,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),check
+1976,United Kingdom (lab),Zaire,1,0,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),ok
 1977,DR Congo,Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 1979,Sudan,Sudan,34,22,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 1994,Gabon,Zaire,51,31,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,diff: WHO 52/31
@@ -10,14 +10,14 @@ year,label,species,cases,deaths,source_1,source_2,check
 1996,Gabon (Jan-Apr),Zaire,31,21,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 1996,Gabon (Jul-Dec),Zaire,60,45,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 1996,South Africa,Zaire,2,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,diff: WHO 1/1
-1996,Russia (lab),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),check
+1996,Russia (lab),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),ok
 2000,Uganda (Gulu),Sudan,425,224,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2001,Gabon,Zaire,65,53,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2001,Rep. of the Congo,Zaire,59,44,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2003,Rep. of the Congo (Jan-Apr),Zaire,143,128,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2003,Rep. of the Congo (Nov-Dec),Zaire,35,29,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2004,Sudan,Sudan,17,7,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
-2004,Russia (lab),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),check
+2004,Russia (lab),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO archive (lab infection),ok
 2005,Rep. of the Congo,Zaire,12,10,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2007,DR Congo,Zaire,264,187,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2007,Uganda,Bundibugyo,131,42,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,diff: WHO 149/37
@@ -34,21 +34,21 @@ year,label,species,cases,deaths,source_1,source_2,check
 2014,Spain,Zaire,1,0,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2014,United Kingdom,Zaire,1,0,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2014,Italy,Zaire,1,0,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,diff: WHO year 2015
-2014,DR Congo,Zaire,69,49,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2014,check
+2014,DR Congo,Zaire,66,49,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),"WHO (Boende, 66 cases incl. 28 probable, 49 deaths)",ok: 69 incl. suspected in early reports
 2017,DR Congo,Zaire,8,4,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2018,DR Congo (Equateur),Zaire,54,33,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO Ebola fact sheet — chronology of previous outbreaks,ok
 2018,DR Congo + Uganda (Kivu),Zaire,3470,2287,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO final report (3470/2287),ok
-2020,DR Congo (Equateur),Zaire,130,55,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2020,check
-2021,DR Congo (Feb-May),Zaire,12,6,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021,check
-2021,Guinea,Zaire,23,12,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021,check
-2021,DR Congo (Oct-Dec),Zaire,11,9,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021,check
-2022,DR Congo (Apr-Jul),Zaire,5,5,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2022,check
-2022,DR Congo (Aug-Sep),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2022,check
-2022,Uganda,Sudan,164,55,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2023,check
-2025,Uganda,Sudan,14,4,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2025,check: CDC 12 conf + 2 prob
-2025,DR Congo (Kasai),Zaire,64,45,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2025,check
-2026,DR Congo (ongoing),Bundibugyo,10668,5198,"WHO DON625 (data to 2026-11-03, confirmed)",ECDC weekly threat report,check: refresh at render
-2026,Uganda,Bundibugyo,20,2,WHO AFRO 2026-08-27,ECDC 2026-10-02,ok
-2026,France (imported),Bundibugyo,1,0,ECDC 2026-10-02,French Ministry of Health,check deaths
-2026,Kenya,Bundibugyo,9,2,WHO DON625,—,check
-2026,Nigeria (imported),Bundibugyo,1,0,WHO DON625,ECDC,check deaths
+2020,DR Congo (Equateur),Zaire,130,55,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2020 + UKHSA outbreak list,ok
+2021,DR Congo (Feb-May),Zaire,12,6,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021 + UKHSA outbreak list,ok
+2021,Guinea,Zaire,23,12,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021 + UKHSA outbreak list,ok
+2021,DR Congo (Oct-Dec),Zaire,11,9,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2021 + UKHSA outbreak list,ok
+2022,DR Congo (Apr-Jul),Zaire,5,5,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2022 + UKHSA outbreak list,ok
+2022,DR Congo (Aug-Sep),Zaire,1,1,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2022 + UKHSA outbreak list,ok
+2022,Uganda,Sudan,164,77,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),"WHO DON 2023 + UKHSA outbreak list (164 cases, 77 deaths incl. probable)",ok: 55 confirmed + 22 probable deaths
+2025,Uganda,Sudan,14,4,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2025 + UKHSA outbreak list,ok
+2025,DR Congo (Kasai),Zaire,64,45,CDC — History of Ebola Disease Outbreaks (cdc.gov/ebola/outbreaks),WHO DON 2025 + UKHSA outbreak list,ok
+2026,Uganda,Bundibugyo,20,2,WHO AFRO 2026-08-27,"ECDC 2026-11-03 (20 confirmed, 2 deaths, as of 28 Jul)",ok
+2026,France (imported),Bundibugyo,1,0,ECDC 2026-10-02,Santé publique France (Eurosurveillance 2026;31(31):2600627) + ECDC 2026-11-03 (recovered),ok
+2026,Kenya,Bundibugyo,9,2,WHO DON625,"ECDC weekly threat report 2026-11-03 (9 cases, 2 deaths)",ok
+2026,Nigeria (imported),Bundibugyo,1,0,WHO DON625,"ECDC 2026-11-03 (1 case, no death reported; medevac to Switzerland)",ok: deaths none reported
+2026,DR Congo (ongoing),Bundibugyo,10668,5198,"WHO DON625 (data to 2026-11-03, confirmed)",ECDC weekly threat report,"ok: WHO DON625 to 2026-11-03 (ECDC 10532/5126 to 1 Nov); medevac cases (Germany, Netherlands) not counted as outbreaks"
