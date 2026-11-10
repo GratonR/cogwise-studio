@@ -354,7 +354,11 @@ def main():
     # ElevenLabs quota (GET /v1/user/subscription is free: it never spends characters)
     if a.el_config and os.path.exists(a.el_config):
         def el():
-            c = json.load(open(a.el_config, encoding="utf-8")); k = c.get("elevenlabs_api_key") or c.get("api_key")
+            raw = open(a.el_config, encoding="utf-8-sig").read()
+            try: c = json.loads(raw); k = c.get("elevenlabs_api_key") or c.get("api_key")
+            except ValueError:   # the Drive file is plain text: take the sk_… key, or the value of an api-key line
+                m = re.search(r"\bsk_[A-Za-z0-9]{20,}", raw) or re.search(r"(?im)api[_ ]?key\s*[:=]\s*(\S+)", raw)
+                k = m.group(m.lastindex or 0) if m else raw.split()[0]
             r = urllib.request.urlopen(urllib.request.Request("https://api.elevenlabs.io/v1/user/subscription", headers={"xi-api-key": k}), timeout=30)
             return json.load(r)
         sub = safe("ElevenLabs quota", el)
