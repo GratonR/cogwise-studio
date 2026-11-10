@@ -11,7 +11,7 @@ earlier bloom = higher note.
 812-1899 average: april 15. 2020-2026: march 31.
 which note gave you chills?
 
-data: kyoto full-flowering dates, Aono, Kazui & Saito (Osaka Metropolitan Univ.), via Our World in Data; 2021-2026 checked against the Japan Meteorological Agency. decades = average of known years; 3 decades have no surviving record.
+data: kyoto full-flowering dates, Aono, Kazui & Saito (Osaka Pref. Univ.), via Our World in Data; 2021-2026 checked against the Japan Meteorological Agency. decades = average of known years; 3 decades have no surviving record.
 
 #Shorts #kyoto #cherryblossom #sakura #dataviz
 
