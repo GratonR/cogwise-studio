@@ -1,7 +1,7 @@
 # Ebola — textes (Bip)
 
 YOUTUBE
-Title: 1976: a river called ebola. 53 outbreaks later, it's still going #Shorts
+Title: 1976: a river called ebola. 53 outbreaks later, still going #Shorts
 
 one note = one ebola outbreak, 1976 → 2026.
 more cases = higher note. the heartbeat never stops.
