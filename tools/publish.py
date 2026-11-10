@@ -202,7 +202,12 @@ def main():
     d = d.get("data", d)
     K = {**read_keys(a.shared), **read_keys(a.chan_keys)}
     if a.yt_refresh:
-        K["YT_REFRESH_TOKEN"] = open(a.yt_refresh, encoding="utf-8").read().strip()
+        raw = open(a.yt_refresh, encoding="utf-8-sig").read().strip()
+        for line in raw.splitlines():   # accepts a bare token or a "YT_REFRESH_TOKEN=..." line
+            line = line.strip()
+            if line.startswith("YT_REFRESH_TOKEN="):
+                raw = line.split("=", 1)[1].strip().strip('"'); break
+        K["YT_REFRESH_TOKEN"] = raw.splitlines()[0].strip() if "\n" in raw else raw
     if a.yt_category:
         K["YT_CATEGORY"] = a.yt_category
     plats = [p.strip() for p in a.platforms.split(",") if p.strip()]
