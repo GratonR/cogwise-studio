@@ -114,7 +114,40 @@ def facebook(d, K, video, res, pin):
         res["pinned"]["facebook"] = st == 200
 
 
-# ---------------- Buffer: Instagram, TikTok, X ----------------
+
+# ---------------- Instagram direct (Meta content publishing), Buffer as fallback ----------------
+def instagram_direct(d, K, res):
+    """Reel via the Instagram Graph API: container (media_type=REELS, video_url) -> wait FINISHED -> media_publish.
+    Needs the instagram_content_publish permission on the Page token; without it Meta answers error 10 and we fall back to Buffer."""
+    T = K["FB_PAGE_TOKEN"]; q = urllib.parse.quote(T)
+    ig = K.get("IG_USER_ID")
+    if not ig:
+        st, _, pg = http(G + K["FB_PAGE_ID"] + "?fields=instagram_business_account&access_token=" + q)
+        ig = ((pg or {}).get("instagram_business_account") or {}).get("id") if isinstance(pg, dict) else None
+    if not ig:
+        raise RuntimeError("pas de compte Instagram lié à la Page")
+    cap = (d.get("captions") or {}).get("instagram", "")
+    st, _, c = http(G + ig + "/media", {"media_type": "REELS", "video_url": d["video"], "caption": cap, "share_to_feed": "true", "access_token": T})
+    if st != 200 or not isinstance(c, dict) or "id" not in c:
+        raise RuntimeError(f"Instagram direct : conteneur refusé ({st}) {short(c)}")
+    for _ in range(40):                                   # Meta downloads and transcodes the video: usually 30-90 s
+        time.sleep(10)
+        st, _, s2 = http(G + c["id"] + "?fields=status_code,status&access_token=" + q)
+        code = (s2 or {}).get("status_code") if isinstance(s2, dict) else None
+        if code == "FINISHED":
+            break
+        if code in ("ERROR", "EXPIRED"):
+            raise RuntimeError("Instagram direct : traitement de la vidéo en échec " + short(s2))
+    else:
+        raise RuntimeError("Instagram direct : vidéo pas prête après 6 min")
+    st, _, pub = http(G + ig + "/media_publish", {"creation_id": c["id"], "access_token": T})
+    if st != 200 or "id" not in (pub or {}):
+        raise RuntimeError(f"Instagram direct : publication refusée ({st}) {short(pub)}")
+    st, _, m = http(G + pub["id"] + "?fields=permalink&access_token=" + q)
+    res["links"]["instagram"] = (m or {}).get("permalink") or ""; res["ids"]["instagram"] = pub["id"]
+    res["notes"].append("Instagram : publié en direct (API Meta)")
+
+# ---------------- Buffer: Instagram (fallback), TikTok, X ----------------
 def buffer_q(K, query, variables=None):
     st, _, b = http(BUFFER, json.dumps({"query": query, "variables": variables or {}}).encode(),
                     {"Authorization": "Bearer " + K["BUFFER_API_KEY"], "Content-Type": "application/json"})
@@ -226,6 +259,12 @@ def main():
                 fn(d, K, video, res, pin)
             except Exception as e:
                 res["errors"][p] = short(e)
+    if "instagram" in plats:
+        try:
+            instagram_direct(d, K, res)
+            plats = [p for p in plats if p != "instagram"]          # done: Buffer only does TikTok and X
+        except Exception as e:
+            res["notes"].append("Instagram direct indisponible, passage par Buffer : " + short(e))
     if any(p in plats for p in ("instagram", "tiktok", "x")):
         if K.get("BUFFER_API_KEY"):
             try:
