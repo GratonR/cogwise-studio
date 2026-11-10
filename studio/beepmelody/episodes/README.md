@@ -57,3 +57,4 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
 - 68,75 s. Rendu : `python3 kyoto_cherry.py audio|render|final` (moteur non modifié).
 - Contrôle des frames (étape 3) : 812 = 1er avril ; 27 mars en 1236, 1409, 1612 (record jusqu'en 2021) ; 2021 = 26 mars (19 j avant la moyenne) ; 2023 = 25 mars (20 j) ;
   moyenne 1 200 ans = 14 avril ; 812-1899 = 15 avril ; 2020-2026 = 31 mars (≈ 2 semaines) ; 1990s = 6 avril. Axes : haut = plus tôt, annoncé. Rien de coupé (étiquettes d'axe déplacées, libellé « 1,200-YR AVG » retiré car il chevauchait la courbe).
+- Étape 3/4 tranchée : « night » + « une scene en mouvement » → hanami de nuit (panneaux sombres, lune qui monte, étoiles, lanternes, rivière animée, barque, feuillage qui ondule, pétales continus). Données inchangées ; contrôle des frames refait (voir outbox/.../CONTROLE.md). Rendu final 68,73 s.

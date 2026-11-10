@@ -3,7 +3,8 @@
 One decade = one koto note (decade mean, 810s -> 2010s; 3 decades without any record stay silent), then every spring
 2020 -> 2026 one by one. Earlier bloom = higher note (Japanese "in" scale on A).
 Mood chosen in co-pilot step 2 ("Instrument japonais"): koto garden, 72 BPM, soft taiko, bamboo-flute drone.
-Picture: clear spring palette, a cherry tree by the river, a calendar card, chart of bloom date by year (earlier = up).
+Picture (co-pilot step 3: "night" + "une scene en mouvement"): night hanami, a cherry tree by the river under the moon,
+paper lanterns, a drifting boat, falling petals, swaying canopy; calendar card, chart of bloom date by year (earlier = up).
 
     python3 kyoto_cherry.py info out | preview out <scene>:<s> ... | at out <T> ... | audio out/music.wav | render out | final out x.mp4
 """
@@ -47,16 +48,18 @@ ERAS = ["heian", "medieval", "edo", "modern"]
 ERA_NAME = {"heian": "HEIAN", "medieval": "MEDIEVAL", "edo": "EDO", "modern": "MODERN"}
 ERA_LINE = {"heian": "HEIAN PERIOD", "medieval": "KAMAKURA + MUROMACHI", "edo": "EDO PERIOD", "modern": "MODERN JAPAN"}
 
-# ================= palette (clear spring, light) =================
-INK = (44, 40, 76)
-INK2 = (110, 104, 140)
-PINK = (222, 78, 122)
-GOLD = (222, 152, 40)
-CREAM = (253, 247, 242)
+# ================= palette (night hanami, dark) =================
+INK = (244, 236, 248)
+INK2 = (156, 148, 196)
+PINK = (255, 122, 164)
+GOLD = (255, 202, 96)
+CREAM = (22, 20, 44)          # panel background (dark)
+NIGHT = (12, 10, 28)          # fades
+CARD = (34, 30, 62)
 WHITE = (255, 255, 255)
-ECOL = {"heian": (150, 96, 176), "medieval": (60, 128, 150), "edo": (196, 104, 60), "modern": (222, 78, 122), "spring": (222, 78, 122)}
-BLOS = [(250, 206, 218), (244, 176, 198), (255, 228, 236), (236, 150, 178)]
-GREEN = (118, 164, 112)
+ECOL = {"heian": (190, 146, 236), "medieval": (104, 196, 214), "edo": (244, 156, 92), "modern": (255, 122, 164), "spring": (255, 122, 164)}
+BLOS = [(255, 214, 230), (246, 178, 204), (255, 238, 244), (232, 146, 182)]
+GREEN = (36, 52, 58)
 
 # ================= timeline (all on the beat) =================
 BPM = 72.0
@@ -137,36 +140,86 @@ for _ in range(900):
     CANOPY.append((int(x), int(y), _rnd.randrange(4)))
 _HILL_BLOS = [(random.Random(s).uniform(0, AW), random.Random(s + 3).uniform(0, 1)) for s in range(60)]
 
-def _bg():
+def far_h(x): return 168 - 22 * math.sin(x / 34 + 0.6) - 9 * math.sin(x / 13)
+def mid_h(x): return 190 - 10 * math.sin(x / 22 + 2) - 4 * math.sin(x / 7)
+def _sky():
     img = Image.new("RGB", (AW, AH)); d = ImageDraw.Draw(img)
     for y in range(AH):
-        f = max(0.0, min(1.0, (y - 70) / 140))
-        d.line([0, y, AW, y], fill=tuple(int(lerp(a, b, f)) for a, b in zip((186, 214, 242), (246, 238, 238))))
-    # far hills (Arashiyama, generic)
-    pts = [(x, 168 - 22 * math.sin(x / 34 + 0.6) - 9 * math.sin(x / 13)) for x in range(0, AW + 1, 2)]
-    d.polygon([(0, 214)] + pts + [(AW, 214)], fill=(150, 184, 150))
-    for x, f in _HILL_BLOS:
-        yy = 168 - 22 * math.sin(x / 34 + 0.6) - 9 * math.sin(x / 13) + 4 + f * 36
-        d.point((int(x), int(yy)), fill=(236, 198, 210))
-    pts2 = [(x, 190 - 10 * math.sin(x / 22 + 2) - 4 * math.sin(x / 7)) for x in range(0, AW + 1, 2)]
-    d.polygon([(0, 214)] + pts2 + [(AW, 214)], fill=GREEN)
-    # river + long low wooden bridge
-    d.rectangle([0, 214, AW, 238], fill=(150, 192, 222))
-    for k in range(0, AW, 9): d.line([k, 222 + (k // 9) % 3 * 4, k + 4, 222 + (k // 9) % 3 * 4], fill=(196, 222, 240))
-    d.rectangle([84, 209, AW, 211], fill=(120, 92, 74))
-    for x in range(88, AW, 10): d.line([x, 211, x, 218], fill=(120, 92, 74))
-    # bank under the tree
-    d.polygon([(0, 238), (0, 206), (40, 204), (92, 212), (110, 238)], fill=(104, 150, 98))
-    # trunk + branches
-    d.polygon([(46, 238), (50, 180), (56, 180), (62, 238)], fill=(96, 66, 58))
-    for (x0, y0, x1, y1) in [(52, 186, 30, 158), (54, 184, 78, 152), (53, 182, 52, 140), (40, 172, 22, 166), (66, 170, 86, 168)]:
-        d.line([x0, y0, x1, y1], fill=(96, 66, 58), width=2)
-    for x, y, c in CANOPY: d.point((x, y), fill=BLOS[c])
+        f = max(0.0, min(1.0, (y - 60) / 150))
+        d.line([0, y, AW, y], fill=tuple(int(lerp(a, b, f)) for a, b in zip((10, 10, 34), (48, 34, 78))))
     return img
-BG_IMG = _bg()
+def _hills():
+    img = Image.new("RGBA", (AW, AH), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    d.polygon([(0, 214)] + [(x, far_h(x)) for x in range(0, AW + 1, 2)] + [(AW, 214)], fill=(28, 30, 58, 255))
+    for x, f in _HILL_BLOS:
+        d.point((int(x), int(far_h(x) + 4 + f * 36)), fill=(120, 90, 130, 255))
+    d.polygon([(0, 214)] + [(x, mid_h(x)) for x in range(0, AW + 1, 2)] + [(AW, 214)], fill=GREEN + (255,))
+    return img
+SKY_IMG, HILL_IMG = _sky(), _hills()
+_r2 = random.Random(11)
+STARS = [(x, y, _r2.uniform(0, 6.3), _r2.uniform(1.5, 4.0)) for x, y in ((_r2.randrange(AW), _r2.randrange(62, 175)) for _ in range(90)) if y < far_h(x) - 2]
+CLOUDS = [(_r2.uniform(0, AW + 60), _r2.uniform(70, 130), _r2.randrange(18, 34), _r2.uniform(1.0, 2.2)) for _ in range(5)]
+LANTERNS = [(94, 201), (106, 201), (118, 201), (130, 201), (142, 201), (154, 201), (166, 201), (24, 172), (78, 166)]
+AMBIENT = [(_r2.uniform(-10, AW), _r2.uniform(0, 1), _r2.uniform(5, 9), _r2.uniform(0, 6.3), _r2.randrange(4)) for _ in range(26)]
+
+def moon_pos(T): return 146, 132 - 16 * min(1.0, T / TOTAL)
+
+def draw_bg(T):
+    img = SKY_IMG.copy(); d = ImageDraw.Draw(img)
+    for x, y, ph, sp in STARS:                                    # twinkling stars
+        b = 0.5 + 0.5 * math.sin(T * sp + ph)
+        if b > 0.25: d.point((x, y), fill=tuple(int(c * b) for c in (230, 226, 255)))
+    mx, my = moon_pos(T)                                         # slowly rising moon + halo
+    for r, col in ((14, (44, 40, 86)), (11, (64, 58, 112))): d.ellipse([mx - r, my - r, mx + r, my + r], fill=col)
+    d.ellipse([mx - 8, my - 8, mx + 8, my + 8], fill=(250, 240, 214)); d.point((mx - 3, my - 2), fill=(226, 214, 190)); d.rectangle([mx + 2, my + 2, mx + 3, my + 3], fill=(230, 218, 192))
+    for x0, y, w, sp in CLOUDS:                                  # thin clouds drifting right
+        x = (x0 + T * sp) % (AW + 80) - 40
+        d.rectangle([x, y, x + w, y + 1], fill=(58, 50, 96)); d.rectangle([x + 5, y - 1, x + w - 6, y - 1], fill=(52, 46, 90))
+    img.paste(HILL_IMG, (0, 0), HILL_IMG); d = ImageDraw.Draw(img)
+    # river: moving ripples, moon + lantern reflections
+    d.rectangle([0, 214, AW, 238], fill=(22, 30, 64))
+    for k in range(0, AW + 12, 9):
+        x = (k + T * 4) % (AW + 12) - 6; yy = 218 + (k // 9) % 4 * 5
+        d.line([x, yy, x + 4, yy], fill=(48, 62, 104))
+    for j in range(10):
+        yy = 216 + j * 2; w = 5 - j // 3 + int(1.5 * math.sin(T * 3 + j))
+        d.line([mx - w + math.sin(T * 2 + j) * 1.5, yy, mx + w + math.sin(T * 2 + j) * 1.5, yy], fill=(214, 202, 170) if j % 2 == 0 else (120, 116, 128))
+    # bridge with paper lanterns (swaying, flickering) + their reflections
+    d.rectangle([84, 209, AW, 211], fill=(60, 40, 40))
+    for x in range(88, AW, 10): d.line([x, 211, x, 218], fill=(60, 40, 40))
+    d.line([84, 197, AW, 197], fill=(70, 50, 50))
+    # boat crossing the river over the whole video
+    bx = -16 + (AW + 30) * (T / TOTAL); by = 229 + 0.6 * math.sin(T * 2.2)
+    d.polygon([(bx, by), (bx + 16, by), (bx + 13, by + 3), (bx + 3, by + 3)], fill=(16, 12, 24))
+    d.line([bx + 8, by, bx + 8, by - 6], fill=(16, 12, 24))
+    fl = 0.8 + 0.2 * math.sin(T * 11)
+    d.rectangle([bx + 7, by - 9, bx + 9, by - 7], fill=tuple(int(c * fl) for c in (255, 170, 80)))
+    d.line([bx + 8, by + 4, bx + 8, by + 7], fill=(150, 100, 60))
+    # bank + tree (canopy sways in the wind)
+    d.polygon([(0, 238), (0, 206), (40, 204), (92, 212), (110, 238)], fill=(26, 38, 42))
+    d.polygon([(46, 238), (50, 180), (56, 180), (62, 238)], fill=(44, 30, 34))
+    for (x0, y0, x1, y1) in [(52, 186, 30, 158), (54, 184, 78, 152), (53, 182, 52, 140), (40, 172, 22, 166), (66, 170, 86, 168)]:
+        d.line([x0, y0, x1 + round(1.2 * math.sin(T * 1.1 + x1)), y1], fill=(44, 30, 34), width=2)
+    for x, y, c in CANOPY:
+        sw = round((1.0 + (186 - y) / 30) * math.sin(T * 1.1 + y * 0.09 + x * 0.02))
+        d.point((x + sw, y), fill=BLOS[c])
+    for i, (lx, ly) in enumerate(LANTERNS):
+        sw = 1.4 * math.sin(T * 1.6 + i * 0.9); f = 0.82 + 0.18 * math.sin(T * (7 + i) + i)
+        x = lx + sw; y = ly
+        d.line([lx, ly - 4, x, y - 1], fill=(90, 70, 60))
+        d.point((x - 3, y + 1), fill=(120, 60, 50)); d.point((x + 3, y + 1), fill=(120, 60, 50))
+        d.rectangle([x - 1, y, x + 1, y + 3], fill=tuple(int(c * f) for c in (255, 150, 90)))
+        d.point((x, y + 1), fill=tuple(int(c * f) for c in (255, 226, 160)))
+        if ly > 190:
+            for j in range(4): d.point((x + math.sin(T * 3 + j + i), 216 + j * 4), fill=(150, 90, 60) if j % 2 == 0 else (90, 60, 60))
+    return img
 
 def petals(d, T):
-    for i, (t, kw) in enumerate(NOTES):
+    for x0, ph, sp, wob, c in AMBIENT:                            # petals always drifting down
+        f = (ph + T / sp) % 1.0
+        x = x0 + f * 40 + 3 * math.sin(T * 1.5 + wob); y = 62 + f * 176
+        if y < 236: d.point((int(x), int(y)), fill=BLOS[c])
+    for i, (t, kw) in enumerate(NOTES):                          # a burst of petals on every note
         a = T - t
         if a < 0: break
         if a > 2.6: continue
@@ -213,8 +266,8 @@ def chart(c, T, st):
 def calendar(c, T, st):
     W = c.t
     x0, y0, x1, y1 = 236, 332, 340, 438
-    W.rectangle([x0 + 4, y0 + 4, x1 + 4, y1 + 4], fill=(196, 178, 186))
-    W.rectangle([x0, y0, x1, y1], fill=WHITE); W.rectangle([x0, y0, x1, y0 + 26], fill=PINK)
+    W.rectangle([x0 + 4, y0 + 4, x1 + 4, y1 + 4], fill=(6, 4, 14))
+    W.rectangle([x0, y0, x1, y1], fill=CARD); W.rectangle([x0, y0, x1, y0 + 26], fill=PINK)
     if st is None or st[3] is None:
         text(W, (x0 + x1) / 2, y0 + 3, "NO DATE" if st else "SPRING", fill=WHITE, align="c")
         text(W, (x0 + x1) / 2, y0 + 40, "?" if st else "...", size=40, fill=INK2, align="c"); return
@@ -243,7 +296,7 @@ def hud(c, T):
         dd = int(round(v)) - AVG_D
         txt = "ON THE 1,200-YR AVERAGE" if dd == 0 else (f"{-dd} DAY{'S' if dd != -1 else ''} EARLIER THAN AVG" if dd < 0 else f"{dd} DAY{'S' if dd != 1 else ''} LATER THAN AVG")
         text(W, 28, 92, txt, fill=PINK if dd <= -7 else INK2)
-    W.rectangle([16, 128, 344, 160], fill=(252, 250, 252)); W.rectangle([16, 128, 19, 160], fill=col)
+    W.rectangle([16, 128, 344, 160], fill=CARD); W.rectangle([16, 128, 19, 160], fill=col)
     line = NOTE.get(key, ERA_LINE[era(key)] if kind == "dec" else "SPRINGS ONE BY ONE")
     n = int(min(60, 3 + a * 200))
     text(W, 28, 134, line[:max(0, n)], fill=INK if key in NOTE else col)
@@ -289,7 +342,7 @@ def banner(c, T):
         if a > 0.3: text(W, 180, yb + 21, sub, fill=PINK, align="c")
 
 def draw_scene(c, T):
-    c.art = BG_IMG.copy(); c.a = ImageDraw.Draw(c.art)
+    c.art = draw_bg(T); c.a = ImageDraw.Draw(c.art)
     petals(c.a, T)
     st = step_at(T)
     if st is not None and st[3] is not None and 0 <= T - st[0] < 0.4 and is_rec(st):
@@ -363,10 +416,10 @@ def render_frame(idx, t):
         fr = np.minimum(255, fr.astype(np.int16) + int(50 * FXK * (1 - (T - st[0]) / 0.12))).astype(np.uint8)
     if name == "outro":
         f = ease((t - (DUR[name] - 0.8)) / 0.8)
-        if f > 0: fr = (fr * (1 - f) + np.array(CREAM) * f).astype(np.uint8)
+        if f > 0: fr = (fr * (1 - f) + np.array(NIGHT) * f).astype(np.uint8)
     if name == "intro":
         f = 1 - ease(t / 0.25)
-        if f > 0: fr = (fr * (1 - f) + np.array(CREAM) * f).astype(np.uint8)
+        if f > 0: fr = (fr * (1 - f) + np.array(NIGHT) * f).astype(np.uint8)
     return fr
 
 # ================= audio =================
