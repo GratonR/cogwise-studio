@@ -1,0 +1,58 @@
+date,lane,kmh,mph,driver,car,place,note,source_1,source_2
+1898-12-18,electric,63.15,39.24,GASTON DE CHASSELOUP-LAUBAT,JEANTAUD DUC,ACHERES FRANCE,FIRST RECORD,Wikipedia Land speed record table (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1899-01-17,electric,66.66,41.42,CAMILLE JENATZY,CGA DOGCART,ACHERES FRANCE,,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1899-01-17,electric,70.31,43.69,GASTON DE CHASSELOUP-LAUBAT,JEANTAUD DUC,ACHERES FRANCE,SAME DAY,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1899-01-27,electric,80.35,49.93,CAMILLE JENATZY,CGA DOGCART,ACHERES FRANCE,,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1899-03-04,electric,92.78,57.65,GASTON DE CHASSELOUP-LAUBAT,JEANTAUD PROFILEE,ACHERES FRANCE,,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1899-04-29,electric,105.88,65.79,CAMILLE JENATZY,LA JAMAIS CONTENTE,ACHERES FRANCE,FIRST OVER 100 KM/H,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1902-04-13,electric,120.80,75.06,LEON SERPOLLET,OEUF DE PAQUES (STEAM),NICE FRANCE,STEAM,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1902-08-05,piston,122.44,76.08,WILLIAM K. VANDERBILT,MORS Z,ABLIS FRANCE,FIRST PETROL CAR,Wikipedia (ACF; date 1902-08-05),gregwapling.com + drylakesracersaustralia.org.au (122.44; date given as 1902-11-05)
+1902-11-05,piston,123.28,76.60,HENRI FOURNIER,MORS Z,DOURDAN FRANCE,,gregwapling.com + drylakesracersaustralia.org.au (123.28),Wikipedia (123.25)
+1902-11-17,piston,124.13,77.13,MAURICE AUGIERES,MORS Z,DOURDAN FRANCE,,Wikipedia (ACF),gregwapling.com + drylakesracersaustralia.org.au
+1903-07-17,piston,134.32,83.46,ARTHUR DURAY,GOBRON-BRILLIE,OSTEND BELGIUM,,gregwapling.com + drylakesracersaustralia.org.au (134.32),Wikipedia (83.46 mph)
+1903-11-05,piston,136.36,84.73,ARTHUR DURAY,GOBRON-BRILLIE,DOURDAN FRANCE,,gregwapling.com + drylakesracersaustralia.org.au,Wikipedia (136.35)
+1904-01-12,piston,147.05,91.37,HENRY FORD,FORD 999 ARROW,LAKE ST CLAIR USA,ON ICE,gregwapling.com (147.05 / 91.37),drylakesracersaustralia.org.au (91.37 mph) + Wikipedia
+1904-03-31,piston,152.53,94.78,LOUIS RIGOLLY,GOBRON-BRILLIE,NICE FRANCE,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1904-05-25,piston,156.50,97.25,PIERRE DE CATERS,MERCEDES SIMPLEX,OSTEND BELGIUM,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1904-07-21,piston,166.66,103.56,LOUIS RIGOLLY,GOBRON-BRILLIE,OSTEND BELGIUM,FIRST OVER 100 MPH,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1904-11-13,piston,168.22,104.53,PAUL BARAS,DARRACQ,OSTEND BELGIUM,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1905-01-24,piston,168.42,104.65,ARTHUR MACDONALD,NAPIER 6,DAYTONA BEACH USA,,gregwapling.com,drylakesracersaustralia.org.au
+1905-12-30,piston,174.74,108.58,VICTOR HEMERY,DARRACQ V8,ARLES FRANCE,,gregwapling.com (174.74 / 108.58),drylakesracersaustralia.org.au (174.74); Wikipedia lists 176.37
+1906-01-26,electric,205.44,127.66,FRED MARRIOTT,STANLEY ROCKET (STEAM),DAYTONA BEACH USA,STEAM,Wikipedia (205.44 / 127.66),gregwapling.com (127.6 mph)
+1922-05-17,piston,215.25,133.75,KENELM LEE GUINNESS,SUNBEAM 350HP,BROOKLANDS UK,,Wikipedia (215.25),gregwapling.com + drylakesracersaustralia.org.au (215.17)
+1924-07-06,piston,230.63,143.31,RENE THOMAS,DELAGE,ARPAJON FRANCE,,Wikipedia (230.634 / 143.31),drylakesracersaustralia.org.au (143.31 mph; 230.47 km/h)
+1924-07-12,piston,234.98,145.89,ERNEST ELDRIDGE,FIAT MEPHISTOPHELES,ARPAJON FRANCE,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1924-09-25,piston,235.22,146.16,MALCOLM CAMPBELL,SUNBEAM BLUE BIRD,PENDINE UK,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1925-07-21,piston,242.80,150.87,MALCOLM CAMPBELL,SUNBEAM BLUE BIRD,PENDINE UK,FIRST OVER 150 MPH,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1926-03-16,piston,245.15,152.33,HENRY SEGRAVE,SUNBEAM LADYBIRD,SOUTHPORT UK,,Wikipedia (1926-03-16),gregwapling.com + drylakesracersaustralia.org.au (245.10; date 1926-03-21)
+1926-04-27,piston,272.45,169.29,J. G. PARRY-THOMAS,BABS,PENDINE UK,,gregwapling.com + drylakesracersaustralia.org.au (272.45),Wikipedia (169.29 mph)
+1926-04-28,piston,273.60,170.01,J. G. PARRY-THOMAS,BABS,PENDINE UK,NEXT DAY,gregwapling.com (273.60 km/h),drylakesracersaustralia.org.au (273.60 km/h; mph = km/h / 1.609)
+1927-02-04,piston,281.44,174.88,MALCOLM CAMPBELL,NAPIER BLUE BIRD,PENDINE UK,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1927-03-29,piston,327.97,203.79,HENRY SEGRAVE,SUNBEAM 1000HP,DAYTONA BEACH USA,FIRST OVER 200 MPH,Wikipedia (327.97 / 203.79),drylakesracersaustralia.org.au (203.79 mph)
+1928-02-19,piston,333.05,206.95,MALCOLM CAMPBELL,NAPIER BLUE BIRD,DAYTONA BEACH USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1928-04-22,piston,334.02,207.55,RAY KEECH,WHITE TRIPLEX,DAYTONA BEACH USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1929-03-11,piston,372.34,231.36,HENRY SEGRAVE,GOLDEN ARROW,DAYTONA BEACH USA,,FIA historic outright records (231.36 mph),drylakesracersaustralia.org.au (231.36 mph) + Wikipedia (372.46)
+1931-02-05,piston,396.03,246.09,MALCOLM CAMPBELL,BLUE BIRD,DAYTONA BEACH USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1932-02-24,piston,408.73,253.97,MALCOLM CAMPBELL,BLUE BIRD,DAYTONA BEACH USA,,Wikipedia (408.73 / 253.97),drylakesracersaustralia.org.au (253.96 mph)
+1933-02-22,piston,438.48,272.46,MALCOLM CAMPBELL,BLUE BIRD,DAYTONA BEACH USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1935-03-07,piston,444.44,276.16,MALCOLM CAMPBELL,BLUE BIRD,DAYTONA BEACH USA,LAST BEACH RECORD,gregwapling.com + drylakesracersaustralia.org.au (444.44),Wikipedia (445.47 / 276.8)
+1935-09-03,piston,484.62,301.13,MALCOLM CAMPBELL,BLUE BIRD,BONNEVILLE USA,FIRST OVER 300 MPH,FIA historic outright records (484.620 / 301.129),Wikipedia + gregwapling.com
+1937-11-19,piston,501.16,311.42,GEORGE EYSTON,THUNDERBOLT,BONNEVILLE USA,,Wikipedia (501.16 / 311.42),drylakesracersaustralia.org.au (311.41 mph)
+1938-08-27,piston,556.01,345.49,GEORGE EYSTON,THUNDERBOLT,BONNEVILLE USA,,Wikipedia (556.012 / 345.49),drylakesracersaustralia.org.au (345.48 mph; 555.55 km/h)
+1938-09-15,piston,563.57,350.20,JOHN COBB,RAILTON,BONNEVILLE USA,,Wikipedia (563.566),gregwapling.com + drylakesracersaustralia.org.au (563.37 / 350.06-350.19)
+1938-09-16,piston,575.31,357.50,GEORGE EYSTON,THUNDERBOLT,BONNEVILLE USA,NEXT DAY,Wikipedia (575.314 / 357.5),drylakesracersaustralia.org.au (357.49 mph)
+1939-08-23,piston,595.04,369.74,JOHN COBB,RAILTON SPECIAL,BONNEVILLE USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1947-09-16,piston,634.40,394.20,JOHN COBB,RAILTON MOBIL SPECIAL,BONNEVILLE USA,FIRST RUN OVER 400 MPH,Wikipedia (634.397 / 394.196),drylakesracersaustralia.org.au (394.19 mph)
+1963-08-05,jet,655.72,407.45,CRAIG BREEDLOVE,SPIRIT OF AMERICA,BONNEVILLE USA,FIRST JET,Wikipedia (655.722 / 407.447),drylakesracersaustralia.org.au (407.447 mph)
+1964-10-02,jet,665.00,413.20,TOM GREEN,WINGFOOT EXPRESS,BONNEVILLE USA,,Wikipedia (413.26 mph),drylakesracersaustralia.org.au (413.199 mph)
+1964-10-05,jet,698.50,434.02,ART ARFONS,GREEN MONSTER,BONNEVILLE USA,,Wikipedia (698.50 / 434.03),gregwapling.com + drylakesracersaustralia.org.au (434.36 / 434.02 mph)
+1964-10-13,jet,754.33,468.72,CRAIG BREEDLOVE,SPIRIT OF AMERICA,BONNEVILLE USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1964-10-15,jet,846.96,526.28,CRAIG BREEDLOVE,SPIRIT OF AMERICA,BONNEVILLE USA,,Wikipedia (846.961),gregwapling.com + drylakesracersaustralia.org.au (526.277 mph)
+1964-10-27,jet,863.75,536.71,ART ARFONS,GREEN MONSTER,BONNEVILLE USA,5 RECORDS IN 25 DAYS,Wikipedia (863.751 / 536.710),drylakesracersaustralia.org.au (536.710 mph)
+1965-11-02,jet,893.97,555.49,CRAIG BREEDLOVE,SPIRIT OF AMERICA SONIC 1,BONNEVILLE USA,,Wikipedia,gregwapling.com + drylakesracersaustralia.org.au
+1965-11-07,jet,927.87,576.55,ART ARFONS,GREEN MONSTER,BONNEVILLE USA,,Wikipedia (927.872 / 576.553),drylakesracersaustralia.org.au (576.553 mph)
+1965-11-15,jet,966.57,600.60,CRAIG BREEDLOVE,SPIRIT OF AMERICA SONIC 1,BONNEVILLE USA,FIRST OVER 600 MPH,FIA historic outright records (966.574 / 600.601),drylakesracersaustralia.org.au (600.601 mph)
+1970-10-23,jet,1014.50,630.39,GARY GABELICH,BLUE FLAME (ROCKET),BONNEVILLE USA,FIRST OVER 1000 KM/H,FIA historic outright records (1014.496 / 630.388),gregwapling.com (1014.52 / 630.389)
+1983-10-04,jet,1019.47,633.47,RICHARD NOBLE,THRUST2,BLACK ROCK USA,,FIA historic outright records (1019.47 / 633.468),gregwapling.com + drylakesracersaustralia.org.au
+1997-09-25,jet,1148.26,713.50,ANDY GREEN,THRUSTSSC,BLACK ROCK USA,,gregwapling.com (1148.26 / 713.496),drylakesracersaustralia.org.au (1148.26) + Wikipedia (1149.06)
+1997-10-15,jet,1227.99,763.04,ANDY GREEN,THRUSTSSC,BLACK ROCK USA,MACH 1.02 - SUPERSONIC,FIA world land speed records (1227.985 / 763.035 mph),Guinness World Records (1227.985 / 763.035 / Mach 1.020)
