@@ -1,0 +1,47 @@
+1
+00:00:00,000 --> 00:00:04,335
+Those thin lines on your back window? Every one of them is a heater.
+
+2
+00:00:04,505 --> 00:00:09,548
+They're not wires. They're silver paste, printed onto the inside of the glass.
+
+3
+00:00:09,718 --> 00:00:15,236
+At the factory, the glass goes into an oven, and the silver fuses into its surface.
+
+4
+00:00:15,406 --> 00:00:20,135
+Down each side runs a wider strip of silver, called a bus bar.
+
+5
+00:00:20,305 --> 00:00:25,464
+Press the defrost button, and twelve volts from the battery feed one bar.
+
+6
+00:00:25,634 --> 00:00:30,561
+The current splits and runs across every line at once, to the other bar.
+
+7
+00:00:30,731 --> 00:00:36,122
+Each line is thin, so it resists the current, and that resistance becomes heat.
+
+8
+00:00:36,292 --> 00:00:44,133
+The glass climbs above zero Celsius, thirty-two Fahrenheit, and the ice melts outward from each line.
+
+9
+00:00:44,303 --> 00:00:48,638
+The lines are spaced just right, so their warm bands meet in the middle.
+
+10
+00:00:48,808 --> 00:00:54,826
+They're wired side by side, so one scratched line leaves just one frosty stripe.
+
+11
+00:00:54,996 --> 00:00:58,947
+Silver line plus current equals a heater you can see through.
+
+12
+00:00:59,117 --> 00:01:04,910
+Cogwise: how things work. Follow for the next one!
