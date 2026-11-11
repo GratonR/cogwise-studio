@@ -77,7 +77,7 @@ def ep_for(episodes, platform, key=None, text="", date=None):
     """Match a post to an episode slug: by id/link in episodes.links, else by title words, else by date."""
     field = {"YouTube": "youtube", "Facebook": "facebook", "Instagram": "instagram", "TikTok": "tiktok", "X": "x"}[platform]
     for slug, e in episodes.items():
-        link = str((e.get("links") or {}).get(field) or "") + " " + str((e.get("links_v1") or {}).get(field) or "")
+        link = " ".join(str((e.get(k) or {}).get(field) or "") for k in ("links", "links_v1", "links_repost"))
         if key and key in link:
             return slug
     t = (text or "").lower()
@@ -348,6 +348,11 @@ def main():
     buffer = {"month": month, "stats_runs": runs, "posts_sent": sent_this_month,
               "calls_estimated": runs + sent_this_month * 6, "limit_30d": 3000, "limit_24h": 600}
     paris = now.astimezone(dt.timezone(dt.timedelta(hours=1)))
+    for p in posts.values():   # flag reposts (episodes.links_repost holds the repost's link per platform)
+        e = episodes.get(p.get("episode") or "") or {}
+        rl = str(((e.get("links_repost") or {}).get(p["platform"].lower())) or "")
+        vid = str(p.get("link") or "").rstrip("/").split("/")[-1]
+        if rl and vid and vid in rl: p["repost"] = True
     snap = {"channel": CH, "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "date": paris.date().isoformat(), "followers": followers,
             "totals": totals, "posts": posts, "yt_daily": yt_daily, "buffer": buffer, "calls": CALLS, "errors": ERRORS,
             "sources": "YouTube : API + Analytics · Facebook et Instagram : API Meta · TikTok, X : API Buffer" + ("" if bf else " (pas de clé Buffer : TikTok et X non relevés)")}

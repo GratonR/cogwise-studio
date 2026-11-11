@@ -245,6 +245,8 @@ def main():
     if a.yt_category:
         K["YT_CATEGORY"] = a.yt_category
     plats = [p.strip() for p in a.platforms.split(",") if p.strip()]
+    if d.get("platforms") and a.platforms == ap.get_default("platforms"):
+        plats = [p for p in d["platforms"] if p in plats]   # a repost draft targets only the platform(s) where the original died
     res = {"slug": d.get("slug"), "links": {}, "ids": {}, "errors": {}, "pinned": {}, "notes": []}
     if a.dry_run:
         res["notes"].append("dry-run : clés présentes " + ", ".join(sorted(k for k in K if K[k])))
