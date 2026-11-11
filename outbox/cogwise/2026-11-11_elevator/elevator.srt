@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,973
+Your elevator motor barely lifts anything. The iron behind the wall does.
+
+2
+00:00:05,143 --> 00:00:08,491
+It's a stack of iron blocks on the other end of the cable.
+
+3
+00:00:08,661 --> 00:00:14,145
+The cable runs over a grooved wheel: car on one side, iron on the other.
+
+4
+00:00:14,315 --> 00:00:19,300
+That counterweight equals the empty car, plus about half the load it can carry.
+
+5
+00:00:19,470 --> 00:00:25,546
+Take a one-thousand-kilo car, twenty-two hundred pounds, built to carry a thousand more.
+
+6
+00:00:25,716 --> 00:00:31,072
+Its counterweight is about fourteen hundred fifty kilos, thirty-two hundred pounds.
+
+7
+00:00:31,242 --> 00:00:37,168
+Like a seesaw, the two sides almost cancel. The motor only lifts the difference.
+
+8
+00:00:37,338 --> 00:00:43,878
+Half full, that difference is just fifty kilos, a hundred ten pounds. One passenger.
+
+9
+00:00:44,048 --> 00:00:49,509
+Even packed, it only hauls the extra five hundred fifty kilos, twelve hundred pounds.
+
+10
+00:00:49,679 --> 00:00:54,258
+And empty? The iron is heavier, so the car wants to rise on its own.
+
+11
+00:00:54,428 --> 00:00:59,819
+Going up empty, the motor holds it back, and newer drives turn that into electricity.
+
+12
+00:00:59,989 --> 00:01:06,193
+Elevator equals seesaw. The iron does the lifting; the motor just tips the balance.
+
+13
+00:01:06,363 --> 00:01:12,563
+Cogwise: how things work. Follow for the next one!
