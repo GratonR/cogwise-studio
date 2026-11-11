@@ -1,0 +1,41 @@
+country,lat,lon,spread_deg,region,births_2023,source
+India,22.5,79,6,asia,23251360,UN WPP 2024 share of 2023 world births 17.6% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+China,31,113,7,asia,8891003,UN WPP 2024 share of 2023 world births 6.73% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Nigeria,9,8,3,africa,7503848,UN WPP 2024 share of 2023 world births 5.68% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Pakistan,29,70,3.5,asia,6882931,UN WPP 2024 share of 2023 world births 5.21% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Indonesia,-5,112,6,asia,4478529,UN WPP 2024 share of 2023 world births 3.39% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+DR Congo,-3,23,5,africa,4359630,UN WPP 2024 share of 2023 world births 3.3% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Ethiopia,9,39,3.5,africa,4108621,UN WPP 2024 share of 2023 world births 3.11% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+United States,38,-92,9,americas,3659447,UN WPP 2024 share of 2023 world births 2.77% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Bangladesh,23.8,90.3,1.5,asia,3487704,UN WPP 2024 share of 2023 world births 2.64% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Brazil,-15,-46,7,americas,2602567,UN WPP 2024 share of 2023 world births 1.97% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Egypt,28,31,2,africa,2404402,UN WPP 2024 share of 2023 world births 1.82% x 132.11 M (via Wikipedia 'List of countries by number of births' / OWID)
+Tanzania,-6,35,3.5,africa,2414825,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Mexico,21,-100,4,americas,2055302,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Philippines,13,122,2.5,asia,1855699,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Uganda,1.5,32.5,2,africa,1760581,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Sudan,14,31,3.5,africa,1695690,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Kenya,-0.5,37,2.5,africa,1529671,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Afghanistan,34,67,3,asia,1511299,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Yemen,15,45,2,asia,1428892,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Angola,-11,17,3.5,africa,1424053,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Viet Nam,16,106,2.5,asia,1396760,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Mozambique,-17,36,3.5,africa,1298206,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Russia,55,40,6,europe,1234391,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+South Africa,-28,26,3.5,africa,1201734,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Iran,33,53,4,asia,1185893,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Iraq,33,44,2.5,asia,1184568,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Niger,14,8,3,africa,1132441,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Madagascar,-19,47,2.5,africa,1025915,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Ivory Coast,7,-5.5,2,africa,1021576,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Cameroon,5,12,2.5,africa,982722,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Mali,13,-6,3,africa,979853,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Uzbekistan,41,64,3,asia,962316,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Turkey,39,33,3.5,asia,957809,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Algeria,35,3,3,africa,918730,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Myanmar,20,96,3,asia,909933,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Ghana,7,-1,2,africa,905785,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Chad,12,17,3,africa,860601,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Somalia,4,45,3,africa,816709,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+Burkina Faso,12,-1.5,2,africa,745154,"World Bank (UN WPP-based) births, Wikipedia 'List of countries by number of births' (retrieved 2026-11-11)"
+OTHER (rest of world),,,,density,25082850,132.11 M (UN WPP 2024) minus listed countries; placed on a population-density proxy map
