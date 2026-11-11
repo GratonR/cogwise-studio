@@ -1,0 +1,35 @@
+{
+  "slug": "elevator",
+  "title": "Your elevator motor barely lifts anything \ud83d\uded7",
+  "description": "A stack of iron on the other end of the cable does the lifting. The motor only moves the difference.\n\n#Shorts #howthingswork #elevator #engineering #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "elevator",
+    "engineering",
+    "physics",
+    "cogwise"
+  ],
+  "sources": [
+    "https://tkelevator.com/us-en/tools/classroom-on-demand/counterweights.html",
+    "https://www.explainthatstuff.com/how-elevators-work.html",
+    "https://habitatmag.com/Publication-Content/Green-Ideas/2014/2014-November/Ask-Habitat-Elevator-Regen-Drives"
+  ],
+  "duration": 72.61,
+  "words": 173,
+  "beat_starts": [
+    0.0,
+    5.143,
+    8.661,
+    14.315,
+    19.47,
+    25.716,
+    31.242,
+    37.338,
+    44.048,
+    49.679,
+    54.428,
+    59.989,
+    66.363
+  ]
+}

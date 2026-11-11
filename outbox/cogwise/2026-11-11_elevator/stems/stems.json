@@ -1,0 +1,41 @@
+{
+  "duration": 72.6,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "elevator",
+  "title": "Your elevator motor barely lifts anything 🛗",
+  "beat_starts": [
+    0.0,
+    5.143,
+    8.661,
+    14.315,
+    19.47,
+    25.716,
+    31.242,
+    37.338,
+    44.048,
+    49.679,
+    54.428,
+    59.989,
+    66.363
+  ]
+}
