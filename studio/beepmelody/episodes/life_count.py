@@ -84,8 +84,9 @@ def rec_index(T):
 # ================= music plan (step-2 B) =================
 def mtof(m): return 440.0 * 2 ** ((m - 69) / 12)
 PENTA = [0, 2, 4, 7, 9]
-def pitch(i, base=60):                                        # 10^0 -> 10^31 on 4 octaves of major pentatonic
-    k = int(round(REC[i]["e"] / EMAX * 20)); return base + 12 * (k // 5) + PENTA[k % 5]
+def pitch(i, base=48):                                        # v4: 10^0 -> 10^31 on C3..E5 only (no shrill top)
+    k = int(round(REC[i]["e"] / EMAX * 12)); return base + 12 * (k // 5) + PENTA[k % 5]
+PMAX = 76
 ROOTS = [45, 41, 36, 43]                                      # Am F C G
 EV = []
 def ev(t, kind, **kw): EV.append((t, kind, kw))
@@ -97,23 +98,28 @@ def build():
         outro = t >= T_END
         if abs(t - (T_DROP - BEAT)) < 1e-6: continue           # one beat of silence before the drop
         if t < T_END - 1e-6 and t >= T_DROP - BEAT and t < T_DROP: continue
-        if b >= 4 or outro: ev(t, "kick", v=0.62 if t >= T_DROP else 0.55)
-        ev(t + BEAT / 2, "shaker", v=0.05)
-        if t >= RT[I_SHEEP] - 1e-6 and pos in (1, 3): ev(t, "clap", v=0.16)
-        if t >= RT[I_CELLS] - 1e-6:
-            for s in (1, 3): ev(t + s * BEAT / 4, "hat", v=0.03)
+        if b >= 2 or outro: ev(t, "kick", v=0.66 if t >= T_DROP else 0.6)
+        ev(t + BEAT / 2, "shaker", v=0.06)
+        if t >= RT[0] - 1e-6:                                     # v4: more pulse from the first count
+            ev(t + BEAT / 2, "ohat", v=0.07)
+            for s in (1, 3): ev(t + s * BEAT / 4, "hat", v=0.045 if t >= RT[I_CELLS] else 0.03)
+            if pos in (1, 3): ev(t, "clap", v=0.2)
+            for off in {0: (.75,), 1: (.5,), 2: (.75,), 3: (.25, .5)}[pos]:   # syncopated wood perc
+                ev(t + off * BEAT, "perc", m=(76 if off == .75 else 69), v=0.09)
+        if t >= RT[I_CELLS] - 1e-6 and pos == 3: ev(t + .75 * BEAT, "clap", v=0.1)
         if pos == 0 and b >= 4 and not (t_riser <= t < T_DROP):
             for q, off in enumerate((0, .75, 1.5, 2.5, 3.25)):   # rolling log-drum bass
-                ev(t + off * BEAT, "logb", m=ro + (12 if q == 3 else 0), v=0.2)
+                ev(t + off * BEAT, "logb", m=ro + (12 if q == 3 else 0), v=0.26)
         if pos == 0: ev(t, "chord", m=ro + 24, minor=(bar % 4 == 0), d=4 * BEAT, v=0.07)
     for i, t in enumerate(RT):
         m = pitch(i)
-        ev(t, "mar", m=m, v=0.42); ev(t + 3 * BEAT / 4, "mar", m=m, v=0.12)     # note + echo
+        ev(t, "mar", m=m, v=0.46); ev(t + BEAT / 2, "mar", m=m, v=0.14)          # note + 8th echo
+        if step_beats(i) >= 2: ev(t + 3 * BEAT / 4, "mar", m=m, v=0.08)
         if i in HOLD8: ev(t, "crash", v=0.12)
     ev(t_riser, "riser", d=4 * BEAT - 0.05, v=0.14)
     ev(T_DROP, "crash", v=0.35); ev(T_DROP, "boom", v=0.5)
     for k, d in enumerate([0, 7, 12, 16, 19, 24]):            # rising arpeggio on the last count
-        ev(T_DROP + (k + 1) * BEAT / 2, "mar", m=pitch(N - 1) - 12 + d, v=0.26)
+        ev(T_DROP + (k + 1) * BEAT / 2, "mar", m=min(PMAX, pitch(N - 1) - 24 + d), v=0.26)
     EV.sort(key=lambda e: e[0])
 build()
 KICKS = sorted(t for t, k, _ in EV if k == "kick")
@@ -170,6 +176,11 @@ def swarm(c, T):
         x = 14 + u * 152; y = 70 + v * 138
         d.point((int(x), int(y)), fill=DOT if j < n - 60 else HOT if T - RT[k] < 0.4 else DOT)
 
+def label_lines(lb, per=20):
+    if len(lb) <= per: return [lb]
+    cut = lb.find(" (") if " (" in lb else lb.rfind(" ", 0, per + 1)
+    return [lb[:cut], lb[cut + 1:]]
+
 def number_wall(c, T):
     W = c.t; k = rec_index(T); r = REC[k]; age = T - RT[k]
     s = ("~" if r["big"].startswith(("~", "UP", "30-")) else "") + r["full"]
@@ -178,10 +189,14 @@ def number_wall(c, T):
         if len(s) <= per: lines.append(s); break
         cut = s.rfind(",", 0, per + 1); cut = cut + 1 if cut > 0 else per
         lines.append(s[:cut]); s = s[cut:]
-    y0 = 300 - len(lines) * 22
+    y0 = 292 - len(lines) * 22
     h = len(lines) * 44 + 12
-    W.rectangle([12, y0 - 8, 348, y0 - 8 + h], fill=CREAM)
-    W.rectangle([12, y0 - 8, 348, y0 - 7], fill=GOLD); W.rectangle([12, y0 - 9 + h, 348, y0 - 8 + h], fill=GOLD)
+    lab = label_lines(r["label"]); lh = len(lab) * 40 + 10        # v4: the name, BIG, right above the number
+    W.rectangle([12, y0 - 8 - lh, 348, y0 - 8 + h], fill=CREAM)
+    W.rectangle([12, y0 - 8 - lh, 348, y0 - 7 - lh], fill=GOLD); W.rectangle([12, y0 - 9 + h, 348, y0 - 8 + h], fill=GOLD)
+    for j, ln in enumerate(lab):
+        text(W, 180, y0 - 4 - lh + j * 40, ln, size=40, fill=HOT if age < 0.2 else GREEN, align="c")
+    W.rectangle([60, y0 - 10, 300, y0 - 9], fill=GRID)
     shown = int(len("".join(lines)) * ease(age / 0.35)) if age < 0.35 else 10 ** 6
     cnt = 0
     for j, ln in enumerate(lines):
@@ -314,8 +329,17 @@ def render_audio(path):
         v = kw.get("v", 0.3)
         if k == "mar":
             m_ = int(0.9 * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"])
-            x = np.sin(2 * np.pi * f * tt) + 0.35 * np.sin(2 * np.pi * f * 3.93 * tt) * np.exp(-tt * 30)
-            put(t, x * env(m_, 0.001, 0.25) * v, pan=-0.1, send=0.25)
+            hi = min(1.0, max(0.0, (kw["m"] - 60) / 16))              # v4: higher note -> softer, rounder
+            x = np.sin(2 * np.pi * f * tt) + 0.35 * (1 - 0.8 * hi) * np.sin(2 * np.pi * f * 3.93 * tt) * np.exp(-tt * 30)
+            x = x + 0.25 * np.sin(np.pi * f * tt) * hi                 # sub-octave body on the high ones
+            put(t, x * env(m_, 0.004 + 0.006 * hi, 0.25) * v * (1 - 0.3 * hi), pan=-0.1, send=0.25)
+        elif k == "ohat":
+            m_ = int(0.12 * SR)
+            x = lfilter(*butter(2, 7000 / (SR / 2), "high"), rng.standard_normal(m_)) * np.exp(-np.arange(m_) / SR * 30)
+            put(t, x * v, pan=0.2)
+        elif k == "perc":
+            m_ = int(0.12 * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"])
+            put(t, v * np.sin(2 * np.pi * f * tt) * np.exp(-tt * 40), pan=0.45)
         elif k == "kick":
             m_ = int(0.4 * SR); tt = np.arange(m_) / SR
             put(t, v * 0.55 * np.sin(2 * np.pi * np.cumsum(110 * np.exp(-tt * 22) + 52) / SR) * np.exp(-tt * 9))
@@ -352,6 +376,11 @@ def render_audio(path):
         fc = min(cutoff(i0 / SR), SR / 2 - 200)
         seg = pad[max(0, i0 - 4096):i0 + blk]
         out[i0:i0 + blk] = lfilter(*butter(2, fc / (SR / 2)), seg)[-len(pad[i0:i0 + blk]):]
+    pump = np.ones(n)                                             # v4: sidechain pump on the chords
+    for tk in KICKS:
+        i0 = int(tk * SR); m_ = min(n - i0, int(BEAT * SR))
+        if m_ > 0: pump[i0:i0 + m_] = np.minimum(pump[i0:i0 + m_], 1 - 0.7 * np.exp(-np.arange(m_) / SR / 0.09))
+    out *= pump
     L += out; R += out
     rv = fx.copy()
     for dl, g in [(.071, .5), (.113, .44), (.173, .37), (.241, .3), (.331, .24), (.449, .17), (.607, .12)]:
