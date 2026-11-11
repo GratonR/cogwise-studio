@@ -378,6 +378,28 @@ def main():
                 json.dump({"used": used, "limit": lim, "projected": proj, "reset": snap["elevenlabs"]["reset"]},
                           open(os.path.join(a.out, "elevenlabs_alert.json"), "w", encoding="utf-8"))
     json.dump(snap, open(os.path.join(a.out, "snapshot.json"), "w", encoding="utf-8"), ensure_ascii=False)
+    # Repost candidates (protocol of 11 Nov): a post still under the threshold 48 h after the episode came out,
+    # while the same episode passed the threshold elsewhere (the video is fine, the platform didn't push it),
+    # on a platform where the channel is already alive (one post above the threshold), not reposted there yet.
+    TH = {"TikTok": 50, "Instagram": 30, "YouTube": 20, "Facebook": 20}
+    alive = {pl for pl in TH if any(q["platform"] == pl and (q.get("views") or 0) >= TH[pl] for q in posts.values())}
+    OFF = {"Facebook"}   # 11 Nov: Facebook reach collapsed for every episode since 5 Nov -> investigate first, no reposts
+    cands, seen = [], set()
+    for slug, e in episodes.items():
+        if e.get("private") or e.get("hidden") or not e.get("date"): continue
+        try: age = (paris.date() - dt.date.fromisoformat(str(e["date"])[:10])).days
+        except ValueError: continue
+        if age < 2: continue
+        mine = [q for q in posts.values() if q.get("episode") == slug and not q.get("repost")]
+        good = {q["platform"]: q.get("views") for q in mine if q["platform"] in TH and (q.get("views") or 0) >= TH[q["platform"]]}
+        for q in mine:
+            pl = q["platform"]
+            if pl not in TH or pl in OFF or not good or pl in good or pl not in alive or (slug, pl) in seen: continue
+            seen.add((slug, pl))
+            if (e.get("links_repost") or {}).get(pl.lower()): continue
+            cands.append({"episode": slug, "platform": pl, "views": q.get("views") or 0, "age_days": age, "elsewhere": good,
+                          "video": (e.get("links") or {}).get("video"), "titre": e.get("titre"), "court": e.get("court")})
+    json.dump(cands, open(os.path.join(a.out, "repost_candidates.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=1)
     # small side documents: meta/retention (curves) and daily/<date> (totals + followers, for the history chart)
     json.dump({"at": snap["at"], "curves": retention}, open(os.path.join(a.out, "retention.json"), "w", encoding="utf-8"), ensure_ascii=False)
     json.dump({"channel": CH, "date": snap["date"], "at": snap["at"], "totals": totals, "followers": followers, "yt_daily": yt_daily},
