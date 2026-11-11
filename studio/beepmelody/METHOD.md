@@ -8,6 +8,13 @@ Format du registre : `data-sonification` (`studio/FORMATS.json`). Moteur réutil
 `studio/this-melody-is/engine` (v2.py, pi.py, pi_audio.py). **On ne modifie pas ces fichiers** ; tout ce qui est
 propre à BeepMelody vit dans `studio/beepmelody/episodes/`.
 
+## Référence d'inspiration (Guillaume, 11 nov.) — `studio/beepmelody/references/this-melody-is-us/`
+La vidéo « This Melody Is Us » (moteur `pop4.py`) est l'esprit de la chaîne : **une scène vivante où chaque note se voit arriver
+quelque part** (globe, carte, lieu, objet), la règle « every bip = … » annoncée d'entrée, le rythme qui suit la densité de la donnée,
+des événements dramatiques (boom, écran rouge), un HUD discret et des jalons qui claquent. Lis son README avant de proposer des angles.
+À éviter : un épisode qui n'est qu'un tableau, des barres ou une courbe. Le graphe reste un petit repère, jamais le cœur de l'image.
+Dans chaque carte « Données et titre », au moins une option doit être une scène de ce type.
+
 ## Règles non négociables
 - **Jamais de publication sans le « go »** dans le Control Room (carte de validation).
 - **Durée : 62 à 75 s** (cible 64–70 s). Jamais sous 62 s (rémunération TikTok > 1 min, marge contre le rognage). Trop court → un événement ou un palier de plus ; trop long → on retire des événements, on ne change pas le tempo pour tricher.
