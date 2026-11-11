@@ -106,3 +106,12 @@ Relever les liens publiés ; une plateforme en échec = une carte « Blocage »,
 ### 11. Journal
 Écrire le document `episodes/<slug>` du Control Room : liens, sources, texte de la voix off (sert à répondre aux commentaires), durée, mode.
 Message final court : liens publiés.
+
+## Retravail (bouton « À retravailler » du Control Room) — PHASE R
+
+Message reçu : « RETRAVAIL (PHASE R) : Guillaume a cliqué « À corriger » / « À retravailler » sur l'épisode <slug> … Sa remarque : … ».
+- On retravaille **le même épisode** (même idée, même slug, même dossier outbox). Jamais de carte `choose_topic`, jamais d'autres sujets proposés, jamais « en banque ».
+- Le brouillon porte `drafts/<slug>.rework = {note, asked_at, request, done:false}` : il ne doit être ni planifié ni publié tant que `done` est false (le Planner l'ignore).
+- Remarque sur le **fond** (sujet, angle, pas assez de données/stats, musique pas intéressante) : reprendre le co-pilote à l'étape concernée (1 = angle/données, 2 = ambiance, 3 = visuel) avec une carte `decision` qui propose 3 nouvelles pistes **pour cette même idée**, en tenant compte de la remarque mot pour mot.
+- Retouche **simple** (texte, timing, une valeur) : corriger directement, re-rendre.
+- À la fin : nouvelle carte `validate_video` (même slug), `rework.done = true`, `rework.done_at`.

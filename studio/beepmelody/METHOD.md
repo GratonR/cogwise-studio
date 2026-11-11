@@ -73,5 +73,14 @@ propre à BeepMelody vit dans `studio/beepmelody/episodes/`.
 9. **Validation (obligatoire)** : carte dans le Control Room (`channel:"beepmelody"`) avec vidéo, durée, sources, contrôle effectué, textes par plateforme écrits par **Bip** (voir PERSONA.md), chaque légende finissant par une question (pas de commentaire épinglé depuis le 10 nov.). Notification push. **Attendre le « go ».**
 10. Publication et journal : seulement après le « go », par la tâche de publication de la chaîne (à brancher, voir README.md).
 
+## Retravail (bouton « À retravailler » du Control Room) — PHASE R
+
+Message reçu : « RETRAVAIL (PHASE R) : Guillaume a cliqué « À corriger » / « À retravailler » sur l'épisode <slug> … Sa remarque : … ».
+- On retravaille **le même épisode** (même idée, même slug, même dossier outbox). Jamais de carte `choose_topic`, jamais d'autres sujets proposés, jamais « en banque ».
+- Le brouillon porte `drafts/<slug>.rework = {note, asked_at, request, done:false}` : il ne doit être ni planifié ni publié tant que `done` est false (le Planner l'ignore).
+- Remarque sur le **fond** (sujet, angle, pas assez de données/stats, musique pas intéressante) : reprendre le co-pilote à l'étape concernée (1 = angle/données, 2 = ambiance, 3 = visuel) avec une carte `decision` qui propose 3 nouvelles pistes **pour cette même idée**, en tenant compte de la remarque mot pour mot.
+- Retouche **simple** (texte, timing, une valeur) : corriger directement, re-rendre.
+- À la fin : nouvelle carte `validate_video` (même slug), `rework.done = true`, `rework.done_at`.
+
 ## Sources de données acceptées
 Organismes et bases citables : FAI (records aériens), NASA, ESA, USGS, NOAA, ONU (WPP), OMS, Our World in Data (avec la source primaire), Banque mondiale, publications scientifiques (DOI). Wikipedia sert à trouver la source primaire, pas comme source finale.
