@@ -1,0 +1,41 @@
+{
+  "duration": 67.767,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "toenail",
+  "title": "This nail pulls two boards together 🔨",
+  "beat_starts": [
+    0.0,
+    5.921,
+    11.97,
+    16.672,
+    20.665,
+    24.404,
+    28.409,
+    32.716,
+    37.186,
+    42.829,
+    48.529,
+    54.903,
+    61.219
+  ]
+}
