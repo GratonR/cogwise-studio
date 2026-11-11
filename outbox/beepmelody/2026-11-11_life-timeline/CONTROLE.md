@@ -22,3 +22,7 @@ Durée calculée : 66,9 s (intro 4,6 · microbes 16,2 · Cambrien→Permien 15,0
 - Axes : frise 4,54 Ga → maintenant de gauche à droite ; zoom 540 Ma → maintenant ; étiquettes % alternées en hauteur (96 % et 80 % se chevauchaient).
 - Lisibilité : libellés 00:00/06:00/12:00/18:00 éloignés du cadran (ils mordaient sur le bord) ; bannières déplacées entre cadran et frise ; rien de coupé.
 - Unités : âges en millions/milliards d'années (pas d'équivalent US pertinent). Estimations marquées « ~ » / « est. ». Aucun mot sur la fabrication.
+
+## Étape 4 — rendu final, variante nuit (décision 3 de Guillaume : « dark »)
+- `LIFE_DARK=1` : mêmes données, même mise en page ; frames relues à 2,6 / 21,3 / 34,0 / 51,3 / 55,0 / 62 s : contrastes OK, rouge des extinctions lisible, rien de coupé.
+- Rendu final 1080×1920 h264 + AAC, ffprobe 66,93 s (fenêtre 62–75 s OK). Planche contact (1 image / 5 s) relue : horloges = CSV (ex. 518 Ma → 21:15:42).
