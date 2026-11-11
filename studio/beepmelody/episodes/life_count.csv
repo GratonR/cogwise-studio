@@ -1,29 +1,29 @@
 label,value,big,source_1,source_2,check
-VAQUITAS,10,~10 (6-8 SEEN),CIRVA / IUCN-CSG Vaquita Survey 2024 report,Sea Shepherd 2024 survey executive summary,provisoire
-JAVAN RHINOS,50,~50,Ujung Kulon NP / Indonesian police investigation 2024 (Phys.org/AFP),Save the Rhino / IRF State of the Rhino 2024,provisoire
-KAKAPOS,244,244,New Zealand Department of Conservation kakapo count,Kakapo Recovery,provisoire
-MOUNTAIN GORILLAS,1063,"1,063",IUCN Red List (Gorilla beringei beringei),WWF / IGCP census 2018,provisoire
-GIANT PANDAS (WILD),1864,"1,864",China 4th national panda survey 2015 (via WWF),IUCN Red List,provisoire
-WILD TIGERS,5574,"5,574",Global Tiger Forum 2022,IUCN Red List 2022,provisoire
-LIONS,23000,"~23,000",IUCN Red List 2015 (Panthera leo),Panthera / Bauer et al. 2016 PNAS,provisoire
-POLAR BEARS,26000,"~26,000",IUCN/SSC Polar Bear Specialist Group,Polar Bears International,provisoire
-HUMPBACK WHALES,84000,"~84,000",NOAA Fisheries,International Whaling Commission,provisoire
-CHIMPANZEES,300000,"~300,000",IUCN Red List (Pan troglodytes 172k-300k),WWF / Jane Goodall Institute,provisoire
-AFRICAN ELEPHANTS,415000,"~415,000",IUCN African Elephant Status Report 2016,WWF,provisoire
-SHEEP,1300000000,1.3 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),provisoire
-CATTLE,1550000000,1.5 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),provisoire
-HOUSE SPARROWS,1600000000,1.6 BILLION,Callaghan et al. 2021 PNAS,National Geographic 2021,provisoire
+VAQUITAS,10,~10,CIRVA / IUCN-CSG Vaquita Survey 2024 report (6-8 seen; est. ~10),Sea Shepherd 2024 survey executive summary,ok
+JAVAN RHINOS,50,~50,IRF State of the Rhino 2025 (~50; down from 76),Phys.org / AFP 2024 (Ujung Kulon poaching investigation),ok
+KAKAPOS,325,325,NZ Department of Conservation media release 1 Sep 2026 (325),Otago Daily Times / Boston Globe Sep 2026,ok
+MOUNTAIN GORILLAS,1063,"1,063",IUCN Red List (Gorilla beringei beringei),WWF / IGCP census 2018,ok
+GIANT PANDAS (WILD),1864,"1,864",China 4th national panda survey 2015 (via WWF),IUCN Red List,ok
+WILD TIGERS,5500,"~5,500","IUCN Red List 2022 (3,726-5,578)","Global Tiger Forum 2023 (5,574) / WCS statement",ok
+LIONS,23000,"~23,000",IUCN Red List 2015 (Panthera leo),Panthera / Bauer et al. 2016 PNAS,ok
+POLAR BEARS,26000,"~26,000",IUCN/SSC Polar Bear Specialist Group,Polar Bears International,ok
+HUMPBACK WHALES,84000,"~84,000 ADULTS","IUCN Red List 2018 (84,000 mature individuals)",NOAA Fisheries humpback species page,ok
+CHIMPANZEES,300000,"UP TO 300,000","IUCN Red List (172,700-299,700)",WWF / Jane Goodall Institute,ok
+AFRICAN ELEPHANTS,415000,"~415,000",IUCN African Elephant Status Report 2016,WWF,ok
+SHEEP,1300000000,1.3 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),ok
+CATTLE,1550000000,1.5 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),ok
+HOUSE SPARROWS,1600000000,1.6 BILLION,Callaghan et al. 2021 PNAS,National Geographic 2021,ok
 HUMANS,8200000000,8.2 BILLION,UN World Population Prospects 2024,UN DESA / UN News 2024,ok
-CHICKENS,26000000000,~26 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),provisoire
+CHICKENS,26000000000,~26 BILLION,FAOSTAT live animals 2022,Our World in Data (FAO),ok
 WILD BIRDS,50000000000,~50 BILLION,Callaghan et al. 2021 PNAS,National Geographic 2021 / UNSW,ok
 TREES,3040000000000,~3 TRILLION,Crowther et al. 2015 Nature,Yale School of the Environment 2015,ok
-HUMAN CELLS (ONE BODY),37000000000000,~37 TRILLION,Bianconi et al. 2013 Ann. Hum. Biol.,Sender et al. 2016 PLoS Biol.,provisoire
-GUT BACTERIA (ONE BODY),38000000000000,~38 TRILLION,Sender et al. 2016 PLoS Biol.,Weizmann Institute 2016,provisoire
-ANTARCTIC KRILL,500000000000000,~500 TRILLION,Australian Antarctic Division (krill),Atkinson et al. 2009 MEPS (biomass),provisoire
+HUMAN CELLS (ONE BODY),37000000000000,30-37 TRILLION,Bianconi et al. 2013 Ann. Hum. Biol. (37.2 T),Sender et al. 2016 PLoS Biol. (~30 T),ok
+GUT BACTERIA (ONE BODY),38000000000000,~38 TRILLION,Sender et al. 2016 PLoS Biol.,Weizmann Institute 2016,ok
+ANTARCTIC KRILL,500000000000000,~500 TRILLION,Australian Antarctic Division (krill),Atkinson et al. 2009 MEPS (biomass),ok
 ANTS,20000000000000000,~20 QUADRILLION,Schultheiss et al. 2022 PNAS,Phys.org / Univ. Hong Kong 2022,ok
-INSECTS,10000000000000000000,~10 QUINTILLION,Smithsonian Institution (BugInfo),Williams 1964 / Entomological estimates,provisoire
-NEMATODES (SOIL),440000000000000000000,~4.4×10^20,van den Hoogen et al. 2019 Nature,Crowther lab ETH Zurich 2019,provisoire
-PROCHLOROCOCCUS,2900000000000000000000000000,~3×10^27,Flombaum et al. 2013 PNAS,BioNumbers (Harvard) 112100,provisoire
-SAR11 (PELAGIBACTER),24000000000000000000000000000,~2.4×10^28,Morris et al. 2002 Nature,BioNumbers (Harvard),provisoire
+INSECTS,10000000000000000000,~10 QUINTILLION,Smithsonian Institution (BugInfo),Williams 1964 / Entomological estimates,ok
+NEMATODES (SOIL),440000000000000000000,~4.4 x 10^20,van den Hoogen et al. 2019 Nature,Crowther lab ETH Zurich 2019,ok
+PROCHLOROCOCCUS,2900000000000000000000000000,~3 x 10^27,Flombaum et al. 2013 PNAS,BioNumbers (Harvard) 112100,ok
+SAR11 (PELAGIBACTER),24000000000000000000000000000,~2.4 x 10^28,Morris et al. 2002 Nature,BioNumbers (Harvard),ok
 BACTERIA + ARCHAEA,1.2e30,~10^30,Flemming & Wuertz 2019 Nat. Rev. Microbiol.,Whitman et al. 1998 PNAS,ok
-VIRUSES,1e31,~10^31,Suttle 2005 Nature,Mushegian 2020 J. Bacteriol.,provisoire
+VIRUSES,1e31,~10^31,Suttle 2005 Nature,Mushegian 2020 J. Bacteriol.,ok
