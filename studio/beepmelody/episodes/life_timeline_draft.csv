@@ -1,0 +1,35 @@
+mya,label,clock_24h,source
+4540,Earth forms,00:00:00.0,ICS chart 2024 (Hadean base ~4567) ; NatGeo infographic (4.6 Ga)
+3800,first signs of life (est.),03:54:42.8,UC Berkeley Evolution 101 (3.8 Ga) ; LibreTexts Biodiversity ch.10 (3.7-3.85 Ga)
+3500,oldest fossil microbes,05:29:52.1,NatGeo infographic (3.5 Ga) ; UC Berkeley Evolution 101 (3.5 Ga)
+2400,oxygen fills the air,11:18:46.0,"NatGeo infographic (2.4 Ga) ; ICS chart (Siderian, GOE)"
+2300,first Snowball Earth,11:50:29.1,NatGeo infographic ; TO VERIFY
+2000,"first complex cells (eukaryotes, est.)",13:25:38.3,"NatGeo infographic (2.0 Ga) ; LibreTexts (>=2.7 Ga, contested) TO VERIFY"
+1050,first red algae (est.),18:26:57.6,LibreTexts (~1.025 Ga) ; TO VERIFY
+720,Snowball Earth again,20:11:37.8,ICS chart (Cryogenian 720-635) ; TO VERIFY
+575,Ediacaran soft bodies,20:57:37.3,UC Berkeley (555) ; ICS (Ediacaran) TO VERIFY
+538.8,Cambrian explosion,21:09:06.2,ICS chart 2024 (538.8) ; NatGeo (535)
+500,first fish-like vertebrates,21:21:24.6,UC Berkeley (500) ; NatGeo (535) TO VERIFY
+470,plants reach land (est.),21:30:55.5,NatGeo (500) ; UC Berkeley (420) CONFLICT TO VERIFY
+450,arthropods walk on land,21:37:16.1,UC Berkeley (450) ; TO VERIFY
+443.8,EXTINCTION 1 · 86% of species,21:39:14.1,"OWID/Barnosky 2011 (444, 86%) ; ICS 443.8"
+397,first four-legged animals,21:54:04.8,NatGeo (397) ; Niedzwiedzki 2010 Nature TO VERIFY
+372,EXTINCTION 2 · 75% of species,22:02:00.5,"OWID/Barnosky 2011 (360, 75%) ; TO VERIFY date"
+360,"seed plants, first forests",22:05:48.9,UC Berkeley (360) ; LibreTexts (360)
+340,first amphibians,22:12:09.5,NatGeo (340) ; TO VERIFY
+312,first reptiles,22:21:02.4,NatGeo (310) ; TO VERIFY
+251.9,EXTINCTION 3 · 96% of species,22:40:06.1,"ICS 251.902 ; OWID/Barnosky 2011 (250, 96%)"
+233,first dinosaurs,22:46:05.8,NatGeo (250) ; UC Berkeley (225) CONFLICT TO VERIFY
+225,first mammals,22:48:38.1,UC Berkeley (225) ; NatGeo (200) CONFLICT TO VERIFY
+201.4,EXTINCTION 4 · 80% of species,22:56:07.2,"ICS 201.4 ; OWID/Barnosky 2011 (200, 80%)"
+150,"Archaeopteryx, first bird",23:12:25.4,NatGeo (150) ; TO VERIFY
+130,first flowers,23:18:46.0,NatGeo (130) ; UC Berkeley (130)
+66,EXTINCTION 5 · 76% of species,23:39:04.0,"ICS 66.0 ; OWID/Barnosky 2011 (65, 76%) ; UC Berkeley (65)"
+60,first primates,23:40:58.1,NatGeo (60) ; TO VERIFY
+50,whales go back to sea,23:44:08.5,TO VERIFY
+7,first hominins (est.),23:57:46.8,NatGeo (6.5) ; TO VERIFY
+3.2,Lucy walks upright,23:58:59.1,UC Berkeley ; TO VERIFY
+2.8,first Homo,23:59:06.7,TO VERIFY
+0.3,Homo sapiens,23:59:54.3,NatGeo (300 000 y) ; Smithsonian Human Origins TO VERIFY
+0.012,farming begins,23:59:59.8,TO VERIFY
+0,today: ~8.7 million species (est.),24:00:00.0,Mora et al. 2011 PLoS Biol ; TO VERIFY
