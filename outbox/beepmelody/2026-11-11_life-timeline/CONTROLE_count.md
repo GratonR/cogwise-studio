@@ -24,3 +24,10 @@ Durée calculée : 64,9 s (122 BPM, intro 8 temps, comptages à 4 → 2 → 1 te
 - `beepmelody_life_v3.mp4` : 1080×1920, ffprobe 64,93 s (fourchette 62–75 s respectée, tempo inchangé 122 BPM).
 - Planche contact `contact_sheet_v3.png` relue : HUD = CSV sur chaque vignette (2/28 ≈50 rhinos → 28/28 ≈10^31 virus, 32 chiffres), bannières « THAT'S US », « ≈370 TREES », « MORE VIRUSES », récap et sources lisibles, rien de coupé.
 - Stems : `stems_v3/` (music).
+
+## v4 (retouches Guillaume, 11 nov.) — contrôle
+- Nom de l'être vivant en GRAND (taille 40, vert, orange au moment de la note) juste au-dessus du nombre, dans le même cadre ; noms longs sur 2 lignes (« HUMAN CELLS / (ONE BODY) »). Rien de coupé (SAR11 (PELAGIBACTER) = 20 car., tient), pas de chevauchement avec les bannières ni le graphe (frames 4,3 / 12,3 / 24,2 / 32,4 / 44,1 / 50,6 / 51,6 / 56 / 64 s relues).
+- Chiffres inchangés = CSV (ex. 1,300,000,000 moutons ; 2,9×10^27 = 28 chiffres ; 10^31 = 32 chiffres).
+- Rythme : kick dès la 1re seconde, clap 2 et 4, open-hat à contretemps, double-croches de charley, percussion bois syncopée, basse log-drum plus forte, pompage (sidechain) des accords, échos de marimba en croches.
+- Hauteur : 10^0→10^31 ramené sur Do3–Mi5 (max MIDI 76 ≈ 659 Hz, contre 108 ≈ 4,2 kHz en v3) ; arpège final plafonné ; timbre adouci sur les notes hautes (moins de partiel métallique, attaque plus douce). Énergie 1–5 kHz sur 46–52 s : 58 % (v3) → 3 % (v4).
+- Durée 64,93 s, piste audio présente, planche contact relue.
