@@ -58,3 +58,11 @@ Commandes : voir `../README.md` (`<ep>` = `altitude`).
 - Contrôle des frames (étape 3) : 812 = 1er avril ; 27 mars en 1236, 1409, 1612 (record jusqu'en 2021) ; 2021 = 26 mars (19 j avant la moyenne) ; 2023 = 25 mars (20 j) ;
   moyenne 1 200 ans = 14 avril ; 812-1899 = 15 avril ; 2020-2026 = 31 mars (≈ 2 semaines) ; 1990s = 6 avril. Axes : haut = plus tôt, annoncé. Rien de coupé (étiquettes d'axe déplacées, libellé « 1,200-YR AVG » retiré car il chevauchait la courbe).
 - Étape 3/4 tranchée : « night » + « une scene en mouvement » → hanami de nuit (panneaux sombres, lune qui monte, étoiles, lanternes, rivière animée, barque, feuillage qui ondule, pétales continus). Données inchangées ; contrôle des frames refait (voir outbox/.../CONTROLE.md). Rendu final 68,73 s.
+
+## life-timeline (co-pilote, 2026-11-11) — « Life on Earth almost ended 5 times. Listen to it come back. »
+- Module `life_timeline.py` + `life_timeline.csv` : 31 événements, 4 540 Ma → aujourd'hui (apparitions des grands groupes + les 5 extinctions de masse), 2 sources par ligne
+  (ICS 2024-12 pour les limites, Barnosky et al. 2011 Nature via OWID pour les %, papiers/musées pour les apparitions). Le brouillon `life_timeline_draft.csv` est conservé pour l'historique.
+- Image : DA claire vert bio, horloge 24 h (« if Earth's history were one day »), frise 4,54 Ga + zoom 540 Ma en bas, extinctions en rouge (flash + secousse + bannière « xx% of species gone », puis « ...and life came back »).
+- Son (co-pilote « Mix A C ») : 104 BPM ; A chaud (marimba, shaker, kick doux, basse ronde Am–F–C–G) avant le Cambrien, groove de C (kick/caisse claire, basse en octaves, kalimba) ensuite ;
+  extinction = coup sourd + note cassée qui tombe + craquement, la rythmique se coupe 2 temps puis revient avec une crash. Avant le Cambrien 1 événement = 4 temps, ensuite 2 temps.
+- 66,9 s. Rendu : `python3 life_timeline.py audio|render|final` (moteur non modifié). Contrôle : outbox/beepmelody/2026-11-11_life-timeline/CONTROLE.md.
