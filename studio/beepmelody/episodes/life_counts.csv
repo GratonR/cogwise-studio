@@ -1,0 +1,11 @@
+kind,at,value,big,label,source_1,source_2
+group,first fish,36000,"~36,000",FISH SPECIES TODAY,Eschmeyer's Catalog of Fishes (California Academy of Sciences; >36000 valid species),FishBase (~36000 species)
+group,first forest,3040000000000,~3 TRILLION,TREES ON EARTH TODAY,Crowther et al. 2015 Nature 525:201 (3.04 trillion),Yale School of the Environment 2015 (3 trillion)
+group,first mammals (est.),6500,"~6,500",MAMMAL SPECIES TODAY,Burgin et al. 2018 J. Mammalogy (6495 species),Mammal Diversity Database (ASM; ~6500+)
+group,first bird (Archaeopteryx),11000,"~11,000",BIRD SPECIES TODAY,IOC World Bird List (~11000 species),BirdLife International / HBW checklist (~11000)
+count,,8700000,~8.7 MILLION,SPECIES ALIVE (EST.),Mora et al. 2011 PLoS Biology (8.7 M +-1.3 M eukaryote species),Dalhousie University 2011 (same census)
+count,,8200000000,8.2 BILLION,HUMANS,UN World Population Prospects 2024 (8.2 bn mid-2024),UN News / UN DESA July 2024
+count,,50000000000,~50 BILLION,WILD BIRDS,Callaghan et al. 2021 PNAS (~50 bn individual birds),National Geographic 2021 / UNSW (same study)
+count,,3040000000000,~3 TRILLION,TREES,Crowther et al. 2015 Nature (3.04 trillion),Yale School of the Environment 2015
+count,,20000000000000000,~20 QUADRILLION,ANTS,Schultheiss et al. 2022 PNAS (2.0e16 ants; conservative),Phys.org / Univ. Hong Kong 2022 (same study)
+count,,1e30,~10^30,MICROBE CELLS,Whitman et al. 1998 PNAS (4-6e30 prokaryote cells),Flemming & Wuertz 2019 Nat. Rev. Microbiology (~1.2e30 bacteria+archaea)

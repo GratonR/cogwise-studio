@@ -1,4 +1,7 @@
-"""BEEPMELODY — LIFE ON EARTH ALMOST ENDED 5 TIMES. LISTEN TO IT COME BACK.
+"""BEEPMELODY — LIFE ALMOST ENDED 5 TIMES. NOW IT COUNTS TO 10^30.
+v2 (Guillaume's correction: the scale of life was missing): 'today' counts on new kinds of life (fish, trees, mammals,
+birds) and a closing count, one note per number, pitch = number of digits: 8.7 M species -> 8.2 bn humans -> 50 bn
+birds -> 3 trillion trees -> 20 quadrillion ants -> 10^30 microbe cells (life_counts.csv, 2 sources per row).
 31 events, 4,540 million years ago -> today: each new kind of life = one marimba note, each of the 'Big Five' mass
 extinctions = one broken note + the groove cuts out, then comes back. A 24 h clock shows where each event falls if
 Earth's history were one day; below, the full 4.54-billion-year line and a zoom on the last 540 million years.
@@ -35,6 +38,10 @@ for r in REC:
     r["lvl"] = lvl; r["nx"] = nx
     r["clock"] = (AGE0 - r["m"]) / AGE0 * 86400.0                  # seconds into the 24 h day
 N = len(REC)
+CNT = list(csv.DictReader(open(os.path.join(HERE, "life_counts.csv"))))
+GROUP = {r["at"]: r for r in CNT if r["kind"] == "group"}       # 'today' scale shown on a new kind of life
+COUNTS = [r for r in CNT if r["kind"] == "count"]                # the closing count: life today, in numbers
+for r in COUNTS: r["lg"] = math.log10(float(r["value"]))
 EXT_NAME = {1: "END ORDOVICIAN", 2: "LATE DEVONIAN", 3: "END PERMIAN", 4: "END TRIASSIC", 5: "END CRETACEOUS"}
 def clk(s, dec=None):
     s = min(s, 86400.0)
@@ -63,18 +70,23 @@ INTRO_B = 8
 STEP_B = 2                                     # one event = 2 beats
 DEEP_B = 4                                     # before the Cambrian, 4 beats: 3 billion years of microbes sound sparse
 EXT_B = 4                                      # an extinction holds 4: the groove cuts out for 2, then slams back
-HOLD_B = 10
-OUTRO_B = 14
+HOLD_B = 2
+COUNT_STEP_B = 2                               # closing count: one number = one note
+COUNT_LAST_B = 8                               # 10^30 rings longer
+OUTRO_B = 10
 RT = []; t_ = INTRO_B * BEAT
 for i, r in enumerate(REC):
     RT.append(t_); t_ += (EXT_B if r["ext"] else DEEP_B if r["m"] > 538.8 else STEP_B) * BEAT
 T_FINAL = RT[-1]
 T_REC_END = T_FINAL + HOLD_B * BEAT
+CT = [T_REC_END + j * COUNT_STEP_B * BEAT for j in range(len(COUNTS))]
+T_COUNT_END = CT[-1] + COUNT_LAST_B * BEAT
 I_CAMB = next(i for i, r in enumerate(REC) if r["m"] == 538.8)
 I_PERM = next(i for i, r in enumerate(REC) if r["m"] == 251.9)
 I_K = next(i for i, r in enumerate(REC) if r["m"] == 66)
 SC = [("intro", RT[0]), ("deep", RT[I_CAMB] - RT[0]), ("boom", RT[I_PERM + 1] - RT[I_CAMB]),
-      ("dinos", RT[I_K + 1] - RT[I_PERM + 1]), ("us", T_REC_END - RT[I_K + 1]), ("outro", OUTRO_B * BEAT)]
+      ("dinos", RT[I_K + 1] - RT[I_PERM + 1]), ("us", T_REC_END - RT[I_K + 1]),
+      ("count", T_COUNT_END - T_REC_END), ("outro", OUTRO_B * BEAT)]
 START, acc_ = {}, 0.0
 for n, d in SC: START[n] = acc_; acc_ += d
 DUR = dict(SC); NAMES = [n for n, _ in SC]
@@ -94,6 +106,9 @@ SCALE = [57, 60, 62, 64, 67, 69, 72, 74, 76, 79, 81, 84, 86, 88]   # A minor pen
 LVS = [r["lvl"] for r in REC]; LO, HI = min(LVS), max(LVS)
 def pitch(i): return SCALE[int(round((REC[i]["lvl"] - LO) / max(1, HI - LO) * (len(SCALE) - 1)))]
 def pre_pitch(i): return pitch(i - 1) if i > 0 else pitch(i)
+def cpitch(j):                                                     # 10^6.9 -> low, 10^30 -> top of the scale
+    q = (COUNTS[j]["lg"] - 6) / 24
+    return SCALE[int(round(min(1, q) * (len(SCALE) - 1)))]
 ROOTS = [45, 41, 36, 43]                                           # Am–F–C–G
 EV = []
 def ev(t, kind, **kw): EV.append((t, kind, kw))
@@ -101,7 +116,7 @@ def build():
     nb = int(round(TOTAL / BEAT)) + 1
     for b in range(nb):
         t = b * BEAT; bar, pos = divmod(b, 4); ro = ROOTS[bar % 4]
-        if t >= T_REC_END:                                         # outro: bass + soft marimba chord
+        if t >= T_COUNT_END:                                       # outro: bass + soft marimba chord
             if t < TOTAL - 2 * BEAT and pos == 0:
                 ev(t, "bass", m=ro, d=BEAT * 3.6, v=0.18)
                 for j, d in enumerate((12, 19, 24)): ev(t + j * BEAT * 0.5, "mar", m=ro + 12 + d, v=0.12)
@@ -129,9 +144,12 @@ def build():
         ev(t, "mar", m=pitch(i), v=0.46)
         if groove: ev(t, "kal", m=pitch(i) + 12, v=0.16)
         if i == I_CAMB: ev(t, "crash", v=0.2)
-    for k, d in enumerate([0, 7, 12, 15, 19, 24]):                # rising arpeggio on 'today'
-        ev(T_FINAL + (k + 1) * BEAT / 2, "mar", m=pitch(N - 1) - 12 + d, v=0.32)
-    ev(T_FINAL - 4 * BEAT, "riser", d=4 * BEAT, v=0.10)
+    for j, t in enumerate(CT):                                    # the count: pitch = number of digits (log10)
+        m = cpitch(j); ev(t, "mar", m=m, v=0.5); ev(t, "kal", m=m + 12, v=0.2)
+    ev(CT[-1], "crash", v=0.3); ev(CT[-1], "thud", v=0.35)
+    for k, d in enumerate([0, 7, 12, 15, 19, 24]):                # rising arpeggio on 10^30
+        ev(CT[-1] + (k + 1) * BEAT / 2, "mar", m=cpitch(len(CT) - 1) - 12 + d, v=0.32)
+    ev(CT[-1] - 4 * BEAT, "riser", d=4 * BEAT, v=0.12)
     EV.sort(key=lambda e: e[0])
 build()
 KICKS = sorted(t for t, k, _ in EV if k == "kick")
@@ -242,6 +260,8 @@ def footer(c, T, k=None):
 BANNERS = {I_CAMB: ("CAMBRIAN EXPLOSION", "ANIMALS SHOW UP AT 9 PM", False),
            next(i for i, r in enumerate(REC) if r["m"] == 0.3): ("HOMO SAPIENS", "6 SECONDS BEFORE MIDNIGHT", True),
            N - 1: ("~8.7 MILLION", "SPECIES TODAY (EST.)", True)}
+for i, r in enumerate(REC):
+    if r["label"] in GROUP: BANNERS[i] = (GROUP[r["label"]]["big"], GROUP[r["label"]]["label"], True)
 def banner(c, T):
     k = rec_index(T)
     if k < 0: return
@@ -261,7 +281,7 @@ def banner(c, T):
             text(W, xc, yb + 3, tt, fill=GREEN, align="c")
         return
     if k not in BANNERS: return
-    hold = HOLD_B * BEAT if k == N - 1 else STEP_B * BEAT * 0.95
+    hold = (HOLD_B if k == N - 1 else STEP_B) * BEAT * 0.95
     if not (0.06 < a < hold): return
     tt, sub, big = BANNERS[k]
     w = max((16 if big else 9) * len(tt) + 30, 8 * len(sub) + 30); hgt = 62 if big else 42
@@ -283,8 +303,8 @@ def frame_ctx(T):
 def sc_intro(t):
     T = t; c = frame_ctx(T); W = c.t
     W.rectangle([16, 18, 344, 160], fill=CREAM); W.rectangle([16, 18, 344, 19], fill=INK); W.rectangle([16, 159, 344, 160], fill=INK)
-    text(W, 28, 22, "LIFE ON EARTH", size=40, fill=INK)
-    if t > 0.25: text(W, 28, 58, "ALMOST ENDED 5 TIMES", size=40, fill=RED)
+    text(W, 28, 22, "LIFE ALMOST ENDED 5X", size=40, fill=RED)
+    if t > 0.25: text(W, 28, 58, "NOW: ~10^30 CELLS", size=40, fill=GREEN)
     if t > 0.8: text(W, 28, 104, "EVERY BEEP = A NEW KIND OF LIFE", fill=GREEN)
     if t > 1.3: text(W, 28, 126, "BROKEN NOTE = MASS EXTINCTION", fill=RED)
     if t > 2.0:
@@ -301,27 +321,51 @@ def sc_main(name):
         return c
     return f
 
+def sc_count(t):
+    T = START["count"] + t
+    c = frame_ctx(T_REC_END); W = c.t
+    W.rectangle([0, 0, 360, 600], fill=CREAM); W.rectangle([16, 40, 344, 42], fill=GOLD)
+    text(W, 180, 52, "LIFE TODAY, COUNTED", size=40, fill=INK, align="c")
+    text(W, 180, 92, "BAR = NUMBER OF DIGITS (LOG)", fill=INK2, align="c")
+    BX, BW = 28, 304
+    for j, r in enumerate(COUNTS):
+        a = T - CT[j]
+        if a < 0: break
+        y = 118 + j * 74; last = j == len(COUNTS) - 1
+        hot = a < 0.25
+        col = GREEN if last else (GOLD if hot else INK)
+        text(W, BX, y, r["big"], size=40, fill=col)
+        text(W, BX, y + 38, r["label"], fill=INK2 if not last else GREEN)
+        f = ease(min(1, a / 0.35))
+        bw = int(BW * (r["lg"] + 1) / 31 * f)
+        W.rectangle([BX, y + 58, BX + BW, y + 63], fill=GRID)
+        W.rectangle([BX, y + 58, BX + bw, y + 63], fill=GREEN if last else GOLD)
+        if last and a > 0.6:
+            text(W, 332, y + 38, "= A 1 WITH 30 ZEROS", fill=GREEN, align="r")
+    return c
+
 def sc_outro(t):
     T = START["outro"] + t
     c = frame_ctx(T_REC_END); W = c.t
     W.rectangle([0, 0, 360, 600], fill=CREAM); W.rectangle([16, 40, 344, 42], fill=GOLD)
     text(W, 180, 52, "4.54 BILLION YEARS · ONE DAY", fill=INK2, align="c")
     rows = [("5", "TIMES LIFE ALMOST ENDED", RED), ("96%", "OF SPECIES GONE AT WORST", RED),
-            ("21:09", "ANIMALS SHOW UP", GOLD), ("23:59:54", "HUMANS SHOW UP", GREEN)]
+            ("23:59:54", "HUMANS SHOW UP", GOLD), ("~10^30", "LIVING CELLS NOW", GREEN)]
     for j, (a, b, col) in enumerate(rows):
         if t > 0.3 + j * 0.45:
             text(W, 40, 84 + j * 50, a, size=40, fill=col); text(W, 320, 98 + j * 50, b, fill=INK, align="r")
-    if t > 2.4: text(W, 180, 316, "LIFE CAME BACK EVERY TIME", fill=GREEN, align="c")
-    if t > 3.0:
-        W.rectangle([40, 452, 320, 453], fill=INK2)
-        text(W, 180, 464, "AGES ARE ESTIMATES (~)", fill=INK2, align="c")
-        text(W, 180, 482, "DATA: ICS CHART 2024,", fill=INK2, align="c")
-        text(W, 180, 500, "BARNOSKY ET AL. 2011 (NATURE) VIA OWID,", fill=INK2, align="c")
-        text(W, 180, 518, "SMITHSONIAN, NHM, USGS + PAPERS", fill=INK2, align="c")
+    if t > 2.0: text(W, 180, 316, "LIFE CAME BACK EVERY TIME", fill=GREEN, align="c")
+    if t > 2.4:
+        W.rectangle([40, 440, 320, 441], fill=INK2)
+        text(W, 180, 448, "AGES AND COUNTS ARE ESTIMATES (~)", fill=INK2, align="c")
+        text(W, 180, 466, "DATA: ICS CHART 2024, BARNOSKY 2011,", fill=INK2, align="c")
+        text(W, 180, 484, "MORA 2011, UN WPP 2024, CALLAGHAN 2021,", fill=INK2, align="c")
+        text(W, 180, 502, "CROWTHER 2015, SCHULTHEISS 2022,", fill=INK2, align="c")
+        text(W, 180, 520, "WHITMAN 1998 + MUSEUMS, PAPERS", fill=INK2, align="c")
     return c
 
 SCENEFN = {"intro": sc_intro, "deep": sc_main("deep"), "boom": sc_main("boom"), "dinos": sc_main("dinos"),
-           "us": sc_main("us"), "outro": sc_outro}
+           "us": sc_main("us"), "count": sc_count, "outro": sc_outro}
 
 def compose_light(c):
     art = np.array(c.art)
@@ -338,10 +382,14 @@ def render_frame(idx, t):
     ki = np.searchsorted(KICKS, T, side="right") - 1
     kp = math.exp(-(T - KICKS[ki]) / 0.07) if ki >= 0 else 0.0
     z = 1.0 + 0.010 * kp * FXK
-    if abs(T - T_FINAL) < 0.4: z += 0.03 * FXK * math.exp(-abs(T - T_FINAL) / 0.12)
+    if abs(T - CT[-1]) < 0.4: z += 0.03 * FXK * math.exp(-abs(T - CT[-1]) / 0.12)
     if z > 1.0005: fr = warp(fr, z, 0, 0, z)
     k = rec_index(T)
-    if name != "outro" and k >= 0:
+    if name == "count":
+        j = max([i for i, t in enumerate(CT) if T >= t] or [-1])
+        if j >= 0 and T - CT[j] < 0.08:
+            fr = np.minimum(255, fr.astype(np.int16) + int(30 * FXK * (1 - (T - CT[j]) / 0.08))).astype(np.uint8)
+    elif name != "outro" and k >= 0:
         a = T - RT[k]
         if REC[k]["ext"] and a < 0.18:                             # extinction: red flash + shake
             q = 1 - a / 0.18
