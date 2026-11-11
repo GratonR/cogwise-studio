@@ -19,3 +19,8 @@ Durée calculée : 64,9 s (122 BPM, intro 8 temps, comptages à 4 → 2 → 1 te
 - Corrigé pendant le contrôle : tilde illisible dans la police → glyphe ≈ ; titre du graphe coupé → « HOW MANY? (LOG SCALE) » ; lignes de sources de l'outro coupées → recoupées à ≤ 40 car. ; « FROM 1 DIGIT » → « FROM 2 DIGITS » (vaquitas = 10) ; graphe décalé à droite (étiquettes 10^30 collées au bord).
 - Comptages sans unité : pas de conversion SI/US à faire.
 - Aucun mot sur la fabrication.
+
+## Rendu final v3 (palette claire, choix de Guillaume à l'étape 3, 2026-11-11)
+- `beepmelody_life_v3.mp4` : 1080×1920, ffprobe 64,93 s (fourchette 62–75 s respectée, tempo inchangé 122 BPM).
+- Planche contact `contact_sheet_v3.png` relue : HUD = CSV sur chaque vignette (2/28 ≈50 rhinos → 28/28 ≈10^31 virus, 32 chiffres), bannières « THAT'S US », « ≈370 TREES », « MORE VIRUSES », récap et sources lisibles, rien de coupé.
+- Stems : `stems_v3/` (music).
