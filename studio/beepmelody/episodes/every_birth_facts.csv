@@ -1,0 +1,7 @@
+fact,value_on_screen,source_1,source_2,check
+world births 2023,"132.1 M / YEAR · 4.19 / SECOND · ~362 000 / DAY","UN WPP 2024 (132,110,264 births in 2023; via statisticstimes / OWID: 361.9 k per day)","IHME GBD 2021, Lancet 2024 (≈129-134 M/yr in 2021); Wikipedia/World Bank 2023: 132,985,048","132,110,264/(365*86400)=4.189/s ; /365=361,946"
+India share,"1 IN 6 BABIES","UN WPP 2024: 17.6 % of 2023 births (Wikipedia list)","CIA World Factbook 2022 via Statista: 172 of every 1,000 births","1/0.176=5.7 ; 1/0.172=5.8 -> 'ABOUT 1 IN 6'"
+China births 2023,"~9 MILLION · 1 IN 15","China NBS 2023: 9.02 M births","UN WPP 2024: 6.73 % x 132.1 M = 8.89 M","132.1/9.02=14.6 ; 1/0.0673=14.9 -> '1 IN 15'"
+Nigeria share,"1 IN 18","UN WPP 2024: 5.68 %","CIA World Factbook 2022: 57 per 1,000","1/0.0568=17.6 ; 1/0.057=17.5 -> '1 IN 18'"
+DR Congo vs USA,"DR CONGO: 4.4 M · USA: 3.6 M","UN WPP 2024: DRC 3.30 % (4.36 M), USA 2.77 % (3.66 M); World Bank: DRC 4,513,656, USA 3,606,407","CDC NVSS 2023 final: USA 3,596,017 births","DRC > USA in both; DRC shown as ~4.4 M (WPP)"
+USA share,"~1 IN 36","CDC NVSS 2023: 3,596,017 / 132.11 M = 2.72 %","UN WPP 2024: 2.77 %","1/0.0272=36.7 ; 1/0.0277=36.1 -> '~1 IN 36'"
