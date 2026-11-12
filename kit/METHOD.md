@@ -6,7 +6,7 @@ description: Produire et publier un short explicatif Cogwise (« how things work
 # Cogwise — routine d'un épisode
 
 Cogwise = chaîne anglophone de shorts « how things work ». Une vidéo = un objet du quotidien expliqué
-en coupe, style manuel vintage (papier crème, encre, rouge/moutarde/bleu-vert), voix off ElevenLabs « Jesse »,
+en coupe, style manuel vintage (papier crème, encre, rouge/moutarde/bleu-vert), voix off locale (Chatterbox sur le PC de Guillaume ; ElevenLabs « Jesse » en secours),
 sous-titres incrustés, 3 bruitages réels (`kit/cogwise/sfx/` : trait de crayon, souffle doux, marimba de fin), carte de fin hibou + wordmark COGWISE « HOW THINGS WORK ».
 
 La tâche planifiée « Cogwise daily short » pilote tout (phases A → D) ; ses consignes priment sur ce fichier.
@@ -79,9 +79,19 @@ Copier le patron de `episodes/fridge.py` et `README.md` :
 - puis la mise en page : chevauchements, textes coupés, zones.
 Corriger et recommencer jusqu'à propre.
 
-### 6. Voix + montage
-`python -m cogwise.run build episodes/<slug>.py out/ --tts /tmp/cogwise_config.json`
-(ElevenLabs avec horodatage par caractère → chaque beat démarre pile sur sa phrase). Si la durée sort de 62–75 s : ajouter ou retirer un beat (ou raccourcir des phrases), et relancer.
+### 6. Voix + montage — VOIX LOCALE d'abord (Guillaume, 12 nov.)
+La voix est générée sur le PC de Guillaume (RTX 5080, Chatterbox, « voix D », réglages « Chatterbox 3 ») par l'atelier voix,
+via la file GitHub `voice-queue` (voir `tools/voice_queue.py`). ElevenLabs n'est plus qu'un secours.
+1. Dès que le script est final : `python3 tools/voice_queue.py send kit/episodes/<slug>.py` (racine du repo) → id du job ;
+   note-le dans `drafts/<slug>.voice_job`. Le PC génère ~1 s de calcul par seconde de voix.
+2. Pendant ce temps : contrôle physique du dessin (étape 5).
+3. `python3 tools/voice_queue.py wait <id> $W/voix --timeout 900` → `$W/voix/voice.mp3` + `$W/voix/starts.json`, puis
+   `python -m cogwise.run build episodes/<slug>.py out/ --voice $W/voix/voice.mp3 --starts $W/voix/starts.json`
+   (les débuts de beats viennent de l'atelier : chaque beat démarre pile sur sa phrase). Si le script change après l'envoi : nouveau job.
+4. Code 2 (PC éteint / atelier arrêté) → SECOURS : quota ElevenLabs (`GET /v1/user/subscription`, limit − count) ≥ 1,3 × caractères du script
+   → `build … --tts /tmp/cogwise_config.json` (voix « Jesse ») et le signaler dans la carte de validation ; sinon carte blocker
+   « Allume l'atelier voix » avec un champ `resume` (texte de relance) et arrêt : le job reste dans la file et sera traité dès que le PC tourne.
+Si la durée sort de 62–75 s : ajouter ou retirer un beat (ou raccourcir des phrases), renvoyer un job, et relancer.
 
 ### 7. Vérifier
 - Planche contact du MP4 final (ffmpeg `fps=1/4,tile`), la lire : sous-titres = voix, rien de coupé, carte de fin présente.
