@@ -383,7 +383,9 @@ def main():
     # on a platform where the channel is already alive (one post above the threshold), not reposted there yet.
     TH = {"TikTok": 50, "Instagram": 30, "YouTube": 20, "Facebook": 20}
     alive = {pl for pl in TH if any(q["platform"] == pl and (q.get("views") or 0) >= TH[pl] for q in posts.values())}
-    OFF = {"Facebook"}   # 11 Nov: Facebook reach collapsed for every episode since 5 Nov -> investigate first, no reposts
+    # Facebook: reach collapsed on 5 Nov; Page switched to "creator" on 12 Nov 20:47 (recommendations: active).
+    # Reposts stay off until the A/B check of 16 Nov is done, then Facebook joins the protocol like the others.
+    OFF = {"Facebook"} if paris.date() < dt.date(2026, 11, 17) else set()
     cands, seen = [], set()
     for slug, e in episodes.items():
         if e.get("private") or e.get("hidden") or not e.get("date"): continue
