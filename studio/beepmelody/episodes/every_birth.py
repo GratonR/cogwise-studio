@@ -246,8 +246,67 @@ def render_scene(args):
     for f in range(int(round(dur * FPS))): p.stdin.write(render_frame(idx, f / FPS).tobytes())
     p.stdin.close(); assert p.wait() == 0; os.replace(tmp, fin); return fin
 
+# ================= music (mood C, chosen at co-pilot step 2): 128 BPM chiptune =================
+# one birth = one square-wave bip at its exact time (not quantised); region = register + pulse width.
+REGOFF = {"africa": 0, "asia": 12, "americas": 19, "europe": 24, "oceania": 28}
+def audio(path):
+    from scipy.io import wavfile
+    from scipy.signal import butter, lfilter
+    SR = 44100; N = int(TOTAL * SR); L = np.zeros(N)
+    def mtof(m): return 440.0 * 2 ** ((m - 69) / 12)
+    def env(n, a, d): tt = np.arange(n) / SR; return np.minimum(1, tt / max(a, 1e-4)) * np.exp(-tt / d)
+    def lowpass(x, fc, o=2): b, a = butter(o, fc / (SR / 2)); return lfilter(b, a, x)
+    def put(t, sig, g=1.0):
+        i = int(t * SR); j = min(N, i + len(sig))
+        if 0 <= i < N: L[i:j] += g * sig[:j - i]
+    def noise(b, dur, fc, dec, g, seed):
+        n = int(dur * SR); put(b, g * lowpass(np.random.RandomState(seed).randn(n), fc) * np.exp(-np.arange(n) / SR * dec))
+    def square(f, n, duty):
+        tt = np.arange(n) / SR; return np.where((tt * f) % 1 < duty, 1.0, -1.0)
+    bpm = 128; beat = 60 / bpm; bar = 4 * beat
+    T_OUT = START["outro"]; T_STOP = T_OUT + 2.2          # drums stop when the final numbers land
+    t = np.arange(N) / SR
+    pad = sum(np.sin(2 * np.pi * mtof(m) * d * t) for m in (48, 55, 60, 63) for d in (.995, 1.005)) * .008
+    L += lowpass(pad, 2000) * np.minimum(1, t / 1.5)
+    roots = [36, 44, 46, 43]                               # Cm – Ab – Bb – G
+    for k, b in enumerate(np.arange(0, TOTAL - 1.0, bar)):
+        if b >= T_STOP: break
+        for q in range(8):
+            n = int(.2 * SR); tt = np.arange(n) / SR; f = mtof(roots[k % 4] + 12 * (q % 2))
+            put(b + q * beat / 2, .14 * (2 / np.pi) * np.arcsin(np.sin(2 * np.pi * f * tt)) * np.exp(-tt * 6))
+    for k, b in enumerate(np.arange(0, T_STOP, beat)):
+        full = b >= START["india"] - 0.05
+        if k % 2 == 0: noise(b, .08, 1200, 40, .16, k)
+        elif full: noise(b, .1, 5000, 30, .09, k)
+        if full: noise(b + beat / 2, .03, 9000, 150, .03, 70 + k)
+        if START["world"] <= b < T_OUT:                    # build-up: 16th hats before the outro
+            for q in (1, 3): noise(b + q * beat / 4, .02, 9000, 200, .022, 140 + k + q)
+    for name, tm in MILE_T.items():                        # milestone = cymbal swell
+        noise(tm, 1.2, 7000, 3.5, .07, 300 + int(tm))
+    rs = np.random.RandomState(2023)
+    for tm, i, j, reg, _ in BIRTHS:
+        f = mtof(51 + REGOFF[reg] + [0, 2, 4, 7, 9][rs.randint(5)]); n = int(.35 * SR)
+        s = square(f, n, .125 if reg in ("asia", "africa") else .25) * env(n, .001, .09)
+        put(tm, .09 * s); put(tm + .75 * beat, .035 * s)  # 3/4-beat echo
+    # last bip -> rising arpeggio (root, 5th, octave, 12th) then a held chord
+    ta = BIRTHS[-1][0] + 0.3
+    for q, m in enumerate((60, 67, 72, 79)):
+        n = int(.5 * SR); put(ta + q * beat / 2, .08 * square(mtof(m), n, .25) * env(n, .002, .2))
+    n = int(3.0 * SR); tt = np.arange(n) / SR
+    put(ta + 2 * beat, .05 * sum(np.sin(2 * np.pi * mtof(m) * tt) for m in (48, 55, 60, 63)) * np.exp(-tt * 1.1))
+    out = L.copy()                                         # small room
+    for d, g in [(.083, .5), (.127, .42), (.191, .35), (.263, .28), (.347, .22), (.461, .16)]:
+        k = int(d * SR); out[k:] += g * .6 * L[:-k]
+    x = .8 * L + .2 * lowpass(out, 4000)
+    fade = int(1.2 * SR); x[-fade:] *= np.linspace(1, 0, fade)
+    x = x / (np.max(np.abs(x)) + 1e-9) * 0.89
+    st = np.stack([x, np.roll(x, int(.011 * SR)) * .97], 1)
+    wavfile.write(path, SR, (st * 32767).astype(np.int16))
+
 if __name__ == "__main__":
     mode, out = sys.argv[1], sys.argv[2]
+    if mode == "audio":
+        os.makedirs(os.path.dirname(os.path.abspath(out)), exist_ok=True); audio(out); sys.exit()
     if mode == "info":
         from collections import Counter
         print("TOTAL", TOTAL, "births", NB, Counter(b[3] for b in BIRTHS))
