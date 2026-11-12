@@ -1,0 +1,30 @@
+{
+ "id": "plane-window-hole-20261112-201533",
+ "beat_starts": [
+  0.15,
+  4.075,
+  8.143,
+  13.569,
+  18.503,
+  22.901,
+  29.467,
+  37.929,
+  42.766,
+  47.629,
+  52.65,
+  58.408,
+  62.424
+ ],
+ "duration": 66.144,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.9,
+  "cfg_weight": 0.3,
+  "pause": 0.35,
+  "lead": 0.15,
+  "reference": "reference_voix_D.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-13T00:04:46",
+ "seconds": 42.6
+}
