@@ -3,7 +3,7 @@
 The cloud task cannot reach Guillaume's PC, and the PC cannot be reached from the cloud either, so both talk
 through the orphan branch `voice-queue` of this repo:
   cloud  -> jobs/<id>.json                       (this tool, `send`)
-  PC     -> results/<id>/voice.ogg + starts.json (atelier_voix.py, polls the branch every ~20 s)
+  PC     -> results/<id>/voice.flac + starts.json (atelier_voix.py, polls the branch every ~20 s)
   cloud  <- results/<id>/...                     (this tool, `wait`), converted to the engine's inputs.
 
 Usage (from the repo root, after the episode module is final):
@@ -91,9 +91,11 @@ def wait(jid, outdir, timeout):
         err = show(f"results/{jid}/error.txt")
         if err:
             print("ÉCHEC côté atelier :", err.decode("utf-8", "replace")[:800]); sys.exit(3)
-        meta, ogg = show(f"results/{jid}/starts.json"), show(f"results/{jid}/voice.ogg")
-        if meta and ogg:
-            src = os.path.join(outdir, "voice.ogg"); open(src, "wb").write(ogg)
+        meta = show(f"results/{jid}/starts.json")
+        ext, aud = "flac", show(f"results/{jid}/voice.flac")
+        if not aud: ext, aud = "ogg", show(f"results/{jid}/voice.ogg")
+        if meta and aud:
+            src = os.path.join(outdir, "voice." + ext); open(src, "wb").write(aud)
             m = json.loads(meta)
             json.dump({"beat_starts": m["beat_starts"], "duration": m.get("duration"), "engine": "chatterbox-local",
                        "settings": m.get("settings"), "job": jid}, open(os.path.join(outdir, "starts.json"), "w"), indent=1)
