@@ -1,0 +1,29 @@
+{
+ "id": "tower-crane-20261113-183432",
+ "beat_starts": [
+  0.15,
+  4.61,
+  8.935,
+  14.158,
+  19.554,
+  25.424,
+  31.557,
+  37.702,
+  42.264,
+  46.452,
+  51.312,
+  57.304
+ ],
+ "duration": 61.786,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.9,
+  "cfg_weight": 0.3,
+  "pause": 0.35,
+  "lead": 0.15,
+  "reference": "reference_voix_D.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-13T19:35:20",
+ "seconds": 39.7
+}
