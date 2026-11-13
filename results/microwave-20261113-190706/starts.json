@@ -1,0 +1,29 @@
+{
+ "id": "microwave-20261113-190706",
+ "beat_starts": [
+  0.15,
+  4.271,
+  7.762,
+  12.461,
+  19.051,
+  24.26,
+  28.489,
+  34.191,
+  39.326,
+  43.76,
+  47.969,
+  54.568
+ ],
+ "duration": 58.384,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.35,
+  "lead": 0.15,
+  "reference": "reference_voix_D.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-13T20:07:49",
+ "seconds": 38.1
+}
