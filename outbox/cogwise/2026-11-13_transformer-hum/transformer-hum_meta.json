@@ -1,0 +1,35 @@
+{
+  "slug": "transformer-hum",
+  "title": "That hum is solid steel stretching 100 times a second \ud83d\udd0a\u26a1 #Shorts",
+  "description": "The box down your street isn't buzzing with electricity: its steel core is stretching.\n\n#Shorts #howthingswork #transformer #electricity #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "transformer",
+    "electricity",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://hyperphysics.gsu.edu/hbase/Solids/magstrict.html",
+    "https://electrical-engineering-portal.com/sources-of-sound-in-transformers",
+    "https://en.wikipedia.org/wiki/Magnetostriction"
+  ],
+  "duration": 72.68,
+  "words": 156,
+  "beat_starts": [
+    0.15,
+    2.905,
+    9.012,
+    14.119,
+    19.732,
+    28.755,
+    34.791,
+    39.692,
+    44.302,
+    49.53,
+    54.371,
+    60.347,
+    66.988
+  ]
+}
