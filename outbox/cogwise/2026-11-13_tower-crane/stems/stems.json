@@ -1,0 +1,40 @@
+{
+  "duration": 63.733,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "tower-crane",
+  "title": "Tower cranes build themselves taller 🏗️ #Shorts",
+  "beat_starts": [
+    0.15,
+    4.61,
+    8.935,
+    14.158,
+    19.554,
+    25.424,
+    31.557,
+    37.702,
+    42.264,
+    46.452,
+    51.312,
+    57.304
+  ]
+}
