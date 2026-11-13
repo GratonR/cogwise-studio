@@ -1,0 +1,30 @@
+{
+ "id": "transformer-hum-20261113-112042",
+ "beat_starts": [
+  0.15,
+  2.905,
+  9.012,
+  14.119,
+  19.732,
+  28.755,
+  34.791,
+  39.692,
+  44.302,
+  49.53,
+  54.371,
+  60.347,
+  66.988
+ ],
+ "duration": 70.708,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.9,
+  "cfg_weight": 0.3,
+  "pause": 0.35,
+  "lead": 0.15,
+  "reference": "reference_voix_D.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-13T12:21:46",
+ "seconds": 44.9
+}
