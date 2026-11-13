@@ -1,0 +1,21 @@
+t_s,label,kind,shown,temp,source_1,source_2
+1e-43,the earliest moment physics can describe,start,10^-43 s,,CERN outreach Back to Creation (10^-43 s: forces indistinguishable),NIST CODATA 2018 Planck time (5.39e-44 s)
+1e-36,inflation: space balloons in a blink (model),expand,~10^-36 s,,NASA Science Universe overview (inflation: faster than light for a fraction of a second),Planck 2018 results X Inflation (A&A 641 A10)
+1e-12,the Higgs field switches on (model),physics,~10^-12 s,~10^15 K,CERN outreach Back to Creation (10^-34 to 10^-10 s: electroweak split),PDG Review Big-Bang cosmology (electroweak transition T~100 GeV)
+1e-06,first protons and neutrons,matter,~1 MILLIONTH OF A SECOND,,Einstein Online / MPI Gravitational Physics (nucleons ca. 1 millionth s),CERN outreach Back to Creation (protons and neutrons by ~10^-5 s)
+1,neutrinos break free,physics,1 SECOND,10 billion C / 18 billion F,NASA Science Universe overview (1 s: 10 billion C / 18 billion F),PDG 2025 BBN review (neutrino decoupling T~MeV)
+10,matter beats antimatter (1 in a billion survives),matter,~10 SECONDS,,Einstein Online (annihilation of anti-matter until ca. 1 s),PDG 2025 BBN review (e+e- annihilation; baryon/photon ~6e-10)
+180,first atomic nuclei: helium,matter,~3 MINUTES,~1 billion K,NASA Science Universe overview (nucleosynthesis in the following minutes),PDG 2025 BBN review (abundances fixed by t~180 s)
+1.199e+13,first atoms. light breaks free (the CMB),light,"380,000 YEARS","~3,000 K","NASA Science Universe overview (~380,000 years: recombination)","ESA Planck (CMB released 380,000 years after the Big Bang)"
+6.312e+15,first stars light up (est.),stars,~200 MILLION YEARS,,NASA Science Universe overview (dark for the next 200 million years),NASA Webb First Stars timeline (first stars: exact timing unknown)
+8.836e+15,farthest galaxy ever seen (MoM-z14),stars,280 MILLION YEARS,,ESA/Webb weic2603 2026-01-28 (z=14.44; 280 Myr),Naidu et al. 2025 arXiv 2505.11263 (z_spec=14.44)
+2.525e+16,our Milky Way starts its disc,stars,~800 MILLION YEARS,,ESA Gaia 2022 (thick disc began 0.8 Gyr after the Big Bang),Xiang & Rix 2022 Nature 603 599
+3.156e+16,the universe turns transparent again,light,~1 BILLION YEARS,,NASA Science Universe overview (by 1 billion years: gas ionized),Fan et al. 2006 ARA&A 44 415 (reionization ends z~6)
+8.836e+16,the Milky Way swallows a galaxy,stars,~2.8 BILLION YEARS,,ESA Gaia 2022 (Gaia-Enceladus merger ~2 Gyr after disc start),Helmi et al. 2018 Nature 563 85 (merger ~10 Gyr ago)
+1.105e+17,peak of star birth (cosmic noon),stars,~3.5 BILLION YEARS,,Madau & Dickinson 2014 ARA&A 52 415 (peak 3.5 Gyr after BB z~1.9),Forster Schreiber & Wuyts 2020 ARA&A 58 661 (cosmic noon z~2)
+2.773e+17,expansion starts speeding up (dark energy),expand,~5 BILLION YEARS AGO,,NASA Hubble dark energy (acceleration from ~4-6 Gyr ago),Riess et al. 2004 ApJ 607 665 (transition z~0.46)
+2.91e+17,the Sun is born,home,4.57 BILLION YEARS AGO,,Connelly et al. 2012 Science 338 651 (4.567 Ga),NASA Science Sun facts (~4.6 billion years)
+2.918e+17,Earth forms,home,4.54 BILLION YEARS AGO,,USGS Age of the Earth (4.54 Ga +-0.05),NatGeo Age of the Earth (4.5-4.6 Ga)
+3.183e+17,first signs of life (est.),home,~3.7 BILLION YEARS AGO,,Nutman et al. 2016 Nature (3.7 Ga),Rosing 1999 Science (3.7 Ga)
+4.351e+17,Homo sapiens,home,"~300,000 YEARS AGO",,Hublin et al. 2017 Nature (~300 ka),Smithsonian Human Origins (300 ka)
+4.351e+17,"today: 13.8 billion years, 2.7 K",end,13.8 BILLION YEARS,2.725 K (-270.4 C / -454.8 F),Planck 2018 results VI (age 13.787 +-0.020 Gyr),Fixsen 2009 ApJ 707 916 (CMB 2.72548 K)
