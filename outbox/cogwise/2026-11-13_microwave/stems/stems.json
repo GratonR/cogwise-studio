@@ -1,0 +1,40 @@
+{
+  "duration": 64.333,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "microwave",
+  "title": "Why your leftovers are still frozen in the middle 🍲❄️ #Shorts",
+  "beat_starts": [
+    0.15,
+    5.407,
+    9.352,
+    14.441,
+    20.86,
+    26.663,
+    31.022,
+    36.497,
+    41.725,
+    46.374,
+    51.581,
+    57.876
+  ]
+}
