@@ -1,0 +1,21 @@
+{
+ "id": "microwave-20261113-190706",
+ "slug": "microwave",
+ "beats": [
+  "Burning edges, frozen middle. Your microwave isn't broken.",
+  "Its waves simply can't reach the center of your food.",
+  "A tube called a magnetron fires microwaves into the metal box.",
+  "They flip water molecules back and forth billions of times a second, and that jiggling is heat.",
+  "But every layer of food absorbs some energy, so the waves fade as they go.",
+  "After two or three centimetres, about an inch, they're almost gone.",
+  "Everything deeper heats the slow way: warmth creeping inward from the hot outer shell.",
+  "Frozen food makes it worse: ice barely absorbs microwaves at all.",
+  "So the thawed edges grab all the energy and keep getting hotter.",
+  "That's why a thin plate heats evenly, and a thick block doesn't.",
+  "Your microwave doesn't cook from the inside. It cooks the shell, and the shell cooks the rest.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-13T19:07:06+00:00",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5
+}
