@@ -31,12 +31,12 @@ BEATS = [
     dict(dur=4.8, title="THE SECRET", caption="Its waves simply can't reach the center of your food."),
     dict(dur=5.4, title="1 · MAGNETRON", caption="A tube called a magnetron fires microwaves into the metal box."),
     dict(dur=7.6, title=None, caption="They flip water molecules back and forth billions of times a second, and that jiggling is heat.", card='water'),
-    dict(dur=7.2, title="2 · THE CATCH", caption="But every layer of food absorbs some energy, so the waves fade as they go."),
+    dict(dur=9.0, title="2 · THE CATCH", caption="But every layer of food absorbs some energy, so the waves fade as they go, like light sinking into deep water."),
     dict(dur=5.4, title="2 CM · 1 IN", caption="After two or three centimetres, about an inch, they're almost gone."),
     dict(dur=6.4, title=None, caption="Everything deeper heats the slow way: warmth creeping inward from the hot outer shell.", card='conduct'),
     dict(dur=5.0, title="3 · ICE", caption="Frozen food makes it worse: ice barely absorbs microwaves at all."),
     dict(dur=5.6, title="RUNAWAY EDGES", caption="So the thawed edges grab all the energy and keep getting hotter."),
-    dict(dur=5.6, title="THIN VS THICK", caption="That's why a thin plate heats evenly, and a thick block doesn't."),
+    dict(dur=7.6, title="THIN VS THICK", caption="That's why a thin plate heats evenly, and a thick block doesn't: its core sits beyond the waves' reach."),
     dict(dur=8.2, title="THE SHELL", caption="Your microwave doesn't cook from the inside. It cooks the shell, and the shell cooks the rest."),
 ]
 

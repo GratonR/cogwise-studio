@@ -1,47 +1,47 @@
 1
-00:00:00,000 --> 00:00:05,237
+00:00:00,000 --> 00:00:04,101
 Burning edges, frozen middle. Your microwave isn't broken.
 
 2
-00:00:05,407 --> 00:00:09,182
+00:00:04,271 --> 00:00:07,592
 Its waves simply can't reach the center of your food.
 
 3
-00:00:09,352 --> 00:00:14,271
+00:00:07,762 --> 00:00:12,291
 A tube called a magnetron fires microwaves into the metal box.
 
 4
-00:00:14,441 --> 00:00:20,690
+00:00:12,461 --> 00:00:18,881
 They flip water molecules back and forth billions of times a second, and that jiggling is heat.
 
 5
-00:00:20,860 --> 00:00:26,493
-But every layer of food absorbs some energy, so the waves fade as they go.
+00:00:19,051 --> 00:00:26,494
+But every layer of food absorbs some energy, so the waves fade as they go, like light sinking into deep water.
 
 6
-00:00:26,663 --> 00:00:30,852
+00:00:26,664 --> 00:00:30,723
 After two or three centimetres, about an inch, they're almost gone.
 
 7
-00:00:31,022 --> 00:00:36,327
+00:00:30,893 --> 00:00:36,425
 Everything deeper heats the slow way: warmth creeping inward from the hot outer shell.
 
 8
-00:00:36,497 --> 00:00:41,555
+00:00:36,595 --> 00:00:41,560
 Frozen food makes it worse: ice barely absorbs microwaves at all.
 
 9
-00:00:41,725 --> 00:00:46,204
+00:00:41,730 --> 00:00:45,994
 So the thawed edges grab all the energy and keep getting hotter.
 
 10
-00:00:46,374 --> 00:00:51,411
-That's why a thin plate heats evenly, and a thick block doesn't.
+00:00:46,164 --> 00:00:53,067
+That's why a thin plate heats evenly, and a thick block doesn't: its core sits beyond the waves' reach.
 
 11
-00:00:51,581 --> 00:00:57,706
+00:00:53,237 --> 00:00:59,666
 Your microwave doesn't cook from the inside. It cooks the shell, and the shell cooks the rest.
 
 12
-00:00:57,876 --> 00:01:04,274
+00:00:59,836 --> 00:01:05,570
 Cogwise: how things work. Follow for the next one!
