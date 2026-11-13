@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:02,735
+The box down your street isn't buzzing.
+
+2
+00:00:02,905 --> 00:00:08,842
+Its steel core is stretching and shrinking, a hundred times every second.
+
+3
+00:00:09,012 --> 00:00:13,949
+Inside sits a core of thin silicon-steel sheets, stacked tight.
+
+4
+00:00:14,119 --> 00:00:19,562
+Two copper coils wrap around it, and alternating current flows through them.
+
+5
+00:00:19,732 --> 00:00:28,585
+That current magnetizes the steel, and magnetized steel gets slightly longer. It's called magnetostriction.
+
+6
+00:00:28,755 --> 00:00:34,621
+A one-metre core grows just a few thousandths of a millimetre, about a ten-thousandth of an inch.
+
+7
+00:00:34,791 --> 00:00:39,522
+Tiny, but over and over, the whole core pushes the air like a speaker.
+
+8
+00:00:39,692 --> 00:00:44,132
+In Europe, the current swings back and forth fifty times a second.
+
+9
+00:00:44,302 --> 00:00:49,360
+But steel stretches whichever way it's magnetized: twice per swing.
+
+10
+00:00:49,530 --> 00:00:54,201
+Fifty swings, two stretches each: a steady hum at one hundred hertz.
+
+11
+00:00:54,371 --> 00:01:00,177
+In North America it's sixty, so transformers hum at one hundred twenty.
+
+12
+00:01:00,347 --> 00:01:06,818
+So that hum isn't electricity leaking. It's steel, breathing to the rhythm of your power.
+
+13
+00:01:06,988 --> 00:01:12,626
+Cogwise: how things work. Follow for the next one!
