@@ -34,15 +34,15 @@ META = dict(
 BEATS = [
     dict(dur=3.4, title="NOT A BUZZ", caption="The box down your street isn't buzzing."),
     dict(dur=5.4, title="THE SECRET", caption="Its steel core is stretching and shrinking, a hundred times every second."),
-    dict(dur=5.6, title="1 · THE CORE", caption="Inside sits a core made of thin sheets of silicon steel, stacked tight."),
+    dict(dur=5.6, title="1 · THE CORE", caption="Inside sits a core of thin silicon-steel sheets, stacked tight."),
     dict(dur=5.4, title="2 · THE COILS", caption="Two copper coils wrap around it, and alternating current flows through them."),
     dict(dur=6.2, title=None, caption="That current magnetizes the steel, and magnetized steel gets slightly longer. It's called magnetostriction.", card='stretch'),
     dict(dur=7.4, title="HOW MUCH?", caption="A one-metre core grows just a few thousandths of a millimetre, about a ten-thousandth of an inch."),
     dict(dur=5.6, title="TINY, BUT FAST", caption="Tiny, but over and over, the whole core pushes the air like a speaker."),
-    dict(dur=7.4, title="3 · BOTH WAYS", caption="In Europe, power runs at fifty cycles a second: each cycle, current flows one way, then the other."),
-    dict(dur=5.8, title=None, caption="But steel stretches whichever way it's magnetized, so it stretches twice per cycle.", card='twice'),
-    dict(dur=5.2, title="100 HZ", caption="Fifty cycles, two stretches each: a steady hum at one hundred hertz."),
-    dict(dur=6.6, title="USA: 120 HZ", caption="In North America, power runs at sixty cycles, so transformers there hum at one hundred twenty."),
+    dict(dur=7.4, title="3 · BOTH WAYS", caption="In Europe, the current swings back and forth fifty times a second."),
+    dict(dur=5.8, title=None, caption="But steel stretches whichever way it's magnetized: twice per swing.", card='twice'),
+    dict(dur=5.2, title="100 HZ", caption="Fifty swings, two stretches each: a steady hum at one hundred hertz."),
+    dict(dur=6.6, title="USA: 120 HZ", caption="In North America it's sixty, so transformers hum at one hundred twenty."),
     dict(dur=6.4, title="STEEL THAT SINGS", caption="So that hum isn't electricity leaking. It's steel, breathing to the rhythm of your power."),
 ]
 
