@@ -89,5 +89,13 @@ Message reçu : « RETRAVAIL (PHASE R) : Guillaume a cliqué « À corriger » /
 - Retouche **simple** (texte, timing, une valeur) : corriger directement, re-rendre.
 - À la fin : nouvelle carte `validate_video` (même slug), `rework.done = true`, `rework.done_at`.
 
+## Couverture (obligatoire, Guillaume 14 nov.)
+Les vidéos BeepMelody démarrent sur un écran vide : sans couverture, la grille du profil (Instagram, TikTok, Facebook) n'affiche
+que des cases blanches ou noires. Après le rendu final et AVANT l'outbox, poser la couverture (1re image de la vidéo = image clé
++ titre en gros, invisible au visionnage : 1/30 s) :
+`python3 tools/cover.py apply --video <mp4 final> --title "<titre court en anglais, ≤ 6 mots si possible>" [--at 0.7]`
+(--at = moment de l'image de fond : 0.7 par défaut ; choisir un moment où la scène est bien remplie). Regarder le .cover.jpg produit
+(titre lisible, rien de coupé dans le centre 3:4), le garder dans l'outbox à côté du MP4.
+
 ## Sources de données acceptées
 Organismes et bases citables : FAI (records aériens), NASA, ESA, USGS, NOAA, ONU (WPP), OMS, Our World in Data (avec la source primaire), Banque mondiale, publications scientifiques (DOI). Wikipedia sert à trouver la source primaire, pas comme source finale.
