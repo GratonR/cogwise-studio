@@ -157,6 +157,7 @@ def star(d, x, y, col, s=1):
     if s >= 2:
         for dx, dy in ((2, 0), (-2, 0), (0, 2), (0, -2), (3, 0), (-3, 0)): d.point((x + dx, y + dy), fill=mix(col, SKY, .65))
 def galaxy(d, x, y, r, col, ang=0.0):
+    if r < 1: return                                                # first frame of the fade-in: nothing to draw yet
     for j in range(60):
         th = j * 0.35 + ang; rr = r * j / 60
         for arm in (0, math.pi):

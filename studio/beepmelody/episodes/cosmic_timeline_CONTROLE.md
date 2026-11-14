@@ -7,3 +7,8 @@ Preview : hook 0.4/2.6/6.0 s, early 0.6/3.6/11/17.4/20.7/25/28 s, late 2.4/4.6/8
 - « 7 beeps in the first 3 minutes » : lignes 1 à 7 ≤ 180 s ✔. Valeurs de modèle marquées (model / est. / ~).
 - Axe : horloge LOG annoncée (« each tick = 10x more time »), gauche = 10^-43 s, droite = maintenant ✔.
 - Lisibilité : libellés ≤ 38 caractères, valeur HUD ≤ 19 car. en grand, bannières au-dessus de l'horloge (plus de chevauchement), titre du hook sur 3 lignes. Aucune mention d'IA.
+
+## Rendu final (étape 4/4, 2026-11-14) — palette sombre (choix A)
+- Correctif technique : `galaxy()` ne dessine rien quand le rayon vaut 0 (1re frame du fondu de la Voie lactée), sinon division par zéro. Aucun changement visuel.
+- ffprobe : 65,37 s, 1080×1920, 30 i/s, h264 + aac ✔ (62–75 s).
+- Planche contact (24 vues, 1 / 2,7 s) relue : accroche Webb → rembobinage → fonds blanc/orange/CMB/âges sombres → étoiles → Soleil → aujourd'hui 13,8 Ga · 2,725 K · −454,8 °F → outro sources. Rien de coupé, compteur 1/20 → 20/20 cohérent.
