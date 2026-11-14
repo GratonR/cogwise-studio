@@ -14,3 +14,8 @@ Frames vérifiées (t = 1,2 · 3,5 · 4,4 · 11,5 · 12,3 · 18,5 · 22,0 · 28,
 - Axes : puits vertical linéaire, bas = nous, haut = Big Bang 13,8 Ga ; graduations 1 / 5 / 10 Ga ; frise des années linéaire 1914 → 2025, zone rouge = silence.
 - Lisibilité : rien de coupé, pas de chevauchement HUD / bannière / frise ; « → » absent de la police remplacé par « - » ; année plafonnée à 2025.
 - Aucun mot sur la fabrication.
+
+## Étape 3/4 tranchée : C « zoom vers le Big Bang » (16:15 UTC) — contrôle du rendu complet
+- Caméra : la fenêtre du puits passe de [0 ; 13,8 Ga] à [9 ; 13,8] après 3C 9 (1965, ZOOM 3X), à [11,8 ; 13,8] après le 3e record de 1987 (ZOOM 7X), à [12,8 ; 13,8] après GN-z11 (2016, ZOOM 14X) ; transitions de 4 temps (1,9 s). La Terre reste en bas ; une cassure d'axe (zigzag) signale la partie écrasée ; graduations recalculées (pas de 5, 2 ou 1 Ga) ; facteur de zoom affiché en haut à droite.
+- Frames vérifiées (t = 1,2 · 28,6 · 29,6 · 30,0 · 30,4 · 31,5 · 38,9 · 40,3 · 41,0 · 42,0 · 49,2 · 52,4 · 53,5 · 54,0 · 56,8 · 60,0 s) + planche contact (1 image / 4 s) du MP4 final : les objets restent à leur vraie distance dans la fenêtre (13,4 / 13,5 Ga bien séparés au zoom 14X), la ligne dorée suit, rien de coupé, chiffres HUD/bannières inchangés (= CSV = sources).
+- MP4 final : 67,13 s, 1080×1920, piste audio présente (Cosmic drive+ 124 BPM, inchangée).
