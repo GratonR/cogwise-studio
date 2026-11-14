@@ -129,7 +129,22 @@ KICKS = sorted(t for t, k, _ in EV if k == "kick")
 # ================= scene: the look-back well =================
 EX, EY = 90, 244                                # Earth / telescope (art px)
 TOPY = 84                                       # Big Bang wall
-def ly(lb): return EY - 6 - (lb / AGE) * (EY - 6 - TOPY)
+# r3 = C: from 1965 the camera zooms on the top of the well (window [LMIN, Big Bang]); Earth stays at the bottom, axis break shown
+ZOOMS = [(RT[I_3C9] + 1.5 * BEAT, 9.0), (RT[I_87[-1]] + 1.0 * BEAT, 11.8), (RT[I_GNZ11] + 1.0 * BEAT, 12.8)]
+ZD = 4 * BEAT
+def lmin_at(T):
+    v = 0.0
+    for t0, lm in ZOOMS:
+        v = lerp(v, lm, ease((T - t0) / ZD))
+    return v
+CAM = [0.0]
+def ly(lb):
+    lm = CAM[0]; return EY - 6 - ((lb - lm) / (AGE - lm)) * (EY - 6 - TOPY)
+def ticks():
+    lm = CAM[0]
+    if lm < 0.5: return [1, 5, 10]
+    w = AGE - lm; st = 1 if w <= 5 else (2 if w <= 9 else 5)
+    return [g for g in range(st, 14, st) if lm + 0.1 < g < AGE - 0.2]
 _rng = np.random.default_rng(7)
 STARS = [(int(_rng.integers(0, AW)), int(_rng.integers(TOPY - 6, EY)), int(_rng.integers(0, 3))) for _ in range(150)]
 POSX = []
@@ -174,8 +189,11 @@ def scene(c, T):
     d.line([0, TOPY - 2, AW, TOPY - 2], fill=mix(SKY, (255, 170, 90), .6))
     # look-back axis on the left
     d.line([8, TOPY, 8, EY - 6], fill=RIM)
-    for g in (1, 5, 10):
+    for g in ticks():
         yy = int(ly(g)); d.line([6, yy, 10, yy], fill=INK2)
+    if CAM[0] > 0.3:                                              # axis break: the bottom of the well is squeezed out
+        d.rectangle([4, EY - 13, 12, EY - 9], fill=SKY)
+        d.line([4, EY - 11, 7, EY - 13], fill=INK2); d.line([7, EY - 13, 9, EY - 9], fill=INK2); d.line([9, EY - 9, 12, EY - 11], fill=INK2)
     # Earth + telescope
     d.ellipse([EX - 30, EY - 2, EX + 30, EY + 22], fill=(30, 60, 120)); d.ellipse([EX - 30, EY - 2, EX + 30, EY + 4], fill=(50, 110, 70))
     d.polygon([(EX - 2, EY - 1), (EX + 2, EY - 1), (EX + 5, EY - 8), (EX + 1, EY - 9)], fill=INK)
@@ -196,6 +214,8 @@ def scene(c, T):
     for i in range(k + 1):
         x, y = POSX[i], int(ly(REC[i]["lb"])); col = zcol(REC[i]["lz"]); age = T - RT[i]
         fresh = i == k and age < 1.2
+        if y > EY - 10 and not fresh: continue                      # zoomed out of view (below the window)
+        y = min(y, EY - 10)
         if fresh:
             q = min(1, age / 0.25)
             d.line([x, y, lerp(x, EX + 3, q), lerp(y, EY - 9, q)], fill=mix(col, SKY, .15 + .6 * ease(age / 1.2)))
@@ -224,8 +244,11 @@ def clock(c, T):
 def axis_labels(c):
     W = c.t
     text(W, 180, 153, "BIG BANG · 13.8 BILLION YEARS AGO", fill=(255, 205, 160), align="c")
-    for g in (1, 5, 10):
-        text(W, 26, int(ly(g)) * 2 - 9, f"{g} BN YR", fill=INK2)
+    for g in ticks():
+        text(W, 26, int(ly(g)) * 2 - 9, (f"{g:g} BN YR"), fill=INK2)
+    lm = CAM[0]
+    if AGE / (AGE - lm) >= 1.5:
+        text(W, 334, 2 * (TOPY + 4), f"ZOOM {AGE / (AGE - lm):.0f}X", fill=CYAN, align="r")
     text(W, EX * 2 + 66, (EY - 7) * 2, "US", fill=INK2)
 
 # ================= HUD, banners, footer =================
@@ -283,6 +306,7 @@ def footer(c, T):
     text(W, 350, 604, "HIGHER NOTE", fill=INK2, align="r"); text(W, 350, 620, "= FARTHER BACK", fill=GOLD, align="r")
 
 def frame_ctx(T):
+    CAM[0] = lmin_at(T) if T >= HOOK else 0.0
     c = Ctx(np.zeros((AH, AW, 3), np.uint8)); scene(c, T); clock(c, T); axis_labels(c)
     return c
 
