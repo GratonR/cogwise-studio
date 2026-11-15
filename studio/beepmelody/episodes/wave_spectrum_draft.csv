@@ -1,0 +1,27 @@
+year,label,family,freq_hz,freq_note,status,source_url
+1666,Newton splits sunlight with a prism (visible light),light,5.4e14,~555 nm (mid visible),to verify,Newton Opticks 1704 / Royal Society Phil. Trans. 1672
+1800,Herschel finds infrared beyond red,light,3.0e14,~1 um (est.),to verify,Herschel Phil. Trans. 1800 / NASA IPAC
+1801,Ritter finds ultraviolet beyond violet,light,8.6e14,~350 nm (est.),to verify,NASA Imagine the Universe / Ritter 1801
+1814,Fraunhofer maps dark lines in the Sun,light,5.09e14,589 nm (D line),to verify,Fraunhofer 1814 / NIST ASD
+1868,Helium found in the Sun's light,light,5.10e14,587.6 nm (D3),to verify,Royal Society of Chemistry / NIST ASD
+1883,Krakatoa pressure wave circles Earth 7 times,sound,1.0e-2,infrasound (est.),to verify,Royal Society Krakatoa report 1888 / NOAA
+1888,Hertz makes radio waves,light,4.5e8,~66 cm,to verify,Hertz 1888 / IEEE history
+1895,Rontgen discovers X-rays,light,3.0e18,~0.1 nm (est.),to verify,Nobel Prize 1901 / NASA
+1900,Villard discovers gamma rays,light,2.4e20,~1 MeV (est.),to verify,Villard 1900 Comptes rendus / NASA
+1901,Marconi radio crosses the Atlantic,light,8.5e5,~850 kHz (to check),to verify,IEEE Milestone / Marconi
+1933,Jansky hears the Milky Way,light,2.05e7,20.5 MHz,to verify,NRAO / IEEE
+1938,Griffin records bat ultrasound,sound,5.0e4,~50 kHz (est.),to verify,Griffin & Galambos 1941 / Harvard
+1951,Hydrogen's 21 cm line detected,light,1.4204e9,1420.4 MHz,to verify,Ewen & Purcell Nature 1951 / NRAO
+1960,First laser,light,4.318e14,694.3 nm,to verify,Maiman Nature 1960 / APS
+1962,First X-ray star (Sco X-1),light,1.2e18,~5 keV,to verify,Giacconi PRL 1962 / Nobel 2002
+1965,Cosmic microwave background,light,4.08e9,4.08 GHz,to verify,Penzias & Wilson ApJ 1965 / Nobel 1978
+1967,Pulsars,light,8.15e7,81.5 MHz,to verify,Hewish et al. Nature 1968 / Jodrell Bank
+1967,Gamma-ray bursts (Vela),light,1.2e20,~0.5 MeV (est.),to verify,Klebesadel et al. ApJ 1973 / NASA
+1971,Humpback whale songs,sound,4.0e2,~30 Hz-8 kHz (mid est.),to verify,Payne & McVay Science 1971 / NOAA
+1986,Elephants talk in infrasound,sound,1.8e1,14-24 Hz,to verify,Payne et al. 1986 / Cornell ELP
+2003,Black hole sings the deepest note (B-flat),sound,1.8e-15,57 octaves below middle C,to verify,NASA Chandra 2003 / Guinness World Records
+2007,Fast radio bursts,light,1.4e9,1.4 GHz,to verify,Lorimer et al. Science 2007
+2015,Gravitational waves chirp (35-250 Hz),gravity,1.5e2,35-250 Hz,to verify,LIGO PRL 116 061102 / Caltech
+2019,First image of a black hole,light,2.3e11,230 GHz (1.3 mm),to verify,EHT ApJL 2019 / ESO
+2021,Highest-energy light ever (1.4 PeV),light,3.4e29,1.4 PeV,to verify,LHAASO Nature 2021 / CAS
+2023,Gravitational-wave background (nanohertz),gravity,3.2e-8,~1/year,to verify,NANOGrav ApJL 2023 / NSF
