@@ -79,7 +79,7 @@ def state(t):
     s['jet'] = 1 - clamp((t - 1.0) / 0.25)
     s['strip_side'] = ease(clamp((t - 0.25) / 0.55))
     s['tie1'] = ease(clamp((t - 0.75) / 0.25)); s['tie2'] = ease(clamp((t - 1.0) / 0.25))
-    s['still_hole'] = win(t, 1.9, B(1) + 0.3, 0.3)
+    s['loupe'] = win(t, 1.4, B(1) + 0.3, 0.45)   # variante « loupe » (étape 3, choix de Guillaume)
     # turn to the section (beat 2), and back to the side view (beat 12)
     s['turn'] = clamp((t - B(1) - 0.2) / 0.8) * (1 - clamp((t - B(11) - 0.1) / 0.8))
     s['qmark'] = win(t, B(1) + 1.0, B(2) + 0.2, 0.3)
@@ -97,6 +97,54 @@ def side_view(ctx, t, s):
     k = 1 - ease(s['turn'])
     if k <= 0.01: return
     ctx.push_group()
+    _side_body(ctx, t, s)
+    ctx.pop_group_to_source(); ctx.paint_with_alpha(k)
+    # beat 1 (variante « loupe ») : a magnifying glass zooms on the hole — still open under the clear plastic
+    a = s['loupe'] * k
+    if a > 0:
+        loupe(ctx, t, s, a)
+    # final beat: dry pipe, hole open, water stays in
+    a = s['recap'] * k
+    if a > 0:
+        highlight(ctx, HOLE_X, SY - SR + 2, 46, 34, RED, a, t)
+        tag(ctx, "HOLE: OPEN", HOLE_X, SY - SR - 150, RED, a, 28)
+        tag(ctx, "WATER: STILL IN", HOLE_X, SY + SR + 120, TEAL, a, 28)
+
+LX, LY, LR, LZ = 540, 520, 165, 3.2     # loupe centre, radius, zoom (hole drawn at the lens centre)
+def loupe(ctx, t, s, a):
+    g = ease(clamp(a))
+    r = LR * (0.35 + 0.65 * g)
+    hx, hy = HOLE_X, SY - SR + 2
+    # zoom cone: from the hole up to the lens (faint)
+    ctx.move_to(hx - 14, hy); ctx.line_to(LX - r * 0.93, LY + r * 0.37)
+    ctx.move_to(hx + 14, hy); ctx.line_to(LX + r * 0.93, LY + r * 0.37)
+    setc(ctx, INK, 0.35 * a); ctx.set_line_width(3); ctx.set_dash([10, 8]); ctx.stroke(); ctx.set_dash([])
+    # handle, up-right (behind the rim)
+    ca, sa_ = math.cos(-math.pi / 4), math.sin(-math.pi / 4)
+    x0, y0 = LX + ca * (r + 4), LY + sa_ * (r + 4)
+    x1, y1 = LX + ca * (r + 150 * g), LY + sa_ * (r + 150 * g)
+    ctx.move_to(x0, y0); ctx.line_to(x1, y1); setc(ctx, INK, a); ctx.set_line_width(34); ctx.set_line_cap(cairo.LINE_CAP_ROUND); ctx.stroke()
+    ctx.move_to(x0, y0); ctx.line_to(x1, y1); setc(ctx, hexc('#7a4a2a'), a); ctx.set_line_width(24); ctx.stroke()
+    ctx.set_line_cap(cairo.LINE_CAP_BUTT)
+    # magnified view of the hole (same drawing, scaled around the hole)
+    ctx.save()
+    ctx.arc(LX, LY, r, 0, 2 * math.pi); ctx.clip()
+    ctx.push_group()
+    ctx.arc(LX, LY, r, 0, 2 * math.pi); setc(ctx, hexc('#f4ecd8')); ctx.fill()
+    ctx.translate(LX, LY); ctx.scale(LZ, LZ); ctx.translate(-hx, -hy)
+    _side_body(ctx, t, s)
+    ctx.pop_group_to_source(); ctx.paint_with_alpha(a)
+    ctx.restore()
+    # glass sheen + rim
+    ctx.arc(LX - r * 0.35, LY - r * 0.35, r * 0.35, math.pi * 1.05, math.pi * 1.55)
+    setc(ctx, WHITE, 0.55 * a); ctx.set_line_width(7); ctx.stroke()
+    ctx.arc(LX, LY, r, 0, 2 * math.pi); setc(ctx, INK, a); ctx.set_line_width(14); ctx.stroke()
+    ctx.arc(LX, LY, r - 9, 0, 2 * math.pi); setc(ctx, hexc('#b8b0a0'), a); ctx.set_line_width(4); ctx.stroke()
+    # the hole itself, ringed in red inside the lens
+    highlight(ctx, LX, LY + 4, 52, 34, RED, a * clamp((g - 0.6) / 0.4), t)
+    tag(ctx, "STILL A HOLE", LX - 260, LY + r - 10, RED, a * clamp((g - 0.6) / 0.4), 30)
+
+def _side_body(ctx, t, s):
     for x in (150, 930):          # wall brackets
         rrect(ctx, x - 22, SY - SR - 40, 44, 2 * SR + 80, 8); fill_stroke(ctx, FILL3, lw=4)
     ctx.rectangle(SX0, SY - SR, SX1 - SX0, 2 * SR)
@@ -134,18 +182,6 @@ def side_view(ctx, t, s):
         hh = (SR + 18) * sc
         rrect(ctx, x - TIE_W / 2, SY - hh, TIE_W, 2 * hh, 6); fill_stroke(ctx, TIE, lw=3, alpha=a)
         rrect(ctx, x - 20, SY - hh - 26, 40, 30, 5); fill_stroke(ctx, TIE_L, lw=3, alpha=a)
-    ctx.pop_group_to_source(); ctx.paint_with_alpha(k)
-    # "the hole is still there": ring + tag at the hole
-    a = s['still_hole'] * k
-    if a > 0:
-        highlight(ctx, HOLE_X, SY - SR + 2, 46, 34, RED, a, t)
-        tag(ctx, "STILL A HOLE", HOLE_X, SY - SR - 150, RED, a, 30)
-    # final beat: dry pipe, hole open, water stays in
-    a = s['recap'] * k
-    if a > 0:
-        highlight(ctx, HOLE_X, SY - SR + 2, 46, 34, RED, a, t)
-        tag(ctx, "HOLE: OPEN", HOLE_X, SY - SR - 150, RED, a, 28)
-        tag(ctx, "WATER: STILL IN", HOLE_X, SY + SR + 120, TEAL, a, 28)
 
 # ---------------------------------------------------------------- section
 def polar(r, a): return CX + r * math.cos(a), CY + r * math.sin(a)
