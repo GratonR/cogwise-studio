@@ -1,0 +1,30 @@
+{
+ "id": "bottle-leak-fix-20261115-075258",
+ "beat_starts": [
+  0.15,
+  5.969,
+  11.101,
+  16.708,
+  22.355,
+  27.972,
+  33.917,
+  37.83,
+  42.615,
+  49.294,
+  52.62,
+  57.253,
+  61.175
+ ],
+ "duration": 64.895,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.9,
+  "cfg_weight": 0.3,
+  "pause": 0.35,
+  "lead": 0.15,
+  "reference": "reference_voix_D.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T08:53:54",
+ "seconds": 47.8
+}
