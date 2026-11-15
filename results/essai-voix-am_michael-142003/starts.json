@@ -1,0 +1,21 @@
+{
+ "id": "essai-voix-am_michael-142003",
+ "beat_starts": [
+  0.15,
+  3.283,
+  9.065,
+  14.359
+ ],
+ "duration": 20.765,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:21:02",
+ "seconds": 13.5
+}
