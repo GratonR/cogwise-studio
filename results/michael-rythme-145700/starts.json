@@ -1,0 +1,21 @@
+{
+ "id": "michael-rythme-145700",
+ "beat_starts": [
+  0.15,
+  2.465,
+  7.941,
+  13.127
+ ],
+ "duration": 19.683,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.55,
+  "cfg_weight": 0.65,
+  "pause": 0.25,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:58:33",
+ "seconds": 14.5
+}
