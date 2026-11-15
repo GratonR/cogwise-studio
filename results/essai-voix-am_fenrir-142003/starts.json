@@ -1,0 +1,21 @@
+{
+ "id": "essai-voix-am_fenrir-142003",
+ "beat_starts": [
+  0.15,
+  2.596,
+  7.767,
+  12.812
+ ],
+ "duration": 18.288,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_fenrir.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:20:44",
+ "seconds": 12.2
+}
