@@ -1,0 +1,21 @@
+{
+ "id": "essai-voix-af_heart-142003",
+ "beat_starts": [
+  0.15,
+  2.485,
+  7.482,
+  12.345
+ ],
+ "duration": 18.522,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_af_heart.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:20:26",
+ "seconds": 12.8
+}
