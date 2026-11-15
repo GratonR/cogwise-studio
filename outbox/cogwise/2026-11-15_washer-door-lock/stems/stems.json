@@ -1,0 +1,41 @@
+{
+  "duration": 63.633,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "washer-door-lock",
+  "title": "Your washer makes you wait before the door opens. Some don't. 🔒 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.222,
+    8.558,
+    13.691,
+    17.724,
+    23.318,
+    27.69,
+    32.894,
+    37.632,
+    40.906,
+    46.347,
+    53.581,
+    57.684
+  ]
+}

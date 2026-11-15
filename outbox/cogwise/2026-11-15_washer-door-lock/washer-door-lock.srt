@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,052
+Your washer makes you wait before the door opens. Some don't.
+
+2
+00:00:04,222 --> 00:00:08,388
+Most washer doors are locked by a tiny heater, not a motor.
+
+3
+00:00:08,558 --> 00:00:13,521
+Inside the lock, a small ceramic pill heats up when the cycle starts.
+
+4
+00:00:13,691 --> 00:00:17,554
+Against it sits a disc made of two metals bonded together.
+
+5
+00:00:17,724 --> 00:00:23,148
+One metal stretches more with heat, so the warm disc suddenly snaps the other way.
+
+6
+00:00:23,318 --> 00:00:27,520
+That snap pushes a pin into the door's hook. Locked.
+
+7
+00:00:27,690 --> 00:00:32,724
+The same move closes a switch, so the machine can fill and spin.
+
+8
+00:00:32,894 --> 00:00:37,462
+At the end, the heater stops, but the disc needs a minute or two to cool.
+
+9
+00:00:37,632 --> 00:00:40,736
+Only then does it snap back and pull the pin out.
+
+10
+00:00:40,906 --> 00:00:46,177
+Even in a power cut mid-spin, the heat keeps the door shut while the drum slows.
+
+11
+00:00:46,347 --> 00:00:53,411
+If yours opens instantly with a click, that's an electromagnet, and the machine checks the drum first.
+
+12
+00:00:53,581 --> 00:00:57,514
+So that wait isn't a fault. It's a tiny heater cooling down.
+
+13
+00:00:57,684 --> 00:01:03,578
+Cogwise: how things work. Follow for the next one!
