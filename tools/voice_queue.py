@@ -13,7 +13,7 @@ Usage (from the repo root, after the episode module is final):
       -> OUTDIR/voice.mp3 + OUTDIR/starts.json ; exit 0
       -> exit 2 on timeout (PC off / workshop not running): use the fallback described in kit/METHOD.md
   python3 tools/voice_queue.py voice kit/episodes/X.py OUTDIR --timeout 900   # send + wait in one go
-  send/voice accept --pause S (silence between beats) --exaggeration X --cfg-weight Y (PC defaults: 0.35 / 0.9 / 0.3)
+  send/voice accept --pause S (silence between beats) --exaggeration X --cfg-weight Y (default = VOICE below: Michael, 0.4 / 0.5 / 0.5)
 Then:  cd kit && python3 -m cogwise.run build episodes/X.py OUT --voice OUTDIR/voice.mp3 --starts OUTDIR/starts.json
 """
 import argparse, json, os, subprocess, sys, tempfile, time, datetime as dt, shutil
@@ -109,10 +109,15 @@ def wait(jid, outdir, timeout):
     sys.exit(2)
 
 
+# Cogwise voice chosen by Guillaume on 15 Nov 2026: « Michael équilibré » (Kokoro am_michael reference, cloned by Chatterbox).
+# Sent explicitly with every job so the cloud stays the source of truth even if the PC workshop runs older defaults.
+VOICE = {"reference": "reference_am_michael.wav", "exaggeration": 0.5, "cfg_weight": 0.5, "pause": 0.4}
+
+
 def settings(a):
-    """Optional voice settings for the PC workshop (defaults there = « Chatterbox 3 »: exaggeration 0.9, cfg 0.3, pause 0.35 s)."""
+    """Voice settings for the PC workshop: the Cogwise voice (VOICE) unless overridden on the command line."""
     out = {"pause": a.pause, "exaggeration": a.exaggeration, "cfg_weight": a.cfg_weight}
-    return {k: v for k, v in out.items() if v is not None}
+    return {**VOICE, **{k: v for k, v in out.items() if v is not None}}
 
 
 def main():

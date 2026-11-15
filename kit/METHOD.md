@@ -80,7 +80,7 @@ Copier le patron de `episodes/fridge.py` et `README.md` :
 Corriger et recommencer jusqu'à propre.
 
 ### 6. Voix + montage — VOIX LOCALE d'abord (Guillaume, 12 nov.)
-La voix est générée sur le PC de Guillaume (RTX 5080, Chatterbox, « voix D », réglages « Chatterbox 3 ») par l'atelier voix,
+La voix est générée sur le PC de Guillaume (RTX 5080, Chatterbox, voix « Michael équilibré » choisie le 15 nov. : référence am_michael, expressivité 0,5, guidage 0,5, pause 0,4 s — envoyée avec chaque job par tools/voice_queue.py ; ne pas la changer sans demande de Guillaume) par l'atelier voix,
 via la file GitHub `voice-queue` (voir `tools/voice_queue.py`). ElevenLabs n'est plus qu'un secours.
 1. Dès que le script est final : `python3 tools/voice_queue.py send kit/episodes/<slug>.py` (racine du repo) → id du job ;
    note-le dans `drafts/<slug>.voice_job`. Le PC génère ~1 s de calcul par seconde de voix.
