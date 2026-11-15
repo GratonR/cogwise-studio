@@ -1,0 +1,21 @@
+{
+ "id": "michael-chaleureux-145700",
+ "beat_starts": [
+  0.15,
+  2.685,
+  8.017,
+  13.282
+ ],
+ "duration": 20.365,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.65,
+  "cfg_weight": 0.4,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:57:32",
+ "seconds": 15.6
+}
