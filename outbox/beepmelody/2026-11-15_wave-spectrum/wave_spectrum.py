@@ -1,10 +1,11 @@
 """BEEPMELODY — HUMANS FOUND 147 OCTAVES OF WAVES. LISTEN TO ALL OF THEM.
-Co-pilot: step 1 = A (every wave we ever found: light + sound + gravity), step 2 = B (Discovery drive, 118 BPM,
-16th synth-bass arpeggio Am-F-C-G, four-on-the-floor, plucks = light, marimba = sound, soft synth = gravity).
+Co-pilot: step 1 = A (every wave we ever found: light + sound + gravity). Rework r1 (Guillaume 15 Nov: "match the sound
+with the wave", "funky 3D"): step 2 = C (synthwave 98 BPM, each wave plays its REAL note moved by whole octaves, tremolo
+speed set by its frequency, octave bass follows it), step 3 = C (wireframe 3D terrain rippling at the wave's speed).
 29 discoveries, 1666 -> 2023 (wave_spectrum.csv, 2 sources per row). One discovery = one note.
-Pitch = log10(frequency) of the wave, 147 octaves squeezed into ~2.5 octaves (A minor pentatonic A2..G5).
-LIGO 2015 is the one note played at its REAL pitch: a 35 -> 250 Hz chirp.
-Scene: a scope shows the wave (light = coloured sine, sound = pressure rings, gravity = rippling space grid);
+Note = pitch class of the real frequency; octave = place on the log ruler (A2..A5). Audible waves keep their real
+octave; LIGO 2015 plays its real 35 -> 250 Hz chirp.
+Scene: wireframe terrain (crests = wave speed, colour = band; gravity = space-time sheet);
 bottom: the whole spectrum on a LOG frequency ruler, each find lights up its spot.
 WAVE_LIGHT=1 -> clear variant (light sky, cream panels), like the altitude pilot.
 
@@ -78,12 +79,12 @@ def wave_col(i):
     return (210, 240, 255)                                                    # X / gamma
 
 # ================= timeline (on the beat) =================
-BPM = 118.0
+BPM = 98.0                                                      # rework r1: synthwave 98 BPM (step 2 = C)
 BEAT = 60.0 / BPM
-HOOK_B = 8
-GAP_B = [6, 3, 4, 4, 4, 6, 4, 4, 5, 4, 4, 3, 3, 3, 3, 3, 4, 2, 3, 3, 3, 4, 6, 4, 6, 3, 2, 2]
-HOLD_B = 10
-OUTRO_B = 12
+HOOK_B = 6
+GAP_B = [5, 2, 2, 3, 3, 5, 3, 3, 4, 3, 3, 3, 2, 4, 2, 3, 4, 2, 3, 2, 3, 2, 5, 3, 5, 3, 2, 3]
+HOLD_B = 8
+OUTRO_B = 10
 assert len(GAP_B) == N - 1
 RT = [HOOK_B * BEAT]
 for g in GAP_B: RT.append(RT[-1] + g * BEAT)
@@ -94,7 +95,7 @@ START, acc_ = {}, 0.0
 for n, d in SC: START[n] = acc_; acc_ += d
 DUR = dict(SC); NAMES = [n for n, _ in SC]
 TOTAL = acc_
-HOOK_LO, HOOK_HI = 0.25, 0.25 + 4 * BEAT                       # hook: lowest note, then highest note
+HOOK_LO, HOOK_HI = 0.25, 0.25 + 3 * BEAT                       # hook: lowest note, then highest note
 
 def rec_index(T):
     k = -1
@@ -102,117 +103,116 @@ def rec_index(T):
         if T >= t: k = i
     return k
 
-# ================= music plan (step-2 B) =================
-SCALE = [45, 48, 50, 52, 55, 57, 60, 62, 64, 67, 69, 72, 74, 76, 79]
-def pitch(i): return SCALE[int(round(np.clip(pos(i), 0, 1) * (len(SCALE) - 1)))]
-ROOTS = [33, 29, 36, 31]                                        # Am - F - C - G
+# ================= music plan (rework r1, step 2 = C: "the wave sets the rhythm", synthwave 98 BPM) =================
+# Each wave plays its REAL note: the pitch class of its real frequency, moved by whole octaves into hearing; the octave
+# follows its place on the ruler (slow wave = low register, fast = high). Waves already audible (whale 400 Hz, neutron
+# stars ~100 Hz) keep their real octave; LIGO plays its real 35 -> 250 Hz chirp. Each note flutters (tremolo) at a
+# speed set by its frequency: slow wave = slow pulse, fast wave = fast flutter. Octave bass follows the last wave's note.
+LGMIN, LGMAX = min(r["lg"] for r in REC), max(r["lg"] for r in REC)
+PCN = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
+def real_midi(f): return 69 + 12 * math.log2(f / 440.0)
+def note_for(i):
+    m = round(real_midi(float(REC[i]["freq_hz"])))
+    if 40 <= m <= 90: return m, 0
+    target = 45 + (REC[i]["lg"] - LGMIN) / (LGMAX - LGMIN) * 36
+    k = round((target - m) / 12); return m + 12 * k, k
+def pitch(i): return note_for(i)[0]
+def rpos(i): return (REC[i]["lg"] - LGMIN) / (LGMAX - LGMIN)
 EV = []
 def ev(t, kind, **kw): EV.append((t, kind, kw))
+def root_at(t):
+    k = rec_index(t)
+    i = k if k >= 0 else (I_BH if t < HOOK_HI else I_TOP)
+    return 33 + (pitch(i) % 12)
 def build():
-    nb = int(round(TOTAL / BEAT)) + 1; s16 = BEAT / 4
+    nb = int(round(TOTAL / BEAT)) + 1; s8 = BEAT / 2
     for b in range(nb):
-        t = b * BEAT; bar, p = divmod(b, 4); ro = ROOTS[bar % 4]
+        t = b * BEAT; p = b % 4; hook = t < RT[0]
+        if t >= TOTAL - 2 * BEAT: break
+        for q in range(2):
+            tq = t + q * s8
+            ev(tq, "bass", m=root_at(tq) + (12 if q else 0), v=0.05 if hook else (0.06 if t >= T_END else 0.08))
+        if hook: continue
         if t >= T_END:
-            if t < TOTAL - 3 * BEAT:
-                ev(t, "bass16", m=ro, open=0.5, v=0.05)
-                if p == 0:
-                    for j, d in enumerate((12, 19, 24, 28)): ev(t + j * s16 * 2, "pluck", m=ro + 24 + d - 12, v=0.09)
+            if p == 0: ev(t, "kick", v=0.35)
             continue
-        hook = t < RT[0]
-        prog = min(1.0, t / T_END)
-        ev(t, "bass16", m=ro, open=(0.15 if hook else 0.2 + 0.7 * prog), v=0.05 if hook else 0.07)
-        if hook:
-            ev(t + BEAT / 2, "hat", v=0.025); continue
-        ev(t, "kick", v=0.55)
-        if p in (1, 3): ev(t, "clap", v=0.10)
-        ev(t + BEAT / 2, "hat", v=0.04)
-    ev(HOOK_LO, "note", i=I_BH, v=0.30); ev(HOOK_HI, "note", i=I_TOP, v=0.30)
-    ev(RT[0] - 4 * BEAT, "riser", d=4 * BEAT, v=0.10)
+        ev(t, "kick", v=0.6)
+        if p in (1, 3): ev(t, "snare", v=0.22)
+        ev(t + s8, "hat", v=0.035)
+    ev(HOOK_LO, "wave", i=I_BH, v=0.34); ev(HOOK_HI, "wave", i=I_TOP, v=0.34)
+    ev(0.0, "pad", m=root_at(0.0), d=RT[0], v=0.05)
+    ev(RT[0] - 3 * BEAT, "riser", d=3 * BEAT, v=0.10)
     for i, t in enumerate(RT):
-        big = i in (I_BH, I_TOP, N - 1)
-        if i == I_LIGO: ev(t, "chirp", v=0.34); ev(t, "crash", v=0.16); continue
-        ev(t, "note", i=i, v=0.30 + (0.08 if big else 0)); ev(t + 3 * s16, "note", i=i, v=0.09)
-        if i in (0, I_IR, I_KRAK, I_CMB, I_BH, I_TOP): ev(t, "crash", v=0.16)
-    ev(RT[-1], "crash", v=0.26); ev(RT[-1], "sub", v=0.4)
+        nxt = RT[i + 1] if i + 1 < N else T_END
+        ev(t, "pad", m=root_at(t), d=nxt - t, v=0.05)
+        if i == I_LIGO: ev(t, "chirp", v=0.38); ev(t, "crash", v=0.16); continue
+        ev(t, "wave", i=i, v=0.34 + (0.06 if i in (I_BH, I_TOP, N - 1) else 0))
+        if i in (0, I_IR, I_KRAK, I_SPUT, I_CMB, I_BH, I_TOP): ev(t, "crash", v=0.14)
+    ev(RT[-1], "crash", v=0.24); ev(RT[-1], "sub", v=0.4)
     for k, d in enumerate([0, 7, 12, 19, 24, 31, 36, 31, 24, 19, 12, 7]):   # the 147-octave sweep: low to high and back
-        ev(RT[-1] + (k + 1) * s16 * 2, "pluck", m=45 + d, v=0.18)
-    ev(RT[-1] - 4 * BEAT, "riser", d=4 * BEAT, v=0.08)
+        ev(RT[-1] + (k + 1) * s8, "saw", m=45 + d, v=0.14)
+    ev(RT[-1] - 3 * BEAT, "riser", d=3 * BEAT, v=0.08)
     EV.sort(key=lambda e: e[0])
 build()
 KICKS = sorted(t for t, k, _ in EV if k == "kick")
-NOTES = sorted([(t, kw["i"]) for t, k, kw in EV if k == "note" and kw["v"] > 0.2] + [(RT[I_LIGO], I_LIGO)])
+NOTES = sorted([(t, kw["i"]) for t, k, kw in EV if k == "wave"] + [(RT[I_LIGO], I_LIGO)])
 
-# ================= scene =================
+# ================= scene (rework r1, step 3 = C: wireframe 3D terrain) =================
+# A wireframe sea seen in perspective ripples at the wave's speed: crests across the frame = place on the log ruler
+# (slow wave = few wide crests, fast wave = many tight ones). Colour = band. Gravity waves: the sheet becomes
+# space-time, rings spread out from the source (LIGO: two black holes spiral in, then the sheet rings).
+# The sheet breathes on the kick (98 BPM).
 _rng = np.random.default_rng(7)
 STARS = [(int(_rng.integers(0, AW)), int(_rng.integers(0, AH)), int(_rng.integers(0, 3))) for _ in range(90)]
-SX0, SX1, SY0, SY1 = 14, 166, 84, 228                           # scope window (art px)
-SCX, SCY = (SX0 + SX1) // 2, (SY0 + SY1) // 2
+MAG = (255, 60, 200)
+GX = np.linspace(-3.0, 3.0, 25); GZ = np.linspace(1.6, 7.4, 20)
+BG = [mix((4, 10, 30), (40, 10, 70), min(1, y / 230)) for y in range(AH)]
+def proj(x, y, z, cx=90, cy=104, f=115):
+    z = max(z, 0.05); return cx + f * x / z, cy + f * y / z
+def kick_pulse(T):
+    ki = np.searchsorted(KICKS, T, side="right") - 1
+    return math.exp(-(T - KICKS[ki]) / 0.12) if ki >= 0 else 0.0
 
-def draw_light(d, i, T, age):
-    col = wave_col(i); cyc = 1.2 + 10 * pos(i)                   # more cycles across the scope = faster wave
-    amp = 26 * (1 + 0.5 * math.exp(-age / 0.25)); ph = T * 4
-    pts = []
-    for x in range(SX0 + 2, SX1 - 1):
-        u = (x - SX0) / (SX1 - SX0)
-        pts.append((x, SCY + amp * math.sin(2 * math.pi * cyc * u - ph)))
-    for a, b in zip(pts, pts[1:]): d.line([a, b], fill=col, width=2)
-    if REC[i]["year"] == "1666":                                 # Newton: the rainbow fan
-        for j, c in enumerate([(255, 70, 60), (255, 150, 50), (255, 230, 70), (90, 230, 110), (80, 140, 255), (150, 110, 255)]):
-            d.line([SX0 + 6, SY1 - 10, SX1 - 6, SY1 - 40 + j * 5], fill=c)
-    if i == I_EHT:                                               # the black-hole ring
-        rr = 16; d.ellipse([SCX - rr, SCY - rr, SCX + rr, SCY + rr], outline=(255, 150, 50), width=4)
-        d.ellipse([SCX - 9, SCY - 9, SCX + 9, SCY + 9], fill=SKY if not LIGHT else (20, 20, 30))
-
-def draw_sound(d, i, T, age):
-    col = FAMC["sound"]; sp = 4 + 22 * (1 - pos(i))               # slower wave = rings further apart
-    cx, cy = SX0 + 18, SCY
-    d.rectangle([cx - 5, cy - 7, cx - 1, cy + 7], fill=col); d.polygon([(cx - 1, cy - 7), (cx + 5, cy - 12), (cx + 5, cy + 12), (cx - 1, cy + 7)], fill=col)
-    off = (T * 18) % sp
-    r = 8 + off
-    while r < SX1 - cx - 3:
-        fade = max(0.0, 1 - r / 150)
-        ang = min(55.0, math.degrees(math.asin(min(1.0, (SCY - SY0 - 4) / r))))
-        d.arc([cx - r, cy - r, cx + r, cy + r], -ang, ang, fill=mix(SKY, col, 0.25 + 0.75 * fade), width=2 if r < 40 else 1)
-        r += sp
-
-def draw_gravity(d, i, T, age):
-    col = FAMC["gravity"]
-    lig = i == I_LIGO
-    om = 2.0 + (8.0 * ease(age / 1.8) if lig else 0)              # LIGO: the pair spirals in
-    rad = 14 * (1 - 0.85 * ease(age / 1.8)) if lig else 12
-    if lig and age > 1.9: rad = 0
-    amp = 3.5 * (1 + (2 * math.exp(-max(0, age - 1.9) / 0.4) if lig and age > 1.9 else 0))
-    for gy in range(SY0 + 6, SY1 - 2, 8):
-        for gx in range(SX0 + 4, SX1 - 2, 8):
-            dist = math.hypot(gx - SCX, gy - SCY)
-            dz = amp * math.sin(dist / 6 - T * 6) * max(0.2, 1 - dist / 110)
-            ux, uy = (gx - SCX) / (dist + 1e-6), (gy - SCY) / (dist + 1e-6)
-            px, py = int(gx + ux * dz), int(gy + uy * dz)
-            d.rectangle([px, py, px + 1, py + 1], fill=mix(GRID, col, min(1.0, 0.55 + 0.1 * abs(dz))))
-    if rad > 0:
-        a = T * om
-        for s in (1, -1):
-            x, y = SCX + s * rad * math.cos(a), SCY + s * rad * 0.6 * math.sin(a)
-            d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=(255, 255, 255) if not LIGHT else (40, 40, 60))
-    elif lig:
-        d.ellipse([SCX - 4, SCY - 4, SCX + 4, SCY + 4], fill=(255, 255, 255) if not LIGHT else (40, 40, 60))
-
-def scope(c, i, T, age):
+def terrain(c, i, T, age):
     d = c.a
-    d.rectangle([SX0, SY0, SX1, SY1], fill=mix(SKY, PANEL, 0.5), outline=RIM)
-    for gx in range(SX0 + 19, SX1, 19): d.line([gx, SY0 + 1, gx, SY1 - 1], fill=mix(SKY, GRID, 0.6))
-    d.line([SX0 + 1, SCY, SX1 - 1, SCY], fill=GRID)
-    {"light": draw_light, "sound": draw_sound, "gravity": draw_gravity}[REC[i]["family"]](d, i, T, age)
+    for y in range(AH): d.line([0, y, AW, y], fill=BG[y])
+    for (x, y, s) in STARS:
+        if y < 110: d.point((x, y), fill=[(50, 60, 110), (180, 200, 255), (90, 100, 160)][s])
+    r = REC[i]; col = wave_col(i); grav = r["family"] == "gravity"; lig = i == I_LIGO
+    amp = 0.45 * (1 + 0.6 * math.exp(-age / 0.3)) * (1 + 0.18 * kick_pulse(T))
+    if lig: amp *= 0.5 + 1.6 * ease(max(0.0, age - 1.0) / 0.5) * math.exp(-max(0.0, age - 1.6) / 1.5)
+    ncyc = 1 + 4 * pos(i)
+    if grav:
+        R = np.hypot(GX[None, :], GZ[:, None] - 3.6)
+        H = amp * 1.2 * np.sin(R * 4 - T * 6) * np.exp(-R * 0.25)
+        if lig: H -= 0.5 / (R + 0.4) * (1 - ease(max(0.0, age - 1.4) / 1.0))
+    else:
+        H = amp * np.sin(2 * np.pi * ncyc * (GZ[:, None] - 1.6) / 5.8 * 1.5 - T * 5) * (0.7 + 0.3 * np.cos(GX[None, :] * 1.3))
+    P = [[proj(x, 1.1 - H[zi, xi], z) for xi, x in enumerate(GX)] for zi, z in enumerate(GZ)]
+    for zi in range(len(GZ) - 1, -1, -1):
+        sh = min(1, 2.6 / GZ[zi]); cl = mix((20, 10, 50), col, min(1, sh * 1.25))
+        for xi in range(len(GX) - 1): d.line([P[zi][xi], P[zi][xi + 1]], fill=cl)
+        if zi > 0:
+            for xi in range(len(GX)): d.line([P[zi][xi], P[zi - 1][xi]], fill=mix((20, 10, 50), MAG, sh * 0.45))
+    if lig:                                                      # the two black holes spiral in, then merge
+        sx, sy = proj(0, 0.55, 3.6)
+        if age < 1.5:
+            rad = 12 * (1 - 0.85 * ease(age / 1.5)); a = T * (3 + 14 * ease(age / 1.5))
+            for s_ in (1, -1):
+                x, y = sx + s_ * rad * math.cos(a), sy + s_ * rad * 0.45 * math.sin(a)
+                d.ellipse([x - 3, y - 3, x + 3, y + 3], fill=(255, 255, 255))
+        else:
+            d.ellipse([sx - 4, sy - 4, sx + 4, sy + 4], fill=(255, 255, 255))
+    if i == I_EHT:                                               # the black-hole ring over the horizon
+        cx, cy = 90, 94; d.ellipse([cx - 15, cy - 15, cx + 15, cy + 15], outline=(255, 150, 50), width=4)
+        d.ellipse([cx - 8, cy - 8, cx + 8, cy + 8], fill=(4, 6, 20))
 
 def scene(c, T):
-    d = c.a; d.rectangle([0, 0, AW, AH], fill=SKY)
-    if not LIGHT:
-        for (x, y, s) in STARS: d.point((x, y), fill=[GRID, INK2, (60, 70, 120)][s])
-    k = rec_index(T)
     if T < RT[0]:                                               # hook: lowest then highest wave
         i = I_BH if T < HOOK_HI else I_TOP
-        scope(c, i, T, T - (HOOK_LO if i == I_BH else HOOK_HI)); return
-    scope(c, k, T, T - RT[k])
+        terrain(c, i, T, T - (HOOK_LO if i == I_BH else HOOK_HI)); return
+    k = rec_index(T)
+    terrain(c, k, T, T - RT[k])
 
 # ================= spectrum ruler (bottom) =================
 BX0, BX1, BY = 14, 166, 262
@@ -365,7 +365,7 @@ def render_frame(idx, t):
         if f > 0: fr = (fr * (1 - f) + np.array(SKY) * f).astype(np.uint8)
     return fr
 
-# ================= audio (step-2 B, full length) =================
+# ================= audio (rework r1, step 2 = C: synthwave 98 BPM, full length) =================
 SR = 44100
 def mtof(m): return 440.0 * 2 ** ((m - 69) / 12)
 def env(n, a, dec):
@@ -375,8 +375,10 @@ def render_audio(path):
     from scipy.io import wavfile
     from scipy.signal import butter, lfilter
     n = int((TOTAL + 2.0) * SR); L = np.zeros(n); R = np.zeros(n); fx = np.zeros(n)
-    rng = np.random.default_rng(11); s16 = BEAT / 4
+    rng = np.random.default_rng(11)
     def lp(x, fc): return lfilter(*butter(2, min(fc, SR / 2 - 100) / (SR / 2)), x)
+    def hp(x, fc): return lfilter(*butter(2, fc / (SR / 2), "high"), x)
+    def tt(d): return np.arange(int(d * SR)) / SR
     def add(buf, i, x):
         j = min(n, i + len(x)); buf[i:j] += x[:j - i]
     def put(t, x, pan=0.0, send=0.0):
@@ -384,58 +386,59 @@ def render_audio(path):
         if i >= n or i < 0: return
         add(L, i, x * (1 - pan) ** 0.5 * 0.9); add(R, i, x * (1 + pan) ** 0.5 * 0.9)
         if send: add(fx, i, x * send)
-    def pluck(f):
-        m_ = int(.9 * SR); tt = np.arange(m_) / SR
-        return sum((1 / h) * np.sin(2 * np.pi * f * h * 1.002 * tt) * np.exp(-tt * (5 + 3 * h)) for h in range(1, 7)) * env(m_, .002, .35)
-    def marimba(f):
-        m_ = int(1.2 * SR); tt = np.arange(m_) / SR
-        return (np.sin(2 * np.pi * f * tt) + .35 * np.sin(2 * np.pi * f * 3.93 * tt) * np.exp(-tt * 25)) * env(m_, .002, .35)
-    def softsyn(f):
-        m_ = int(1.4 * SR); tt = np.arange(m_) / SR
-        return lp(sum((1 / h) * np.sin(2 * np.pi * f * h * tt) for h in (1, 2, 3)), 2200) * env(m_, .03, .5)
-    VOICE = {"light": (pluck, 0.9, 0.1), "sound": (marimba, 1.0, -0.2), "gravity": (softsyn, 0.85, 0.2)}
+    def saw3(f, x): return sum(2 * ((f * dt * x) % 1) - 1 for dt in (1, 1.006, .994)) / 3
+    def wave_note(i):
+        f = mtof(pitch(i)); r = rpos(i); x = tt(1.6)
+        if REC[i]["family"] == "sound":                         # sound waves: a sung glide (the whale is its real pitch)
+            s = np.sin(2 * np.pi * np.cumsum(f * (0.85 + .15 * np.minimum(1, x / .5))) / SR)
+            s = (s + 0.3 * np.sin(2 * np.pi * np.cumsum(2 * f * (0.85 + .15 * np.minimum(1, x / .5))) / SR)) * np.exp(-x * 1.6) * .5
+            return s * np.minimum(1, x / .01)
+        rate = 2 + 22 * r                                       # slow wave = slow pulse, fast wave = fast flutter
+        gate = .5 + .5 * np.sign(np.sin(2 * np.pi * rate * x))
+        g = lp(gate, 200)                                       # soften clicks
+        return lp(saw3(f, x), 2500 + 4000 * r) * g * np.minimum(1, x / .01) * np.exp(-x * 1.5) * .35
     def chirp(f0=35, f1=250, d=0.6):                              # GW150914 at real pitch, f ~ (tc - t)^-3/8
-        m_ = int((d + .25) * SR); tt = np.arange(m_) / SR; tc = d + .002
-        f = np.clip(np.where(tt < d, f0 * (tc / np.maximum(tc - tt, 1e-3)) ** (3 / 8), f1), f0, f1)
-        a = np.where(tt < d, (f / f1) ** .7, np.exp(-(tt - d) * 30))
-        return np.sin(2 * np.pi * np.cumsum(f) / SR) * a
+        m_ = int((d + .25) * SR); x = np.arange(m_) / SR; tc = d + .002
+        f = np.clip(np.where(x < d, f0 * (tc / np.maximum(tc - x, 1e-3)) ** (3 / 8), f1), f0, f1)
+        a = np.where(x < d, (f / f1) ** .7, np.exp(-(x - d) * 30))
+        s = np.sin(2 * np.pi * np.cumsum(f) / SR) * a
+        return s + 0.35 * np.tanh(3 * s)                        # a bit of grit so phones hear the low start
     for t, k, kw in EV:
         v = kw.get("v", 0.3)
-        if k == "note":
-            fam = REC[kw["i"]]["family"]; fn, g, pan = VOICE[fam]
-            put(t, fn(mtof(pitch(kw["i"]))) * v * g, pan=pan, send=0.3)
+        if k == "wave":
+            put(t, wave_note(kw["i"]) * v * 2.2, pan=rpos(kw["i"]) * 1.2 - .6, send=0.6)
         elif k == "chirp":
-            put(t, chirp() * v * 1.4, send=0.25)
-        elif k == "pluck":
-            put(t, pluck(mtof(kw["m"])) * v, pan=0.1, send=0.3)
-        elif k == "bass16":
-            for q in range(4):
-                m_ = int(s16 * .9 * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"] + [0, 12, 7, 12][q])
-                put(t + q * s16, lp(2 * ((f * tt) % 1) - 1, 500 + 900 * kw["open"]) * np.exp(-tt * 9) * v * 1.6, pan=-0.15)
+            put(t, chirp() * v * 1.5, send=0.35)
+        elif k == "saw":
+            x = tt(0.7); put(t, lp(saw3(mtof(kw["m"]), x), 3500) * np.exp(-x * 4) * v, pan=0.1, send=0.5)
+        elif k == "bass":
+            x = tt(BEAT / 2 * 0.95); f = mtof(kw["m"])
+            put(t, lp(2 * ((f * x) % 1) - 1, 900) * np.exp(-x * 6) * v * 2.6, pan=-0.1)
+        elif k == "pad":
+            d = kw["d"] + 0.4; x = tt(d); m0 = kw["m"] + 24
+            s = sum(saw3(mtof(m0 + iv), x) for iv in (0, 3, 7)) / 3
+            e = np.minimum(1, x / 0.25) * np.clip((d - x) / 0.4, 0, 1)
+            put(t, lp(s, 1100) * e * v, send=0.4)
         elif k == "kick":
-            m_ = int(0.35 * SR); tt = np.arange(m_) / SR
-            put(t, np.tanh(1.5 * np.sin(2 * np.pi * np.cumsum(80 * np.exp(-tt * 16) + 46) / SR) * np.exp(-tt * 12)) * v * 0.8)
+            x = tt(0.35); put(t, np.sin(2 * np.pi * np.cumsum(70 * np.exp(-x * 20) + 42) / SR) * np.exp(-x * 9) * v * 1.2)
         elif k == "sub":
-            m_ = int(1.4 * SR); tt = np.arange(m_) / SR
-            put(t, np.sin(2 * np.pi * np.cumsum(55 * np.exp(-tt * 3) + 33) / SR) * np.exp(-tt * 2.5) * v)
-        elif k == "clap":
-            m_ = int(0.16 * SR); put(t, lp(rng.standard_normal(m_), 5000) * np.exp(-np.arange(m_) / SR * 18) * v * 1.2, send=0.15)
+            x = tt(1.4); put(t, np.sin(2 * np.pi * np.cumsum(55 * np.exp(-x * 3) + 33) / SR) * np.exp(-x * 2.5) * v)
+        elif k == "snare":
+            x = tt(0.5); put(t, lp(rng.standard_normal(len(x)), 5000) * np.exp(-x * 9) * v * 1.2, send=0.8)
         elif k == "hat":
-            m_ = int(0.04 * SR)
-            put(t, lfilter(*butter(2, 8000 / (SR / 2), "high"), rng.standard_normal(m_)) * env(m_, 0.001, 0.012) * v * 2.5, pan=0.3)
+            m_ = int(0.04 * SR); put(t, hp(rng.standard_normal(m_), 8000) * env(m_, 0.001, 0.012) * v * 2.5, pan=0.3)
         elif k == "crash":
-            m_ = int(1.6 * SR)
-            put(t, lfilter(*butter(2, 5000 / (SR / 2), "high"), rng.standard_normal(m_)) * env(m_, 0.002, 0.45) * v * 0.5, send=0.2)
+            m_ = int(1.6 * SR); put(t, hp(rng.standard_normal(m_), 5000) * env(m_, 0.002, 0.45) * v * 0.5, send=0.2)
         elif k == "riser":
-            m_ = int(kw["d"] * SR); tt = np.arange(m_) / SR
-            put(t, lfilter(*butter(2, 2500 / (SR / 2), "high"), rng.standard_normal(m_)) * (tt / kw["d"]) ** 2 * v)
-    out = fx.copy()
-    for dl, g in [(.083, .5), (.127, .42), (.191, .35), (.263, .28), (.347, .22), (.461, .16), (.613, .11)]:
-        k_ = int(dl * SR); out[k_:] += g * .6 * fx[:-k_]
-    out = lp(out, 4000)
-    L += out * 0.45; R += np.roll(out, 400) * 0.45
-    tt = np.arange(n) / SR
-    fade = np.clip((TOTAL - tt) / 1.5, 0, 1); L *= fade; R *= fade
+            x = tt(kw["d"]); put(t, hp(rng.standard_normal(len(x)), 2500) * (x / kw["d"]) ** 2 * v)
+    out = fx.copy()                                              # big synthwave reverb + 8th-note delay
+    for dl, g in [(.031, .5), (.047, .45), (.071, .4), (.113, .35), (.167, .3), (.263, .25), (.347, .2), (.461, .15), (.613, .1)]:
+        k_ = int(dl * SR); out[k_:] += g * fx[:-k_]
+    k_ = int(BEAT / 2 * SR); dly = np.zeros(n); dly[k_:] += fx[:-k_] * .35; dly[2 * k_:] += fx[:-2 * k_] * .15
+    out = lp(out, 4000) * 0.5 + lp(dly, 3000)
+    L += out; R += np.roll(out, 300)
+    x = np.arange(n) / SR
+    fade = np.clip((TOTAL - x) / 1.5, 0, 1); L *= fade; R *= fade
     mx = max(np.abs(L).max(), np.abs(R).max())
     st = np.tanh(np.stack([L, R], 1) / mx * 1.3) / np.tanh(1.3) * 0.9
     wavfile.write(path, SR, (st * 32767).astype(np.int16))

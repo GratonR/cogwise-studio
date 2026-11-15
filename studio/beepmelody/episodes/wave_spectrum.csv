@@ -21,7 +21,7 @@ year,label,family,freq_hz,shown,note,status,source_1,source_2
 1971,HUMPBACK WHALES SING,sound,4.0e2,~400 HZ,30 HZ TO 8 KHZ (mid est.),verified (range; mid value est.),https://doi.org/10.1126/science.173.3997.585,https://www.fisheries.noaa.gov/species/humpback-whale
 1974,BINARY PULSAR: GRAVITY WAVES HINT,gravity,7.17e-5,~7×10^-5 HZ,ORBIT 7.75 H · GW = 2/ORBIT,verified,https://www.nobelprize.org/prizes/physics/1993/summary/,https://doi.org/10.1086/181708
 1986,ELEPHANTS TALK IN INFRASOUND,sound,1.8e1,~18 HZ,14 TO 24 HZ,verified,https://doi.org/10.1007/BF00299522,https://www.elephantlisteningproject.org/
-2003,BLACK HOLE HUMS A B-FLAT,sound,1.8e-15,~2×10^-15 HZ,57 OCTAVES BELOW MIDDLE C,verified,https://chandra.harvard.edu/press/03_releases/press_090903.html,https://www.nasa.gov/image-article/black-hole-sound-waves/
+2003,BLACK HOLE HUMS A B-FLAT,sound,1.62e-15,~2×10^-15 HZ,57 OCTAVES BELOW MIDDLE C,verified (B-flat 57 octaves below middle C = 233.08 Hz / 2^57 = 1.62e-15 Hz),https://chandra.harvard.edu/press/03_releases/press_090903.html,https://www.nasa.gov/image-article/black-hole-sound-waves/
 2007,FAST RADIO BURSTS,light,1.4e9,1.4 GHZ,21 CM · 8.4 IN,verified,https://doi.org/10.1126/science.1147532,https://www.nrao.edu/
 2015,SPACE ITSELF RINGS (LIGO),gravity,1.5e2,35 TO 250 HZ,THE REAL CHIRP · AUDIBLE,verified,https://doi.org/10.1103/PhysRevLett.116.061102,https://www.ligo.caltech.edu/news/ligo20160211
 2017,NEUTRON STARS COLLIDE,gravity,1.0e2,~24 HZ AND UP,GRAVITY + LIGHT TOGETHER,verified (in band from 24 Hz),https://doi.org/10.1103/PhysRevLett.119.161101,https://www.ligo.caltech.edu/news/ligo20171016
