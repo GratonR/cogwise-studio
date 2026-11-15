@@ -1,0 +1,20 @@
+{
+ "id": "bottle-leak-fix-20261115-093111",
+ "slug": "bottle-leak-fix",
+ "beats": [
+  "This pipe still has a hole. So why did the water stop?",
+  "The hole isn't plugged. Something is pressing on it harder than the water.",
+  "Inside, the water pushes outward, trying to lift the plastic away.",
+  "Glue? There's none. Is the plastic melted on? No, it peels right off.",
+  "Clue one: the ties. Pulled tight, a tie only pulls along its length.",
+  "But wrapped around a pipe, that pull bends inward, pressing from every side.",
+  "Clue two: the pipe is small. The tighter the curve, the harder it presses.",
+  "The same tie barely grips a tree, but crushes a thin pipe.",
+  "Clue three: the tie is thin, so the force lands on a narrow strip.",
+  "The answer: on this pipe, the ties squeeze six times harder than water pushes.",
+  "So the hole stays open, but the plastic stays pinned against it.",
+  "The water is still there. It just can't lift the lid.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-15T09:31:11+00:00"
+}
