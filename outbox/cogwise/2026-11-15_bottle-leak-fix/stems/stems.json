@@ -1,0 +1,41 @@
+{
+  "duration": 66.833,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "bottle-leak-fix",
+  "title": "This bottle leak fix shouldn't hold — but it does 🔧 #Shorts",
+  "beat_starts": [
+    0.15,
+    5.969,
+    11.101,
+    16.708,
+    22.355,
+    27.972,
+    33.917,
+    37.83,
+    42.615,
+    49.294,
+    52.62,
+    57.253,
+    61.175
+  ]
+}

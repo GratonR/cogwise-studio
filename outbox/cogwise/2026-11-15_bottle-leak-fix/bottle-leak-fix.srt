@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,799
+A strip of plastic bottle and two cable ties. This leak fix shouldn't hold.
+
+2
+00:00:05,969 --> 00:00:10,931
+The secret: those ties squeeze the pipe harder than the water pushes out.
+
+3
+00:00:11,101 --> 00:00:16,538
+Inside, tap water pushes outward at about three bar, forty-three psi.
+
+4
+00:00:16,708 --> 00:00:22,185
+First, the bottle strip wraps the pipe and covers the hole like a soft gasket.
+
+5
+00:00:22,355 --> 00:00:27,802
+Then each tie is pulled tight, about ten kilograms of pull, twenty-two pounds.
+
+6
+00:00:27,972 --> 00:00:33,747
+Wrapped around a curve, that pull turns into a squeeze pointing inward, all the way round.
+
+7
+00:00:33,917 --> 00:00:37,660
+The tighter the curve, the harder the same pull presses in.
+
+8
+00:00:37,830 --> 00:00:42,445
+And a thin tie puts all that force on a narrow strip.
+
+9
+00:00:42,615 --> 00:00:49,124
+On a twenty-two millimetre pipe, that's about nineteen bar, two hundred seventy-five psi.
+
+10
+00:00:49,294 --> 00:00:52,450
+Six times harder than the water pushing out.
+
+11
+00:00:52,620 --> 00:00:57,083
+So the plastic stays pinned shut, and the water never lifts it.
+
+12
+00:00:57,253 --> 00:01:01,005
+Leak fix: the squeeze beats the push, six to one.
+
+13
+00:01:01,175 --> 00:01:06,794
+Cogwise: how things work. Follow for the next one!
