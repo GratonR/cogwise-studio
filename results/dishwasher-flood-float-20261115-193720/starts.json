@@ -1,0 +1,30 @@
+{
+ "id": "dishwasher-flood-float-20261115-193720",
+ "beat_starts": [
+  0.15,
+  6.11,
+  11.388,
+  15.815,
+  21.667,
+  26.169,
+  31.187,
+  36.679,
+  41.865,
+  46.03,
+  51.619,
+  57.646,
+  62.215
+ ],
+ "duration": 66.206,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T20:38:24",
+ "seconds": 42.2
+}
