@@ -1,0 +1,20 @@
+{
+ "id": "washer-door-lock-20261115-132033",
+ "slug": "washer-door-lock",
+ "beats": [
+  "Your washer makes you wait before the door opens. Some don't.",
+  "Most washer doors are locked by a tiny heater, not a motor.",
+  "Inside the lock, a small ceramic pill heats up when the cycle starts.",
+  "Against it sits a disc made of two metals bonded together.",
+  "One metal stretches more with heat, so the warm disc suddenly snaps the other way.",
+  "That snap pushes a pin into the door's hook. Locked.",
+  "The same move closes a switch, so the machine can fill and spin.",
+  "At the end, the heater stops, but the disc needs a minute or two to cool.",
+  "Only then does it snap back and pull the pin out.",
+  "Even in a power cut mid-spin, the heat keeps the door shut while the drum slows.",
+  "If yours opens instantly with a click, that's an electromagnet, and the machine checks the drum first.",
+  "So that wait isn't a fault. It's a tiny heater cooling down.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-15T13:20:33+00:00"
+}
