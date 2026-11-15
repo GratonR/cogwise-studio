@@ -1,0 +1,30 @@
+{
+ "id": "washer-door-lock-20261115-152733",
+ "beat_starts": [
+  0.15,
+  4.222,
+  8.558,
+  13.691,
+  17.724,
+  23.318,
+  27.69,
+  32.894,
+  37.632,
+  40.906,
+  46.347,
+  53.581,
+  57.684
+ ],
+ "duration": 61.676,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T16:28:33",
+ "seconds": 44.8
+}
