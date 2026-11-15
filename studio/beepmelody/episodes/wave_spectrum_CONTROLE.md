@@ -12,3 +12,9 @@ Preview (palette sombre) : 0,6 / 2,6 / 7,4 / 15,2 / 18,2 / 31,8 / 36,4 / 41 / 46
 - Axe : règle LOG « waves per second », gauche = lent, droite = rapide ✔ ; note plus aiguë = onde plus rapide (annoncé en pied de page).
 - Lisibilité : bannières déplacées dans le bas de l'oscilloscope (elles chevauchaient la règle) ; anneaux sonores coupés au cadre ; grille gravité éclaircie. Rien de coupé, libellés ≤ 33 car. Aucune mention d'IA.
 - Krakatoa : formulation prudente « logged 7 times » (les barographes ont enregistré l'onde jusqu'à 7 passages), pas « 7 tours ».
+
+## Rendu final (étape 4/4, 2026-11-15)
+- Visuel validé par Guillaume (étape 3 : « Ça me va », palette sombre).
+- ffprobe : 68,67 s, 1080×1920, 30 fps, piste audio AAC ✔ (62–75 s).
+- Planche contact relue : 29/29 notes, HUD/bannières/règle sans chevauchement, outro chiffres + sources lisible.
+- Couverture : fond à 51,5 s (LIGO), titre « 147 OCTAVES OF WAVES », lisible, rien de coupé.
