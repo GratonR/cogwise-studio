@@ -1,0 +1,13 @@
+There's a tiny boat hiding under your dishwasher. Its only job is to float.
+It's a flood alarm, and when it floats, your dishwasher goes into emergency mode.
+Under the tub sits a plastic tray, sloped down toward one corner.
+Any leak, from a hose, a door seal or a cracked pump, runs down into it.
+In that low corner sits a little foam float, right under a tiny switch.
+Foam is much lighter than water, so even a shallow puddle lifts it.
+As it rises, it presses the switch, and the control board knows there's a leak.
+First, the board shuts the inlet valve, so not one more drop comes in.
+Then it runs the drain pump nonstop to empty the tub.
+But that pump drains the tub, not the tray, so the little boat stays afloat.
+On a Bosch, that's error E15, and it won't clear until the tray dries out.
+So a floating piece of foam is quietly guarding your kitchen floor.
+Cogwise: how things work. Follow for the next one!

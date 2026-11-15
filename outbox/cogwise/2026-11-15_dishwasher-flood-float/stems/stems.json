@@ -1,0 +1,41 @@
+{
+  "duration": 68.167,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "dishwasher-flood-float",
+  "title": "Your dishwasher has a tiny boat under it ⛵ #Shorts",
+  "beat_starts": [
+    0.15,
+    6.11,
+    11.388,
+    15.815,
+    21.667,
+    26.169,
+    31.187,
+    36.679,
+    41.865,
+    46.03,
+    51.619,
+    57.646,
+    62.215
+  ]
+}
