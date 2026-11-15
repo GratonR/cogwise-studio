@@ -2,7 +2,7 @@
 One idea: the anti-flood FLOAT. A foam float sits in the lowest corner of the base tray; any leak runs down into
 the tray, lifts the float, the float pushes a microswitch, and the control board goes into emergency mode:
 inlet valve shut, drain pump nonstop. The pump empties the TUB (sump), never the TRAY, so the float stays up
-(Bosch E15) until the tray dries.
+(alarm latched on many models) until the tray dries.
 
 VIEW (screen coordinates, y grows DOWN): FRONT cut-away of the dishwasher.
   - control panel strip on top (y 360-420) with the control board display.
@@ -44,7 +44,7 @@ BEATS = [
     dict(dur=5.6, title="WATER OFF", caption="First, the board shuts the inlet valve, so not one more drop comes in."),
     dict(dur=4.5, title="PUMP ON", caption="Then it runs the drain pump nonstop to empty the tub."),
     dict(dur=6.0, title=None, caption="But that pump drains the tub, not the tray, so the little boat stays afloat.", card='tubtray'),
-    dict(dur=6.0, title="STUCK", caption="On a Bosch, that's error E15, and it won't clear until the tray dries out."),
+    dict(dur=6.0, title="STUCK", caption="On many models, the alarm won't clear until the tray dries out."),
     dict(dur=4.9, title="FOAM = GUARD", caption="So a floating piece of foam is quietly guarding your kitchen floor."),
 ]
 
@@ -104,7 +104,7 @@ def state(t):
     # tub water level (px of water at the bottom of the tub): full until beat 9 drains it
     s['tub'] = 46 * (1 - sstep(t, B(8) + 0.6, 3.0))
     s['pump_on'] = max(win(t, B(1) + 1.2, B(2) - 0.1, 0.2) if t < B(2) else 0, sstep(t, B(8) + 0.3, 0.3) * (1 - sstep(t, B(10) - 0.2, 0.4)))
-    s['e15'] = sstep(t, B(10) + 0.4, 0.3) * (1 - sstep(t, B(11) + 0.3, 0.5))
+    s['err'] = sstep(t, B(10) + 0.4, 0.3) * (1 - sstep(t, B(11) - 1.2, 0.5))
     return s
 
 # camera: (time, focus x, focus y, zoom)
@@ -230,8 +230,8 @@ def cabinet(ctx, t, s):
         ctx.rectangle(bx + 14 + i * 26, by + 12, 16, 16); setc(ctx, INK, 0.8); ctx.fill()
     # display
     rrect(ctx, 300, 372, 140, 40, 6); fill_stroke(ctx, INK, lw=2)
-    if s['e15'] > 0:
-        text_c(ctx, "E15", 370, 404, 30, RED, True, 3, s['e15'] * (0.65 + 0.35 * math.sin(t * 8) ** 2))
+    if s['err'] > 0:
+        text_c(ctx, "LEAK", 370, 404, 30, RED, True, 3, s['err'] * (0.65 + 0.35 * math.sin(t * 8) ** 2))
     # cut-away base zone (darker paper)
     ctx.rectangle(CX0 + 8, TY1 + 12, CX1 - CX0 - 16, CY1 - TY1 - 20); setc(ctx, WALL2); ctx.fill()
     # feet
@@ -355,16 +355,16 @@ def draw_hud(ctx, t, E):
         setc(ctx, RED, a); ctx.set_line_width(5); ctx.stroke()
         text_c(ctx, "EMERGENCY MODE", 540, 252, 46, RED, True, 3, a * (0.7 + 0.3 * math.sin(t * 8) ** 2))
 
-def _e15(ctx, t, a):
+def _alarm(ctx, t, a):
     rrect(ctx, 290, 185, 500, 140, 18); setc(ctx, INK, 0.95 * a); ctx.fill_preserve()
     setc(ctx, MUSTARD, a); ctx.set_line_width(5); ctx.stroke()
-    text_c(ctx, "E15", 540, 285, 92, RED, True, 8, a * (0.7 + 0.3 * math.sin(t * 6) ** 2))
+    text_c(ctx, "ALARM ON", 540, 280, 70, RED, True, 6, a * (0.7 + 0.3 * math.sin(t * 6) ** 2))
 
 _hud_old = draw_hud
 def draw_hud(ctx, t, E):
     _hud_old(ctx, t, E)
-    a = win(t, B(10) + 0.4, B(11) + 0.1, 0.3)
-    if a > 0: _e15(ctx, t, a)
+    a = win(t, B(10) + 0.4, B(11) - 1.2, 0.3)
+    if a > 0: _alarm(ctx, t, a)
 
 SFX = [(0.5, 'pop'), (B(1) + 0.2, 'pop'), (B(1) + 0.5, 'click'), (B(2) + 0.3, 'pop'), (B(3) + 0.3, 'pop'),
        (B(4) + 0.3, 'pop'), (B(6) + 1.1, 'click'), (B(6) + 2.4, 'pop'), (B(7) + 1.4, 'click'),

@@ -1,51 +1,51 @@
 1
-00:00:00,000 --> 00:00:05,940
+00:00:00,000 --> 00:00:05,636
 There's a tiny boat hiding under your dishwasher. Its only job is to float.
 
 2
-00:00:06,110 --> 00:00:11,218
+00:00:05,806 --> 00:00:11,005
 It's a flood alarm, and when it floats, your dishwasher goes into emergency mode.
 
 3
-00:00:11,388 --> 00:00:15,645
+00:00:11,175 --> 00:00:15,727
 Under the tub sits a plastic tray, sloped down toward one corner.
 
 4
-00:00:15,815 --> 00:00:21,497
+00:00:15,897 --> 00:00:21,226
 Any leak, from a hose, a door seal or a cracked pump, runs down into it.
 
 5
-00:00:21,667 --> 00:00:25,999
+00:00:21,396 --> 00:00:26,846
 In that low corner sits a little foam float, right under a tiny switch.
 
 6
-00:00:26,169 --> 00:00:31,017
+00:00:27,016 --> 00:00:31,842
 Foam is much lighter than water, so even a shallow puddle lifts it.
 
 7
-00:00:31,187 --> 00:00:36,509
+00:00:32,012 --> 00:00:36,871
 As it rises, it presses the switch, and the control board knows there's a leak.
 
 8
-00:00:36,679 --> 00:00:41,695
+00:00:37,041 --> 00:00:41,937
 First, the board shuts the inlet valve, so not one more drop comes in.
 
 9
-00:00:41,865 --> 00:00:45,860
+00:00:42,107 --> 00:00:46,037
 Then it runs the drain pump nonstop to empty the tub.
 
 10
-00:00:46,030 --> 00:00:51,449
+00:00:46,207 --> 00:00:51,568
 But that pump drains the tub, not the tray, so the little boat stays afloat.
 
 11
-00:00:51,619 --> 00:00:57,476
-On a Bosch, that's error E15, and it won't clear until the tray dries out.
+00:00:51,738 --> 00:00:55,861
+On many models, the alarm won't clear until the tray dries out.
 
 12
-00:00:57,646 --> 00:01:02,045
+00:00:56,031 --> 00:01:00,407
 So a floating piece of foam is quietly guarding your kitchen floor.
 
 13
-00:01:02,215 --> 00:01:08,114
+00:01:00,577 --> 00:01:06,218
 Cogwise: how things work. Follow for the next one!

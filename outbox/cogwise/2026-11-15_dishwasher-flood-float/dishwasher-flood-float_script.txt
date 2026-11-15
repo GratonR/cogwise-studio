@@ -8,6 +8,6 @@ As it rises, it presses the switch, and the control board knows there's a leak.
 First, the board shuts the inlet valve, so not one more drop comes in.
 Then it runs the drain pump nonstop to empty the tub.
 But that pump drains the tub, not the tray, so the little boat stays afloat.
-On a Bosch, that's error E15, and it won't clear until the tray dries out.
+On many models, the alarm won't clear until the tray dries out.
 So a floating piece of foam is quietly guarding your kitchen floor.
 Cogwise: how things work. Follow for the next one!
