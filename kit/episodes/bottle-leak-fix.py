@@ -18,8 +18,8 @@ from cogwise.style import *
 
 META = dict(
     slug="bottle-leak-fix",
-    title="This bottle leak fix shouldn't hold — but it does 🔧 #Shorts",
-    description=("A strip of plastic bottle and two cable ties against a leaking pipe. Why it holds.\n\n"
+    title="This pipe still has a hole. So why did the water stop? 🔧 #Shorts",
+    description=("The hole is still open under the plastic. So what is holding the water back?\n\n"
                  "#Shorts #howthingswork #plumbing #diy #cogwise"),
     hashtags=["Shorts", "howthingswork", "plumbing", "diy", "physics", "cogwise"],
     sources=[
@@ -33,18 +33,18 @@ META = dict(
 )
 
 BEATS = [
-    dict(dur=5.4, title="HOLD?", caption="A strip of plastic bottle and two cable ties. This leak fix shouldn't hold."),
-    dict(dur=5.6, title="THE SECRET", caption="The secret: those ties squeeze the pipe harder than the water pushes out."),
-    dict(dur=5.2, title="THE PUSH", caption="Inside, tap water pushes outward at about three bar, forty-three psi."),
-    dict(dur=6.0, title="1 · THE PATCH", caption="First, the bottle strip wraps the pipe and covers the hole like a soft gasket."),
-    dict(dur=6.2, title="2 · THE TIES", caption="Then each tie is pulled tight, about ten kilograms of pull, twenty-two pounds."),
-    dict(dur=6.4, title="THE CURVE", caption="Wrapped around a curve, that pull turns into a squeeze pointing inward, all the way round."),
-    dict(dur=5.0, title=None, caption="The tighter the curve, the harder the same pull presses in.", card='curve'),
-    dict(dur=4.8, title="3 · THIN BAND", caption="And a thin tie puts all that force on a narrow strip."),
-    dict(dur=6.6, title="THE SQUEEZE", caption="On a twenty-two millimetre pipe, that's about nineteen bar, two hundred seventy-five psi."),
-    dict(dur=4.0, title="SIX TO ONE", caption="Six times harder than the water pushing out."),
-    dict(dur=5.0, title=None, caption="So the plastic stays pinned shut, and the water never lifts it.", card='pinned'),
-    dict(dur=4.4, title="SQUEEZE > PUSH", caption="Leak fix: the squeeze beats the push, six to one."),
+    dict(dur=5.2, title="HOLE?", caption="This pipe still has a hole. So why did the water stop?"),
+    dict(dur=5.7, title="NOT PLUGGED", caption="The hole isn't plugged. Something is pressing on it harder than the water."),
+    dict(dur=4.8, title="THE PUSH", caption="Inside, the water pushes outward, trying to lift the plastic away."),
+    dict(dur=5.7, title="GLUE?", caption="Glue? There's none. Is the plastic melted on? No, it peels right off."),
+    dict(dur=5.7, title="CLUE 1 · THE TIES", caption="Clue one: the ties. Pulled tight, a tie only pulls along its length."),
+    dict(dur=5.7, title="THE WRAP", caption="But wrapped around a pipe, that pull bends inward, pressing from every side."),
+    dict(dur=6.1, title="CLUE 2 · SMALL PIPE", caption="Clue two: the pipe is small. The tighter the curve, the harder it presses."),
+    dict(dur=5.2, title=None, caption="The same tie barely grips a tree, but crushes a thin pipe.", card='tree'),
+    dict(dur=6.1, title="CLUE 3 · THIN BAND", caption="Clue three: the tie is thin, so the force lands on a narrow strip."),
+    dict(dur=6.1, title="SIX TO ONE", caption="The answer: on this pipe, the ties squeeze six times harder than water pushes."),
+    dict(dur=5.2, title=None, caption="So the hole stays open, but the plastic stays pinned against it.", card='pinned'),
+    dict(dur=4.8, title="SQUEEZE > PUSH", caption="The water is still there. It just can't lift the lid."),
 ]
 
 ST = [0.0]
