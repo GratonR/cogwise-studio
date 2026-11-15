@@ -1,0 +1,21 @@
+{
+ "id": "essai-voix-bm_fable-142003",
+ "beat_starts": [
+  0.15,
+  2.494,
+  7.568,
+  11.872
+ ],
+ "duration": 18.026,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_bm_fable.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-15T15:21:20",
+ "seconds": 12.2
+}
