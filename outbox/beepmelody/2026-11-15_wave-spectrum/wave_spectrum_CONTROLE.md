@@ -31,3 +31,12 @@ Preview (palette sombre) : 0,6 / 2,6 / 7,4 / 15,2 / 18,2 / 31,8 / 36,4 / 41 / 46
   anneau EHT déplacé sous le HUD (il était caché) ; crêtes plus serrées pour les ondes rapides (gamma) que pour les lentes ✔ ; rien de coupé ; aucune mention d'IA.
 - ffprobe : 67,97 s, 1080×1920, 30 fps, AAC ✔. Planche contact relue. Couverture : fond 50,3 s (LIGO), « 147 OCTAVES OF WAVES ».
 - Repères : Spoutnik 0:28 · trou noir 0:44 · LIGO 0:49 · LHAASO 0:55.
+
+## Retravail r2 — rendu v3 (2026-11-16, visuels A « voyage » + son A « sources réelles »)
+- Remarque de Guillaume (15 nov., 23:05) : innover sur les angles et mouvements de caméra, sur la représentation des ondes, pousser le son en restant réaliste.
+  Étape 3 → A (r3) : route 3D du spectre, la caméra voyage d'une découverte à la suivante puis tourne autour de la source (contre-plongée pour le son, hauteur d'œil pour la lumière, plongée pour la gravité).
+  Étape 2 → A (r4) : lit synthwave 98 BPM conservé, chaque onde jouée par le timbre de sa vraie source, sur sa vraie note (radio = souffle + porteuse, Spoutnik = bip marche/arrêt, pulsar = tics, fond cosmique = neige, laser = son pur, X/gamma = crépitement Geiger, baleine/éléphant/chauve-souris = forme de leur cri, LIGO = vrai chirp 35 → 250 Hz).
+- Donnée : trou noir de Persée 3,23e-15 Hz (période ~10 millions d'années, Chandra) ; écart log2(3,4e29 / 3,23e-15) = 146,2 → « 146 OCTAVES » partout (accroche, bannière finale, outro, couverture). Ligne HUD raccourcie : « ONE WAVE EVERY ~10 MILLION YEARS » (l'ancienne était coupée). Bannière : « B-FLAT, 57 OCTAVES BELOW MIDDLE C » (formulation de Chandra).
+- Frames preview 0,6 / 2,8 / 4,2 / 7,2 / 15,5 / 28,6 / 29,4 / 34,9 / 44,7 / 49,6 / 50,5 / 51,8 / 54,4 / 55,2 / 56,5 / 58 / 59,2 / 62,5 / 66 s : chiffres = CSV, unités SI puis US (15 m · 49 ft ; 7,35 cm · 2,9 in ; 1,3 mm · 0,05 in), règle LOG lent → rapide, crêtes plus serrées pour les ondes rapides ; légende de caméra masquée sous les bannières et pendant l'accroche ; rien de coupé ; aucune mention d'IA.
+- Rendu : ffprobe 68,0 s, 1080×1920, 30 fps, AAC ✔ (62–75 s), 29 notes = 29 lignes du CSV ; niveau moyen −18,9 dB, crête −1,9 dB. Planche contact relue. Couverture : fond 50,3 s (LIGO), « 146 OCTAVES OF WAVES ».
+- Repères : Spoutnik 0:29 · trou noir 0:44 · LIGO 0:49 · LHAASO 0:55.
