@@ -1,0 +1,32 @@
+year,wolves,packs,area,source,source2,check
+1995,21,3,GYA,NPS Yellowstone Wolf Project report 1995-96 'At the end of 1995 there were 21 wolves in three packs',NPS wolf97.pdf Table 1 (GYA as of Dec 31),nps-2reports
+1996,51,9,GYA,NPS report 1995-96 summary 'at the end of 1996 51 wolves in nine packs',NPS wolf97.pdf Table 1 gives 52 (incl. penned wolves) - 51 kept = the 1996 report,nps-2reports-1off
+1997,86,,GYA,NPS wolf97.pdf Table 1 'from 52 to 86',NPS wolfar98.pdf (1998 report: growth from 1997),nps-2reports
+1998,112,11,GYA,NPS wolfar98.pdf 'about 112 wolves in 11 packs inhabited the Yellowstone ecosystem',NPS wolf99.pdf (1999 = 118 from 112),nps-2reports
+1999,118,11,GYA,NPS wolf99.pdf 'at least 118 wolves were present in the greater Yellowstone area',USFWS Rocky Mountain Wolf Recovery 1999 annual report (GYA),nps-2reports
+2000,119,8,YNP,NPS Wolfrpt00.pdf 'approximately 119 wolves were located in YNP (8 packs)',NPS wolfrpt01.pdf (2001 = 132 = +11 %),nps-2reports
+2001,132,10,YNP,NPS wolfrpt01.pdf 'approximately 132 wolves in 10 packs',USFWS 2001 annual report '131 wolves in 10 packs present in YNP',ok
+2002,148,14,YNP,NPS wolfrpt03.pdf '148 wolves in 14 packs',NPS wolfrpt02,ok
+2003,174,13,YNP,NPS wolfrpt03.pdf 'at least 174 wolves (13-14 packs)',NPS 2020 report: 2003 high count 174,ok
+2004,171,16,YNP,NPS wolfrpt04.pdf 'at least 171 wolves in 16 packs occupied Yellowstone National Park',NPS wolfrpt05.pdf (decline of 51 -> implies 169; 171 kept = the 2004 report),nps-2reports-2off
+2005,118,13,YNP,NPS wolfrpt05.pdf 'At least 118 wolves in 13 packs',NPS wolf-ar-2008 / 2020 report,ok
+2006,136,13,YNP,NPS wolfrpt06.pdf 'at least 136 wolves in 13 packs',Pinedale Online 2007-03 (136 wolves 13 packs),ok
+2007,171,11,YNP,NPS wolf-ar-2008.pdf '171 wolves in 2007',NPS wolfrpt07,ok
+2008,124,12,YNP,NPS wolf-ar-2008.pdf 'at least 124 wolves in 12 packs',NPS 2020 report + Flathead Beacon 2010 ('124 in 2008'),ok
+2009,96,14,YNP,NPS wolf_ar_2009 'at least 96 wolves in 14 packs',Flathead Beacon 2010-02-16 ('about 96 in 2009'),ok
+2010,97,11,YNP,NPS wolf_ar_2010 'at least 97 wolves (11 packs and 6 loners)',National Parks Traveler 2012-12 ('97'),ok
+2011,98,10,YNP,NPS Wolf_AR_2011 'at least 98 wolves in 10 packs',Pinedale Online 2012-03 ('at least 98 wolves in 10 packs'),ok
+2012,83,10,YNP,NPS 2013 report 'December 2012: 83 wolves',NPS 2012 report,ok
+2013,95,10,YNP,NPS 2013 report '95 wolves',Flathead Beacon ('95 wolves from 10 packs'),ok
+2014,104,11,YNP,NPS 2014-wolf-report 'at least 104 wolves in 11 packs',Flathead Beacon ('at least 104 wolves from 11 packs'),ok
+2015,98,10,YNP,NPS 2015 report 'at least 98 wolves in 10 packs',NPS 2016 report,ok
+2016,108,11,YNP,NPS Wolf_Report_2016 'at least 108 wolves in 11 packs',NPS article 'Yellowstone Wolf Project Report 2016',nps-2reports
+2017,97,11,YNP,NPS WOLF-REPORT-2017 'at least 97 wolves in 11 packs',Wyoming Game & Fish ('Yellowstone National Park is at least 97'),ok
+2018,80,9,YNP,NPS 2018 report 'at least 80 wolves in 9 packs',NPS 2019/2020 reports,ok
+2019,94,8,YNP,NPS 2019 report,NPS 2020 report (+31 % to 123),ok
+2020,123,9,YNP,NPS 2020 report 'at least 123 wolves in nine packs',wolf.org,ok
+2021,97,8,YNP,NPS 2021 report 'at least 97 wolves in eight packs',wolf.org,ok
+2022,108,10,YNP,NPS 2022 report 'at least 108 wolves in ten packs',wolf.org,ok
+2023,124,11,YNP,NPS 2023 report '124 (78 adults 46 pups) 11 packs',wolf.org,ok
+2024,108,9,YNP,NPS 2024 report '108 wolves in nine packs',wolf.org ('108 wolves in nine packs at the end of 2024'),ok
+2025,84,7,YNP,NPS 2025 annual report '84 wolves in seven packs and one new group',wolf.org ('84 wolves in eight packs'),ok

@@ -7,7 +7,7 @@ Music (co-pilot step 2 = B "living valley"): 92 BPM, marimba = year, kalimba = p
 Data: yellowstone_wolves.csv (NPS Yellowstone Wolf Project annual reports + 2nd source per row).
 
     python3 yellowstone_wolves.py info out | preview out <scene>:<s> | at out <T>... | audio out/music.wav | render out | final out x.mp4
-    PALETTE=dusk for the darker variant.
+    PALETTE=day for the light variant (dusk = chosen at co-pilot step 3).
 """
 import sys, os, math, random, subprocess, csv
 import numpy as np
@@ -21,7 +21,7 @@ from v2 import (AW, AH, TW, TH, OW, OH, FPS, text, ease, lerp)
 from pi import Ctx, warp
 
 FXK = float(os.environ.get("PI_FX", "0.5"))
-PAL = os.environ.get("PALETTE", "day")
+PAL = os.environ.get("PALETTE", "dusk")  # step 3 decision: dusk
 
 # ================= data =================
 REC = list(csv.DictReader(open(os.path.join(HERE, "yellowstone_wolves.csv"))))
