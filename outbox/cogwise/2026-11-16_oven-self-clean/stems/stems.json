@@ -1,0 +1,41 @@
+{
+  "duration": 71.6,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "oven-self-clean",
+  "title": "Your oven locks you out, then turns grease into ash 🔥 #Shorts",
+  "beat_starts": [
+    0.15,
+    6.775,
+    12.42,
+    17.439,
+    21.879,
+    27.981,
+    33.223,
+    39.063,
+    43.807,
+    48.821,
+    56.252,
+    61.047,
+    65.649
+  ]
+}
