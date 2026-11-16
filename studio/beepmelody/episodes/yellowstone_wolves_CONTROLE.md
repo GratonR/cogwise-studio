@@ -21,3 +21,11 @@ Module `yellowstone_wolves.py`, données `yellowstone_wolves.csv` (31 années, 2
 - PALETTE par défaut passée à `dusk` dans le module.
 - ffprobe : 66,53 s, 1080×1920, audio AAC (music.wav 69,0 s, coupé par -shortest + fondu).
 - Planche contact relue (1 image / 3 s) : HUD lisible sur fond sombre, bannières record 2003 / chutes 2005 & 2008 / 2025 lisibles, récap 21 / 174 / 84, crédits sources visibles, rien de coupé. Chiffres inchangés par rapport au contrôle de l'étape 3.
+
+## Retravail son (PHASE R, carte decision-yellowstone-wolves-r1 → choix F) — 2026-11-16
+- Remarque de Guillaume : « Pas terrible le son ». Nouvelle musique F « lo-fi sauvage » : 86 BPM swingué, Rhodes Fmaj7–Em7–Dm7–Cmaj9, kick/snare boom-bap, basse ronde, vinyle ; glockenspiel = une année (hauteur = loups, pentatonique de fa, échelle log), petites notes de Rhodes = meutes (une par meute), « tape stop » grave = chute ≥ 25 % (2005, 2008), accord de cloches + cymbale + hurlement = record 2003.
+- Le tempo passe de 92 à 86 BPM : la timeline visuelle suit (mêmes temps par année), aucune triche de tempo. Durée : 71,17 s (ffprobe), dans 62–75 s.
+- Repères : record 2003 à 0:18, chute 2005 (171 → 118) à 0:23, chute 2008 à 0:30, 2025 à 1:01. Légendes mises à jour.
+- Correction visuelle : la 2e ligne de l'encart d'intro (« EVERY PIXEL WOLF = ONE WOLF COUNTED ») était coupée en bas → encart agrandi (512–552), vérifié à t = 3 s.
+- Planche contact relue (2 / 12,9 / 18,3 / 21,4 / 23,1 / 29,8 / 45 / 61 / 64,5 / 69,5 s) : chiffres HUD = CSV (1999 118/11, 2003 174/13, 2004 171/16, 2005 118/13, 2008 124/12, 2015 98/10, 2025 84/7+1), bannières et récap 21 / 174 / 84 lisibles, rien de coupé. Données et visuels inchangés par ailleurs.
+- Niveaux audio : RMS ~0,17, crête 0,89, aucun écrêtage.

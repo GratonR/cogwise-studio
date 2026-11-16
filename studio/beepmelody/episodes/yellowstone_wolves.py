@@ -3,7 +3,8 @@ Wolves counted at year end, 1995 -> 2025 (31 counts). Every note = one year; pit
 the soft plucks after each note = the packs (one pluck per pack). A drop >= 25 % = a low hit. Record (2003, 174) = accent.
 Scene: Lamar Valley in winter, pixel art; every wolf counted = one pixel wolf, grouped in packs.
 1995-1999 = Greater Yellowstone counts, 2000+ = inside the park (written on screen).
-Music (co-pilot step 2 = B "living valley"): 92 BPM, marimba = year, kalimba = packs, brushed drums, round bass F-G-Dm-C.
+Music (co-pilot step 2, rework r1 = F "lo-fi wilderness"): 86 BPM swung, Rhodes Fmaj7-Em7-Dm7-Cmaj9, boom-bap drums,
+round sub bass, vinyl crackle; glockenspiel = year, little Rhodes plucks = packs, tape-stop low hit = drop >= 25 %.
 Data: yellowstone_wolves.csv (NPS Yellowstone Wolf Project annual reports + 2nd source per row).
 
     python3 yellowstone_wolves.py info out | preview out <scene>:<s> | at out <T>... | audio out/music.wav | render out | final out x.mp4
@@ -51,7 +52,7 @@ else:
 WHITE = (255, 255, 255)
 
 # ================= timeline (on the 8th-note grid) =================
-BPM = 92.0
+BPM = 86.0
 BEAT = 60.0 / BPM
 INTRO_B = 6.0          # title, empty valley, 14 wolves released (note at 2.5 beats)
 YEAR_B = 2.5           # one year = 2.5 beats
@@ -76,44 +77,47 @@ def rec_index(T):
         if T >= t: k = i
     return k
 
-# ================= music plan =================
-SCALE = [60, 62, 64, 67, 69, 72, 74, 76, 79, 81, 84, 86]     # C major pentatonic
+# ================= music plan (F · lo-fi wilderness) =================
+SCALE = [60, 62, 65, 67, 69, 72, 74, 77, 79, 81, 84, 86]     # F major pentatonic (C D F G A), ~2 octaves
 LO, HI = math.log(20), math.log(180)
 def pitch(w): return SCALE[int(round(np.clip((math.log(w) - LO) / (HI - LO), 0, 1) * (len(SCALE) - 1)))]
-ROOTS = [41, 43, 38, 36]                                     # F - G - Dm - C
-CHORDS = [(57, 60, 64), (55, 59, 62), (57, 62, 65), (55, 60, 64)]
-PACK_NOTES = [72, 76, 79, 84, 88]
+ROOTS = [41, 40, 38, 36]                                     # Fmaj7 - Em7 - Dm7 - Cmaj9
+CHORDS = [(53, 57, 60, 64), (52, 55, 59, 62), (50, 53, 57, 60), (52, 55, 59, 62)]
+PACK_NOTES = [65, 69, 72, 77, 81]
+SWING = 0.12 * (60.0 / BPM)
 EV = []
 def ev(t, kind, **kw): EV.append((t, kind, kw))
 def build():
     nb = int(round(TOTAL / BEAT))
     ev(0.05, "wind", d=INTRO_B * BEAT + 1.0, v=0.10)
-    ev(T_RELEASE, "marimba", m=pitch(14), v=0.50)                       # 14 wolves released
-    for k in range(3): ev(T_RELEASE + (k + 1) * BEAT / 4, "kalimba", m=PACK_NOTES[k], v=0.22)  # 3 release groups
+    ev(T_RELEASE, "glock", m=pitch(14), v=0.50)                          # 14 wolves released
+    for k in range(3): ev(T_RELEASE + (k + 1) * BEAT / 4, "rpluck", m=PACK_NOTES[k], v=0.22)  # 3 release groups
     for b in range(nb):
         t = b * BEAT; bar, pos = divmod(b, 4)
         ro = ROOTS[bar % 4]; ch = CHORDS[bar % 4]
         groove = RT[0] - 2 * BEAT <= t < T_FINAL + 4 * BEAT
         tail = t >= T_FINAL + 4 * BEAT
-        if pos == 0 and (groove or tail): ev(t, "pad", ch=ch, d=4 * BEAT, v=0.10 if groove else 0.08)
+        if pos == 0 and (groove or tail): ev(t, "keys", ch=ch, d=4 * BEAT, v=1.0 if groove else 0.8)
         if groove:
-            if pos == 0: ev(t, "bass", m=ro, d=BEAT * 1.6, v=0.32)
-            if pos == 2: ev(t + BEAT / 2, "bass", m=ro, d=BEAT * 0.9, v=0.22)
+            if pos == 0: ev(t, "bass", m=ro, d=3 * BEAT, v=0.30)
+            if pos == 2: ev(t + BEAT / 2 + SWING, "bass", m=ro, d=BEAT, v=0.18)
             if t >= RT[0]:
-                if pos in (0, 2): ev(t, "kick", v=0.50)
-                if pos in (1, 3): ev(t, "brush", v=0.30)
-                ev(t + BEAT / 2, "hat", v=0.06)
+                if pos == 0: ev(t, "kick", v=1.0)
+                if pos == 1: ev(t + BEAT / 2 + SWING, "kick", v=0.7)
+                if pos in (1, 3): ev(t, "snare", v=1.0)
+                ev(t, "hat", v=1.0); ev(t + BEAT / 2 + SWING, "hat", v=0.7)
     for i, t in enumerate(RT):
         r = REC[i]
-        ev(t, "marimba", m=pitch(r["w"]), v=0.52 + (0.14 if i == I_REC else 0))
+        ev(t, "glock", m=pitch(r["w"]), v=0.52 + (0.10 if i == I_REC else 0))
         np_ = r["p"] or 0
         step = min(BEAT / 4, (YEAR_B * BEAT * 0.8) / max(1, np_))
-        for k in range(np_): ev(t + (k + 1) * step, "kalimba", m=PACK_NOTES[k % 5] + 12 * (k // 10), v=0.17)
-        if i in CRASH: ev(t, "lowhit", v=0.45)
+        for k in range(np_): ev(t + (k + 1) * step, "rpluck", m=PACK_NOTES[k % 5] + 12 * (k // 10), v=0.17)
+        if i in CRASH: ev(t, "tapestop", v=0.45)
+    for k, d in enumerate((0, 4, 7, 12)): ev(RT[I_REC] + k * 0.06, "glock", m=pitch(WMAX) - 12 + d, v=0.16)   # record = bell chord
     ev(RT[I_REC], "crash", v=0.20)
     ev(RT[I_REC], "howl", m=64, v=0.10)
-    for k, d in enumerate([0, 4, 7, 12, 16]):                            # gentle rising arpeggio on the last count
-        ev(T_FINAL + (k + 1) * BEAT / 4, "kalimba", m=60 + d, v=0.28)
+    for k, d in enumerate([0, 4, 7, 12, 16]):                            # gentle rising bell arpeggio on the last count
+        ev(T_FINAL + (k + 1) * BEAT / 4, "glock", m=60 + d, v=0.26)
     EV.sort(key=lambda e: e[0])
 build()
 KICKS = sorted(t for t, k, _ in EV if k == "kick")
@@ -292,9 +296,9 @@ def sc_intro(t):
         text(W, 180, 199, "1995: 14 WOLVES RELEASED", fill=INK, align="c")
         text(W, 180, 218, "BROUGHT FROM CANADA", fill=INK2, align="c")
     if t > 1.2:
-        W.rectangle([30, 520, 330, 552], fill=CREAM)
-        text(W, 180, 522, "EVERY NOTE = ONE YEAR", fill=INK, align="c")
-        text(W, 180, 538, "EVERY PIXEL WOLF = ONE WOLF COUNTED", fill=INK2, align="c")
+        W.rectangle([30, 512, 330, 552], fill=CREAM)
+        text(W, 180, 515, "EVERY NOTE = ONE YEAR", fill=INK, align="c")
+        text(W, 180, 532, "EVERY PIXEL WOLF = ONE WOLF COUNTED", fill=INK2, align="c")
     return c
 
 def sc_main(name):
@@ -364,52 +368,60 @@ def render_audio(path):
     from scipy.io import wavfile
     from scipy.signal import butter, lfilter
     n = int((TOTAL + 2.5) * SR)
-    L = np.zeros(n); R = np.zeros(n); fxL = np.zeros(n); fxR = np.zeros(n)
+    L = np.zeros(n); R = np.zeros(n); fx = np.zeros(n)
     rng = np.random.default_rng(11)
-    def add(buf, i, x):
-        j = min(n, i + len(x)); buf[i:j] += x[:j - i]
-    def put(t, x, pan=0.0, send=0.0):
+    def lp(x, fc, o=2):
+        b, a = butter(o, min(fc, SR / 2 - 100) / (SR / 2)); return lfilter(b, a, x)
+    def hp(x, fc, o=2):
+        b, a = butter(o, fc / (SR / 2), "high"); return lfilter(b, a, x)
+    def bp(x, lo, hi):
+        b, a = butter(2, [lo / (SR / 2), hi / (SR / 2)], "band"); return lfilter(b, a, x)
+    def put(t, x, g=1.0, pan=0.0, send=0.0):
         i = int(t * SR)
-        if i >= n: return
-        add(L, i, x * (1 - pan) ** 0.5 * 0.9); add(R, i, x * (1 + pan) ** 0.5 * 0.9)
-        if send: add(fxL, i, x * send); add(fxR, i, x * send)
+        if i >= n or i < 0: return
+        j = min(n, i + len(x)); y = x[:j - i] * g
+        L[i:j] += y * math.sqrt((1 - pan) / 2) * 1.41; R[i:j] += y * math.sqrt((1 + pan) / 2) * 1.41
+        if send: fx[i:j] += y * send
+    def rhodes(f, dur=1.8, v=1.0):
+        m = int(dur * SR); t = np.arange(m) / SR
+        I = (1.2 + 1.5 * v) * np.exp(-t / 0.25)
+        x = np.sin(2 * np.pi * f * t + I * np.sin(2 * np.pi * f * t)) + 0.25 * np.sin(2 * np.pi * f * 7.1 * t) * np.exp(-t / 0.05)
+        x *= 1 + 0.15 * np.sin(2 * np.pi * 4.5 * t)
+        return x * np.exp(-t / 1.1) * np.minimum(1, t / 0.003) * np.clip((dur - t) / 0.2, 0, 1)
+    def glock(f, dur=1.6):
+        m = int(dur * SR); t = np.arange(m) / SR
+        x = np.sin(2 * np.pi * f * t) + 0.35 * np.sin(2 * np.pi * f * 2.76 * t) * np.exp(-t / 0.25) + 0.12 * np.sin(2 * np.pi * f * 5.4 * t) * np.exp(-t / 0.08)
+        return x * np.exp(-t / 0.7) * np.minimum(1, t / 0.001)
     for t, k, kw in EV:
         v = kw.get("v", 0.3)
-        if k == "pad":
-            d = kw["d"]; m_ = int((d + 0.6) * SR); tt = np.arange(m_) / SR
+        if k == "keys":
             for j, m in enumerate(kw["ch"]):
-                f = mtof(m); e = np.minimum(1, tt / 0.5) * np.clip((d + 0.5 - tt) / 0.5, 0, 1)
-                x = (np.sin(2 * np.pi * f * tt) + 0.4 * np.sin(2 * np.pi * f * 1.004 * tt) + 0.15 * np.sin(4 * np.pi * f * tt)) * e
-                put(t, x * v * 0.35, pan=-0.4 + 0.4 * j, send=0.25)
+                put(t + j * 0.012, rhodes(mtof(m), kw["d"] + 0.3, 0.5), 0.07 * v, pan=-0.3 + 0.2 * j, send=0.25)
         elif k == "bass":
-            d = kw["d"]; m_ = int((d + 0.1) * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"])
-            x = np.tanh(1.4 * np.sin(2 * np.pi * f * tt)) * env(m_, 0.006, 0.7) * np.clip((d + 0.05 - tt) / 0.06, 0, 1)
-            put(t, x * v * 0.85)
+            m_ = int(kw["d"] * SR); tt = np.arange(m_) / SR
+            x = np.tanh(1.3 * np.sin(2 * np.pi * mtof(kw["m"] - 12) * tt)) * np.exp(-tt / 1.2) * np.minimum(1, tt / 0.01) * np.clip((kw["d"] - tt) / 0.08, 0, 1)
+            put(t, x, v)
         elif k == "kick":
-            m_ = int(0.35 * SR); tt = np.arange(m_) / SR
-            ph = 2 * np.pi * np.cumsum(48 + 80 * np.exp(-tt / 0.06)) / SR
-            put(t, np.sin(ph) * env(m_, 0.001, 0.08) * v)
-        elif k == "brush":
-            m_ = int(0.16 * SR); b, a = butter(2, [900 / (SR / 2), 6000 / (SR / 2)], "band")
-            put(t, lfilter(b, a, rng.standard_normal(m_)) * env(m_, 0.008, 0.05) * v, pan=-0.2, send=0.15)
+            m_ = int(0.4 * SR); tt = np.arange(m_) / SR
+            ph = 2 * np.pi * np.cumsum(46 + 90 * np.exp(-tt / 0.035)) / SR
+            put(t, np.tanh(1.6 * np.sin(ph) * np.exp(-tt / 0.13)) * v, 0.42)
+        elif k == "snare":
+            m_ = int(0.25 * SR); tt = np.arange(m_) / SR
+            x = bp(rng.standard_normal(m_), 1200, 7000) * np.exp(-tt / 0.06) + 0.6 * np.sin(2 * np.pi * 190 * tt) * np.exp(-tt / 0.04)
+            put(t, x * v, 0.18, send=0.15)
         elif k == "hat":
-            m_ = int(0.04 * SR); b, a = butter(2, 8000 / (SR / 2), "high")
-            put(t, lfilter(b, a, rng.standard_normal(m_)) * env(m_, 0.001, 0.008) * v, pan=0.35)
-        elif k == "marimba":
-            m_ = int(1.3 * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"])
-            x = (np.sin(2 * np.pi * f * tt) + 0.35 * np.sin(2 * np.pi * f * 4 * tt) * np.exp(-tt * 25)
-                 + 0.12 * np.sin(2 * np.pi * f * 10 * tt) * np.exp(-tt * 80)) * env(m_, 0.001, 0.42)
-            put(t, x * v * 0.62, pan=0.05, send=0.2)
-        elif k == "kalimba":
-            m_ = int(0.6 * SR); tt = np.arange(m_) / SR; f = mtof(kw["m"])
-            x = (np.sin(2 * np.pi * f * tt) + 0.3 * np.sin(2 * np.pi * f * 5.9 * tt) * np.exp(-tt * 20)) * env(m_, 0.002, 0.18)
-            put(t, x * v * 0.5, pan=0.35 * (1 if (kw["m"] // 2) % 2 else -1), send=0.25)
-        elif k == "lowhit":
-            m_ = int(0.7 * SR); tt = np.arange(m_) / SR
-            put(t, np.sin(2 * np.pi * np.cumsum(55 * 1.8 * np.exp(-tt * 8) + 55) / SR) * np.exp(-tt * 4) * v, send=0.2)
+            m_ = int(0.05 * SR); tt = np.arange(m_) / SR
+            put(t, hp(rng.standard_normal(m_), 7000) * np.exp(-tt / 0.012) * v, 0.06, pan=0.35)
+        elif k == "glock":
+            put(t, glock(mtof(kw["m"]), 1.8), v * 0.6, pan=0.2, send=0.4)
+        elif k == "rpluck":
+            put(t, rhodes(mtof(kw["m"]), 0.4, 0.3), v * 0.2, pan=-0.5 * (1 if (kw["m"] // 2) % 2 else -1), send=0.3)
+        elif k == "tapestop":
+            m_ = int(0.9 * SR); tt = np.arange(m_) / SR
+            put(t, np.sin(2 * np.pi * np.cumsum(mtof(41) * np.exp(-tt / 0.5)) / SR) * np.exp(-tt / 0.4), v)
         elif k == "crash":
-            m_ = int(2.2 * SR); b, a = butter(2, 5000 / (SR / 2), "high")
-            put(t, lfilter(b, a, rng.standard_normal(m_)) * env(m_, 0.002, 0.6) * v * 0.5, send=0.2)
+            m_ = int(2.2 * SR)
+            put(t, hp(rng.standard_normal(m_), 5000) * env(m_, 0.002, 0.6) * v * 0.5, send=0.2)
         elif k == "howl":
             dur = 1.6; m_ = int(dur * SR); tt = np.arange(m_) / SR; f0 = mtof(kw["m"])
             glide = f0 * (1 + .5 * np.sin(np.pi * np.clip(tt / dur, 0, 1)) ** 1.5) * (1 + .012 * np.sin(2 * np.pi * 5.5 * tt))
@@ -417,20 +429,22 @@ def render_audio(path):
             x = (np.sin(ph) + .25 * np.sin(2 * ph)) * np.minimum(1, tt / .25) * np.clip((dur - tt) / .5, 0, 1)
             put(t + 0.1, x * v, pan=-0.3, send=0.5)
         elif k == "wind":
-            m_ = int(kw["d"] * SR); tt = np.arange(m_) / SR; b, a = butter(2, 700 / (SR / 2))
-            x = lfilter(b, a, rng.standard_normal(m_)) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.3 * tt)) * np.clip((kw["d"] - tt) / 1.0, 0, 1) * np.minimum(1, tt / 0.3)
+            m_ = int(kw["d"] * SR); tt = np.arange(m_) / SR
+            x = lp(rng.standard_normal(m_), 700) * (0.6 + 0.4 * np.sin(2 * np.pi * 0.3 * tt)) * np.clip((kw["d"] - tt) / 1.0, 0, 1) * np.minimum(1, tt / 0.3)
             put(t, x * v * 2.0)
-    def reverb(x):
-        out = x.copy()
-        for dl, g in [(.083, .5), (.127, .42), (.191, .35), (.263, .28), (.347, .22), (.461, .16), (.613, .11), (.83, .07)]:
-            m = int(dl * SR); out[m:] += g * .6 * x[:-m]
-        return out
-    b, a = butter(1, 4000 / (SR / 2))
-    L += lfilter(b, a, reverb(fxL)) * 0.35; R += lfilter(b, a, reverb(np.roll(fxR, 300))) * 0.35
+    vin = hp(rng.standard_normal(n), 1500) * 0.003                      # vinyl crackle bed
+    clicks = (rng.random(n) > 0.9996) * rng.standard_normal(n) * 0.08
+    L += vin + lp(clicks, 6000); R += vin + lp(np.roll(clicks, 50), 6000)
+    def verb(x, off):
+        o = np.zeros_like(x)
+        for d, g in [(.071, .55), (.113, .47), (.167, .40), (.239, .33), (.311, .27), (.419, .2), (.557, .14), (.743, .09), (.97, .05)]:
+            m = int((d + off) * SR); o[m:] += g * x[:-m]
+        return lp(o, 4200)
+    L += 0.35 * verb(fx, 0.0); R += 0.35 * verb(fx, 0.011)
     tt = np.arange(n) / SR
-    fade = np.clip((TOTAL - tt) / 2.0, 0, 1); L *= fade; R *= fade
-    mx = max(np.abs(L).max(), np.abs(R).max())
-    st = np.stack([L, R], 1) / mx * 0.89
+    fade = np.clip((TOTAL - tt) / 2.0, 0, 1) * np.minimum(1, tt / 0.02)
+    st = np.stack([L * fade, R * fade], 1)
+    st = np.tanh(st / np.abs(st).max() * 1.15); st = st / np.abs(st).max() * 0.89
     wavfile.write(path, SR, (st * 32767).astype(np.int16))
     print(path, round(n / SR, 2), "s")
 
