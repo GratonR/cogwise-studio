@@ -23,3 +23,9 @@ meilleure que 1 px à l'écran), recalée sur une direction fixe dans l'espace (
 - Lisibilité : HUD, bannière, bande « THE GROOVE » et pied ne se chevauchent pas ; ligne km du HUD raccourcie (débordait
   pour Ganymède/Callisto en v1). Halo de Jupiter réduit (faisait un anneau parasite). Aucun mot sur l'IA ou la fabrication.
 - Reste à revoir au rendu complet : la fin (scène petite quand les 4 orbites sont là) et la variante claire si elle est choisie.
+
+## Rendu complet (étape 4, 2026-11-16 23:50 UTC) — palette sombre validée (« Ça me va »)
+- Correctif : Io restait invisible de 0,5 à 1,1 s (fondu d'entrée appliqué à Io au départ de l'horloge, et plantage de la frame 0,5 s) → Io toujours visible. Frames 0,5 / 0,8 / 1,2 s relues.
+- Rendu scène par scène (lecture parallèle du .npz corrompue en multiprocessus).
+- ffprobe : 67,03 s, 1080×1920, piste audio. Planche contact (1 image / 4 s) relue : dates, compteurs, périodes, km · mi conformes au CSV ; bannières « + GANYMEDE », « THE SLIP », « THE LOCK » lisibles ; fin = récap des 4 périodes + sources. Rien de coupé.
+- Couverture : image à 45 s (« THE LOCK »), titre « 3 MOONS, 1:2:4 GROOVE ».

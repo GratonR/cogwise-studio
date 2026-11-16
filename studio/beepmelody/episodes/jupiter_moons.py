@@ -134,6 +134,7 @@ def glow(acc, x, y, col, r, g):
     acc[y0:y1, x0:x1] += w[..., None] * (np.array(col, np.float32) / 255)
 
 def vis(m, T):
+    if m == "Io": return 1.0                      # Io is on screen from the first frame
     return ease((day_at(T) - ENTRY[m]) / 1.2) if T >= T0 else (1.0 if m == "Io" else 0.0)
 
 # ================= scene =================
