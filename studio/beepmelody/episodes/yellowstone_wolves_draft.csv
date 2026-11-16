@@ -1,0 +1,32 @@
+year,wolves,packs,area,source,check
+1995,21,3,GYA,wiki table (Annual Wolf Project Reports); 14 released from Alberta (wolf97.pdf),todo
+1996,52,,GYA,NPS wolf97.pdf Table 1 = 52 (wiki table 51),conflict
+1997,86,9,GYA,NPS wolf97.pdf 'By December 1997 ... 86 wolves',ok
+1998,112,11,GYA,NPS wolf99.pdf (1999 = 1998 + 6) + wiki,ok
+1999,118,11,GYA,NPS wolf99.pdf 'at least 118 wolves',ok
+2000,119,8,YNP,wiki table; NPS wolfrpt01 '+65% in park' (park-only basis),todo
+2001,132,10,YNP,NPS wolfrpt01.pdf 'approximately 132 wolves in 10 packs',ok
+2002,148,14,YNP,NPS wolfrpt03.pdf '148 wolves in 14 packs',ok
+2003,174,13-14,YNP,NPS wolfrpt03.pdf 'at least 174 wolves'; NPS 2020 report: 2003 high count 174,ok
+2004,171,16,YNP,wiki 171; NPS wolfrpt05 implies 169 (118 = -51),conflict
+2005,118,13,YNP,NPS wolfrpt05.pdf 'At least 118 wolves in 13 packs',ok
+2006,136,13,YNP,wiki table,todo
+2007,171,11,YNP,NPS wolf-ar-2008.pdf '171 wolves in 2007',ok
+2008,124,12,YNP,NPS wolf-ar-2008.pdf 'at least 124 wolves in 12 packs'; NPS 2020 report,ok
+2009,96,14,YNP,wiki table; NPS 2015 report range 83-104,todo
+2010,97,11,YNP,wiki table,todo
+2011,98,10,YNP,wiki table,todo
+2012,83,10,YNP,NPS 2013 report 'December 2012: 83 wolves',ok
+2013,95,10,YNP,NPS 2013 report '95 wolves',ok
+2014,104,11,YNP,wiki table; NPS 2015 report max 104,todo
+2015,98,10,YNP,NPS 2015 report 'at least 98 wolves in 10 packs',ok
+2016,108,11,YNP,wiki table; NPS 2018 report range 83-108,todo
+2017,97,11,YNP,wiki table,todo
+2018,80,9,YNP,NPS 2018 report 'at least 80 wolves in 9 packs',ok
+2019,94,8,YNP,wiki; NPS 2020 report (+31% to 123),ok
+2020,123,9,YNP,"NPS 2020 report 'at least 123 wolves, nine packs'",ok
+2021,97,8,YNP,NPS 2021 report 'at least 97 wolves in eight packs',ok
+2022,108,10,YNP,NPS 2022 report 'at least 108 wolves in ten packs',ok
+2023,124,11,YNP,"NPS 2023 report '124 (78 adults, 46 pups), 11 packs'",ok
+2024,108,9,YNP,NPS 2024 report '108 wolves in nine packs' + wolf.org,ok
+2025,84,7+1 group,YNP,NPS 2025 report '84 wolves in seven packs and one new group' + wolf.org '84 wolves in eight packs',ok
