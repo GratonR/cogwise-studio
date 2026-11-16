@@ -29,7 +29,7 @@ LIGHT = os.environ.get("WAVE_LIGHT", "0") == "1"
 REC = list(csv.DictReader(open(os.path.join(HERE, "wave_spectrum.csv"))))
 for r in REC: r["lg"] = math.log10(float(r["freq_hz"]))
 N = len(REC)
-LO, HI = -15.0, 29.6                                   # log10 Hz ruler (lowest find ~1.8e-15, highest ~3.4e29)
+LO, HI = -15.0, 29.6                                   # log10 Hz ruler (lowest find ~3.2e-15, highest ~3.4e29)
 def pos(i): return (REC[i]["lg"] - LO) / (HI - LO)
 I_IR = 1; I_KRAK = 5; I_CMB = next(i for i, r in enumerate(REC) if "AFTERGLOW" in r["label"])
 I_BH = next(i for i, r in enumerate(REC) if "B-FLAT" in r["label"])
