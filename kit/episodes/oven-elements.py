@@ -386,7 +386,7 @@ def draw_hud(ctx, t, E):
     if a > 0: hud_toaster(ctx, t, a)
     a = win(t, B(8) + 0.1, B(9) + 0.05, 0.3)
     if a > 0: hud_modes(ctx, t, a)
-    a = win(t, B(11) + 0.2, B(12) + 2.0, 0.3)
+    a = win(t, B(11) + 0.2, B(12) + 0.1, 0.3)   # gone before the end card (owl + wordmark)
     if a > 0: hud_recap(ctx, t, a)
 
 SFX = [(0.4, 'pop'), (0.9, 'pop'), (1.4, 'pop'), (B(1) + 1.8, 'pop'), (B(2) + 0.4, 'pop'),

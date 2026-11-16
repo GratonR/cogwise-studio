@@ -128,7 +128,9 @@ class Episode:
             self.cards[card](ctx, td, lt, ca)
             ctx.restore()
         S.end_card(ctx, td, brand_a)
-        if hasattr(self.mod, 'draw_hud'): self.mod.draw_hud(ctx, td, self)
+        if hasattr(self.mod, 'draw_hud'):
+            # the HUD fades out while the end card comes in, so they never overlap
+            ctx.push_group(); self.mod.draw_hud(ctx, td, self); ctx.pop_group_to_source(); ctx.paint_with_alpha(1 - brand_a)
         if not self.outro: S.corner_mark(ctx)
         # captions follow real time
         ri = bi
