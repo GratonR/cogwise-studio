@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,800
+Your oven has no flame. It heats with up to three glowing tubes.
+
+2
+00:00:04,970 --> 00:00:08,895
+Each one works like a toaster wire, just much bigger and tougher.
+
+3
+00:00:09,065 --> 00:00:13,341
+It's a steel tube, with a resistance wire packed in mineral powder.
+
+4
+00:00:13,511 --> 00:00:18,750
+Current heats the wire. The powder lets heat out, but never the electricity.
+
+5
+00:00:18,920 --> 00:00:23,230
+The first one sits at the bottom, often hidden right under the oven floor.
+
+6
+00:00:23,400 --> 00:00:28,599
+It warms the floor, which radiates upward and sets warm air rising.
+
+7
+00:00:28,769 --> 00:00:33,334
+The second one runs along the ceiling. That's the top heater, or grill.
+
+8
+00:00:33,504 --> 00:00:38,258
+It beams intense heat straight down, browning the top of your food.
+
+9
+00:00:38,428 --> 00:00:44,820
+Bottom alone crisps a base. Top alone browns. Together, they bake evenly.
+
+10
+00:00:44,990 --> 00:00:49,913
+Some ovens hide a third one at the back: a coiled ring, like a snail.
+
+11
+00:00:50,083 --> 00:00:53,821
+It circles a fan, which pushes the hot air all around the food.
+
+12
+00:00:53,991 --> 00:00:59,514
+No flame anywhere. Just wires glowing hot, in exactly the right places.
+
+13
+00:00:59,684 --> 00:01:05,594
+Cogwise: how things work. Follow for the next one!
