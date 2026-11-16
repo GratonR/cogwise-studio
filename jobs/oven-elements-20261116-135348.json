@@ -1,0 +1,24 @@
+{
+ "id": "oven-elements-20261116-135348",
+ "slug": "oven-elements",
+ "beats": [
+  "Your oven's bottom heater is hiding right under the floor.",
+  "Older ovens showed a bare coil down there. Newer ones tuck it underneath.",
+  "It's a steel tube with a thin resistance wire packed in mineral powder.",
+  "Current heats the wire. The powder lets heat out, but never the electricity.",
+  "The tube sits just under the oven floor: steel, coated in glossy enamel.",
+  "The floor soaks up that heat, then radiates it upward, like a baking stone.",
+  "Air touching the hot floor warms, rises, and rolls around the whole oven.",
+  "That steel is a buffer: preheat takes a little longer, but heat spreads more evenly.",
+  "Spills land on smooth enamel instead of burning onto the coil. One wipe.",
+  "When the hidden heater dies, the floor still looks spotless.",
+  "But pies come out golden on top and pale, soggy underneath.",
+  "So your oven floor isn't just a floor. It's the heater's lid.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-16T13:53:48+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
