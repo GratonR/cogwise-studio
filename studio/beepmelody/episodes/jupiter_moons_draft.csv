@@ -1,0 +1,5 @@
+moon,sidereal_period_d,semimajor_axis_km,diameter_km,source,source_url,check
+Io,1.769138,421800,3643,IMCCE (Bureau des longitudes) period; NASA NSSDC 1.8 d / 422e3 km / 3643 km,https://promenade.imcce.fr/en/pages6/650.html,NASA NSSDC https://nssdc.gsfc.nasa.gov/planetary/factsheet/galileanfact_table.html ; JPL SSD a=421800 km https://ssd.jpl.nasa.gov/sats/elem/sep.html
+Europa,3.551181,671100,3122,IMCCE period; NASA NSSDC 3.6 d / 671e3 km / 3122 km,https://promenade.imcce.fr/en/pages6/650.html,NASA NSSDC ; JPL SSD a=671100 km
+Ganymede,7.154553,1070400,5262,IMCCE period; NASA NSSDC 7.2 d / 1070e3 km / 5262 km,https://promenade.imcce.fr/en/pages6/650.html,NASA NSSDC ; JPL SSD a=1070400 km
+Callisto,16.689018,1882700,4821,IMCCE period; NASA NSSDC 16.7 d / 1883e3 km / 4821 km,https://promenade.imcce.fr/en/pages6/650.html,NASA NSSDC ; JPL SSD a=1882700 km
