@@ -385,7 +385,9 @@ def main():
     alive = {pl for pl in TH if any(q["platform"] == pl and (q.get("views") or 0) >= TH[pl] for q in posts.values())}
     # Facebook: reach collapsed on 5 Nov; Page switched to "creator" on 12 Nov 20:47 (recommendations: active).
     # Reposts stay off until the A/B check of 16 Nov is done, then Facebook joins the protocol like the others.
-    OFF = {"Facebook"} if paris.date() < dt.date(2026, 11, 17) else set()
+    # 17 Nov: Facebook back OFF — every API upload gets 0 plays since ~6 Nov; reposting there is useless until the
+    # Instagram -> Facebook crosspost test says otherwise (Guillaume). Remove "Facebook" here to resume.
+    OFF = {"Facebook"}
     cands, seen = [], set()
     for slug, e in episodes.items():
         if e.get("private") or e.get("hidden") or not e.get("date"): continue
