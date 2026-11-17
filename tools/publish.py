@@ -248,6 +248,12 @@ def main():
     if d.get("platforms") and a.platforms == ap.get_default("platforms"):
         plats = [p for p in d["platforms"] if p in plats]   # a repost draft targets only the platform(s) where the original died
     res = {"slug": d.get("slug"), "links": {}, "ids": {}, "errors": {}, "pinned": {}, "notes": []}
+    # Facebook PAUSED (Guillaume, 17 Nov 2026): since ~6 Nov every Reel uploaded through the API gets 0 plays on both Pages
+    # (no restriction in Account quality, a real outside view is not even counted). We test the Instagram -> Facebook
+    # crosspost by hand instead. Remove this block to resume direct uploads.
+    if "facebook" in plats:
+        plats = [p for p in plats if p != "facebook"]
+        res["notes"].append("facebook en pause (0 vue depuis le 6 nov., test du partage Instagram -> Facebook) : non publié")
     if a.dry_run:
         res["notes"].append("dry-run : clés présentes " + ", ".join(sorted(k for k in K if K[k])))
         json.dump(res, open(a.out, "w"), ensure_ascii=False, indent=1); print(json.dumps(res, ensure_ascii=False)); return
