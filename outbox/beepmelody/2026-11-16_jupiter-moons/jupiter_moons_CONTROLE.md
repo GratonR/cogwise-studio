@@ -29,3 +29,11 @@ meilleure que 1 px à l'écran), recalée sur une direction fixe dans l'espace (
 - Rendu scène par scène (lecture parallèle du .npz corrompue en multiprocessus).
 - ffprobe : 67,03 s, 1080×1920, piste audio. Planche contact (1 image / 4 s) relue : dates, compteurs, périodes, km · mi conformes au CSV ; bannières « + GANYMEDE », « THE SLIP », « THE LOCK » lisibles ; fin = récap des 4 périodes + sources. Rien de coupé.
 - Couverture : image à 45 s (« THE LOCK »), titre « 3 MOONS, 1:2:4 GROOVE ».
+
+## Retravail r1 — musique R1 « Tambours chantants » (2026-11-17 08:2x UTC, choix de Guillaume, carte decision-jupiter-moons-r1)
+- Remarque : « Trop bien mais améliore la musique. Les visuels 3d sont bons » → seule la piste change. Images reprises à l'identique
+  (flux vidéo copié de la v1, couverture comprise), aucune donnée ni texte à l'écran modifiés.
+- `jupiter_moons.py audio` produit désormais R1 (via `jupiter_moons_moods_r1.py --full`) ; l'ancienne C reste en `audio-c`.
+- Harmonie Dm–Bb–F–C qui tourne sur chaque tour de Ganymède (18 changements), mélodie au marimba sur Io, kalimba sur Europe, basse sur Ganymède, gong + chœur sur Callisto.
+- Synchro : les 111 coups sont posés à l'instant exact du passage (aucun recalage) ; énergie post/pré-coup médiane ×2,35.
+- ffprobe : 67,03 s, 1080×1920, audio AAC. Loudness −20,3 LUFS (v1 : −19,4). Planche contact relue : identique à la v1.

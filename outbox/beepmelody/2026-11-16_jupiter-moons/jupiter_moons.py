@@ -344,7 +344,7 @@ def render_frame(idx, t):
         if f > 0: fr = (fr * (1 - f) + np.array(SKY) * f).astype(np.uint8)
     return fr
 
-# ================= audio: C · Tambours de Jupiter (step 2), full length =================
+# ================= audio: C · Tambours de Jupiter (step 2), full length — replaced by R1 in rework r1 (mode "audio") =================
 SR = 44100
 def render_audio(path):
     from scipy.io import wavfile
@@ -408,7 +408,12 @@ def render_scene(args):
 
 if __name__ == "__main__":
     mode, out = sys.argv[1], sys.argv[2]
-    if mode == "audio":
+    if mode == "audio":   # retravail r1 (17 nov.): music = R1 « Tambours chantants » (jupiter_moons_moods_r1.py); "audio-c" = old C
+        import tempfile, shutil
+        d = tempfile.mkdtemp(); here = os.path.dirname(os.path.abspath(__file__))
+        subprocess.run([sys.executable, os.path.join(here, "jupiter_moons_moods_r1.py"), d, "--full"], check=True, cwd=here)
+        shutil.copy(os.path.join(d, "music_R1.wav"), out); shutil.rmtree(d); print(out); sys.exit()
+    if mode == "audio-c":
         render_audio(out); sys.exit()
     os.makedirs(out, exist_ok=True)
     if mode == "preview":
