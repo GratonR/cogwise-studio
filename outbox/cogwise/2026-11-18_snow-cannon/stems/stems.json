@@ -1,0 +1,41 @@
+{
+  "duration": 67.7,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "snow-cannon",
+  "title": "The coldest part of a snow cannon is a puff of air ❄️ #Shorts",
+  "beat_starts": [
+    0.15,
+    5.351,
+    12.147,
+    16.677,
+    22.22,
+    25.974,
+    32.725,
+    39.006,
+    42.984,
+    48.73,
+    54.219,
+    58.681,
+    61.731
+  ]
+}

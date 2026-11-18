@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,181
+The coldest part of a snow cannon isn't the water. It's a puff of air.
+
+2
+00:00:05,351 --> 00:00:11,977
+Tiny water drops can stay liquid well below zero Celsius, thirty-two Fahrenheit.
+
+3
+00:00:12,147 --> 00:00:16,507
+To freeze, they need a starting point: a seed of ice to grow on.
+
+4
+00:00:16,677 --> 00:00:22,050
+So the cannon makes its own seeds, in a small nozzle called the nucleator.
+
+5
+00:00:22,220 --> 00:00:25,804
+Inside, a little water is mixed with compressed air.
+
+6
+00:00:25,974 --> 00:00:32,555
+As it leaves the nozzle, the air expands suddenly, and expanding air gets very cold.
+
+7
+00:00:32,725 --> 00:00:38,836
+The water caught in that blast freezes into specks of ice. Those are the seeds.
+
+8
+00:00:39,006 --> 00:00:42,814
+Around it, the main nozzles spray much bigger drops.
+
+9
+00:00:42,984 --> 00:00:48,560
+The fan throws everything high into the cold air, so the drops have time to fall.
+
+10
+00:00:48,730 --> 00:00:54,049
+On the way down, a seed touches a drop, and the whole drop freezes around it.
+
+11
+00:00:54,219 --> 00:00:58,511
+That's why machine snow is tiny frozen beads, not flakes.
+
+12
+00:00:58,681 --> 00:01:01,561
+No puff of air, no seeds, no snow.
+
+13
+00:01:01,731 --> 00:01:07,634
+Cogwise: how things work. Follow for the next one!
