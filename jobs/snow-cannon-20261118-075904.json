@@ -1,0 +1,24 @@
+{
+ "id": "snow-cannon-20261118-075904",
+ "slug": "snow-cannon",
+ "beats": [
+  "The coldest part of a snow cannon isn't the water. It's a puff of air.",
+  "Tiny water drops can stay liquid well below zero Celsius, thirty-two Fahrenheit.",
+  "To freeze, they need a starting point: a seed of ice to grow on.",
+  "So the cannon makes its own seeds, in a small nozzle called the nucleator.",
+  "Inside, a little water is mixed with compressed air.",
+  "As it leaves the nozzle, the air expands suddenly, and expanding air gets very cold.",
+  "The water caught in that blast freezes into specks of ice. Those are the seeds.",
+  "Around it, the main nozzles spray much bigger drops.",
+  "The fan throws everything high into the cold air, so the drops have time to fall.",
+  "On the way down, a seed touches a drop, and the whole drop freezes around it.",
+  "That's why machine snow is tiny frozen beads, not flakes.",
+  "No puff of air, no seeds, no snow.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-18T07:59:04+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
