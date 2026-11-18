@@ -1,0 +1,30 @@
+{
+ "id": "snow-cannon-20261118-075904",
+ "beat_starts": [
+  0.15,
+  5.351,
+  12.147,
+  16.677,
+  22.22,
+  25.974,
+  32.725,
+  39.006,
+  42.984,
+  48.73,
+  54.219,
+  58.681,
+  61.731
+ ],
+ "duration": 65.723,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-18T08:59:58",
+ "seconds": 41.5
+}
