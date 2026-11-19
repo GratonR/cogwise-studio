@@ -1,0 +1,59 @@
+{
+ "cogwise": {
+  "categories": {
+   "electromenager": "appliances",
+   "maison": "house",
+   "vehicule": "vehicles",
+   "infrastructure": "infrastructure",
+   "industrie": "infrastructure",
+   "espace": "infrastructure",
+   "invention": "inventions"
+  },
+  "playlists": {
+   "appliances": {
+    "id": "PLX7SqBxgpz04",
+    "title": "Inside your appliances"
+   },
+   "house": {
+    "id": "PLcdeorQHecqE",
+    "title": "Around the house"
+   },
+   "vehicles": {
+    "id": "PLVQjXLV1m6PI",
+    "title": "Cars & planes"
+   },
+   "infrastructure": {
+    "id": "PLR3hI7uF5gls",
+    "title": "Hidden infrastructure & big machines"
+   },
+   "inventions": {
+    "id": "PLdBUU78uadOs",
+    "title": "How you accidentally invented…"
+   }
+  }
+ },
+ "beepmelody": {
+  "categories": {
+   "records": "records",
+   "catastrophes": "life-earth",
+   "le vivant": "life-earth",
+   "nature": "life-earth",
+   "space": "space",
+   "espace": "space"
+  },
+  "playlists": {
+   "records": {
+    "id": "PLYl3xwfzjzEA",
+    "title": "Records, one beep each"
+   },
+   "life-earth": {
+    "id": "PLWl12xibHnJQ",
+    "title": "Life & Earth"
+   },
+   "space": {
+    "id": "PLaUhNGmV5g1I",
+    "title": "Space"
+   }
+  }
+ }
+}

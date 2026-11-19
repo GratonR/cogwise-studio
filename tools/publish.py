@@ -17,7 +17,7 @@ Claude in a chat) is responsible for the "go"; this script only does what it is 
 Writes result.json = {links:{platform:url}, ids:{...}, errors:{platform:msg}, pinned:{platform:bool}}.
 Never prints a key.
 """
-import argparse, json, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, json, os, sys, time, urllib.error, urllib.parse, urllib.request
 
 G = "https://graph.facebook.com/v21.0/"
 BUFFER = "https://api.buffer.com"
@@ -82,10 +82,34 @@ def youtube(d, K, video, res, pin):
         if st not in (200, 201):
             raise RuntimeError(f"YouTube : envoi échoué ({st}) {short(b)}")
         res["links"]["youtube"] = "https://youtube.com/shorts/" + b["id"]; res["ids"]["youtube"] = b["id"]
+        add_to_playlist(d, auth, b["id"], res)
     if pin:
         body = {"snippet": {"videoId": res["ids"]["youtube"], "topLevelComment": {"snippet": {"textOriginal": pin}}}}
         st, _, b = http("https://www.googleapis.com/youtube/v3/commentThreads?part=snippet", json.dumps(body).encode(), {**auth, "Content-Type": "application/json"})
         res["pinned"]["youtube"] = st in (200, 201)
+
+
+def add_to_playlist(d, auth, vid, res):
+    """Range la nouvelle vidéo dans la playlist de sa catégorie (studio/playlists.json, validé par Guillaume le 19/11/2026).
+    Jamais bloquant : un échec devient une note dans result.json."""
+    import unicodedata
+    try:
+        P = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio", "playlists.json"), encoding="utf-8"))
+        ch = P.get(d.get("channel") or "cogwise") or {}
+        cat = unicodedata.normalize("NFD", (d.get("categorie") or "").lower()).encode("ascii", "ignore").decode().strip()
+        key = (ch.get("categories") or {}).get(cat)
+        if not key:
+            res["notes"].append(f"Playlist : aucune pour la catégorie « {d.get('categorie')} »"); return
+        pl = ch["playlists"][key]
+        body = {"snippet": {"playlistId": pl["id"], "resourceId": {"kind": "youtube#video", "videoId": vid}}}
+        for _ in range(3):   # YouTube répond parfois 409 « aborted » juste après un envoi : on réessaie
+            st, _, b = http("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet", json.dumps(body).encode(), {**auth, "Content-Type": "application/json"})
+            if st in (200, 201):
+                res["notes"].append("Playlist : " + pl["title"]); return
+            time.sleep(4)
+        res["notes"].append(f"Playlist « {pl['title']} » : ajout refusé ({st})")
+    except Exception as e:
+        res["notes"].append("Playlist : " + short(str(e)))
 
 
 # ---------------- Facebook Reel ----------------
