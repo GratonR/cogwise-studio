@@ -1,0 +1,55 @@
+1
+00:00:00,000 --> 00:00:03,700
+To save this cracked part, you remove even more of it.
+
+2
+00:00:03,870 --> 00:00:07,741
+You drill a hole right at the crack's tip, and it stops growing.
+
+3
+00:00:07,911 --> 00:00:12,000
+Every time this panel is pulled, force flows through it like water.
+
+4
+00:00:12,170 --> 00:00:16,382
+The crack blocks that flow, so the force squeezes around its end.
+
+5
+00:00:16,552 --> 00:00:21,396
+And a crack's end is incredibly sharp, almost no width at all.
+
+6
+00:00:21,566 --> 00:00:26,358
+The sharper the corner, the more force piles up in one tiny spot.
+
+7
+00:00:26,528 --> 00:00:31,171
+At that tip, the plastic carries dozens of times the average stress.
+
+8
+00:00:31,341 --> 00:00:35,713
+So it tears a little further, every single time it's pulled.
+
+9
+00:00:35,883 --> 00:00:41,067
+Now drill a three millimetre hole, an eighth of an inch, just past the tip.
+
+10
+00:00:41,237 --> 00:00:45,404
+The sharp point is gone, replaced by a wide, round edge.
+
+11
+00:00:45,574 --> 00:00:50,893
+Force now flows smoothly around the hole, at only about three times the average.
+
+12
+00:00:51,063 --> 00:00:55,890
+Less plastic, but no sharp tip. The crack has nothing left to grow from.
+
+13
+00:00:56,060 --> 00:01:02,192
+That's why cracks almost always start at sharp corners, never at smooth curves.
+
+14
+00:01:02,362 --> 00:01:08,090
+Cogwise: how things work. Follow for the next one!

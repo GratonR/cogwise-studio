@@ -14,6 +14,9 @@ VIEW (screen coordinates, y grows DOWN): a flat plastic panel seen FACE-ON.
 TIMELINE: beats 1-2 = the end state (crack tip at 640, hole drilled there).
   Beat 3 = "earlier": tip back at 520. Beat 8: three pulls, tip 520 -> 560 -> 600 -> 640.
   Beat 9: the hole is drilled at 640 (same place as the hook). Beat 12: pulled again, tip stays.
+  Beat 13: cross-fade to a second pulled panel with two cut-outs: a SQUARE one (hot spots at its 4
+  sharp corners, short cracks growing HORIZONTALLY out of its right corners, i.e. across the pull)
+  and a ROUNDED one (smooth curves, faint stress, no crack).
 """
 import math, random, cairo
 from cogwise.style import *
@@ -45,6 +48,7 @@ BEATS = [
     dict(dur=4.9, title="3 · ROUND EDGE", caption="The sharp point is gone, replaced by a wide, round edge."),
     dict(dur=6.1, title=None, caption="Force now flows smoothly around the hole, at only about three times the average.", card='around'),
     dict(dur=6.1, title="LESS IS MORE", caption="Less plastic, but no sharp tip. The crack has nothing left to grow from."),
+    dict(dur=5.3, title="SHARP CORNERS", caption="That's why cracks almost always start at sharp corners, never at smooth curves."),
 ]
 
 ST = [0.0]
@@ -258,13 +262,52 @@ def overlays(ctx, t, s):
     if a > 0:
         tag(ctx, "PULLED · NO GROWTH", 540, 470 - 60, TEAL, a, 26)
 
+# ---------------------------------------------------------------- beat 13: sharp vs smooth openings
+SQ = (250, 760, 230, 230)          # square cut-out (x, y, w, h)
+RD = (600, 760, 230, 230)          # rounded cut-out
+def corners_scene(ctx, t):
+    pl = max(pulse(t, B(12) + 0.6, 1.1), pulse(t, B(12) + 2.4, 1.1))
+    st = 6 * pl; y0, y1 = PY0 - st, PY1 + st
+    for gy in (y0 - 46, y1):
+        rrect(ctx, PX0 - 30, gy, PX1 - PX0 + 60, 46, 8); fill_stroke(ctx, GRIP, lw=3)
+        for bx in (PX0 + 30, (PX0 + PX1) / 2, PX1 - 30):
+            ctx.arc(bx, gy + 23, 9, 0, 2 * math.pi); setc(ctx, STEEL); ctx.fill()
+    ctx.rectangle(PX0, y0, PX1 - PX0, y1 - y0); fill_stroke(ctx, ACRYL, lw=5)
+    for x in (PX0 + 140, (PX0 + PX1) / 2, PX1 - 140):          # tension: up at the top, down at the bottom
+        straight_arrow(ctx, x, y0 - 56, x, y0 - 56 - 90 - 30 * pl, RED, 1, lw=12, head=22)
+        straight_arrow(ctx, x, y1 + 56, x, y1 + 56 + 90 + 30 * pl, RED, 1, lw=12, head=22)
+    x, y, w, h = SQ
+    for cx, cy in ((x, y), (x + w, y), (x, y + h), (x + w, y + h)):
+        hot_spot(ctx, cx, cy, 52 + 14 * pl, 0.9, RED)
+    x2, y2, w2, h2 = RD
+    # mild stress on the curve's sides (across the pull), spread out
+    hot_spot(ctx, x2 + w2, y2 + h2 / 2, 50, 0.3, ORANGE); hot_spot(ctx, x2, y2 + h2 / 2, 50, 0.3, ORANGE)
+    # the cut-outs (paper shows through)
+    ctx.rectangle(x, y, w, h); setc(ctx, WALL1); ctx.fill_preserve(); setc(ctx, INK); ctx.set_line_width(5); ctx.stroke()
+    rrect(ctx, x2, y2, w2, h2, 80); setc(ctx, WALL1); ctx.fill_preserve(); setc(ctx, INK); ctx.set_line_width(5); ctx.stroke()
+    # cracks grow from the square's sharp corners, across the pull (horizontal), outward
+    g = ease(clamp((t - B(12) - 1.0) / 2.0))
+    if g > 0:
+        L = 70 * g
+        for cy, sd in ((y, 5), (y + h, 9)):
+            crack_path(ctx, x + w - 1, x + w + L, cy, 5, seed=sd); setc(ctx, INK, 0.92); ctx.fill()
+    a = win(t, B(12) + 0.6, B(13) + 1, 0.3)
+    tag(ctx, "SHARP CORNER", x + w / 2, y - 80, RED, a, 24)
+    tag(ctx, "SMOOTH CURVE", x2 + w2 / 2, y2 - 80, TEAL, a, 24)
+    a2 = win(t, B(12) + 2.6, B(13) + 1, 0.3)
+    tag(ctx, "CRACKS", x + w / 2, y + h + 90, RED, a2, 24)
+    tag(ctx, "NO CRACK", x2 + w2 / 2, y2 + h2 + 90, TEAL, a2, 24)
+
 def draw_set(ctx):
     pass
 
 def draw(ctx, t, E):
-    s = state(t)
-    panel(ctx, t, s)
-    overlays(ctx, t, s)
+    k = ease(clamp((t - B(12) + 0.1) / 0.6))           # beat 13: cross-fade to the two cut-outs
+    if k < 1:
+        s = state(t)
+        ctx.push_group(); panel(ctx, t, s); overlays(ctx, t, s); ctx.pop_group_to_source(); ctx.paint_with_alpha(1 - k)
+    if k > 0:
+        ctx.push_group(); corners_scene(ctx, t); ctx.pop_group_to_source(); ctx.paint_with_alpha(k)
 
 # camera: push in on the tip ("THE TIP"), a bit on the hot spot, then on the round edge of the hole
 CAMKEYS = [(0, 540, 900, 1.0), (0.9, 600, 920, 1.25), (B(2) - 0.4, 540, 900, 1.0),
@@ -280,7 +323,7 @@ def draw_hud(ctx, t, E):
     if a > 0: hud(ctx, "DRILL", "Ø 3 mm", "1/8 in · just past the tip", a, TEAL, x=520, y=196, w=520)
 
 SFX = [(0.3, 'pop'), (B(1) + 1.0, 'click'), (B(2) + 0.3, 'pop'), (B(3) + 0.3, 'pop'), (B(4) + 0.3, 'pop'),
-       (B(6) + 0.4, 'pop'), (B(8) + 1.4, 'click'), (B(9) + 0.3, 'pop'), (B(11) + 0.3, 'pop')]
+       (B(6) + 0.4, 'pop'), (B(8) + 1.4, 'click'), (B(9) + 0.3, 'pop'), (B(11) + 0.3, 'pop'), (B(12) + 0.6, 'pop')]
 HUM = []
 
 # ---------------------------------------------------------------- cards

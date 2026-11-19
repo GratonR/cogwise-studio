@@ -1,0 +1,42 @@
+{
+  "duration": 68.133,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "crack-stop-hole",
+  "title": "To save this cracked part, you drill more of it away 🔧 #Shorts",
+  "beat_starts": [
+    0.15,
+    3.87,
+    7.911,
+    12.17,
+    16.552,
+    21.566,
+    26.528,
+    31.341,
+    35.883,
+    41.237,
+    45.574,
+    51.063,
+    56.06,
+    62.362
+  ]
+}
