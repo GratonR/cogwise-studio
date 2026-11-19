@@ -32,3 +32,10 @@ Pour Cogwise la voix ElevenLabs est réutilisée depuis le `.mp3` archivé, jama
 ## Règle
 
 Avant de retirer un média du dépôt : vérifier qu'il est dans l'archive PC (taille identique) **et** publié sur au moins une plateforme.
+
+## Journal
+
+- 19/11/2026 : historique réécrit (git filter-repo). Retirés du dépôt et de son historique : pistes séparées, WAV, aperçus
+  et anciennes versions des épisodes publiés + `outbox/_essais` (287 fichiers, tous vérifiés dans l'archive PC à la même taille).
+  Gardés : vidéos finales référencées par la banque ou les reposts, sources, CSV, modules. Dépôt : 1,95 Go → 0,75 Go.
+  Déjà absents avant : lock, jackhammer, fridge (2 nov.) → archive PC `_historique-supprime/cogwise/`.
