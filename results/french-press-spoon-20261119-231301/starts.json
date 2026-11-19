@@ -1,0 +1,30 @@
+{
+ "id": "french-press-spoon-20261119-231301",
+ "beat_starts": [
+  0.15,
+  6.537,
+  11.3,
+  16.824,
+  21.662,
+  26.882,
+  32.08,
+  37.307,
+  41.978,
+  47.479,
+  54.831,
+  61.175,
+  66.702
+ ],
+ "duration": 70.693,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-20T00:14:53",
+ "seconds": 45.8
+}
