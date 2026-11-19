@@ -1,0 +1,31 @@
+{
+ "id": "crack-stop-hole-20261119-075955",
+ "beat_starts": [
+  0.15,
+  3.87,
+  7.911,
+  12.17,
+  16.552,
+  21.566,
+  26.528,
+  31.341,
+  35.883,
+  41.237,
+  45.574,
+  51.063,
+  56.06,
+  62.362
+ ],
+ "duration": 66.179,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T09:00:51",
+ "seconds": 42.1
+}
