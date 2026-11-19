@@ -20,3 +20,7 @@ Durée calculée : **68,6 s** (intro 3,0 · données 60,4 · outro 5,25). Musiqu
 - Bannières : 8 échecs (rouge, écran qui tremble + flash rouge, batterie coupée une demi-mesure), 1er lancement, 4 lancements le 12 févr., #100, #200.
 - Lisibilité : rien de coupé après correction (légende raccourcie, bloc sources remonté dans le panneau d'outro). Aucun mot sur la fabrication.
 - Position des pas de tir : port spatial principal du lanceur (approximation à quelques centaines de km : Cap Canaveral / Vandenberg selon la mission, Wenchang / Jiuquan / Taiyuan / Xichang / mer selon la fusée chinoise, etc.). Les lancements de la face cachée sortent derrière le bord du globe.
+
+## Rendu final (2026-11-19, étape 3 validée « Ça me va »)
+- MP4 1080×1920, ffprobe 68,67 s (vidéo + audio), palette néon. Planche contact relue (1 image / 4 s) : compteurs, dates, « FAILED n », barres et légende pays croissent dans l'ordre du CSV ; bannières #100 (26 avr.), #200 (22 août), échecs ; outro 265 / 257 / 8 / avril 31. Rien de coupé.
+- Couverture posée (« EVERY ROCKET OF 2026 », image à 0,7 = #200), relue.
