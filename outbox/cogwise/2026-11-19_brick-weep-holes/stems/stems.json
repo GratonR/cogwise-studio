@@ -1,0 +1,41 @@
+{
+  "duration": 63.767,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "brick-weep-holes",
+  "title": "Those little holes in brick walls are there on purpose 🧱 #Shorts",
+  "beat_starts": [
+    0.15,
+    5.642,
+    9.952,
+    14.554,
+    19.355,
+    24.921,
+    28.137,
+    32.456,
+    38.268,
+    42.501,
+    48.617,
+    53.259,
+    57.831
+  ]
+}
