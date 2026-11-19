@@ -1,0 +1,30 @@
+{
+ "id": "kettle-quiet-20261119-225513",
+ "beat_starts": [
+  0.15,
+  6.065,
+  11.638,
+  15.989,
+  20.972,
+  27.054,
+  32.744,
+  38.52,
+  42.893,
+  47.96,
+  54.525,
+  59.738,
+  65.488
+ ],
+ "duration": 69.48,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T23:57:00",
+ "seconds": 44.4
+}
