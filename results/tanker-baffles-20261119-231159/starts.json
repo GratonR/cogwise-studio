@@ -1,0 +1,29 @@
+{
+ "id": "tanker-baffles-20261119-231159",
+ "beat_starts": [
+  0.15,
+  5.454,
+  10.957,
+  16.011,
+  20.779,
+  26.535,
+  32.298,
+  40.334,
+  44.891,
+  50.793,
+  56.889,
+  62.16
+ ],
+ "duration": 65.736,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-20T00:13:39",
+ "seconds": 42.0
+}
