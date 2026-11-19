@@ -1,0 +1,24 @@
+{
+ "id": "dishwasher-salt-20261119-114928",
+ "slug": "dishwasher-salt",
+ "beats": [
+  "Your dishwasher eats salt, but your plates never see it.",
+  "Not one grain touches your dishes. It feeds a tiny water softener under the tub.",
+  "Your tap water carries dissolved limestone, mostly calcium and magnesium.",
+  "Heated in your dishwasher, it becomes the white film on your glasses.",
+  "So before every wash, the water flows through a cartridge of tiny plastic beads.",
+  "The beads grab the calcium and magnesium, and let go of sodium instead.",
+  "After a few washes, every single bead is clogged with limestone.",
+  "That's when the salt comes in. A valve sends water into the salt box.",
+  "Out comes very salty water, called brine, and it rushes through the beads.",
+  "So much sodium pushes the limestone off, and the beads are fresh again.",
+  "Then that salty, chalky water is pumped straight down the drain.",
+  "So the salt never cleans a thing. It's just the reset button for the beads.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-19T11:49:28+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
