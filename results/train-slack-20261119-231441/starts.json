@@ -1,0 +1,30 @@
+{
+ "id": "train-slack-20261119-231441",
+ "beat_starts": [
+  0.15,
+  3.872,
+  9.554,
+  14.581,
+  18.456,
+  23.411,
+  30.082,
+  35.361,
+  40.024,
+  44.661,
+  50.17,
+  56.572,
+  60.997
+ ],
+ "duration": 64.988,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-20T00:16:02",
+ "seconds": 42.1
+}
