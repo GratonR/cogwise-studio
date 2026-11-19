@@ -1,0 +1,24 @@
+{
+ "id": "tire-light-frost-20261119-115231",
+ "slug": "tire-light-frost",
+ "beats": [
+  "First frost, and your tire light is on. Yet nothing leaked.",
+  "The secret: it's the same air. It just got cold.",
+  "Inside the tire, billions of air molecules race around and bang into the rubber.",
+  "Each tiny hit pushes outward. All those hits together are the pressure.",
+  "Cool the air, and the molecules slow down. They hit softer, and less often.",
+  "Like a ball left outside overnight: same air, but soft by morning.",
+  "Every ten Celsius colder costs about twelve kilopascals. Almost two psi.",
+  "Pumped at twenty Celsius, sixty-eight Fahrenheit. Next morning, minus five, twenty-three Fahrenheit.",
+  "About thirty kilopascals, four psi, are gone. Roughly twelve percent.",
+  "Add the slow seep every tire has, and you can cross the sensor's warning line.",
+  "Drive ten minutes, the rubber warms, the molecules speed up, and the light often goes out.",
+  "Nothing leaked. Cold air just hits the rubber softer.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-19T11:52:31+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
