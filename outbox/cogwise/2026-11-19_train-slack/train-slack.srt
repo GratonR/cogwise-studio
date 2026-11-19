@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:03,702
+Every freight train is coupled loosely. On purpose.
+
+2
+00:00:03,872 --> 00:00:09,384
+That slack lets the locomotive start the cars one at a time, not all at once.
+
+3
+00:00:09,554 --> 00:00:14,411
+A car standing still is much harder to get moving than to keep rolling.
+
+4
+00:00:14,581 --> 00:00:18,286
+Starting can take about four times the pull of rolling slowly.
+
+5
+00:00:18,456 --> 00:00:23,241
+Each car grabs the next with a steel knuckle, like two clasped hands.
+
+6
+00:00:23,411 --> 00:00:29,912
+Those knuckles never fit tight. There's play, plus a spring box behind each one.
+
+7
+00:00:30,082 --> 00:00:35,191
+So engineers often ease back first, squeezing all that slack together.
+
+8
+00:00:35,361 --> 00:00:39,854
+Then they pull. Only the first car is jerked into motion.
+
+9
+00:00:40,024 --> 00:00:44,491
+A moment later, its own slack runs out, and it yanks the second car.
+
+10
+00:00:44,661 --> 00:00:50,000
+Clack, clack, clack. That sound running down the train is the slack running out.
+
+11
+00:00:50,170 --> 00:00:56,402
+The locomotive never fights a hundred stuck cars at once. Just one, again and again.
+
+12
+00:00:56,572 --> 00:01:00,827
+Coupled tight, the same engine might not budge the train at all.
+
+13
+00:01:00,997 --> 00:01:06,890
+Cogwise: how things work. Follow for the next one!

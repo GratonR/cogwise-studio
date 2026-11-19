@@ -1,0 +1,41 @@
+{
+  "duration": 66.933,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "train-slack",
+  "title": "Trains are coupled loosely on purpose 🚂 #Shorts",
+  "beat_starts": [
+    0.15,
+    3.872,
+    9.554,
+    14.581,
+    18.456,
+    23.411,
+    30.082,
+    35.361,
+    40.024,
+    44.661,
+    50.17,
+    56.572,
+    60.997
+  ]
+}

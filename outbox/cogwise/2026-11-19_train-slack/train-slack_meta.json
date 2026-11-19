@@ -1,0 +1,36 @@
+{
+  "slug": "train-slack",
+  "title": "Trains are coupled loosely on purpose \ud83d\ude82 #Shorts",
+  "description": "The slack lets the locomotive start one car at a time.\n\n#Shorts #howthingswork #trains #railway #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "trains",
+    "railway",
+    "engineering",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Slack_action",
+    "https://www.advanced-steam.org/ufaqs/rolling-resistance/",
+    "https://en.wikipedia.org/wiki/Railway_coupling",
+    "https://forum.trains.com/t/starting-a-freight-train/244078"
+  ],
+  "duration": 66.94,
+  "words": 162,
+  "beat_starts": [
+    0.15,
+    3.872,
+    9.554,
+    14.581,
+    18.456,
+    23.411,
+    30.082,
+    35.361,
+    40.024,
+    44.661,
+    50.17,
+    56.572,
+    60.997
+  ]
+}
