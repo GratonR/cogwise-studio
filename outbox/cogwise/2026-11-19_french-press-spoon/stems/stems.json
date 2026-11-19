@@ -1,0 +1,41 @@
+{
+  "duration": 72.667,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "french-press-spoon",
+  "title": "5.9 million coffee makers were recalled because of a spoon ☕ #Shorts",
+  "beat_starts": [
+    0.15,
+    6.537,
+    11.3,
+    16.824,
+    21.662,
+    26.882,
+    32.08,
+    37.307,
+    41.978,
+    47.479,
+    54.831,
+    61.175,
+    66.702
+  ]
+}
