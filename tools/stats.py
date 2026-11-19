@@ -387,7 +387,9 @@ def main():
     # Reposts stay off until the A/B check of 16 Nov is done, then Facebook joins the protocol like the others.
     # 17 Nov: Facebook back OFF — every API upload gets 0 plays since ~6 Nov; reposting there is useless until the
     # Instagram -> Facebook crosspost test says otherwise (Guillaume). Remove "Facebook" here to resume.
-    OFF = {"Facebook"}
+    # 19 Nov: back ON. Meta app switched to Live on 18 Nov: Cogwise API Reels play again (3 034 and 73 plays vs 1 before).
+    # The `alive` rule keeps a page with no Reel above the threshold (Beep Melody, 0 plays) out of the protocol.
+    OFF = set()
     cands, seen = [], set()
     for slug, e in episodes.items():
         if e.get("private") or e.get("hidden") or not e.get("date"): continue
