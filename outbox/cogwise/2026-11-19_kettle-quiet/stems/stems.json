@@ -1,0 +1,41 @@
+{
+  "duration": 71.433,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "kettle-quiet",
+  "title": "Your kettle goes quiet right before it boils 🫖 #Shorts",
+  "beat_starts": [
+    0.15,
+    6.065,
+    11.638,
+    15.989,
+    20.972,
+    27.054,
+    32.744,
+    38.52,
+    42.893,
+    47.96,
+    54.525,
+    59.738,
+    65.488
+  ]
+}
