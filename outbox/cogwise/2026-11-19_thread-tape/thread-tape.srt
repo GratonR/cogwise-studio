@@ -1,51 +1,51 @@
 1
-00:00:00,000 --> 00:00:04,601
-Wrap this tape the wrong way, and the fitting unwinds it for you.
+00:00:00,000 --> 00:00:04,707
+Wrap plumber's tape the wrong way, and the pipe fitting unwinds it for you.
 
 2
-00:00:04,771 --> 00:00:10,066
+00:00:04,877 --> 00:00:10,172
 A turning fitting doesn't just slide over the tape. It drags the tape along with it.
 
 3
-00:00:10,236 --> 00:00:15,914
+00:00:10,342 --> 00:00:16,020
 Even screwed tight, metal threads never touch perfectly. Tiny gaps remain.
 
 4
-00:00:16,084 --> 00:00:21,722
+00:00:16,190 --> 00:00:21,828
 Those gaps form one spiral tunnel around the pipe, and water follows it out.
 
 5
-00:00:21,892 --> 00:00:28,417
+00:00:21,998 --> 00:00:28,522
 This tape is PTFE, the slippery plastic on non-stick pans, thinner than paper.
 
 6
-00:00:28,587 --> 00:00:33,775
+00:00:28,692 --> 00:00:33,881
 Squashed into the threads, it plugs the tunnel, and lets them slide deeper.
 
 7
-00:00:33,945 --> 00:00:39,197
+00:00:34,051 --> 00:00:39,303
 But as you turn the fitting, its threads rub the tape and pull it around.
 
 8
-00:00:39,367 --> 00:00:43,972
+00:00:39,473 --> 00:00:44,078
 Wrapped against that turn, the loose end faces the threads. They catch it.
 
 9
-00:00:44,142 --> 00:00:49,005
+00:00:44,248 --> 00:00:49,111
 The tape peels back, rolls into a little rope, and the tunnel stays open.
 
 10
-00:00:49,175 --> 00:00:54,160
+00:00:49,281 --> 00:00:54,266
 Wrapped with the turn, that same rub pulls every layer tighter instead.
 
 11
-00:00:54,330 --> 00:00:59,308
+00:00:54,436 --> 00:00:59,414
 Looking at the pipe's open end, that means clockwise, the way the fitting goes on.
 
 12
-00:00:59,478 --> 00:01:04,237
+00:00:59,584 --> 00:01:04,343
 The fitting always drags the tape its way. So wrap it that way too.
 
 13
-00:01:04,407 --> 00:01:10,298
+00:01:04,513 --> 00:01:10,418
 Cogwise: how things work. Follow for the next one!

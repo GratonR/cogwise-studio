@@ -38,7 +38,7 @@ def _d(c, extra=0.0):
     return round(0.42 * len(c.split()) + 0.7 + extra, 1)
 
 _B = [
-    ("THE WRONG WAY", "Wrap this tape the wrong way, and the fitting unwinds it for you.", None),
+    ("PLUMBER'S TAPE", "Wrap plumber's tape the wrong way, and the pipe fitting unwinds it for you.", None),
     ("THE SECRET", "A turning fitting doesn't just slide over the tape. It drags the tape along with it.", None),
     (None, "Even screwed tight, metal threads never touch perfectly. Tiny gaps remain.", 'gap'),
     ("1 · THE TUNNEL", "Those gaps form one spiral tunnel around the pipe, and water follows it out.", None),
@@ -403,7 +403,46 @@ def recap_panel(ctx, t, a):
     text_c(ctx, "TURN WAY = WRAP WAY", 540, 265, 54, INK, True, 3, a)
     text_c(ctx, "CLOCKWISE FROM THE END", 540, 335, 36, GREEN, True, 3, a)
 
+def intro_panel(ctx, t, a):
+    """Beats 0-1: recognisable SIDE VIEW so the viewer knows at once what this is: a threaded pipe end wrapped in
+    white plumber's tape, the roll still attached, a brass fitting waiting on the right. An eye + arrow says the
+    big drawing below is this same pipe seen from its open end."""
+    _panel(ctx, a, y=170, h=250)
+    yc = 300; hh = 40
+    # pipe body (left) + threaded end (right part), open end at x=600
+    ctx.rectangle(110, yc - hh, 490, 2 * hh); fill_stroke(ctx, STEEL, lw=4, alpha=a)
+    for k in range(9):
+        x = 400 + k * 22
+        ctx.move_to(x, yc - hh); ctx.line_to(x + 10, yc + hh)
+    setc(ctx, STEEL_D, a); ctx.set_line_width(3); ctx.stroke()
+    # white tape wrapped on the threads (grows on in the first 1.5 s)
+    w = 190 * ease(clamp(t / 1.5))
+    if w > 2:
+        ctx.rectangle(405, yc - hh - 3, w, 2 * hh + 6); fill_stroke(ctx, TAPE, TAPE_E, lw=2, alpha=a)
+        for k in range(int(w / 20)):
+            x = 410 + k * 20
+            ctx.move_to(x, yc - hh - 3); ctx.line_to(x + 10, yc + hh + 3)
+        setc(ctx, TAPE_E, a); ctx.set_line_width(1.5); ctx.stroke()
+    # the roll hanging below, joined by a strip
+    rx, ry = 330, yc + 78
+    ctx.move_to(405, yc + hh); ctx.line_to(rx + 16, ry - 24); setc(ctx, TAPE_E, a); ctx.set_line_width(9); ctx.stroke()
+    ctx.move_to(405, yc + hh); ctx.line_to(rx + 16, ry - 24); setc(ctx, TAPE, a); ctx.set_line_width(6); ctx.stroke()
+    ctx.arc(rx, ry, 28, 0, 2 * math.pi); fill_stroke(ctx, TAPE, lw=3, alpha=a)
+    ctx.arc(rx, ry, 12, 0, 2 * math.pi); fill_stroke(ctx, MUSTARD, lw=3, alpha=a)
+    # brass fitting on the right, waiting to screw on
+    fx = 690
+    ctx.rectangle(fx, yc - hh - 22, 110, 2 * hh + 44); fill_stroke(ctx, BRASS, lw=4, alpha=a)
+    ctx.rectangle(fx + 110, yc - hh, 60, 2 * hh); fill_stroke(ctx, BRASS_L, lw=4, alpha=a)
+    straight_arrow(ctx, fx - 10, yc, 625, yc, INK, a, lw=5, head=12)
+    text_c(ctx, "FITTING", fx + 75, yc - hh - 34, 20, BRASS_D, True, 1, a)
+    text_c(ctx, "PIPE", 200, yc + 10, 22, INK, True, 1, a)
+    tag(ctx, "PLUMBER'S TAPE", 190, 215, RED, a, 26)
+    # "seen from here": eye at the open end, arrow down to the big end view
+    text_c(ctx, "BELOW: SEEN FROM THE OPEN END", 740, 395, 18, INK2, True, 1, a)
+
 def draw_hud(ctx, t, E):
+    a = win(t, -1, B(2) - 0.2, 0.3)
+    if a > 0: intro_panel(ctx, t, a)
     a = win(t, B(3) + 0.2, B(4), 0.3)
     if a > 0: tunnel_panel(ctx, t, a)
     a = win(t, B(5) + 0.2, B(6), 0.3)
