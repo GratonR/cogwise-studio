@@ -1,0 +1,30 @@
+{
+ "id": "freezer-defrost-20261119-114710",
+ "beat_starts": [
+  0.15,
+  4.517,
+  9.194,
+  13.769,
+  18.739,
+  24.794,
+  29.683,
+  34.531,
+  39.854,
+  44.912,
+  49.428,
+  54.196,
+  59.028
+ ],
+ "duration": 63.02,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T12:48:12",
+ "seconds": 40.0
+}
