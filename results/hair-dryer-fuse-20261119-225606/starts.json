@@ -1,0 +1,30 @@
+{
+ "id": "hair-dryer-fuse-20261119-225606",
+ "beat_starts": [
+  0.15,
+  6.108,
+  10.419,
+  15.64,
+  20.755,
+  25.696,
+  31.033,
+  36.033,
+  40.404,
+  44.975,
+  50.488,
+  56.248,
+  61.48
+ ],
+ "duration": 65.471,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T23:59:01",
+ "seconds": 42.0
+}
