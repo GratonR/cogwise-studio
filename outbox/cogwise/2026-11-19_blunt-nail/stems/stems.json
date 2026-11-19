@@ -1,0 +1,41 @@
+{
+  "duration": 64.933,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "blunt-nail",
+  "title": "Carpenters blunt their nails on purpose 🔨 #Shorts",
+  "beat_starts": [
+    0.15,
+    3.689,
+    8.649,
+    14.505,
+    20.259,
+    25.449,
+    29.43,
+    32.882,
+    38.747,
+    43.849,
+    49.077,
+    54.505,
+    58.991
+  ]
+}
