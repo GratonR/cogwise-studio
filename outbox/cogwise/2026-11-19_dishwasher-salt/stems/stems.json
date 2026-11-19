@@ -1,0 +1,41 @@
+{
+  "duration": 67.0,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "dishwasher-salt",
+  "title": "Your dishwasher eats salt, but your plates never see it 🧂 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.022,
+    10.028,
+    15.119,
+    20.167,
+    25.985,
+    31.314,
+    36.064,
+    41.017,
+    46.394,
+    51.328,
+    55.501,
+    61.026
+  ]
+}
