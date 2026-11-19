@@ -17,3 +17,7 @@ Corrigé pendant le contrôle : distance de la Lune interpolée entre pleines lu
 maintenant la dernière pleine lune exacte (HUD = scène au flash) ; légende de la frise qui chevauchait le compteur ; bannières trop hautes
 sur l'étiquette de la Lune ; lunes fantômes sur l'étiquette ; flash blanc illisible en palette claire (→ corail) ; orbite recentrée.
 SI puis US partout ; axes : frise 1900 → 2027 gauche → droite, trait plus haut = plus proche ; rien de coupé ; aucune mention d'IA.
+
+## Rendu final (étape 4/4, 2026-11-19)
+Étape 3 validée (« Ça me va », palette nuit). Rendu complet : ffprobe 69,77 s, 1080×1920, piste audio AAC. Couverture posée (t = 56,1 s, 14 nov. 2016).
+Planche contact (1 image / 4 s) relue : HUD, bannières (packets, 1912, 1948, 2016, 1ST OF 4 IN A ROW), frise, outro lisibles, rien de coupé.
