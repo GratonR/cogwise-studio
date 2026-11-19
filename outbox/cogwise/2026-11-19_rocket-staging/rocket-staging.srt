@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,621
+Every rocket you've seen throws away half of itself. On purpose.
+
+2
+00:00:04,791 --> 00:00:08,086
+Because an empty fuel tank is just dead weight.
+
+3
+00:00:08,256 --> 00:00:14,175
+Every kilo the rocket carries must be pushed faster, and pushing costs fuel.
+
+4
+00:00:14,345 --> 00:00:20,742
+On a Falcon 9, the bottom part is the first stage: a giant tank, nine engines.
+
+5
+00:00:20,912 --> 00:00:26,689
+Filled up, fuel is ninety-four percent of its weight. The metal is a thin shell.
+
+6
+00:00:26,859 --> 00:00:31,766
+For two and a half minutes, the engines drink that fuel. The levels drop.
+
+7
+00:00:31,936 --> 00:00:38,242
+Now the rocket hauls twenty-five tonnes, fifty-six thousand pounds, of empty tank and engines.
+
+8
+00:00:38,412 --> 00:00:42,945
+Keep it, and every bit of thrust wastes effort pushing empty metal.
+
+9
+00:00:43,115 --> 00:00:49,111
+Latches release, and the whole bottom falls away. Tank and engines, gone.
+
+10
+00:00:49,281 --> 00:00:54,927
+The small top stage lights a single engine. It has far less to push.
+
+11
+00:00:55,097 --> 00:00:59,617
+Now every drop of fuel speeds up the payload, not an empty tank.
+
+12
+00:00:59,787 --> 00:01:03,583
+Throwing half away is how a rocket gets all the way up.
+
+13
+00:01:03,753 --> 00:01:09,650
+Cogwise: how things work. Follow for the next one!

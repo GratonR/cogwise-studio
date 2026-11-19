@@ -1,0 +1,35 @@
+{
+  "slug": "rocket-staging",
+  "title": "Rockets throw away half of themselves on purpose \ud83d\ude80 #Shorts",
+  "description": "An empty fuel tank is just dead weight. So rockets drop it.\n\n#Shorts #howthingswork #rocket #space #cogwise",
+  "hashtags": [
+    "Shorts",
+    "howthingswork",
+    "rocket",
+    "space",
+    "spacex",
+    "cogwise"
+  ],
+  "sources": [
+    "https://en.wikipedia.org/wiki/Falcon_9",
+    "https://www.grc.nasa.gov/www/K-12/rocket/TRCRocket/balloon_staging.html",
+    "https://discovermagazine.com/the-sciences/the-how-and-why-of-rockets-staging"
+  ],
+  "duration": 69.7,
+  "words": 164,
+  "beat_starts": [
+    0.15,
+    4.791,
+    8.256,
+    14.345,
+    20.912,
+    26.859,
+    31.936,
+    38.412,
+    43.115,
+    49.281,
+    55.097,
+    59.787,
+    63.753
+  ]
+}

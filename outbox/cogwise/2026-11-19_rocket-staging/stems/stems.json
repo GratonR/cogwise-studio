@@ -1,0 +1,41 @@
+{
+  "duration": 69.7,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "rocket-staging",
+  "title": "Rockets throw away half of themselves on purpose 🚀 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.791,
+    8.256,
+    14.345,
+    20.912,
+    26.859,
+    31.936,
+    38.412,
+    43.115,
+    49.281,
+    55.097,
+    59.787,
+    63.753
+  ]
+}
