@@ -1,0 +1,30 @@
+{
+ "id": "brick-weep-holes-20261119-225507",
+ "beat_starts": [
+  0.15,
+  5.642,
+  9.952,
+  14.554,
+  19.355,
+  24.921,
+  28.137,
+  32.456,
+  38.268,
+  42.501,
+  48.617,
+  53.259,
+  57.831
+ ],
+ "duration": 61.822,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T23:56:09",
+ "seconds": 40.0
+}
