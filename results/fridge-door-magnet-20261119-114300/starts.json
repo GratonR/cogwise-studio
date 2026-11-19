@@ -1,0 +1,30 @@
+{
+ "id": "fridge-door-magnet-20261119-114300",
+ "beat_starts": [
+  0.15,
+  5.526,
+  10.558,
+  14.856,
+  19.372,
+  23.703,
+  29.21,
+  34.712,
+  38.672,
+  44.983,
+  53.638,
+  59.185,
+  63.521
+ ],
+ "duration": 67.512,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T12:44:01",
+ "seconds": 42.8
+}
