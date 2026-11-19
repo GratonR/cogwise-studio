@@ -1,0 +1,30 @@
+{
+ "id": "dishwasher-salt-20261119-114928",
+ "beat_starts": [
+  0.15,
+  4.022,
+  10.028,
+  15.119,
+  20.167,
+  25.985,
+  31.314,
+  36.064,
+  41.017,
+  46.394,
+  51.328,
+  55.501,
+  61.026
+ ],
+ "duration": 65.018,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T12:50:22",
+ "seconds": 41.4
+}
