@@ -1,0 +1,41 @@
+{
+  "duration": 70.333,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "thread-tape",
+  "title": "Wrap this tape the wrong way and it unwinds itself 🔧 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.771,
+    10.236,
+    16.084,
+    21.892,
+    28.587,
+    33.945,
+    39.367,
+    44.142,
+    49.175,
+    54.33,
+    59.478,
+    64.407
+  ]
+}
