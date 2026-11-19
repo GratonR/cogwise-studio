@@ -1,0 +1,41 @@
+{
+  "duration": 64.1,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "wall-plug",
+  "title": "This plastic plug grabs your wall from behind ✊ #Shorts",
+  "beat_starts": [
+    0.15,
+    5.496,
+    10.479,
+    16.898,
+    20.687,
+    24.994,
+    30.15,
+    33.283,
+    38.323,
+    42.915,
+    48.092,
+    53.733,
+    58.141
+  ]
+}
