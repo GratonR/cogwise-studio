@@ -1,0 +1,30 @@
+{
+ "id": "blunt-nail-20261119-074027",
+ "beat_starts": [
+  0.15,
+  3.689,
+  8.649,
+  14.505,
+  20.259,
+  25.449,
+  29.43,
+  32.882,
+  38.747,
+  43.849,
+  49.077,
+  54.505,
+  58.991
+ ],
+ "duration": 62.983,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T08:42:18",
+ "seconds": 40.5
+}
