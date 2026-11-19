@@ -1,0 +1,30 @@
+{
+ "id": "wall-plug-20261119-073934",
+ "beat_starts": [
+  0.15,
+  5.496,
+  10.479,
+  16.898,
+  20.687,
+  24.994,
+  30.15,
+  33.283,
+  38.323,
+  42.915,
+  48.092,
+  53.733,
+  58.141
+ ],
+ "duration": 62.133,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T08:41:09",
+ "seconds": 39.8
+}
