@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,070
+First frost, and your tire light is on. Yet nothing leaked.
+
+2
+00:00:04,240 --> 00:00:08,078
+The secret: it's the same air. It just got cold.
+
+3
+00:00:08,248 --> 00:00:14,586
+Inside the tire, billions of air molecules race around and bang into the rubber.
+
+4
+00:00:14,756 --> 00:00:19,521
+Each tiny hit pushes outward. All those hits together are the pressure.
+
+5
+00:00:19,691 --> 00:00:25,354
+Cool the air, and the molecules slow down. They hit softer, and less often.
+
+6
+00:00:25,524 --> 00:00:29,938
+Like a ball left outside overnight: same air, but soft by morning.
+
+7
+00:00:30,108 --> 00:00:35,632
+Every ten Celsius colder costs about twelve kilopascals. Almost two psi.
+
+8
+00:00:35,802 --> 00:00:42,146
+Pumped at twenty Celsius, sixty-eight Fahrenheit. Next morning, minus five, twenty-three Fahrenheit.
+
+9
+00:00:42,316 --> 00:00:47,224
+About thirty kilopascals, four psi, are gone. Roughly twelve percent.
+
+10
+00:00:47,394 --> 00:00:52,470
+Add the slow seep every tire has, and you can cross the sensor's warning line.
+
+11
+00:00:52,640 --> 00:00:59,278
+Drive ten minutes, the rubber warms, the molecules speed up, and the light often goes out.
+
+12
+00:00:59,448 --> 00:01:03,291
+Nothing leaked. Cold air just hits the rubber softer.
+
+13
+00:01:03,461 --> 00:01:09,362
+Cogwise: how things work. Follow for the next one!

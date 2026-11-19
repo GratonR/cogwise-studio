@@ -1,0 +1,41 @@
+{
+  "duration": 69.4,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "tire-light-frost",
+  "title": "Your tire light comes on with the first frost ❄️ #Shorts",
+  "beat_starts": [
+    0.15,
+    4.24,
+    8.248,
+    14.756,
+    19.691,
+    25.524,
+    30.108,
+    35.802,
+    42.316,
+    47.394,
+    52.64,
+    59.448,
+    63.461
+  ]
+}
