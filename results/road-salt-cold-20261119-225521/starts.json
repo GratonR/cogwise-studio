@@ -1,0 +1,30 @@
+{
+ "id": "road-salt-cold-20261119-225521",
+ "beat_starts": [
+  0.15,
+  4.915,
+  9.813,
+  13.506,
+  18.566,
+  23.775,
+  29.167,
+  34.78,
+  42.689,
+  50.087,
+  56.59,
+  61.377,
+  64.535
+ ],
+ "duration": 68.526,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T23:57:50",
+ "seconds": 44.2
+}
