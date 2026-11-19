@@ -1,0 +1,24 @@
+{
+ "id": "washer-coin-trap-20261119-074129",
+ "slug": "washer-coin-trap",
+ "beats": [
+  "Every coin your washer swallows ends up in one tiny pocket.",
+  "It's behind this little door, down at the bottom of the machine.",
+  "Behind the door sits a plastic filter, screwed into the drain pump.",
+  "A loose coin slips past the drum and drops into the outer tub.",
+  "When the machine drains, the water rushes down a hose, carrying the coin.",
+  "Every drop must pass through this filter before it reaches the pump.",
+  "The water flows through the grille. The coin can't, so it stays.",
+  "Right behind it spins the impeller, a small plastic fan that pushes water out.",
+  "Without the filter, one coin jams it. The pump hums, but nothing drains.",
+  "Samsung says to clean it five or six times a year. Most people never have.",
+  "To empty it: unplug, put down a towel and a shallow tray.",
+  "Drain the little hose first, then twist the filter counterclockwise and rinse it.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-19T07:41:29+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
