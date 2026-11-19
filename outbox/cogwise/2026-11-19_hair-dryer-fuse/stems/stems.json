@@ -1,0 +1,41 @@
+{
+  "duration": 67.433,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "hair-dryer-fuse",
+  "title": "Your hair dryer can only overheat once 🔥 #Shorts",
+  "beat_starts": [
+    0.15,
+    6.108,
+    10.419,
+    15.64,
+    20.755,
+    25.696,
+    31.033,
+    36.033,
+    40.404,
+    44.975,
+    50.488,
+    56.248,
+    61.48
+  ]
+}

@@ -1,0 +1,13 @@
+Your hair dryer can overheat exactly once. Then it never turns on again.
+The secret: a tiny thermal fuse that's built to melt.
+Inside, a fan pushes air across a coil of wire glowing red-hot.
+Block the air, and a bimetal strip bends away and cuts the power.
+When it cools down, the strip snaps back. The dryer works again.
+Right behind it, wired in line, sits a little metal can: the thermal fuse.
+Inside, a solid pellet holds a spring squeezed against a sliding contact.
+At its rated temperature, the pellet melts like candle wax.
+The spring pushes the contact away. The circuit is open, for good.
+It only acts if the thermostat fails, for example when its contacts weld shut.
+Then nothing stops the heat. So the fuse kills the dryer before a fire can start.
+A dead dryer often means one blown fuse: one overheat, on purpose.
+Cogwise: how things work. Follow for the next one!

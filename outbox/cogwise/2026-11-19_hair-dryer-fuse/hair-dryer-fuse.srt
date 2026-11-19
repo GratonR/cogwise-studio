@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:05,938
+Your hair dryer can overheat exactly once. Then it never turns on again.
+
+2
+00:00:06,108 --> 00:00:10,249
+The secret: a tiny thermal fuse that's built to melt.
+
+3
+00:00:10,419 --> 00:00:15,470
+Inside, a fan pushes air across a coil of wire glowing red-hot.
+
+4
+00:00:15,640 --> 00:00:20,585
+Block the air, and a bimetal strip bends away and cuts the power.
+
+5
+00:00:20,755 --> 00:00:25,526
+When it cools down, the strip snaps back. The dryer works again.
+
+6
+00:00:25,696 --> 00:00:30,863
+Right behind it, wired in line, sits a little metal can: the thermal fuse.
+
+7
+00:00:31,033 --> 00:00:35,863
+Inside, a solid pellet holds a spring squeezed against a sliding contact.
+
+8
+00:00:36,033 --> 00:00:40,234
+At its rated temperature, the pellet melts like candle wax.
+
+9
+00:00:40,404 --> 00:00:44,805
+The spring pushes the contact away. The circuit is open, for good.
+
+10
+00:00:44,975 --> 00:00:50,318
+It only acts if the thermostat fails, for example when its contacts weld shut.
+
+11
+00:00:50,488 --> 00:00:56,078
+Then nothing stops the heat. So the fuse kills the dryer before a fire can start.
+
+12
+00:00:56,248 --> 00:01:01,310
+A dead dryer often means one blown fuse: one overheat, on purpose.
+
+13
+00:01:01,480 --> 00:01:07,370
+Cogwise: how things work. Follow for the next one!
