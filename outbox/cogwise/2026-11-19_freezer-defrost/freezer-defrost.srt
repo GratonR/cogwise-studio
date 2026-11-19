@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,347
+Your freezer turns on a heater. A few times a day. On purpose.
+
+2
+00:00:04,517 --> 00:00:09,024
+It hides behind the back wall, under a coil covered in frost.
+
+3
+00:00:09,194 --> 00:00:13,599
+That coil is the evaporator, the part that actually makes the cold.
+
+4
+00:00:13,769 --> 00:00:18,569
+Every time you open the door, moist air rushes in and freezes onto it.
+
+5
+00:00:18,739 --> 00:00:24,624
+Frost insulates the coil and clogs its gaps. The fan can't push cold air through.
+
+6
+00:00:24,794 --> 00:00:29,513
+So a timer steps in. It stops the compressor and the fan.
+
+7
+00:00:29,683 --> 00:00:34,361
+Then the heater under the coil switches on: around five hundred watts.
+
+8
+00:00:34,531 --> 00:00:39,684
+A small thermostat on the coil cuts it at five Celsius, forty-one Fahrenheit.
+
+9
+00:00:39,854 --> 00:00:44,742
+The melted frost runs down a tube into a tray sitting on the compressor.
+
+10
+00:00:44,912 --> 00:00:49,258
+The compressor's warmth evaporates it, back into your kitchen air.
+
+11
+00:00:49,428 --> 00:00:54,026
+The whole defrost takes well under an hour, too short to thaw your food.
+
+12
+00:00:54,196 --> 00:00:58,858
+Frost-free just means your freezer melts its own frost, on a schedule.
+
+13
+00:00:59,028 --> 00:01:04,922
+Cogwise: how things work. Follow for the next one!

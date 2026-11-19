@@ -1,0 +1,41 @@
+{
+  "duration": 64.967,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "freezer-defrost",
+  "title": "Your freezer turns on a heater, a few times a day 🧊 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.517,
+    9.194,
+    13.769,
+    18.739,
+    24.794,
+    29.683,
+    34.531,
+    39.854,
+    44.912,
+    49.428,
+    54.196,
+    59.028
+  ]
+}
