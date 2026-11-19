@@ -24,7 +24,8 @@ from pi import Ctx, warp
 
 FXK = float(os.environ.get("PI_FX", "0.5"))
 PAL = os.environ.get("PALETTE", "day")
-DECOR = os.environ.get("DECOR", "toy")   # toy (step 3 v1) | doc | mesure | brume  (step 3b: "too cute" -> sober decors)
+DECOR = os.environ.get("DECOR", "toy")   # toy (step 3 v1) | doc | mesure | brume  (step 3b) | saisons (3b answer: toy + seasons)
+TOYISH = DECOR in ("toy", "saisons")
 
 # ================= data =================
 ALL = list(csv.DictReader(open(os.path.join(HERE, "old_faithful_draft.csv"))))
@@ -149,7 +150,7 @@ VX, VY = 90, 214                 # vent of the cone
 def ridge(x): return Y_HILL - 10 - 7 * math.sin(x / 21 + 0.7) - 3 * math.sin(x / 7.3 + 2)
 
 def _ground():
-    if DECOR == "toy": return _ground_toy()
+    if TOYISH: return _ground_toy()
     return _ground_sober()
 
 def _ground_sober():
@@ -202,23 +203,63 @@ def _ground_sober():
             if x % 10 == 0: d.line([x, y + 3, x, y + 6], fill=WOOD2)
     return img
 
-def _ground_toy():
+SEASONS = ("spring", "summer", "autumn", "winter")
+SEA = {   # hill, flats (sinter, sinter2, sinter3), sky stops — summer = the original toy decor
+    "spring": dict(hill=(104, 184, 96), flat=((222, 232, 196), (188, 212, 150), (158, 196, 120)),
+                   sky=[(0, (130, 196, 236)), (90, (196, 230, 240)), (150, (232, 246, 236))]),
+    "summer": dict(hill=None, flat=None, sky=None),
+    "autumn": dict(hill=(176, 150, 92), flat=((232, 220, 196), (214, 196, 166), (190, 168, 136)),
+                   sky=[(0, (120, 166, 214)), (90, (220, 204, 176)), (150, (244, 222, 184))]),
+    "winter": dict(hill=(226, 234, 244), flat=((242, 246, 252), (220, 230, 242), (198, 212, 230)),
+                   sky=[(0, (150, 176, 204)), (90, (204, 218, 232)), (150, (232, 238, 244))]),
+}
+def _ground_toy(season="summer"):
     """everything below the sky, on a transparent layer"""
+    S_ = SEA[season]
+    hill = S_["hill"] or HILL; sinter, sinter2, sinter3 = S_["flat"] or (SINTER, SINTER2, SINTER3)
     img = Image.new("RGBA", (AW, AH), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
-    for x in range(AW): d.line([x, ridge(x), x, Y_HILL + 10], fill=HILL)
+    for x in range(AW): d.line([x, ridge(x), x, Y_HILL + 10], fill=hill)
     rng = random.Random(3)
-    for _ in range(70):                                   # lodgepole pines
+    for j in range(70):                                   # lodgepole pines (+ aspens that change with the season)
         x = rng.uniform(-2, AW + 2); y0 = Y_HILL + rng.uniform(-6, 12); h = rng.choice([8, 10, 12, 14])
         col = PINE if rng.random() < .6 else PINE2
+        aspen = j % 4 == 1
+        if aspen:
+            col = {"spring": (150, 206, 110), "summer": (96, 160, 80), "autumn": (236, 176, 48) if j % 8 == 1 else (222, 122, 46),
+                   "winter": None}[season]
+            if col is None:                               # bare aspen: white trunk, thin branches
+                d.line([x, y0 - h, x, y0 + 2], fill=(214, 206, 196)); d.line([x - 2, y0 - h + 3, x, y0 - h + 5], fill=(150, 140, 130))
+                d.line([x + 2, y0 - h + 4, x, y0 - h + 6], fill=(150, 140, 130)); continue
+            d.ellipse([x - 3, y0 - h, x + 3, y0 - 2], fill=col); d.line([x, y0 - 2, x, y0 + 2], fill=(214, 206, 196))
+            if season == "spring" and j % 8 == 5: d.point((x, y0 - h + 3), fill=(250, 250, 250))
+            continue
         d.polygon([(x, y0 - h), (x - 3, y0), (x + 3, y0)], fill=col); d.line([x, y0, x, y0 + 2], fill=WOOD2)
-    d.rectangle([0, Y_HILL + 12, AW, AH], fill=SINTER)    # sinter flats
+        if season == "winter":                            # snow on the branches
+            d.polygon([(x, y0 - h), (x - 1.5, y0 - h + 4), (x + 1.5, y0 - h + 4)], fill=(250, 252, 255))
+            d.line([x - 3, y0 - 1, x + 3, y0 - 1], fill=(240, 246, 252)); d.line([x - 2, y0 - h * .5, x + 1, y0 - h * .5], fill=(240, 246, 252))
+    d.rectangle([0, Y_HILL + 12, AW, AH], fill=sinter)    # sinter flats
     rs = random.Random(5)
     for _ in range(320):
         x = rs.uniform(0, AW); y = rs.uniform(Y_HILL + 14, AH); w = rs.choice([2, 3, 4, 6])
-        d.line([x, y, x + w, y], fill=SINTER2 if rs.random() < .7 else SINTER3)
-    for k in range(18):                                   # the cone: low wide mound
+        d.line([x, y, x + w, y], fill=sinter2 if rs.random() < .7 else sinter3)
+    rf = random.Random(17)
+    if season == "spring":                                # wildflowers on the hill and the edges of the flats
+        for _ in range(110):                              # grass tufts on the flats
+            x = rf.uniform(0, AW); y = rf.uniform(Y_HILL + 14, AH)
+            if abs(x - VX) > 36 or y > VY + 16: d.line([x, y, x + 2, y], fill=(126, 184, 92))
+        for _ in range(200):
+            x = rf.uniform(0, AW); y = rf.choice([rf.uniform(Y_HILL - 6, Y_HILL + 10), rf.uniform(Y_HILL + 14, AH)])
+            if abs(x - VX) < 36 and y > Y_HILL + 14: continue
+            d.point((x, y), fill=rf.choice([(250, 220, 70), (236, 120, 170), (250, 250, 250), (170, 140, 230)]))
+    if season == "autumn":                                # fallen leaves
+        for _ in range(70):
+            x = rf.uniform(0, AW); y = rf.uniform(Y_HILL + 14, AH)
+            if abs(x - VX) > 34 or y > VY + 16: d.point((x, y), fill=rf.choice([(226, 140, 50), (236, 180, 60), (196, 96, 52)]))
+    for k in range(18):                                   # the cone: low wide mound (stays snow-free: it is hot)
         rw = 30 - k * 1.3; y = VY + 10 - k * 0.6
         d.ellipse([VX - rw, y - 4, VX + rw, y + 4], fill=SINTER2 if k % 3 else SINTER3)
+    if season == "winter":                                # rime frost ring at the foot of the cone
+        d.arc([VX - 34, VY + 2, VX + 34, VY + 18], 0, 180, fill=(250, 252, 255))
     d.ellipse([VX - 3, VY - 2, VX + 3, VY + 1], fill=(120, 110, 96))
     for (px, py, rw, rh) in ((26, 222, 20, 8), (150, 230, 14, 6)):   # hot spring pools beside the cone
         d.ellipse([px - rw - 2, py - rh - 1, px + rw + 2, py + rh + 1], fill=RIM)
@@ -228,6 +269,9 @@ def _ground_toy():
         d.line([px - rw, py, px + rw, py + 2], fill=RIM); d.line([px - rw + 3, py + 1, px + rw - 3, py + 3], fill=(196, 170, 120))
     d.rectangle([132, 150, 176, 176], fill=BLDG)           # visitor center + clock
     d.polygon([(128, 151), (154, 136), (180, 151)], fill=ROOF)
+    if season == "winter":                                # snow on the roof
+        d.polygon([(128, 151), (154, 136), (180, 151), (176, 149), (154, 139), (132, 149)], fill=(250, 252, 255))
+        d.line([128, 151, 180, 151], fill=(236, 242, 250))
     for wx in (138, 148, 160, 170): d.rectangle([wx - 2, 162, wx + 1, 168], fill=(110, 140, 170))
     d.rectangle([150, 168, 157, 176], fill=WOOD2)
     for x in range(-2, AW + 2):                           # boardwalk (arc in front of the cone)
@@ -242,8 +286,64 @@ def ground():
     global _G
     if _G is None: _G = _ground()
     return _G
+_GS = {}
+def ground_s(season):
+    if season not in _GS: _GS[season] = _ground_toy(season)
+    return _GS[season]
+
+# seasons (decor only, chosen by Guillaume at step 3b): one per "day" scene, 1.2 s cross-fade at each change
+SEASON_AT = None
+def season_at(T):
+    """returns (season_a, season_b, f): blend f from a to b"""
+    marks = [START["day2"], START["day3"], START["day4"]]
+    k = sum(1 for m in marks if T >= m - 0.6)
+    if k == 0: return SEASONS[0], SEASONS[0], 0.0
+    f = float(np.clip((T - (marks[k - 1] - 0.6)) / 1.2, 0, 1))
+    return SEASONS[k - 1], SEASONS[k], f
+
+def _sky_stops(season): return SEA[season]["sky"] or SKY_D
+def _bg_season(T, season):
+    nf = night(T)
+    img = Image.new("RGB", (AW, AH)); d = ImageDraw.Draw(img)
+    for y in range(Y_HILL + 14):
+        d.line([0, y, AW, y], fill=mix(grad(_sky_stops(season), y), grad(SKY_N, y), nf))
+    if nf > 0.2:
+        rs = random.Random(7)
+        for _ in range(40):
+            x, y = rs.randrange(AW), rs.randrange(130)
+            if rs.random() < nf: d.point((x, y), fill=(230, 230, 250))
+    g = ground_s(season); img.paste(g, (0, 0), g)
+    return img
+
+def _particles(img, T, season, alpha):
+    """falling snow (winter), drifting leaves (autumn), petals (spring)"""
+    if season == "summer" or alpha <= 0: return
+    d = ImageDraw.Draw(img); rs = random.Random(23)
+    cnt = {"winter": 90, "autumn": 16, "spring": 12}[season]
+    for j in range(cnt):
+        if rs.random() > alpha: rs.random(); rs.random(); rs.random(); continue
+        x0 = rs.uniform(0, AW); y0 = rs.uniform(0, AH); sp = rs.uniform(.7, 1.3)
+        if season == "winter":
+            y = (y0 + T * 22 * sp) % (Y_HILL + 130); x = (x0 + 3 * math.sin(T * 1.3 + j)) % AW
+            d.point((x, y), fill=(255, 255, 255))
+            if j % 3 == 0: d.point((x + 1, y), fill=(255, 255, 255))
+        else:
+            y = (y0 + T * 12 * sp) % (Y_HILL + 120); x = (x0 + T * 6 * sp + 6 * math.sin(T * 2 + j)) % AW
+            col = (226, 140, 50) if season == "autumn" and j % 2 else (236, 180, 60) if season == "autumn" else (246, 190, 210)
+            d.point((x, y), fill=col); d.point((x + 1, y + (j % 2)), fill=col)
 
 def background(T):
+    if DECOR == "saisons":
+        a, b, f = season_at(T); nf = night(T)
+        img = _bg_season(T, a)
+        if f > 0: img = Image.blend(img, _bg_season(T, b), f)
+        _particles(img, T, a, 1 - f); _particles(img, T, b, f)
+        if nf > 0:
+            img = Image.blend(img, Image.new("RGB", (AW, AH), (20, 26, 60)), 0.45 * nf)
+            d = ImageDraw.Draw(img)
+            if nf > 0.3:
+                for wx in (138, 148, 160, 170): d.rectangle([wx - 2, 162, wx + 1, 168], fill=(250, 220, 120))
+        return img
     nf = night(T)
     img = Image.new("RGB", (AW, AH)); d = ImageDraw.Draw(img)
     for y in range(Y_HILL + 14):
@@ -360,7 +460,7 @@ def crowd(d, T):
     if k >= 0 and since < 0.6: n = int(min(60, 6 + (REC[k]["w"]) * 0.55) * (1 - since / 0.6 * 0.8))
     cheer = k >= 0 and since < 0.5
     if DECOR == "mesure": return
-    if DECOR != "toy":
+    if not TOYISH:
         sil = (44, 48, 54) if DECOR == "doc" else (36, 40, 46)
         for j in range(n):
             x, _, _, ph = SPOTS[j]; y = 262
@@ -385,7 +485,7 @@ def draw_scene(c, T):
         y = VY - 3 - j * 4 - (T * 9 % 4); d.point((VX + wisp.randint(-2, 2), y), fill=STEAM2)
     if k >= 1: draw_jet(d, T, k - 1)
     if k >= 0: draw_jet(d, T, k)
-    if DECOR == "toy": clock_hand(d, T)
+    if TOYISH: clock_hand(d, T)
     if DECOR == "mesure": ruler(d)
     crowd(d, T)
     if k == I_MAX and T - RT[k] < 0.5:                    # #61 after 108 min: golden ring
