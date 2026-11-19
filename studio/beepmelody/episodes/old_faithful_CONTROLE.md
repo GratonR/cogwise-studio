@@ -24,3 +24,8 @@ Durée calculée : 65,6 s (intro 3,6 · jour 1 11,4 · jour 2 14,8 · jour 3 12,
 - Horloge du Visitor Center : l'aiguille tourne avec le temps de geyser cumulé (pas une heure réelle).
 - Lisibilité corrigée pendant le contrôle : bassin chaud caché par le graphe (remonté à côté du cône), légende du graphe coupée en bas (remontée), étiquettes 40/60/90 superposées (40 retiré), arrondi 1,95 → 2.0.
 - Aucun mot sur l'IA ou la fabrication.
+
+## Rendu final (étape 3c → 4/4, 2026-11-19 09:06Z)
+- Décision 3c : C « décor mignon d'origine, été seul » (cohérent avec AUG 1985) → `DECOR=toy` (défaut), pas de saisons.
+- Frames re-contrôlées en DECOR=toy à T = 1,0 · 2,6 · 8,3 · 16,4 · 36,3 · 41,6 · 55,0 · 63,0 : chiffres identiques au tableau ci-dessus, rien de coupé ✓
+- ffprobe : 1080×1920, vidéo + audio, 65,6 s ✓ · planche contact (1 image / 4 s) relue ✓ · couverture : #12 + « A GEYSER THAT KEEPS TIME » ✓

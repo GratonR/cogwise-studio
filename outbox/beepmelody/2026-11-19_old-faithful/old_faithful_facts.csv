@@ -1,0 +1,10 @@
+fact,value,source,source_url
+avg_interval_today_min,~90 (range 50-127),NPS — Old Faithful Geyser,https://www.nps.gov/articles/old-faithful-geyser.htm
+avg_interval_today_min,94 ± 10,USGS YVO — A Yellowstone icon: Old Faithful,https://www.usgs.gov/center-news/story-a-yellowstone-icon-old-faithful-geyser
+avg_annual_interval_2001_2011_min,"91-93 (58,497 intervals, electronic monitoring)",Hurwitz et al. 2014 JGR,https://website.whoi.edu/gfd/wp-content/uploads/sites/14/2018/10/Hurwitz_etal_2014_201786.pdf
+short_intervals_2001_2011,4% < 75 min,Hurwitz et al. 2014 JGR,https://website.whoi.edu/gfd/wp-content/uploads/sites/14/2018/10/Hurwitz_etal_2014_201786.pdf
+interval_before_1983_quake_min,69-70 -> 77-78 four months after Borah Peak M6.9,USGS YVO + Hurwitz et al. 2014,https://www.usgs.gov/center-news/story-a-yellowstone-icon-old-faithful-geyser
+interval_1870,"~74 min (Langford 1905, cited by Hurwitz 2014) vs 60-70 min (USGS YVO) — CONFLICT, not used on screen",Hurwitz 2014 / USGS,
+duration_min,1.5-5,NPS,https://www.nps.gov/articles/old-faithful-geyser.htm
+height,30-55 m / 106-184 ft (NPS) ; >40 m / 130 ft regularly (USGS),NPS + USGS,
+volume,"14,000-32,000 L / 3,700-8,400 gal",NPS,https://www.nps.gov/articles/old-faithful-geyser.htm

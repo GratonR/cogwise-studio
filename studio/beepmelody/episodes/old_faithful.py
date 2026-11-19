@@ -24,7 +24,7 @@ from pi import Ctx, warp
 
 FXK = float(os.environ.get("PI_FX", "0.5"))
 PAL = os.environ.get("PALETTE", "day")
-DECOR = os.environ.get("DECOR", "toy")   # toy (step 3 v1) | doc | mesure | brume  (step 3b) | saisons (3b answer: toy + seasons)
+DECOR = os.environ.get("DECOR", "toy")   # toy (step 3 v1) | doc | mesure | brume  (step 3b) | saisons (3b answer: toy + seasons) ; 3c answer: toy (summer only, matches AUG 1985) = FINAL
 TOYISH = DECOR in ("toy", "saisons")
 
 # ================= data =================
