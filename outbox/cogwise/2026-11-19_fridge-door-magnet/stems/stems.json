@@ -1,0 +1,41 @@
+{
+  "duration": 69.467,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "fridge-door-magnet",
+  "title": "Your fridge door is held shut by a fridge magnet 🧲 #Shorts",
+  "beat_starts": [
+    0.15,
+    5.526,
+    10.558,
+    14.856,
+    19.372,
+    23.703,
+    29.21,
+    34.712,
+    38.672,
+    44.983,
+    53.638,
+    59.185,
+    63.521
+  ]
+}
