@@ -24,6 +24,7 @@ from pi import Ctx, warp
 
 FXK = float(os.environ.get("PI_FX", "0.5"))
 PAL = os.environ.get("PALETTE", "day")
+DECOR = os.environ.get("DECOR", "toy")   # toy (step 3 v1) | doc | mesure | brume  (step 3b: "too cute" -> sober decors)
 
 # ================= data =================
 ALL = list(csv.DictReader(open(os.path.join(HERE, "old_faithful_draft.csv"))))
@@ -62,6 +63,16 @@ STEAM, STEAM2 = (250, 252, 255), (206, 216, 228)
 INK, INK2, CREAM = (34, 44, 60), (96, 108, 124), (250, 248, 240)
 ACC, GOLD, RED, TEAL, ORNG = (40, 150, 170), (222, 150, 40), (210, 72, 56), (40, 160, 160), (226, 128, 48)
 BLDG, ROOF = (196, 150, 104), (120, 72, 52)
+if DECOR in ("doc", "brume"):
+    SKY_D = ([(0, (150, 176, 196)), (90, (196, 210, 216)), (150, (220, 224, 220))] if DECOR == "doc"
+             else [(0, (96, 116, 140)), (90, (150, 164, 178)), (150, (186, 192, 196))])
+    HILL, PINE, PINE2 = ((112, 132, 150), (34, 52, 46), (46, 64, 54)) if DECOR == "doc" else ((86, 100, 118), (26, 36, 40), (34, 44, 48))
+    SINTER, SINTER2, SINTER3 = ((206, 200, 186), (184, 176, 160), (156, 148, 134)) if DECOR == "doc" else ((176, 174, 168), (156, 154, 150), (132, 130, 128))
+    POOL, POOL2, RIM = (70, 130, 140), (96, 160, 166), (168, 104, 52)
+    WOOD, WOOD2 = (92, 78, 66), (66, 56, 48)
+if DECOR == "mesure":
+    SKY_D = [(0, (236, 238, 236)), (150, (236, 238, 236))]
+    SINTER, SINTER2, SINTER3 = (226, 228, 224), (210, 212, 208), (186, 188, 184)
 PEOPLE = [(210, 72, 56), (40, 120, 200), (230, 180, 40), (60, 150, 80), (150, 80, 160), (240, 240, 240), (40, 40, 50), (230, 120, 160)]
 
 # ================= timeline (124 BPM, 16th-note grid) =================
@@ -138,6 +149,60 @@ VX, VY = 90, 214                 # vent of the cone
 def ridge(x): return Y_HILL - 10 - 7 * math.sin(x / 21 + 0.7) - 3 * math.sin(x / 7.3 + 2)
 
 def _ground():
+    if DECOR == "toy": return _ground_toy()
+    return _ground_sober()
+
+def _ground_sober():
+    """doc / brume / mesure: real-looking basin, no cottage, no toy pools"""
+    img = Image.new("RGBA", (AW, AH), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
+    rng = random.Random(3)
+    if DECOR != "mesure":
+        far = (150, 166, 184) if DECOR == "doc" else (120, 134, 150)
+        for x in range(AW):                                # distant plateau (Madison/Central plateau rims)
+            y = Y_HILL - 34 - 10 * math.sin(x / 47 + 1.3) - 4 * math.sin(x / 13 + .4)
+            d.line([x, y, x, Y_HILL], fill=far)
+        for x in range(AW): d.line([x, ridge(x) + 2, x, Y_HILL + 10], fill=HILL)
+        for _ in range(230):                               # dense lodgepole wall, thin and dark
+            x = rng.uniform(-2, AW + 2); y0 = Y_HILL + rng.uniform(-8, 12); h = rng.choice([9, 11, 13, 15, 17])
+            col = PINE if rng.random() < .65 else PINE2
+            d.line([x, y0 - h, x, y0], fill=col)
+            for k in range(2, h, 2):
+                w = 1 + (k * 2) // h
+                d.line([x - w, y0 - h + k, x + w, y0 - h + k], fill=col)
+        for _ in range(12):                                # snags (dead trees, 1988 fire style)
+            x = rng.uniform(0, AW); y0 = Y_HILL + rng.uniform(-4, 10)
+            d.line([x, y0 - rng.choice([10, 14]), x, y0], fill=(120, 112, 104))
+    d.rectangle([0, Y_HILL + 12, AW, AH], fill=SINTER)
+    rs = random.Random(5)
+    for _ in range(420):
+        x = rs.uniform(0, AW); y = rs.uniform(Y_HILL + 14, AH); w = rs.choice([2, 3, 5, 8])
+        d.line([x, y, x + w, y], fill=SINTER2 if rs.random() < .7 else SINTER3)
+    # irregular sinter mound with terraces (not a perfect cake)
+    for k in range(22):
+        rw = 44 - k * 1.7 + 3 * math.sin(k * 1.9); y = VY + 12 - k * 0.7
+        lo = VX - rw + 2 * math.sin(k); hi = VX + rw + 3 * math.cos(k * .7)
+        d.polygon([(lo, y), (lo + 6, y - 4), (hi - 5, y - 4), (hi, y), (hi - 4, y + 3), (lo + 3, y + 3)],
+                  fill=SINTER2 if k % 3 else SINTER3)
+    d.ellipse([VX - 3, VY - 2, VX + 3, VY + 1], fill=(96, 88, 80))
+    if DECOR != "mesure":
+        mat1, mat2 = ((178, 124, 74), (150, 118, 86)) if DECOR == "doc" else ((140, 116, 96), (124, 110, 98))
+        for (x0, y0, ln, dx) in ((VX - 10, VY + 10, 70, -1.0), (VX + 12, VY + 10, 80, 0.9), (VX + 2, VY + 14, 50, 0.2)):
+            x, y = x0, y0                                  # runoff channels with bacterial mats (real orange/brown)
+            for j in range(ln):
+                x += dx * .8 + rs.uniform(-.6, .6); y += .45
+                x += 1.2 * math.sin(j / 6.0)
+                d.point((x, y), fill=mat1 if j % 5 else mat2); d.point((x + 1, y), fill=mat2)
+        for (px, py, rw, rh) in ((22, 226, 12, 3), (156, 234, 9, 2)):   # flat irregular pools, low-key
+            d.polygon([(px - rw, py), (px - rw * .4, py - rh), (px + rw * .6, py - rh + 1), (px + rw, py + 1),
+                       (px + rw * .3, py + rh), (px - rw * .7, py + rh - 1)], fill=POOL)
+            d.line([px - rw * .4, py, px + rw * .3, py], fill=POOL2)
+        for x in range(-2, AW + 2):                        # boardwalk: straight, low, at the very front
+            y = 262
+            d.line([x, y, x, y + 3], fill=WOOD)
+            if x % 10 == 0: d.line([x, y + 3, x, y + 6], fill=WOOD2)
+    return img
+
+def _ground_toy():
     """everything below the sky, on a transparent layer"""
     img = Image.new("RGBA", (AW, AH), (0, 0, 0, 0)); d = ImageDraw.Draw(img)
     for x in range(AW): d.line([x, ridge(x), x, Y_HILL + 10], fill=HILL)
@@ -189,11 +254,26 @@ def background(T):
             x, y = rs.randrange(AW), rs.randrange(130)
             if rs.random() < nf: d.point((x, y), fill=(230, 230, 250))
     img.paste(ground(), (0, 0), ground())
+    if DECOR in ("doc", "brume"):                          # other vents steaming in the basin: thin wisps
+        d = ImageDraw.Draw(img)
+        vents = ((22, 168, 18), (64, 164, 10), (126, 170, 14), (166, 162, 22)) if DECOR == "doc" else \
+                ((14, 168, 30), (50, 164, 16), (122, 170, 24), (160, 164, 34), (176, 170, 18))
+        for vi, (fx, fy, hh) in enumerate(vents):
+            for y in range(hh):
+                ph = T * 2.5 + vi * 1.7 - y * .18
+                xx = fx + y * .25 + 1.5 * math.sin(ph); w = .6 + y * .07
+                if (y + int(T * 20) + vi) % 9 < 7:
+                    d.line([xx - w, fy - y, xx + w, fy - y], fill=STEAM2 if DECOR == "doc" else (206, 212, 218))
+    if DECOR == "brume":                                   # low mist band over the flats
+        mist = Image.new("RGB", (AW, AH), (214, 218, 222)); m = Image.new("L", (AW, AH), 0); md = ImageDraw.Draw(m)
+        for y in range(Y_HILL - 10, Y_HILL + 40):
+            md.line([0, y, AW, y], fill=int(150 * math.exp(-((y - Y_HILL - 6) / 14) ** 2)))
+        img.paste(mist, (0, 0), m)
     if nf > 0:
         dark = Image.new("RGB", (AW, AH), (20, 26, 60))
         img = Image.blend(img, dark, 0.45 * nf)
         d = ImageDraw.Draw(img)
-        if nf > 0.3:
+        if nf > 0.3 and DECOR == "toy":
             for wx in (138, 148, 160, 170): d.rectangle([wx - 2, 162, wx + 1, 168], fill=(250, 220, 120))
     return img
 
@@ -210,6 +290,27 @@ def clock_hand(d, T):
     a2 = 2 * math.pi * (mins / 60.0) - math.pi / 2
     d.line([cx, cy, cx + 3 * math.cos(a2), cy + 3 * math.sin(a2)], fill=INK)
     return mins
+
+def ruler(d):
+    """mesure: a scale beside the jet, graduated in eruption minutes (jet height = duration)"""
+    x = VX + 26
+    d.line([x, VY, x, VY - jet_h(5.5)], fill=INK2)
+    for m in (2, 3, 4, 5):
+        y = VY - jet_h(m); d.line([x, y, x + 4, y], fill=INK2)
+        text_small(d, x + 6, y - 3, f"{m}")
+    text_small(d, x - 4, VY - jet_h(5.5) - 7, "MIN")
+
+def text_small(d, x, y, s):
+    G = {"2": ["111", "001", "111", "100", "111"], "3": ["111", "001", "111", "001", "111"],
+         "4": ["101", "101", "111", "001", "001"], "5": ["111", "100", "111", "001", "111"],
+         "M": ["10001", "11011", "10101", "10001", "10001"], "I": ["111", "010", "010", "010", "111"],
+         "N": ["1001", "1101", "1011", "1001", "1001"]}
+    for ch_ in s:
+        g = G[ch_]
+        for j, row in enumerate(g):
+            for i, ch in enumerate(row):
+                if ch == "1": d.point((x + i, y + j), fill=INK2)
+        x += len(g[0]) + 1
 
 def jet_h(dur): return 26 + 23 * (dur - 1.5)      # px: 1.6 min -> 28, 5.45 min -> 117
 def draw_jet(d, T, i):
@@ -258,6 +359,15 @@ def crowd(d, T):
     n = int(min(60, 6 + waited * 0.55))
     if k >= 0 and since < 0.6: n = int(min(60, 6 + (REC[k]["w"]) * 0.55) * (1 - since / 0.6 * 0.8))
     cheer = k >= 0 and since < 0.5
+    if DECOR == "mesure": return
+    if DECOR != "toy":
+        sil = (44, 48, 54) if DECOR == "doc" else (36, 40, 46)
+        for j in range(n):
+            x, _, _, ph = SPOTS[j]; y = 262
+            hh = 4 + int(ph * 2)
+            d.line([int(x), y - hh, int(x), y - 1], fill=sil); d.point((int(x), y - hh - 1), fill=sil)
+            if ph > .5: d.point((int(x) + 1, y - hh + 1), fill=sil)
+        return
     for j in range(n):
         x, y, col, ph = SPOTS[j]
         hop = 1 if (cheer and int(T * 12 + ph * 10) % 2) else 0
@@ -275,7 +385,8 @@ def draw_scene(c, T):
         y = VY - 3 - j * 4 - (T * 9 % 4); d.point((VX + wisp.randint(-2, 2), y), fill=STEAM2)
     if k >= 1: draw_jet(d, T, k - 1)
     if k >= 0: draw_jet(d, T, k)
-    clock_hand(d, T)
+    if DECOR == "toy": clock_hand(d, T)
+    if DECOR == "mesure": ruler(d)
     crowd(d, T)
     if k == I_MAX and T - RT[k] < 0.5:                    # #61 after 108 min: golden ring
         rr = 10 + (T - RT[k]) * 160
