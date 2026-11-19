@@ -1,0 +1,40 @@
+{
+  "duration": 67.7,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "tanker-baffles",
+  "title": "This truck is most dangerous when it's half empty 🚚 #Shorts",
+  "beat_starts": [
+    0.15,
+    5.454,
+    10.957,
+    16.011,
+    20.779,
+    26.535,
+    32.298,
+    40.334,
+    44.891,
+    50.793,
+    56.889,
+    62.16
+  ]
+}
