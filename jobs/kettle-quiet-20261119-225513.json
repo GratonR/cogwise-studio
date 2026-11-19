@@ -1,0 +1,24 @@
+{
+ "id": "kettle-quiet-20261119-225513",
+ "slug": "kettle-quiet",
+ "beats": [
+  "Your kettle goes quiet right before it boils. That's your signal it's almost ready.",
+  "That loud roar isn't boiling. It's thousands of tiny bubbles collapsing.",
+  "The heating element sits at the bottom, so the bottom water heats first.",
+  "Right on the hot metal, water flashes into tiny bubbles of steam.",
+  "But the water higher up is still below one hundred Celsius, two hundred twelve Fahrenheit.",
+  "As a bubble rises into that cooler water, its steam turns back into liquid.",
+  "The bubble vanishes in a split second, and the water slams shut with a tiny crack.",
+  "Thousands of those cracks every second make the roar you hear.",
+  "Then the heat spreads, until the whole kettle reaches one hundred Celsius.",
+  "Now nothing cools the bubbles. They rise all the way up and pop softly at the top.",
+  "The cracking stops, the noise drops, and the rolling boil begins.",
+  "So a loud kettle is still heating. A quiet one is hot all the way up.",
+  "Cogwise: how things work. Follow for the next one!"
+ ],
+ "created_at": "2026-11-19T22:55:13+00:00",
+ "reference": "reference_am_michael.wav",
+ "exaggeration": 0.5,
+ "cfg_weight": 0.5,
+ "pause": 0.4
+}
