@@ -1,0 +1,41 @@
+{
+  "duration": 70.5,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "road-salt-cold",
+  "title": "Road salt doesn't actually melt ice 🧂 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.915,
+    9.813,
+    13.506,
+    18.566,
+    23.775,
+    29.167,
+    34.78,
+    42.689,
+    50.087,
+    56.59,
+    61.377,
+    64.535
+  ]
+}
