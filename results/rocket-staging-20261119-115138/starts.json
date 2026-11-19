@@ -1,0 +1,30 @@
+{
+ "id": "rocket-staging-20261119-115138",
+ "beat_starts": [
+  0.15,
+  4.791,
+  8.256,
+  14.345,
+  20.912,
+  26.859,
+  31.936,
+  38.412,
+  43.115,
+  49.281,
+  55.097,
+  59.787,
+  63.753
+ ],
+ "duration": 67.744,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T12:53:19",
+ "seconds": 42.9
+}
