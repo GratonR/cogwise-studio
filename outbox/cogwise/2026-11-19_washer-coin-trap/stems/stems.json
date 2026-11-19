@@ -1,0 +1,41 @@
+{
+  "duration": 66.667,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "washer-coin-trap",
+  "title": "Your washer eats coins. Here's where they go. 🪙 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.793,
+    9.026,
+    14.012,
+    18.839,
+    23.635,
+    28.474,
+    33.614,
+    39.308,
+    45.066,
+    50.702,
+    55.211,
+    60.718
+  ]
+}
