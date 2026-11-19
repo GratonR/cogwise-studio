@@ -1,0 +1,30 @@
+{
+ "id": "thread-tape-20261119-230957",
+ "beat_starts": [
+  0.15,
+  4.877,
+  10.342,
+  16.19,
+  21.998,
+  28.692,
+  34.051,
+  39.473,
+  44.248,
+  49.281,
+  54.436,
+  59.584,
+  64.513
+ ],
+ "duration": 68.504,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-20T00:10:57",
+ "seconds": 43.7
+}
