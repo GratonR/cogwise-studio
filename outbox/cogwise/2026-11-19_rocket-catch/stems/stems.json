@@ -1,0 +1,41 @@
+{
+  "duration": 68.733,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "rocket-catch",
+  "title": "Why catch a rocket instead of landing it on legs 🚀 #Shorts",
+  "beat_starts": [
+    0.15,
+    4.931,
+    10.18,
+    14.908,
+    20.641,
+    25.898,
+    31.896,
+    37.789,
+    42.813,
+    48.462,
+    53.752,
+    58.086,
+    62.791
+  ]
+}
