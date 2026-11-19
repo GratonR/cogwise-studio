@@ -1,0 +1,30 @@
+{
+ "id": "rocket-catch-20261119-231129",
+ "beat_starts": [
+  0.15,
+  4.931,
+  10.18,
+  14.908,
+  20.641,
+  25.898,
+  31.896,
+  37.789,
+  42.813,
+  48.462,
+  53.752,
+  58.086,
+  62.791
+ ],
+ "duration": 66.783,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-20T00:12:28",
+ "seconds": 43.5
+}
