@@ -1,0 +1,30 @@
+{
+ "id": "coffee-cup-20261119-115145",
+ "beat_starts": [
+  0.15,
+  4.528,
+  8.584,
+  14.154,
+  19.297,
+  23.425,
+  27.868,
+  32.319,
+  37.222,
+  42.472,
+  47.218,
+  52.78,
+  58.563
+ ],
+ "duration": 62.554,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-19T12:52:30",
+ "seconds": 39.4
+}
