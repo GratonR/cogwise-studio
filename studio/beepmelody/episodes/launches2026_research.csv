@@ -155,117 +155,117 @@ date,vehicle,mission,country,outcome,source,check
 2026-06-24,Falcon 9,Starlink / StriX-8,US,success,keeptrack.space/launches/2026,H1 total+Falcon count match en.wikipedia 2026_in_spaceflight (154 / 77)
 2026-06-28,Falcon 9,Starlink 17-40,US,success,keeptrack.space/launches/2026,H1 total+Falcon count match en.wikipedia 2026_in_spaceflight (154 / 77)
 2026-06-29,Falcon 9,SXM-11,US,success,keeptrack.space/launches/2026,H1 total+Falcon count match en.wikipedia 2026_in_spaceflight (154 / 77)
-2026-07-01,Long March 4B,HY-2E,CN,success,keeptrack.space/launches/2026,
-2026-07-02,Falcon 9,Starlink 17-46,US,success,keeptrack.space/launches/2026,
-2026-07-02,Atlas V,Amazon Leo LA-08,US,success,keeptrack.space/launches/2026,
-2026-07-03,Pegasus XL,LINK,US,success,keeptrack.space/launches/2026,
-2026-07-04,Long March 6A,Qianfan 13,CN,success,keeptrack.space/launches/2026,
-2026-07-05,Falcon 9,Starlink 10-50,US,success,keeptrack.space/launches/2026,
-2026-07-05,Long March 8A,Qianfan 15,CN,success,keeptrack.space/launches/2026,
-2026-07-07,Falcon 9,rideshare,US,success,keeptrack.space/launches/2026,
-2026-07-09,Falcon 9,Starlink 10-42,US,success,keeptrack.space/launches/2026,
-2026-07-10,Long March 10B,CX-26,CN,success,keeptrack.space/launches/2026,
-2026-07-11,Falcon 9,Starlink 17-48,US,success,keeptrack.space/launches/2026,
-2026-07-14,Falcon 9,Starlink 15-14,US,success,keeptrack.space/launches/2026,
-2026-07-14,Falcon 9,Starlink 10-45,US,success,keeptrack.space/launches/2026,
-2026-07-14,Soyuz-2.1a,Soyuz crew,RU,success,keeptrack.space/launches/2026,
-2026-07-16,Falcon 9,SDA T1TL-E,US,success,keeptrack.space/launches/2026,
-2026-07-18,Vikram-1,maiden flight,IN,success,keeptrack.space/launches/2026,
-2026-07-19,Soyuz-2.1b,Rassvet-3 #2,RU,success,keeptrack.space/launches/2026,
-2026-07-21,Falcon 9,Starlink 17-39,US,success,keeptrack.space/launches/2026,
-2026-07-21,Falcon 9,MRV-1,US,success,keeptrack.space/launches/2026,
-2026-07-22,Gravity-1,Dongpo,CN,success,keeptrack.space/launches/2026,
-2026-07-23,Long March 3B,Tianlian-2 06,CN,success,keeptrack.space/launches/2026,
-2026-07-23,Kinetica-1,rideshare,CN,success,keeptrack.space/launches/2026,
+2026-07-01,Long March 4B,HY-2E,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-02,Falcon 9,Starlink 17-46,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-02,Atlas V,Amazon Leo LA-08,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-03,Pegasus XL,LINK,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-04,Long March 6A,Qianfan 13,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-05,Falcon 9,Starlink 10-50,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-05,Long March 8A,Qianfan 15,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-07,Falcon 9,rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-09,Falcon 9,Starlink 10-42,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-10,Long March 10B,CX-26,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-11,Falcon 9,Starlink 17-48,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-14,Falcon 9,Starlink 15-14,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-14,Falcon 9,Starlink 10-45,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-14,Soyuz-2.1a,Soyuz crew,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-16,Falcon 9,SDA T1TL-E,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-18,Vikram-1,maiden flight,IN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-19,Soyuz-2.1b,Rassvet-3 #2,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-21,Falcon 9,Starlink 17-39,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-21,Falcon 9,MRV-1,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-22,Gravity-1,Dongpo,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-23,Long March 3B,Tianlian-2 06,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-23,Kinetica-1,rideshare,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
 2026-07-24,Starship,Flight 13,US,success,keeptrack.space/launches/2026,EXCLUDE? suborbital per Wikipedia (Flight 12 partial success)
-2026-07-25,Falcon 9,Starlink 17-51,US,success,keeptrack.space/launches/2026,
-2026-07-29,Long March 7A,Tianlian 3-01,CN,success,keeptrack.space/launches/2026,
-2026-07-30,Long March 6A,TJS-27,CN,success,keeptrack.space/launches/2026,
-2026-07-30,Falcon 9,INTRUDER 20,US,success,keeptrack.space/launches/2026,
-2026-08-01,Falcon 9,Starlink 17-52,US,success,keeptrack.space/launches/2026,
-2026-08-04,Long March 8A,Guowang 23,CN,success,keeptrack.space/launches/2026,
-2026-08-04,Falcon 9,Starlink 17-53,US,success,keeptrack.space/launches/2026,
-2026-08-05,Jielong-3,Jinshan/Yinshan,CN,success,keeptrack.space/launches/2026,
-2026-08-05,Falcon 9,BlueBird 11-13,US,success,keeptrack.space/launches/2026,
-2026-08-06,Electron,QPS-SAR-13,NZ,success,keeptrack.space/launches/2026,
-2026-08-08,Falcon 9,Starlink 17-38,US,success,keeptrack.space/launches/2026,
-2026-08-10,Long March 7A,ChinaSat-4B,CN,failure,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database/outcome/failure,
-2026-08-10,H3,QZS-7,JP,success,keeptrack.space/launches/2026,
-2026-08-11,Falcon 9,Starlink 10-19,US,success,keeptrack.space/launches/2026,
-2026-08-12,Falcon 9,Starlink 17-49,US,success,keeptrack.space/launches/2026,
-2026-08-16,Falcon 9,Globalstar,US,success,keeptrack.space/launches/2026,
-2026-08-16,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
-2026-08-16,Long March 12,Guowang 24,CN,success,keeptrack.space/launches/2026,
-2026-08-17,Long March 2C,SEO,CN,success,keeptrack.space/launches/2026,
-2026-08-18,Zhuque-3,Honghu-3,CN,success,keeptrack.space/launches/2026,
-2026-08-19,Falcon 9,Starlink 17-50,US,success,keeptrack.space/launches/2026,
-2026-08-20,Electron,QPS-SAR-18,NZ,success,keeptrack.space/launches/2026,
-2026-08-21,Falcon 9,Starlink 10-39,US,success,keeptrack.space/launches/2026,
-2026-08-22,Falcon 9,Starlink 15-20,US,success,keeptrack.space/launches/2026,
-2026-08-24,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026,
-2026-08-25,Falcon 9,Starlink 10-49,US,success,keeptrack.space/launches/2026,
-2026-08-25,Long March 6C,rideshare,CN,success,keeptrack.space/launches/2026,
-2026-08-26,Falcon 9,Starlink 15-22,US,success,keeptrack.space/launches/2026,
-2026-08-27,Ariane 62,MTG-I2,EU,success,keeptrack.space/launches/2026,
-2026-08-30,Falcon Heavy,Roman Space Telescope,US,success,keeptrack.space/launches/2026,
-2026-09-01,Zhishenxing-1,maiden flight,CN,success,keeptrack.space/launches/2026,
-2026-09-02,Falcon 9,Starlink 15-23,US,success,keeptrack.space/launches/2026,
-2026-09-02,Electron,StriX-9,NZ,success,keeptrack.space/launches/2026,
-2026-09-03,GSLV Mk II,GISAT-1A,IN,success,keeptrack.space/launches/2026,
-2026-09-05,Spectrum,Isar flight,EU,success,keeptrack.space/launches/2026,
-2026-09-06,Falcon 9,Starlink 15-24,US,success,keeptrack.space/launches/2026,
-2026-09-10,Long March 4B,Yaogan 53,CN,success,keeptrack.space/launches/2026,
-2026-09-10,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
-2026-09-11,Electron,BlackSky Gen 3-6,NZ,success,keeptrack.space/launches/2026,
-2026-09-13,Falcon 9,O3b mPOWER 11-13,US,success,keeptrack.space/launches/2026,
-2026-09-15,Vega C,FLEX + Sentinel-3C,EU,success,keeptrack.space/launches/2026,
-2026-09-15,Zhuque-2E,Qianfan 19,CN,success,keeptrack.space/launches/2026,
-2026-09-15,Gravity-1,Qianfan 26,CN,success,keeptrack.space/launches/2026,
-2026-09-16,Soyuz-2.1b,Progress,RU,success,keeptrack.space/launches/2026,
-2026-09-17,Long March 12,Guowang 25,CN,success,keeptrack.space/launches/2026,
-2026-09-17,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
-2026-09-17,Kuaizhou-11,Tianyi-51/52,CN,success,keeptrack.space/launches/2026,
-2026-09-17,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026,
-2026-09-19,Electron,StriX-10,NZ,success,keeptrack.space/launches/2026,
-2026-09-19,Long March 2D,PIESAT-2,CN,success,keeptrack.space/launches/2026,
-2026-09-20,Falcon 9,Starlink 15-27,US,success,keeptrack.space/launches/2026,
-2026-09-20,Kinetica-1,rideshare,CN,success,keeptrack.space/launches/2026,
-2026-09-23,Long March 8A,Guowang,CN,success,keeptrack.space/launches/2026,
-2026-09-24,Long March 6A,Yaogan 40-04,CN,success,keeptrack.space/launches/2026,
-2026-09-26,Electron,StriX-12,NZ,success,keeptrack.space/launches/2026,
-2026-09-26,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
+2026-07-25,Falcon 9,Starlink 17-51,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-29,Long March 7A,Tianlian 3-01,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-30,Long March 6A,TJS-27,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-07-30,Falcon 9,INTRUDER 20,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-01,Falcon 9,Starlink 17-52,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-04,Long March 8A,Guowang 23,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-04,Falcon 9,Starlink 17-53,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-05,Jielong-3,Jinshan/Yinshan,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-05,Falcon 9,BlueBird 11-13,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-06,Electron,QPS-SAR-13,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-08,Falcon 9,Starlink 17-38,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-10,Long March 7A,ChinaSat-4B,CN,failure,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database/outcome/failure,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-10,H3,QZS-7,JP,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-11,Falcon 9,Starlink 10-19,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-12,Falcon 9,Starlink 17-49,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-16,Falcon 9,Globalstar,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-16,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-16,Long March 12,Guowang 24,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-17,Long March 2C,SEO,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-18,Zhuque-3,Honghu-3,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-19,Falcon 9,Starlink 17-50,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-20,Electron,QPS-SAR-18,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-21,Falcon 9,Starlink 10-39,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-22,Falcon 9,Starlink 15-20,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-24,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-25,Falcon 9,Starlink 10-49,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-25,Long March 6C,rideshare,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-26,Falcon 9,Starlink 15-22,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-27,Ariane 62,MTG-I2,EU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-08-30,Falcon Heavy,Roman Space Telescope,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-01,Zhishenxing-1,maiden flight,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-02,Falcon 9,Starlink 15-23,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-02,Electron,StriX-9,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-03,GSLV Mk II,GISAT-1A,IN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-05,Spectrum,Isar flight,EU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-06,Falcon 9,Starlink 15-24,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-10,Long March 4B,Yaogan 53,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-10,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-11,Electron,BlackSky Gen 3-6,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-13,Falcon 9,O3b mPOWER 11-13,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-15,Vega C,FLEX + Sentinel-3C,EU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-15,Zhuque-2E,Qianfan 19,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-15,Gravity-1,Qianfan 26,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-16,Soyuz-2.1b,Progress,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-17,Long March 12,Guowang 25,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-17,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-17,Kuaizhou-11,Tianyi-51/52,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-17,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-19,Electron,StriX-10,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-19,Long March 2D,PIESAT-2,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-20,Falcon 9,Starlink 15-27,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-20,Kinetica-1,rideshare,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-23,Long March 8A,Guowang,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-24,Long March 6A,Yaogan 40-04,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-26,Electron,StriX-12,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-09-26,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
 2026-09-28,Starship,Flight 14,US,success,keeptrack.space/launches/2026,EXCLUDE? suborbital per Wikipedia (Flight 12 partial success)
-2026-10-01,Falcon 9,Dragon,US,success,keeptrack.space/launches/2026,
-2026-10-01,Falcon 9,Transporter rideshare,US,success,keeptrack.space/launches/2026,
-2026-10-02,Falcon Heavy,NRO,US,success,keeptrack.space/launches/2026,
-2026-10-07,Nuri,Neonsat,KR,success,keeptrack.space/launches/2026,
-2026-10-09,Long March 12,Guowang 27,CN,success,keeptrack.space/launches/2026,
-2026-10-10,Falcon 9,SDA T1TL-A,US,success,keeptrack.space/launches/2026,
-2026-10-13,Falcon 9,Starlink 15-25,US,success,keeptrack.space/launches/2026,
-2026-10-13,Falcon 9,Dragon,US,success,keeptrack.space/launches/2026,
-2026-10-14,Zhuque-2E,rideshare,CN,success,keeptrack.space/launches/2026,
-2026-10-16,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
-2026-10-19,H3,MMX (Mars moons),JP,success,keeptrack.space/launches/2026,
-2026-10-20,Falcon 9,rideshare,US,success,keeptrack.space/launches/2026,
-2026-10-21,Ceres-1,Xiguang 4-01,CN,success,keeptrack.space/launches/2026,
-2026-10-23,Electron,Hawk 16,NZ,success,keeptrack.space/launches/2026,
-2026-10-23,Long March 6A,Yaogan 50-03,CN,success,keeptrack.space/launches/2026,
-2026-10-23,Long March 4B,Yaogan 53,CN,success,keeptrack.space/launches/2026,
-2026-10-23,Falcon 9,Starlink 15-15,US,success,keeptrack.space/launches/2026,
-2026-10-25,Long March 8A,Guowang 28,CN,success,keeptrack.space/launches/2026,
-2026-10-27,Falcon 9,Starlink 15-16,US,success,keeptrack.space/launches/2026,
-2026-10-30,GSLV Mk II,IRNSS-1L,IN,success,keeptrack.space/launches/2026,
-2026-10-31,Falcon 9,Starlink 15-18,US,success,keeptrack.space/launches/2026,
-2026-11-02,Electron,QPS-SAR-20,NZ,success,keeptrack.space/launches/2026,
-2026-11-03,Kinetica-2,Qianfan 21,CN,success,keeptrack.space/launches/2026,
-2026-11-05,Long March 2C,Yaogan 51,CN,success,keeptrack.space/launches/2026,
-2026-11-06,Ceres-2,YY1-28,CN,success,keeptrack.space/launches/2026,
-2026-11-07,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
-2026-11-07,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026,
-2026-11-08,Long March 12,Guowang,CN,success,keeptrack.space/launches/2026,
-2026-11-11,Long March 2D,Tanluzhe,CN,success,keeptrack.space/launches/2026,
-2026-11-12,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026,
+2026-10-01,Falcon 9,Dragon,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-01,Falcon 9,Transporter rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-02,Falcon Heavy,NRO,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-07,Nuri,Neonsat,KR,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-09,Long March 12,Guowang 27,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-10,Falcon 9,SDA T1TL-A,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-13,Falcon 9,Starlink 15-25,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-13,Falcon 9,Dragon,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-14,Zhuque-2E,rideshare,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-16,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-19,H3,MMX (Mars moons),JP,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-20,Falcon 9,rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-21,Ceres-1,Xiguang 4-01,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-23,Electron,Hawk 16,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-23,Long March 6A,Yaogan 50-03,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-23,Long March 4B,Yaogan 53,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-23,Falcon 9,Starlink 15-15,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-25,Long March 8A,Guowang 28,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-27,Falcon 9,Starlink 15-16,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-30,GSLV Mk II,IRNSS-1L,IN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-10-31,Falcon 9,Starlink 15-18,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-02,Electron,QPS-SAR-20,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-03,Kinetica-2,Qianfan 21,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-05,Long March 2C,Yaogan 51,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-06,Ceres-2,YY1-28,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-07,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-07,Soyuz-2.1b,GLONASS-K,RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-08,Long March 12,Guowang,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-11,Long March 2D,Tanluzhe,CN,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-12,Falcon 9,SDA rideshare,US,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
 2026-11-13,Starship,Flight 15,US,success,keeptrack.space/launches/2026,EXCLUDE? suborbital per Wikipedia (Flight 12 partial success)
-2026-11-14,Soyuz-2.1b,rideshare (Vostochny),RU,success,keeptrack.space/launches/2026,
-2026-11-14,Electron,QPS-SAR-19,NZ,success,keeptrack.space/launches/2026,
+2026-11-14,Soyuz-2.1b,rideshare (Vostochny),RU,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
+2026-11-14,Electron,QPS-SAR-19,NZ,success,keeptrack.space/launches/2026 ; orbitalradar.com/launch-database,H2 row matched by date+mission in orbitalradar.com/launch-database (fetched 2026-11-19); monthly totals Jul 26 / Aug 26 / Sep 26 equal
 2026-11-15,Vulcan,Amazon Leo KV-01,US,failure,spacepolicyonline.com/?p=91850 ; orbitalradar.com ; space.com,"17:40:30 UTC, anomaly ~10 min, 40 Amazon Leo sats lost"
