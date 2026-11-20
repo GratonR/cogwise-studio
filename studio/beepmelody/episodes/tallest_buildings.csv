@@ -1,0 +1,15 @@
+year,month,name,short,city,height_m,height_ft,shape,source_1,source_2,note
+1890,12,New York World Building,NY WORLD BUILDING,New York,94,309,dome,"Skyscraper Museum, Ten Tops (completed Dec 1890, 309 ft) + tallest towers chart (94 m)","CTBUH criterion via Wikipedia History of the world's tallest buildings (94 m)","tallest office building / skyscraper title (Ulm Minster church 161.5 m was taller overall)"
+1894,6,Manhattan Life Insurance Building,MANHATTAN LIFE,New York,106,348,dome,"Skyscraper Museum tallest towers chart (348 ft, 106 m)","CTBUH via Wikipedia History (106 m, 1894)",
+1899,6,Park Row Building,PARK ROW BUILDING,New York,119,391,twin,"CTBUH via Wikipedia History (119 m, 391 ft, 1899)","Skyscraper Museum chart (386 ft, 118 m: rounding/measure difference, CTBUH kept)",
+1908,6,Singer Building,SINGER BUILDING,New York,187,612,cupola,"Skyscraper Museum Ten Tops + chart (612 ft, 187 m)","Dezeen 2021 (187 m) / CTBUH (186.6 m)",
+1909,6,Metropolitan Life Tower,MET LIFE TOWER,New York,213,700,cupola,"Skyscraper Museum Ten Tops (1909, 700 ft) + chart (213 m)","Dezeen 2021 (213 m)",
+1913,4,Woolworth Building,WOOLWORTH BUILDING,New York,241,792,gothic,"Skyscraper Museum Ten Tops (opened Apr 24 1913, 792 ft) + chart (241 m)","Dezeen 2021 (241 m)",
+1930,4,40 Wall Street,40 WALL STREET,New York,283,927,spire,"Skyscraper Museum chart (927 ft, 283 m)","Dezeen 2021 (283 m, 1930) / CTBUH 282.5 m",
+1930,5,Chrysler Building,CHRYSLER BUILDING,New York,319,1046,deco,"Skyscraper Museum Ten Tops (1,046 ft, title 1930-31) + chart (319 m)","Dezeen 2021 (319 m)",
+1931,5,Empire State Building,EMPIRE STATE,New York,381,1250,mast,"Skyscraper Museum Ten Tops (completed 1931, 1,250 ft, #1 for forty years) + chart (381 m)","Dezeen 2021 (381 m)",
+1971,6,World Trade Center (North Tower),WORLD TRADE CENTER,New York,417,1368,box,"Skyscraper Museum Ten Tops (North Tower completion 1971) + chart (1,368 ft)","Dezeen 2021 (417 m)","topped out 1970; Ten Tops: Empire State #1 for forty years until 1971"
+1974,6,Sears Tower (now Willis Tower),SEARS TOWER,Chicago,442,1451,stepped,"CTBUH Skyscraper Center (442.1 m, 1,451 ft architectural, completion 1974, tallest 1974-1998)","Dezeen 2021 (442 m, 1974)",
+1998,6,Petronas Towers,PETRONAS TOWERS,Kuala Lumpur,452,1483,petronas,"Skyscraper Museum chart (1,483 ft, 452 m; title left the US in 1998)","Dezeen 2021 (452 m)",
+2004,6,Taipei 101,TAIPEI 101,Taipei,508,1667,taipei,"CTBUH architectural height 508 m (via Wikipedia History)","Dezeen 2021 (508 m)","Skyscraper Museum chart 509 m / 1,671 ft is to tip"
+2010,1,Burj Khalifa,BURJ KHALIFA,Dubai,828,2717,burj,"CTBUH (828 m, 2,717 ft, 2010)","Dezeen 2021 (828 m); Skyscraper Museum chart (holds title since 2010)",
