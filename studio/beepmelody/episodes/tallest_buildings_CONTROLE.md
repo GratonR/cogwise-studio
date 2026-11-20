@@ -28,3 +28,6 @@ Frames vues : 1.0 / 2.8 / 3.2 / 3.6 / 4.0 / 12 / 17.3 / 19 / 23.5 / 27 / 32.0 / 
 - Bannières recalées : « 17 YEARS, NO NEW RECORD / THEN NEW YORK GOES WILD » (1913 → 1930, 3 records en 13 mois ensuite), « MORE FLOORS THAN THE EMPIRE STATE (102) » au 103e étage du Burj (compte d'étages, pas de hauteur), les autres inchangées.
 - Tour en chantier : silhouette coupée à l'étage courant (hauteur = fraction d'étages × hauteur architecturale, approximation visuelle ; la hauteur exacte est atteinte au boum), grue au sommet. Caméra : recule dès que la tour en chantier dépasse le champion.
 - Lisibilité : graduations masquées sous la bannière d'intro et les bannières ; HUD 2 lignes (champion en haut, tour en chantier en bas) sans chevauchement ; aucune mention de fabrication.
+
+## Rendu final r1 (étape 4, 2026-11-20)
+- Durée ffprobe : 71,9 s · 1080×1920 · audio AAC. Planche contact relue (1 image / 4 s) : compteur d'étages = CSV, années et sauts, bannières à leur place, HUD sans chevauchement, rien de coupé. Couverture posée (t = 66 s, « +320 M IN ONE JUMP »).

@@ -1,8 +1,10 @@
 """BEEPMELODY — every world's tallest building, 1890 -> 2026 (14 records, CTBUH height to architectural top).
-Scene: a pixel skyline seen from the side. Each new record rises from the ground and takes the gold crown from the
-last one; the camera zooms out to keep the champion in frame, so the old towers shrink. Clock: 1 year = 1 beat
-(0.4 s, 150 BPM). Every year = a rivet tick, every record = a BOOM (brass stab, pitch = height on a log scale).
-Mood (co-pilot step 2, Guillaume 2026-11-20): A · "Chantier", 150 BPM, percussive.
+Scene: a pixel skyline seen from the side. Each new record is built FLOOR BY FLOOR from the ground and takes the gold
+crown from the last one; the camera zooms out to keep the tallest thing in frame, so the old towers shrink.
+RETRAVAIL r1 (Guillaume 2026-11-20, « Rythme trop lent ») -> B « every floor = a tick »: 1 floor = 1 thirty-second note
+at 150 BPM (0.05 s), 1,037 floors (CTBUH floors above ground, 2 sources each), every record = a BOOM held 2 beats,
+empty years are skipped (">> +17 YRS" in the HUD).
+Mood (co-pilot step 2, kept in r2): A · "Chantier", 150 BPM: floor = rivet hit, brighter as it climbs.
 Data: tallest_buildings.csv (2 sources per row).
 
     python3 tallest_buildings.py info out | preview out <scene>:<s> ... | at out <T> ... | audio out/music.wav | render out | final out x.mp4
@@ -27,28 +29,50 @@ for r in REC:
     r["h"] = float(r["height_m"]); r["ft"] = int(r["height_ft"]); r["y"] = int(r["year"]); r["mo"] = int(r["month"])
 N = len(REC)
 
-# ================= clock (1 year = 1 beat) =================
+# ================= clock (1 floor = 1/32 note) =================
 BPM = 150.0
 BEAT = 60.0 / BPM                       # 0.4 s
-YEAR = BEAT
-T_START = 3.2                            # first record (Dec 1890) lands here
-Y_FIRST = 1890 + (12 - 0.5) / 12
-def t_of(yf): return T_START + (yf - Y_FIRST) * YEAR
-def y_of_t(T): return Y_FIRST + (T - T_START) / YEAR
-GRID0 = t_of(1891.0) % (BEAT / 2)        # eighth-note grid phase (Jan 1 = on the beat)
-def snap(t): return GRID0 + round((t - GRID0) / (BEAT / 2)) * (BEAT / 2)
-RT = []
+FLOOR = BEAT / 8                        # 0.05 s per floor
+HOLD = BEAT * 2                         # each record's boom rings 2 beats before the next build starts
+for r in REC: r["fl"] = int(r["floors"])
+T_START = 3.2                            # first record (Dec 1890) lands here (its floors start under the title)
+S0 = T_START - REC[0]["fl"] * FLOOR      # 2.2 s
+BS, RT = [], []                          # build start / boom time of each record
+t_ = S0
 for r in REC:
-    t = snap(t_of(r["y"] + (r["mo"] - 0.5) / 12))
-    if RT and t - RT[-1] < BEAT / 2: t = RT[-1] + BEAT / 2
-    RT.append(t)
+    BS.append(round(t_, 4)); t_ += r["fl"] * FLOOR; RT.append(round(t_, 4)); t_ += HOLD
 T_FINAL = RT[-1]
-Y_NOW = 2026 + 10.6 / 12                 # the clock stops on 20 Nov 2026
-T_NOW = t_of(Y_NOW)
-OUTRO = 8.0
+TAIL = 2.8                               # after Burj Khalifa: "+320 M" then the clock runs to 2026, "STILL #1"
+T_NOW = T_FINAL + TAIL
+OUTRO = 4.6
 TOTAL = T_NOW + OUTRO
-SC = [("intro", T_START), ("early", t_of(1920) - T_START), ("burst", t_of(1960) - t_of(1920)),
-      ("modern", t_of(2008) - t_of(1960)), ("burj", T_NOW - t_of(2008)), ("outro", OUTRO)]
+GRID0 = T_START % BEAT
+YF = [r["y"] + (r["mo"] - 0.5) / 12 for r in REC]
+Y_NOW = 2026 + 10.6 / 12                 # the clock stops on 20 Nov 2026
+def year_f(T):
+    """the year shown: fixed during a build (the record's completion), rolls fast during the hold that follows"""
+    if T < RT[0]: return YF[0]
+    for i in range(N):
+        nxt = YF[i + 1] if i + 1 < N else Y_NOW
+        if i + 1 < N and T < BS[i + 1]:
+            return lerp(YF[i], nxt, ease(min(1, max(0, (T - RT[i] - 0.25) / (HOLD - 0.3)))))
+        if i == N - 1:
+            return lerp(YF[i], nxt, ease(min(1, max(0, (T - RT[i] - 1.6) / 0.9))))
+    return YF[-1]
+def y_of_t(T): return year_f(T)
+def skip_label(T):
+    """>> +N YRS while the clock rolls over the empty years"""
+    for i in range(N):
+        a = T - RT[i]
+        if i + 1 < N and 0.2 <= a < HOLD + 0.6:
+            dy = REC[i + 1]["y"] - REC[i]["y"]
+            if dy >= 2: return f">> +{dy} YRS"
+            if dy == 1: return ">> +1 YR"
+            return ">> +1 MONTH"
+        if i == N - 1 and 1.6 <= a < TAIL: return f">> +{2026 - REC[i]['y']} YRS"
+    return ""
+SPLIT = [RT[0], RT[5] + HOLD, RT[9] + HOLD, RT[12] + HOLD, T_NOW, TOTAL]
+SC = [("intro", SPLIT[0])] + [(n, SPLIT[j + 1] - SPLIT[j]) for j, n in enumerate(["early", "burst", "modern", "burj", "outro"])]
 START, acc_ = {}, 0.0
 for n, d in SC: START[n] = acc_; acc_ += d
 DUR = dict(SC); NAMES = [n for n, _ in SC]
@@ -58,7 +82,12 @@ def rec_index(T):
     for i, t in enumerate(RT):
         if T >= t - 1e-6: k = i
     return k
-def rise_len(i): return BEAT * 2.5 if i == 0 else min(BEAT * 2.5, RT[i] - RT[i - 1])
+def building(T):
+    """(record index, floors done) of the tower under construction, or (None, 0)"""
+    for i in range(N):
+        if BS[i] - 1e-6 <= T < RT[i] - 1e-6:
+            return i, min(REC[i]["fl"], int((T - BS[i]) / FLOOR + 1e-6) + 1)
+    return None, 0
 
 # ================= palette =================
 if VARIANT == "dusk":
@@ -81,12 +110,11 @@ WHITE = (255, 255, 255)
 Y_GROUND = 288.0
 TOP_Y = 124.0                            # champion's top sits here (below the banner zone)
 def view_h(T):
-    """metres that fit between the ground and TOP_Y"""
+    """metres that fit between the ground and TOP_Y: the champion, or the rising tower once it passes it"""
     k = rec_index(T)
     h = REC[k]["h"] if k >= 0 else REC[0]["h"]
-    if k + 1 < N:
-        j = k + 1; rl = rise_len(j)
-        if T > RT[j] - rl: h = max(h, lerp(h, REC[j]["h"], ease((T - (RT[j] - rl)) / rl)))
+    j, f = building(T)
+    if j is not None: h = max(h, REC[j]["h"] * f / REC[j]["fl"])
     return h * 1.08
 def ppm(T): return (Y_GROUND - TOP_Y) / view_h(T)
 
@@ -101,22 +129,24 @@ def ev(t, kind, **kw): EV.append((t, kind, kw))
 ROOTS = [36, 36, 41, 43]
 def build():
     ev(0.10, "stab", m=height_note(REC[0]["h"]) + 12, v=0.35)           # first sound before 0.2 s
-    ev(0.10, "rivet", v=0.10)
+    ev(0.10, "rivet", f=1, v=0.10)
     nb = int(TOTAL / BEAT) + 1
     for k in range(nb):
         b = GRID0 + k * BEAT
         if b > TOTAL: break
         bar = k // 4
-        if b < T_START - 0.01:                                          # intro: rivets get closer
-            if k % 2 == 0 or b > T_START - 1.6: ev(b, "rivet", v=0.08 + 0.05 * b / T_START)
+        if b < S0 - 0.01:                                               # intro, before the first floor: sparse rivets
+            if k % 2 == 0 or b > S0 - 0.9: ev(b, "rivet", f=1, v=0.06 + 0.04 * b / S0)
             continue
-        if b <= T_NOW:
-            ev(b, "rivet", v=0.13); ev(b, "kick", v=0.20)
-            ev(b + BEAT / 2, "hat", v=0.06)
+        if b <= T_FINAL + 0.01:
+            ev(b, "kick", v=0.20)
             ev(b + BEAT / 2, "bass", m=ROOTS[bar % 4], d=BEAT * 0.45, v=0.11)
         elif b < TOTAL - 2.0:
             if k % 4 == 0: ev(b, "pad", m=ROOTS[bar % 4] + 24, d=BEAT * 4, v=0.10)
-            if k % 2 == 0: ev(b, "rivet", v=0.05)
+            if k % 2 == 0: ev(b, "rivet", f=40, v=0.05)
+    for i, r in enumerate(REC):                                         # one rivet per floor, brighter as it climbs
+        for fl in range(1, r["fl"] + 1):
+            ev(BS[i] + (fl - 1) * FLOOR, "rivet", f=fl, v=0.05 + 0.05 * fl / 163)
     for i, t in enumerate(RT):
         m = height_note(REC[i]["h"])
         ev(t, "stab", m=m, v=0.62 + 0.25 * i / (N - 1))
@@ -153,7 +183,7 @@ def background(T):
 
 def banner_on(T): return any(t0 <= T < t1 for t0, t1, *_ in BANNERS)
 def gridlines(c, T):
-    d = c.a; W = c.t; P = ppm(T); bon = banner_on(T)
+    d = c.a; W = c.t; P = ppm(T); bon = banner_on(T) or 1.9 < T < T_START
     vh = (Y_GROUND - 92) / P
     step = next(s for s in (25, 50, 100, 200, 250, 500) if vh / s <= 6)
     m = step
@@ -231,37 +261,36 @@ def draw_scene(c, T):
     c.art = background(T); c.a = ImageDraw.Draw(c.art); d = c.a
     gridlines(c, T)
     P = ppm(T); k = rec_index(T)
-    nvis = k + 1
-    rising = None
-    if k + 1 < N and T > RT[k + 1] - rise_len(k + 1): rising = k + 1; nvis = k + 2
-    nlay = nvis
-    if nvis >= 2:                                           # slide the row as a new slot opens
-        last = nvis - 1; rl = rise_len(last); f = ease((T - (RT[last] - rl)) / (rl * 0.5)) if last == rising else 1.0
-        nlay = (nvis - 1) + f
-    for i in range(nvis):
+    j, fdone = building(T)
+    nvis = k + 1 + (1 if j is not None else 0)
+    nlay = float(nvis)
+    if j is not None and nvis >= 2:                         # slide the row as a new slot opens
+        nlay = (nvis - 1) + ease(min(1, (T - BS[j]) / 0.4))
+    for i in range(max(0, k + 1)):
         r = REC[i]; cx = slot_x(i, nlay)
-        if i == rising:
-            rl = rise_len(i); f = ease((T - (RT[i] - rl)) / rl)
-            hp = r["h"] * P * f
-            tower(d, cx, hp, r["shape"], CORAL, (170, 56, 40), (255, 190, 170))
-            for yy in range(int(Y_GROUND - hp) - 6, int(Y_GROUND - hp) - 1, 2): d.point((cx + random.randint(-1, 1), yy), fill=WHITE)
-            continue
-        champ = i == k
-        if champ:
-            tower(d, cx, r["h"] * P, r["shape"], GOLD, GOLD2, WIN)
-        else:
-            tower(d, cx, r["h"] * P, r["shape"], OLD, OLD2, (178, 170, 162) if VARIANT == "day" else (150, 136, 150))
+        if i == k: tower(d, cx, r["h"] * P, r["shape"], GOLD, GOLD2, WIN)
+        else: tower(d, cx, r["h"] * P, r["shape"], OLD, OLD2, (178, 170, 162) if VARIANT == "day" else (150, 136, 150))
+    if j is not None:                                       # the tower under construction, floor by floor
+        r = REC[j]; cx = slot_x(j, nlay); hp = r["h"] * P
+        layer = Image.new("RGBA", (AW, AH), (0, 0, 0, 0)); ld = ImageDraw.Draw(layer)
+        tower(ld, cx, hp, r["shape"], CORAL, (170, 56, 40), (255, 190, 170))
+        cut = int(round(Y_GROUND - hp * fdone / r["fl"]))
+        if cut > 0: layer.paste((0, 0, 0, 0), (0, 0, AW, cut))
+        c.art.paste(layer, (0, 0), layer); d = c.a = ImageDraw.Draw(c.art)
+        ty = cut                                            # crane on the top floor + rivet sparks
+        d.line([cx + 2, ty - 1, cx + 2, ty - 9], fill=INK); d.line([cx - 5, ty - 9, cx + 9, ty - 9], fill=INK)
+        d.line([cx + 7, ty - 9, cx + 7, ty - 5], fill=INK2); d.rectangle([cx + 6, ty - 5, cx + 8, ty - 4], fill=GOLD2)
+        for _ in range(3): d.point((cx + random.randint(-4, 4), ty - random.randint(0, 3)), fill=WHITE)
     if k >= 0:
         r = REC[k]; cx = slot_x(k, nlay); top = Y_GROUND - r["h"] * P
         a = T - RT[k]
         if a < 0.5:                                         # impact: shock ring + dust at the base
             rr = 4 + a * 60
             d.ellipse([cx - rr, top - rr, cx + rr, top + rr], outline=WHITE if a < 0.15 else GOLD)
-            for s in range(-14, 15, 3):
-                dy = int(a * 10 * (1 + abs(s) % 3))
-                d.point((cx + s + int(a * 20 * (1 if s > 0 else -1)), int(Y_GROUND) - 1 - dy % 4), fill=CREAM)
-        # crown over the champion
-        cy = top - 7
+            for s_ in range(-14, 15, 3):
+                dy = int(a * 10 * (1 + abs(s_) % 3))
+                d.point((cx + s_ + int(a * 20 * (1 if s_ > 0 else -1)), int(Y_GROUND) - 1 - dy % 4), fill=CREAM)
+        cy = top - 7                                        # crown over the champion
         d.polygon([(cx - 4, cy + 4), (cx - 4, cy), (cx - 2, cy + 2), (cx, cy - 1), (cx + 2, cy + 2), (cx + 4, cy), (cx + 4, cy + 4)], fill=GOLD)
         d.rectangle([cx - 4, cy + 4, cx + 4, cy + 5], fill=GOLD2)
         if k >= 1 and a < 0.8:                              # the old champion's crown falls off
@@ -272,23 +301,33 @@ def draw_scene(c, T):
 def hud(c, T):
     W = c.t; k = rec_index(T)
     W.rectangle([16, 18, 344, 122], fill=CREAM); W.rectangle([16, 18, 344, 19], fill=INK); W.rectangle([16, 121, 344, 122], fill=INK)
-    yr = min(int(y_of_t(T)), 2026)
-    text(W, 334, 44, str(yr), size=40, fill=GOLD, align="r")
+    yr = min(int(year_f(T)), 2026)
+    sk = skip_label(T)
+    text(W, 334, 44, str(yr), size=40, fill=GOLD2 if sk else GOLD, align="r")
+    if sk: text(W, 334, 22, sk, fill=CORAL, align="r")
+    j, fdone = building(T)
+    W.rectangle([16, 128, 344, 172], fill=(255, 253, 248)); W.rectangle([16, 128, 19, 172], fill=CORAL if j is not None else GOLD)
+    if j is not None:                                       # second box = the tower going up
+        r = REC[j]
+        text(W, 28, 131, "RISING: " + r["short"], fill=INK)
+        text(W, 28, 151, f"FLOOR {fdone} / {r['fl']}", fill=CORAL)
+        text(W, 334, 151, r["city"].upper(), fill=INK2, align="r")
     if k < 0:
-        text(W, 28, 22, "WORLD'S TALLEST BUILDING", fill=INK2); return
+        text(W, 28, 22, "WORLD'S TALLEST BUILDING", fill=INK2)
+        text(W, 28, 44, "...", size=40, fill=INK2); return
     r = REC[k]; age = T - RT[k]
-    text(W, 28, 22, "WORLD'S TALLEST BUILDING", fill=CORAL if age < 0.3 else INK2)
+    text(W, 28, 22, "WORLD'S TALLEST" if sk else "WORLD'S TALLEST BUILDING", fill=CORAL if age < 0.3 else INK2)
     text(W, 28, 44, f"{int(r['h'])} M", size=40, fill=CORAL if age < 0.22 else INK)
     text(W, 28, 92, f"{r['ft']:,} FT", fill=INK2)
     text(W, 334, 92, f"#{k + 1} / {N}", fill=INK2, align="r")
-    W.rectangle([16, 128, 344, 172], fill=(255, 253, 248)); W.rectangle([16, 128, 19, 172], fill=GOLD)
-    n = int(min(40, age * 70))
-    text(W, 28, 131, r["short"][:max(0, n)], fill=INK)
-    held = max(0, int(y_of_t(T) - (r["y"] + (r["mo"] - 1) / 12)))
-    if age > 0.12:
-        text(W, 28, 151, r["city"].upper(), fill=INK2)
-        lab = "NEW #1!" if held == 0 else f"#1 FOR {held} YR" + ("S" if held != 1 else "")
-        text(W, 334, 151, lab, fill=CORAL if held == 0 else GOLD2 if held >= 10 else INK2, align="r")
+    if j is None:                                           # second box = the champion
+        n = int(min(40, age * 70))
+        text(W, 28, 131, r["short"][:max(0, n)], fill=INK)
+        held = max(0, int(year_f(T) - (r["y"] + (r["mo"] - 1) / 12)))
+        if age > 0.12:
+            text(W, 28, 151, f"{r['city'].upper()} · {r['fl']} FLOORS", fill=INK2)
+            lab = "NEW #1!" if held == 0 else f"#1 FOR {held} YR" + ("S" if held != 1 else "")
+            text(W, 334, 151, lab, fill=CORAL if held == 0 else GOLD2 if held >= 10 else INK2, align="r")
 
 def legend(c, T):
     """small timeline strip on the ground: 1890 -> 2026, one tick per record, cursor = the clock"""
@@ -299,7 +338,7 @@ def legend(c, T):
     for i, r in enumerate(REC):
         X = xx(r["y"] + (r["mo"] - 0.5) / 12)
         W.rectangle([X - 1, y - 6, X, y - 1], fill=GOLD if i <= k else (200, 180, 150))
-    cur = xx(min(y_of_t(T), Y_NOW)); W.rectangle([cur - 1, y + 3, cur + 1, y + 8], fill=WHITE)
+    cur = xx(min(year_f(T), Y_NOW)); W.rectangle([cur - 1, y + 3, cur + 1, y + 8], fill=WHITE)
     text(W, x0, y + 10, "1890", fill=CREAM)
     text(W, x1, y + 10, "2026", fill=CREAM, align="r")
 
@@ -318,13 +357,14 @@ def banner_box(W, yb, tt, sub, big, a, col=CORAL):
 def by(i): return RT[i]
 I = {r["short"]: i for i, r in enumerate(REC)}
 BANNERS = [   # (t0, t1, title, sub, big)
-    (by(I["WOOLWORTH BUILDING"]) + 1.2, t_of(1919.5), "THEN 17 YEARS OF NOTHING", "LISTEN: ONLY THE TICKS", False),
+    (by(I["WOOLWORTH BUILDING"]) + 0.5, RT[I["40 WALL STREET"]] - 0.3, "17 YEARS, NO NEW RECORD", "THEN NEW YORK GOES WILD", False),
     (by(I["EMPIRE STATE"]) + 0.1, by(I["EMPIRE STATE"]) + 2.4, "3 RECORDS", "IN 13 MONTHS (1930-31)", True),
-    (t_of(1948), t_of(1956), "EMPIRE STATE: #1", "FOR 40 YEARS", False),
+    (by(I["EMPIRE STATE"]) + 2.6, RT[I["WORLD TRADE CENTER"]] - 0.2, "EMPIRE STATE: #1", "FOR 40 YEARS", False),
     (by(I["SEARS TOWER"]) + 0.1, by(I["SEARS TOWER"]) + 2.0, "FIRST RECORD OUTSIDE", "NEW YORK", False),
     (by(I["PETRONAS TOWERS"]) + 0.1, by(I["PETRONAS TOWERS"]) + 2.0, "THE TITLE LEAVES", "THE USA", False),
-    (by(N - 1) + 0.1, by(N - 1) + 3.2, "+320 M IN ONE JUMP", "+1,050 FT", True),
-    (t_of(2019), T_NOW + 0.01, "STILL #1", "", True),
+    (BS[N - 1] + 103 * FLOOR, BS[N - 1] + 125 * FLOOR, "MORE FLOORS THAN", "THE EMPIRE STATE (102)", False),
+    (by(N - 1) + 0.1, by(N - 1) + 1.7, "+320 M IN ONE JUMP", "+1,050 FT", True),
+    (by(N - 1) + 1.8, T_NOW + 0.01, "STILL #1", "", True),
 ]
 def banner(c, T):
     for t0, t1, tt, sub, big in BANNERS:
@@ -340,9 +380,9 @@ def sc_intro(t):
     W.rectangle([16, 18, 344, 172], fill=CREAM); W.rectangle([16, 18, 344, 19], fill=INK); W.rectangle([16, 171, 344, 172], fill=INK)
     text(W, 28, 26, "EVERY TALLEST", size=40, fill=INK)
     if t > 0.35: text(W, 28, 64, "BUILDING", size=40, fill=GOLD)
-    if t > 0.9: text(W, 28, 112, "EACH ONE CRUSHES THE LAST", fill=INK2)
-    if t > 1.5: text(W, 28, 140, "EVERY BOOM = A NEW WORLD RECORD", fill=CORAL)
-    if t > 2.1: banner_box(W, 184, f"{N} RECORDS", "1890 TO 2026", False, 1.0, GOLD)
+    if t > 0.8: text(W, 28, 112, "EVERY TICK = ONE FLOOR", fill=INK2)
+    if t > 1.3: text(W, 28, 140, "EVERY BOOM = A NEW WORLD RECORD", fill=CORAL)
+    if t > 1.9: banner_box(W, 184, f"{N} RECORDS", "1890 TO 2026", False, 1.0, GOLD)
     return c
 
 def sc_main(name):
@@ -357,16 +397,16 @@ def sc_outro(t):
     c = frame_ctx(min(T, T_NOW)); W = c.t
     W.rectangle([16, 40, 344, 300], fill=CREAM); W.rectangle([16, 40, 344, 42], fill=GOLD)
     text(W, 180, 50, "THE CHAMPION SINCE 2010", fill=INK2, align="c")
-    if t > 0.3:
+    if t > 0.2:
         text(W, 180, 74, "BURJ KHALIFA", size=40, fill=GOLD, align="c")
-        text(W, 180, 114, "828 M · 2,717 FT", fill=INK, align="c")
-    if t > 1.2:
+        text(W, 180, 114, "828 M · 2,717 FT · 163 FLOORS", fill=INK, align="c")
+    if t > 0.8:
         text(W, 180, 150, "10 OF 14 RECORDS:", fill=INK2, align="c")
         text(W, 180, 170, "NEW YORK", size=40, fill=INK, align="c")
-    if t > 2.2:
-        text(W, 180, 222, "EMPIRE STATE HELD IT 40 YEARS", fill=INK2, align="c")
-    if t > 3.2: text(W, 180, 260, "WHO BREAKS 1 KM FIRST?", fill=CORAL, align="c")
-    if t > 4.0:
+    if t > 1.4:
+        text(W, 180, 222, f"{sum(r['fl'] for r in REC):,} FLOORS, ONE TICK EACH", fill=INK2, align="c")
+    if t > 2.0: text(W, 180, 260, "WHO BREAKS 1 KM FIRST?", fill=CORAL, align="c")
+    if t > 2.4:
         W.rectangle([16, 500, 344, 572], fill=CREAM)
         text(W, 180, 506, "DATA: CTBUH SKYSCRAPER CENTER,", fill=INK2, align="c")
         text(W, 180, 526, "THE SKYSCRAPER MUSEUM (NYC).", fill=INK2, align="c")
@@ -427,8 +467,9 @@ def render_audio(path):
     for t, k, kw in EV:
         v = kw.get("v", .3)
         if k == "rivet":
-            m_ = int(.03 * SR); x = highpass(lowpass(rng.randn(m_), 9000), 2500) * np.exp(-np.arange(m_) / SR * 160)
-            put(t, x * v * .9, .2)
+            fl = kw.get("f", 1); m_ = int(.025 * SR)
+            x = highpass(lowpass(rng.randn(m_), 4000 + 60 * fl), 1800 + 15 * fl) * np.exp(-np.arange(m_) / SR * 180)
+            put(t, x * v, .2)
         elif k == "hat":
             m_ = int(.04 * SR); x = highpass(rng.randn(m_), 5000) * np.exp(-np.arange(m_) / SR * 120)
             put(t, x * v * .7, -.3)
@@ -491,7 +532,7 @@ if __name__ == "__main__":
             Image.fromarray(render_frame(idx, T - START[NAMES[idx]])).resize((540, 960), Image.LANCZOS).save(f"{out}/t{T:05.1f}.png")
     elif mode == "info":
         from collections import Counter
-        print(round(TOTAL, 2), {n: round(d, 2) for n, d in SC}, Counter(k for _, k, _ in EV))
+        print(round(TOTAL, 2), {n: round(d, 2) for n, d in SC}, Counter(k for _, k, _ in EV), "floors", sum(r["fl"] for r in REC))
         print([(REC[i]["y"], REC[i]["short"], round(t, 2), height_note(REC[i]["h"])) for i, t in enumerate(RT)])
     elif mode == "final":
         names = sorted(f for f in os.listdir(out) if f[0].isdigit() and f.endswith(".mp4") and "tmp" not in f)
