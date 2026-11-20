@@ -16,3 +16,8 @@ Durée calculée : **71,0 s** (acte 1 0–22 · acte 2 22–44 · acte 3 44–65
 - 1er contrôle : à la fin de l'acte 2 tout le plateau était doré (illisible) → les aiguilles de plus de 1,5 s s'estompent, les nouvelles restent vives.
 - Rien de coupé, pas de chevauchement HUD / bannière / bandeau. Pas de glyphe π dans la police : écrit « PI », « ≈ » dessiné.
 - Sources dans l'outro : Galperin 2003 · Buffon 1777 · Metropolis & Ulam 1949. Aucun mot sur la fabrication.
+
+## Étape 4/4 · rendu complet, palette claire (co-pilote r3 : « Variante claire », 2026-11-20)
+- `PM_PAL` passe à `light` par défaut (palette retenue). Musique inchangée : B « Labo électro », 140 BPM (71,5 s).
+- Frames relues en clair : t = 1 · 4 · 12 · 20,5 · 21,8 · 32 · 43,2 · 44,3 · 56 · 65,4 · 67 · 70. Contrôle t = 56 : 996 fléchettes, 791 dedans → 4 × 791 / 996 = 3,1767 ✓. Textes lisibles sur ciel pâle, rien de coupé, pas de chevauchement.
+- MP4 final : **71,03 s**, 1080×1920, piste audio présente ; planche contact relue (3 actes + outro, compteurs cohérents). Couverture « 3 WAYS TO HEAR PI » (image de l'acte 3).

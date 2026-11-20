@@ -7,7 +7,7 @@ Tous les événements (et leurs instants) viennent de pi_medley_data.py (graines
 Les actes 2 et 3 sont des tirages aléatoires : l'écran dit « SIMULATION ».
 Musique (co-pilote r1 étape 2, choix B « Labo électro ») : 140 BPM, kick 4/4 + sub, clics métal (blocs),
 pluck synthé (aiguilles qui croisent), tic étouffé (les autres), zap aigu (fléchette dedans) / coup grave (dehors).
-Palette : PM_PAL=dark (défaut, compteur ambre) | light.
+Palette : PM_PAL=light (défaut, retenue au co-pilote r3 « variante claire ») | dark.
 
     python3 pi_medley.py info out | at out <T> ... | audio out/music.wav | render out | final out x.mp4
 """
@@ -24,7 +24,7 @@ from pi import Ctx, warp
 import pi_medley_data as D
 
 FXK = float(os.environ.get("PI_FX", "0.6"))
-PAL = os.environ.get("PM_PAL", "dark")
+PAL = os.environ.get("PM_PAL", "light")
 PI = math.pi
 
 # ================= data =================
