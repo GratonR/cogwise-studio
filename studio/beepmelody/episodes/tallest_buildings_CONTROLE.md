@@ -18,3 +18,13 @@ Durée prévue : 65,6 s (intro 3,2 · 1890→2026 à 1 an = 1 temps de 0,4 s · 
 
 ## Rendu final (étape 4, 2026-11-20)
 - Durée ffprobe : 65,57 s · 1080×1920 · audio AAC. Planche contact relue (1 image / 4 s) : HUD = CSV, bannières à leur place, rien de coupé. Couverture posée (t = 52 s).
+
+## Retravail r1 — « Rythme trop lent » → chaque étage = un tic (étape 3, 2026-11-20)
+Horloge : 1 étage = 1 triple-croche à 150 BPM (0,05 s), boum tenu 2 temps (0,8 s), années vides sautées (« >> +17 YRS » dans le HUD, l'année défile pendant le boum). Ambiance A · Chantier gardée (décision r2).
+Durée prévue : 71,85 s (intro 3,2 · 1 037 étages 51,85 · 13 tenues 10,4 · queue Burj 2,8 · outro 4,6) — dans 62–75 s, tempo non modifié.
+Frames vues : 1.0 / 2.8 / 3.2 / 3.6 / 4.0 / 12 / 17.3 / 19 / 23.5 / 27 / 32.0 / 32.1 / 32.6 / 34.5 / 37 / 40 / 47 / 49.9 / 50 / 60 / 62.5 / 64.5 / 65.6 / 67 / 69 / 71 s.
+- Compteur « FLOOR f / n » = colonne floors du CSV (CTBUH + 2e source) pour les 14 tours ; total affiché à l'outro 1,037 = somme du CSV.
+- Années : l'année du record reste affichée au boum (roulement à partir de +0,25 s) ; sauts +4 · +5 · +9 · +1 · +4 · +17 · +1 MONTH · +1 · +40 · +3 · +24 · +6 · +6 · +16 (2010 → 2026) = écarts du CSV.
+- Bannières recalées : « 17 YEARS, NO NEW RECORD / THEN NEW YORK GOES WILD » (1913 → 1930, 3 records en 13 mois ensuite), « MORE FLOORS THAN THE EMPIRE STATE (102) » au 103e étage du Burj (compte d'étages, pas de hauteur), les autres inchangées.
+- Tour en chantier : silhouette coupée à l'étage courant (hauteur = fraction d'étages × hauteur architecturale, approximation visuelle ; la hauteur exacte est atteinte au boum), grue au sommet. Caméra : recule dès que la tour en chantier dépasse le champion.
+- Lisibilité : graduations masquées sous la bannière d'intro et les bannières ; HUD 2 lignes (champion en haut, tour en chantier en bas) sans chevauchement ; aucune mention de fabrication.
