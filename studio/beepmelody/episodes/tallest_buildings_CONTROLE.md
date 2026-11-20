@@ -15,3 +15,6 @@ Durée prévue : 65,6 s (intro 3,2 · 1890→2026 à 1 an = 1 temps de 0,4 s · 
 - Bannières : « THEN 17 YEARS OF NOTHING » (avr. 1913 → avr. 1930), « 3 RECORDS IN 13 MONTHS » (avr. 1930 → mai 1931), « EMPIRE STATE #1 FOR 40 YEARS » (1931 → 1971), « FIRST RECORD OUTSIDE NEW YORK » (Sears, Chicago ; les 10 premiers sont à New York), « THE TITLE LEAVES THE USA » (1998, Skyscraper Museum), « +320 M IN ONE JUMP / +1,050 FT » (828 − 508 ; 2,717 − 1,667), « STILL #1 » ; compteur final « #1 FOR 16 YRS » (janv. 2010 → nov. 2026).
 - Sens : hauteurs à l'échelle (linéaire, sol en bas), la caméra recule pour garder le champion dans le cadre ; silhouettes stylisées, hauteurs exactes.
 - Lisibilité : grands titres ≤ 18 caractères, graduations à gauche et masquées sous les bannières, rien de coupé ; aucune mention de fabrication.
+
+## Rendu final (étape 4, 2026-11-20)
+- Durée ffprobe : 65,57 s · 1080×1920 · audio AAC. Planche contact relue (1 image / 4 s) : HUD = CSV, bannières à leur place, rien de coupé. Couverture posée (t = 52 s).
