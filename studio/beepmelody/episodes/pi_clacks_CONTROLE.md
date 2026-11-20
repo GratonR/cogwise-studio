@@ -18,3 +18,8 @@ Durée calculée : **65,5 s** (intro 4 · niveaux 5,5 / 6,5 / 7,5 / 8,5 / 9,5 / 
 - « SLOW MOTION » affiché pendant les chocs des niveaux 2 à 6 (ralenti asinh, même déformation pour tous les chocs d'un niveau, ordre gardé).
 - Écran : « IDEAL PHYSICS: NO FRICTION, NO ENERGY LOST ». Sources dans l'outro (Galperin 2003, simulation exacte). Pas de glyphe π dans la police : écrit « PI ».
 - Aucun mot sur la fabrication.
+
+## Rendu final (étape 4/4, 2026-11-20)
+- Étape 3 validée par Guillaume (« Ça me va », palette sombre). Rendu complet : **65,53 s** (ffprobe ; 65,5 s + 1 frame de couverture), 1080×1920, audio AAC.
+- Planche contact relue (1 image / 4 s) : compteur 1 · 3 · 31 · 314 · 3 141 · 31 415 · 314 159 cohérent avec le tableau du bas, kg puis lb, rien de coupé.
+- Couverture : « 314,159 collisions spell pi » sur l'image de fin (58 s), où compteur et tableau affichent bien 314 159.
