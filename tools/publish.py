@@ -17,7 +17,7 @@ Claude in a chat) is responsible for the "go"; this script only does what it is 
 Writes result.json = {links:{platform:url}, ids:{...}, errors:{platform:msg}, pinned:{platform:bool}}.
 Never prints a key.
 """
-import argparse, json, os, sys, time, urllib.error, urllib.parse, urllib.request
+import argparse, json, os, re, sys, time, urllib.error, urllib.parse, urllib.request
 
 G = "https://graph.facebook.com/v21.0/"
 BUFFER = "https://api.buffer.com"
@@ -113,6 +113,18 @@ def add_to_playlist(d, auth, vid, res):
 
 
 # ---------------- Facebook Reel ----------------
+def fb_cta(d, cap):
+    """Ajoute l'appel à s'abonner (studio/fb_cta.json) à la fin de la légende Facebook, s'il n'y en a pas déjà un."""
+    try:
+        cfg = json.load(open(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "studio", "fb_cta.json"), encoding="utf-8"))
+        lines = cfg.get(d.get("channel") or "cogwise") or []
+        if not lines or re.search(r"\bfollow\b|like the page", cap, re.I):
+            return cap
+        slug = str(d.get("slug") or d.get("repost_of") or "")
+        return (cap.rstrip() + "\n\n" + lines[sum(map(ord, slug)) % len(lines)]).strip()
+    except Exception:
+        return cap
+
 def facebook(d, K, video, res, pin):
     T, P = K["FB_PAGE_TOKEN"], K["FB_PAGE_ID"]
     st, _, s = http(G + P + "/video_reels", {"upload_phase": "start", "access_token": T})
@@ -122,7 +134,7 @@ def facebook(d, K, video, res, pin):
     st, _, u = http(f"https://rupload.facebook.com/video-upload/v21.0/{vid}", video, {"Authorization": "OAuth " + T, "offset": "0", "file_size": str(len(video))})
     if st != 200:
         raise RuntimeError(f"Facebook : envoi échoué ({st}) {short(u)}")
-    cap = (d.get("captions") or {}).get("facebook", "")
+    cap = fb_cta(d, (d.get("captions") or {}).get("facebook", ""))
     st, _, f = http(G + P + "/video_reels", {"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED", "description": cap, "access_token": T})
     if st != 200:
         raise RuntimeError(f"Facebook : publication refusée ({st}) {short(f)}")

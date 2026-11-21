@@ -1,0 +1,14 @@
+{
+  "_doc": "Appel à s'abonner ajouté à la fin de chaque légende Facebook par tools/publish.py (décision de Guillaume du 21 nov. : 34 abonnés pour 19 000 vues). Une phrase choisie selon le slug, pour varier d'un post à l'autre.",
+  "cogwise": [
+    "👉 Follow Cogwise: one machine explained, every day.",
+    "👉 Follow the page for a new \"how it works\" every day.",
+    "👉 Like the page to see tomorrow's machine first.",
+    "👉 Follow Cogwise: everyday things, explained in 60 seconds."
+  ],
+  "beepmelody": [
+    "👉 Follow BeepMelody: a new song made of real data, every day.",
+    "👉 Follow the page to hear tomorrow's data.",
+    "👉 Like the page for one real dataset turned into music, every day."
+  ]
+}
