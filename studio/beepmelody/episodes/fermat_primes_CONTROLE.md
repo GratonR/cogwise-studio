@@ -16,3 +16,6 @@ Durée prévue : **66,0 s** (toutes les notes sur une demi-seconde, 120 BPM). Pr
 - Lisibilité : 1er contrôle → étiquettes F-n qui chevauchaient la cloche du dessous et bannière qui cachait la dernière rangée ; mur passé en 7 × 5 avec étiquette dans la case, bannières déplacées sous le mur. Facteur qui « tombe » sur fond clair pour rester lisible.
 - Outro : 5 RIGHT / 28 WRONG / 1 UNKNOWN (F33), « IS THERE A 6TH FERMAT PRIME? NOBODY HAS FOUND ONE IN 386 YEARS » (1640 → 2026), sources (Keller, MathWorld, Prime Pages, Math. Comp.).
 - Aucun mot sur la fabrication.
+
+## Rendu final (étape 4/4, 2026-11-22)
+- Décision 3/4 : palette claire. ffprobe : 66,03 s, 1080×1920, piste audio OK. Planche contact relue (1 image / 4 s) : F5 Euler, F13, F20 sans facteur, F32 (diviseur 25,409,026,523,137 = 1479·2³⁴+1 vérifié), F33 « ? », outro 5/28/1 + sources. Couverture « Only the first 5 are prime » (t = 0,7 du main) lisible.

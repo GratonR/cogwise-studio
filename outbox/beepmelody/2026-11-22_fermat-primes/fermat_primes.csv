@@ -1,0 +1,35 @@
+n,year_wrong,kind,status,who,digits,source,source2,note
+0,1640,prime,3,"Fermat, letter (Frenicle / Mersenne)",1,https://t5k.org/glossary/xpage/FermatNumber.html,https://proofwiki.org/wiki/Primes_of_form_Power_of_Two_plus_One/Historical_Note,
+1,1640,prime,5,,1,https://t5k.org/glossary/xpage/FermatNumber.html,https://proofwiki.org/wiki/Primes_of_form_Power_of_Two_plus_One/Historical_Note,
+2,1640,prime,17,,2,https://t5k.org/glossary/xpage/FermatNumber.html,https://proofwiki.org/wiki/Primes_of_form_Power_of_Two_plus_One/Historical_Note,
+3,1640,prime,257,,3,https://t5k.org/glossary/xpage/FermatNumber.html,https://proofwiki.org/wiki/Primes_of_form_Power_of_Two_plus_One/Historical_Note,
+4,1640,prime,65537,,5,https://t5k.org/glossary/xpage/FermatNumber.html,https://proofwiki.org/wiki/Primes_of_form_Power_of_Two_plus_One/Historical_Note,
+5,1732,factor,641 x 6700417,Euler,10,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,
+6,1880,factor,274177 x 67280421310721,"Landry (Clausen 1855, unpublished)",20,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,FS: Clausen letter to Gauss 1855
+7,1905,pepin,composite (no factor until 1970),Morehead & Western,39,https://www.fermatsearch.org/history.html,https://mathworld.wolfram.com/FermatNumber.html,factor 1970 Morrison & Brillhart (K)
+8,1909,pepin,composite (no factor until 1980),Morehead & Western,78,https://www.fermatsearch.org/history.html,https://homes.cerias.purdue.edu/~ssw/fdub.html,factor 1980 Brent & Pollard
+9,1903,factor,2424833 x ...,Western,155,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,
+10,1953,factor,45592577 x ...,Selfridge,309,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,complete 1995 Brent
+11,1899,factor,319489 x 974849 x ...,Cunningham,617,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,complete 1988 Brent
+12,1877,factor,114689 x ...,Pervushin & Lucas,1234,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,
+13,1974,factor,2710954639361 x ...,Hallyburton & Brillhart,2467,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"AMS Math Comp 29 (1975): Hallyburton & Brillhart, first factor of F13"
+14,1963,pepin,composite (first factor 2010),Selfridge & Hurwitz,4933,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.math.kyoto-u.ac.jp/~yamasaki/a3f.html,factor 2010 Rajala (FN)
+15,1925,factor,1214251009 x ...,Kraitchik,9865,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,
+16,1953,factor,825753601 x ...,Selfridge,19729,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,
+17,1978,factor,31065037602817 x ...,Gostin,39457,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,MW cites Gostin 1980 paper
+18,1903,factor,13631489 x ...,Western,78914,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,
+19,1962,factor,70525124609 x ...,Riesel,157827,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://rieselprime.de/ziki/Generalized_Fermat_number_2_1_19,rieselprime: found 1962-11-16 by Hans Riesel; Math Comp 17 (1963)
+20,1987,pepin,"composite, no factor known",Buell & Young,315653,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,MW: 1988 publication
+21,1963,factor,4485296422913 x ...,Wrathall,631306,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"Wrathall, New factors of Fermat numbers, Math Comp 18 (1964) [cited in AMS 1975 refs]; 1963 = discovery year (Keller)"
+22,1993,pepin,composite (first factor 2010),"Crandall, Doenias, Norrie & Young",1262612,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://t5k.org/glossary/xpage/FermatNumber.html,T5: Math Comp 1995; factor 2010 Bessell (FN)
+23,1878,factor,167772161 x ...,Pervushin,2525223,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.fermatsearch.org/history.html,
+24,1999,pepin,"composite, no factor known","Mayer, Papadopoulos & Crandall",5050446,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.math.kyoto-u.ac.jp/~yamasaki/a3f.html,T5: Math Comp 2003
+25,1963,factor,48413*2^29+1 x ...,Wrathall,10100891,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"Wrathall, New factors of Fermat numbers, Math Comp 18 (1964) [cited in AMS 1975 refs]; 1963 = discovery year (Keller)"
+26,1963,factor,143165*2^29+1 x ...,Wrathall,20201782,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://rieselprime.de/ziki/Generalized_Fermat_number_2_1_26,"rieselprime: factor 76861124116481 = 143165*2^29+1; Wrathall 1963 (Keller), Math Comp 18 (1964)"
+27,1963,factor,141015*2^30+1 x ...,Wrathall,40403563,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"Wrathall, New factors of Fermat numbers, Math Comp 18 (1964) [cited in AMS 1975 refs]; 1963 = discovery year (Keller)"
+28,1997,factor,25709319373*2^36+1 x ...,Taura,80807125,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://mathworld.wolfram.com/FermatNumber.html,
+29,1980,factor,1120049*2^31+1 x ...,Gostin & McLaughlin,161614249,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/journals/mcom/1982-38-158/S0025-5718-1982-0645680-8/home.html,"Gostin & McLaughlin, Math Comp 38 (1982), factor of F29 (found 1980 per Keller)"
+30,1963,factor,149041*2^32+1 x ...,Wrathall,323228497,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"Wrathall, New factors of Fermat numbers, Math Comp 18 (1964) [cited in AMS 1975 refs]; 1963 = discovery year (Keller)"
+31,2001,factor,46931635677864055013377 x ...,Kruppa & Forbes,646456994,https://mathworld.wolfram.com/FermatNumber.html,https://t5k.org/curios/cpage/1776.html,"first known factor 46931635677864055013377, found 2001-04-12 by A. Kruppa (sieve by T. Forbes)"
+32,1963,factor,1479*2^34+1 x ...,Wrathall,1292913987,https://homes.cerias.purdue.edu/~ssw/fdub.html,https://www.ams.org/mcom/1975-29-129/S0025-5718-1975-0369225-1/,"Wrathall, New factors of Fermat numbers, Math Comp 18 (1964) [cited in AMS 1975 refs]; 1963 = discovery year (Keller)"
+33,,unknown,?,nobody (Pepin test too long),2585827973,https://www.math.kyoto-u.ac.jp/~yamasaki/a3f.html,https://mathworld.wolfram.com/FermatNumber.html,smallest unknown
