@@ -1,0 +1,58 @@
+act,year,date,p,digits,kind,status,label,source,source2
+1-list,1644,1644,2,,list,correct,p=2,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,3,,list,correct,p=3,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,5,,list,correct,p=5,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,7,,list,correct,p=7,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,13,,list,correct,p=13,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,17,,list,correct,p=17,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,19,,list,correct,p=19,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,31,,list,correct,p=31,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,67,,list,wrong (composite),p=67,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,127,,list,correct,p=127,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+1-list,1644,1644,257,,list,wrong (composite),p=257,https://t5k.org/mersenne/literature/archibald.html,https://t5k.org/glossary/xpage/MersennesConjecture.html
+2-fix,1876,1876-01-10,127,,fix,prime confirmed (Lucas),Lucas proves M127 prime,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+2-fix,1883,1883,61,,fix,missing prime found (Pervushin),M61 is prime — not on the list,https://www.mersenne.org/primes/,https://t5k.org/mersenne/literature/archibald.html
+2-fix,1903,1903-10,67,,fix,composite: 193707721 x 761838257287 (Cole),Cole factors M67 — TO CHECK: Bull. AMS 1903 + MacTutor,https://t5k.org/mersenne/literature/archibald.html,https://mathshistory.st-andrews.ac.uk/Biographies/Cole/
+2-fix,1911,1911-06,89,,fix,missing prime found (Powers),M89 is prime,https://www.mersenne.org/primes/,https://t5k.org/mersenne/literature/archibald.html
+2-fix,1914,1914-06-11,107,,fix,missing prime found (Powers),M107 is prime,https://www.mersenne.org/primes/,https://t5k.org/mersenne/literature/archibald.html
+2-fix,1931,1931,257,,fix,composite (Lehmer; Kraitchik 1922 unguaranteed),M257 not prime,https://t5k.org/mersenne/literature/archibald.html,https://en.wikipedia.org/wiki/Mersenne_conjectures
+3-computers,1952,1952-01-30,521,157,found,prime #13,Robinson SWAC,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1952,1952-01-30,607,183,found,prime #14,Robinson SWAC,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1952,1952-06-25,1279,386,found,prime #15,Robinson SWAC,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1952,1952-10-07,2203,664,found,prime #16,Robinson SWAC,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1952,1952-10-09,2281,687,found,prime #17,Robinson SWAC,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1957,1957-09-08,3217,969,found,prime #18,Riesel BESK,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1961,1961-11-03,4253,1281,found,prime #19,Hurwitz IBM 7090,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1961,1961-11-03,4423,1332,found,prime #20,Hurwitz IBM 7090,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1963,1963-05-11,9689,2917,found,prime #21,Gillies ILLIAC II,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1963,1963-05-16,9941,2993,found,prime #22,Gillies ILLIAC II,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1963,1963-06-02,11213,3376,found,prime #23,Gillies ILLIAC II,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1971,1971-03-04,19937,6002,found,prime #24,Tuckerman IBM 360/91,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1978,1978-10-30,21701,6533,found,prime #25,Noll & Nickel CDC Cyber 174,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1979,1979-02-09,23209,6987,found,prime #26,Noll CDC Cyber 174,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1979,1979-04-08,44497,13395,found,prime #27,Nelson & Slowinski Cray-1,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1982,1982-09-25,86243,25962,found,prime #28,Slowinski Cray-1,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1983,1983-09-19,132049,39751,found,prime #30,Slowinski Cray X-MP,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1985,1985-09-01,216091,65050,found,prime #31,Slowinski Cray X-MP/24,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1988,1988-01-28,110503,33265,found,prime #29,Colquitt & Welsh NEC SX-2,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1992,1992-02-19,756839,227832,found,prime #32,Slowinski & Gage Cray-2,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1994,1994-01-04,859433,258716,found,prime #33,Slowinski & Gage Cray C90,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1996,1996-09-03,1257787,378632,found,prime #34,Slowinski & Gage Cray T94,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1996,1996-11-13,1398269,420921,found,prime #35,GIMPS Armengaud Pentium 90 MHz,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1997,1997-08-24,2976221,895932,found,prime #36,GIMPS Spence,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1998,1998-01-27,3021377,909526,found,prime #37,GIMPS Clarkson,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,1999,1999-06-01,6972593,2098960,found,prime #38,GIMPS Hajratwala,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2001,2001-11-14,13466917,4053946,found,prime #39,GIMPS Cameron,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2003,2003-11-17,20996011,6320430,found,prime #40,GIMPS Shafer,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2004,2004-05-15,24036583,7235733,found,prime #41,GIMPS Findley,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2005,2005-02-18,25964951,7816230,found,prime #42,GIMPS Nowak,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2005,2005-12-15,30402457,9152052,found,prime #43,GIMPS Cooper & Boone,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2006,2006-09-04,32582657,9808358,found,prime #44,GIMPS Cooper & Boone,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2008,2008-08-23,43112609,12978189,found,prime #47,GIMPS Smith,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2008,2008-09-06,37156667,11185272,found,prime #45,GIMPS Elvenich,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2009,2009-06-04,42643801,12837064,found,prime #46,GIMPS Strindmo,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2013,2013-01-25,57885161,17425170,found,prime #48,GIMPS Cooper,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2016,2016-01-07,74207281,22338618,found,prime #49,GIMPS Cooper,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2017,2017-12-26,77232917,23249425,found,prime #50,GIMPS Pace,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2018,2018-12-07,82589933,24862048,found,prime #51,GIMPS Laroche,https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html
+3-computers,2024,2024-10-12,136279841,41024320,found,prime #52,GIMPS Durant (rank 52 provisional),https://www.mersenne.org/primes/,https://t5k.org/mersenne/index.html

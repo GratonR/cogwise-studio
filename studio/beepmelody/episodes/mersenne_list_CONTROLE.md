@@ -18,3 +18,7 @@ Frames vues : 1.5 / 4.0 / 5.0 / 8.0 / 11.0 / 13.0 / 14.6 / 18.0 / 21.0 / 21.6 / 
 - Sens : frise 1644 → 2024 de gauche à droite, une marque par événement (vert = premier confirmé/trouvé, rouge = composé, ambre = trouvé par machine). Hauteur de note = log(p) (actes 1-2) / log(chiffres) (acte 3).
 - Lisibilité : corrigé pendant le contrôle — ticket final qui se chevauchait (« NEW M136,279,841 »), tickets masqués sous la bannière finale, bloc DATA qui cachait la carte graphique à l'outro, compteur d'erreurs qui comptait Lucas, roulement des années pendant la scène Cole. Rien de coupé, HUD/bannières/page sans chevauchement.
 - Aucune mention d'IA ni de fabrication.
+
+## Rendu final (2026-11-22, étape 3 tranchée : « Ça me va », variante era)
+- MP4 1080×1920, 71,0 s (ffprobe), piste audio OK. Planche contact relue (1 image / 4 s) : intro, liste, 232 YEARS, Cole, 287 YEARS, machines 1955→2024, 41,024,320 DIGITS, outro — rien de coupé.
+- Couverture : « 1644: 11 NUMBERS. 5 WRONG. » sur la frame 8,5 s (bannière « 5 WERE WRONG »).
