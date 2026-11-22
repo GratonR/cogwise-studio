@@ -1,0 +1,52 @@
+kind,date,vehicle,mission,booster,outcome,detail,source_1,source_2
+year,2015,Falcon 9,,,"attempts 3 / landed 1 / failed 2",excludes 2013-2015 experimental ocean soft-landings,en.wikipedia.org List of Falcon 9 and Falcon Heavy launches (2010-2019),launchreport.neocities.org/falcon9.txt
+year,2016,Falcon 9,,,"attempts 8 / landed 5 / failed 3",,Wikipedia (2010-2019),launchreport
+year,2017,Falcon 9/FH,,,"attempts 14 / landed 14 / failed 0",,Wikipedia (2010-2019),launchreport
+year,2018,Falcon 9/FH,,,"attempts 14 / landed 12 / failed 2",,Wikipedia (2010-2019),launchreport
+year,2019,Falcon 9/FH,,,"attempts 16 / landed 15 / failed 1",launchreport counts Arabsat-6A core B1055 (lost in transit after landing) as failure -> 16/14/2; kept as landed,Wikipedia (2010-2019),launchreport
+year,2020,Falcon 9,,,"attempts 25 / landed 23 / failed 2",,Wikipedia (2020-2022),launchreport
+year,2021,Falcon 9,,,"attempts 31 / landed 30 / failed 1",,Wikipedia (2020-2022),launchreport
+year,2022,Falcon 9/FH,,,"attempts 60 / landed 60 / failed 0",,Wikipedia (2020-2022),launchreport
+year,2023,Falcon 9/FH,,,"attempts 99 / landed 99 / failed 0",B1058 toppled in transit after landing: counted landed,Wikipedia (2023),launchreport
+year,2024,Falcon 9/FH,,,"attempts 132 / landed 131 / failed 1",spaceexplored says 130,Wikipedia (2024),spaceflightnow cumulative 390 at end-2024
+year,2025,Falcon 9,,,"attempts 163 / landed 162 / failed 1",SFN implies 163 landed,Wikipedia (main list),space.com / spaceflightnow
+year,2026,Falcon 9/FH,,,"attempts 127 / landed 127 / failed 0",to USSF-317 21 Nov 2026,Wikipedia,spaceflightnow (679th landing on 21 Nov 2026)
+total,2026-11-21,Falcon 9/FH,USSF-317,B1100-11,"679 landed / 692 attempts / 13 failed",,spaceflightnow 2026-11-19,Wikipedia per-year sum
+fail,2015-01-10,Falcon 9,CRS-5,B1012,failed,ASDS hard impact (grid fin hydraulics ran out),Wikipedia,planetary.org / launchreport
+fail,2015-04-14,Falcon 9,CRS-6,B1015,failed,ASDS lateral velocity; tipped over,Wikipedia,nasaspaceflight.com
+fail,2016-01-17,Falcon 9,Jason-3,B1017,failed,ASDS leg did not lock; tipped over,Wikipedia,space.com
+fail,2016-03-04,Falcon 9,SES-9,B1020,failed,ASDS hard landing,Wikipedia,space.com
+fail,2016-06-15,Falcon 9,ABS-2A/Eutelsat 117WB,B1024,failed,ASDS low thrust on one engine,Wikipedia,spaceflightnow
+fail,2018-02-06,Falcon Heavy,FH Demo (center core),B1033,failed,ran out of ignition fluid; hit the ocean,Wikipedia,space.com
+fail,2018-12-05,Falcon 9,CRS-16,B1050,failed,RTLS grid-fin pump stalled; soft-landed in ocean,Wikipedia,space.com
+fail,2019-06-25,Falcon Heavy,STP-2 (center core),B1057,failed,missed drone ship,Wikipedia,nasaspaceflight
+fail,2020-02-17,Falcon 9,Starlink L4,B1056-4,failed,missed drone ship (wind data),Wikipedia,spaceflightnow
+fail,2020-03-18,Falcon 9,Starlink L5,B1048-5,failed,engine out on ascent,Wikipedia,spaceflightnow
+fail,2021-02-16,Falcon 9,Starlink L19,B1059-6,failed,engine damage; missed ship,Wikipedia,spaceflightnow
+fail,2024-08-28,Falcon 9,Starlink 8-6,B1062-23,failed,leg failed after touchdown; ended 267-landing streak,Wikipedia (2024),nasaspaceflight
+fail,2025-03-03,Falcon 9,Starlink 12-20,B1086-5,failed,fire after touchdown; tipped over,Wikipedia,spaceflightnow / space.com
+milestone,2015-11-23,New Shepard,NS-2,,landed,first rocket to land itself after reaching space (suborbital),space.skyrocket.de (Gunter),blueorigin.com/missions
+milestone,2015-12-22,Falcon 9,ORBCOMM OG2-2,B1019,landed,first orbital-class booster landing (LZ-1),Wikipedia,launchreport
+milestone,2016-04-08,Falcon 9,CRS-8,B1021,landed,first drone-ship landing,Wikipedia CRS-8,Wikipedia Falcon 9
+milestone,2017-03-30,Falcon 9,SES-10,B1021-2,landed,first reflown booster to land,Wikipedia,Wikipedia CRS-8
+milestone,2021-12-21,Falcon 9,CRS-24,B1069-1,landed,100th Falcon landing,space.com,Wikipedia
+milestone,2023-06-12,Falcon 9,Transporter-8,B1071,landed,200th,americaspace.com,Wikipedia
+milestone,2024-04-23,Falcon 9,Starlink 6-53,,landed,300th,space.com,spaceflightnow
+milestone,2025-01-21,Falcon 9,Starlink 11-8,B1082-10,landed,400th,spaceflightnow,space.com
+milestone,2025-09-05,Falcon 9,Starlink 10-57,B1069-27,landed,500th,spaceflightnow,space.com
+milestone,2026-04-19,Falcon 9,Starlink 17-22,B1097,landed,600th,space.com,spaceflightnow
+milestone,2026-08-25,Falcon 9,Starlink 10-49,B1067,landed,37th flight of one booster (record),Wikipedia booster list,bgr.com
+other,2015-04-29,New Shepard,NS-1,,failed,booster lost,Gunter,Wikiwand
+other,2022-09-12,New Shepard,NS-23,,failed,booster lost (engine failure; capsule escaped),Gunter,blueorigin.com
+other,2015-2026,New Shepard,NS-2..NS-38,,"36 landed / 38 flights",program paused 30 Jan 2026,Gunter,blueorigin.com
+other,2025-01-16,New Glenn,NG-1,GS1-SN001,failed,lost during descent,nasaspaceflight,space.com
+other,2025-11-13,New Glenn,NG-2 ESCAPADE,GS1-SN002,landed,on ship Jacklyn,nasaspaceflight,blueorigin.com
+other,2026-04-19,New Glenn,NG-3,GS1-SN002,landed,first New Glenn reuse,space.com,newspaceeconomy.ca
+other,2025-12-03,Zhuque-3,Y1,,failed,crashed during landing burn,Wikipedia,spaceflightnow
+other,2025-12-23,Long March 12A,Y1,,failed,did not reach landing site,AIAA,China Daily / space.com
+other,2026-07-10,Long March 10B,Y1,,caught,caught by cables on ship Linghangzhe (first Chinese booster recovery),space.com,Scientific American / astronomy.com
+other,2026-08-19,Zhuque-3,Y2,,landed,landed on legs then tipped after fire (WP: partial failure),spaceflightnow,space.com
+tower,2024-10-13,Super Heavy,Flight 5,B12,caught,first booster caught by the tower,Wikipedia,nasaspaceflight
+tower,2025-01-16,Super Heavy,Flight 7,B14,caught,,Wikipedia,nasaspaceflight
+tower,2025-03-06,Super Heavy,Flight 8,B15,caught,,Wikipedia,nasaspaceflight
+tower,2026-11-14,Starship,Flight 15,S42,caught,first ship caught by the tower (booster B22 lost),payloadspace.com,space.com / natureworldnews
