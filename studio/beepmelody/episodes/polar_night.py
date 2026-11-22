@@ -24,6 +24,8 @@ from pi import Ctx
 
 FXK = float(os.environ.get("PI_FX", "0.5"))
 VARIANT = os.environ.get("PN_VARIANT", "clear")
+DAYNIGHT = os.environ.get("PN_FRAME", "tromso")   # step 3 rework: frame follows day/night over the video
+                                                  # tromso (whole frame + boxes) | split (top = Tromso, bottom = Quito) | edge (outer frame only) | none
 
 # ================= data =================
 ROWS = list(csv.DictReader(open(os.path.join(HERE, "polar_night_draft.csv"))))
@@ -71,6 +73,28 @@ if VARIANT == "dusk":
 else:
     FRAME = (238, 232, 220); HUDBG = CREAM; HUDINK = INK; HUDINK2 = INK2
 def mixc(a, b, t): t = max(0, min(1, t)); return tuple(int(a[j] + (b[j] - a[j]) * t) for j in range(3))
+# ---- day/night frame (Guillaume, step 3: « cadre jour nuit au fil de la vidéo ») ----
+LIGHT = dict(FRAME=(238, 232, 220), HUDBG=CREAM, HUDINK=INK, HUDINK2=INK2)
+DARK = dict(FRAME=(22, 26, 48), HUDBG=(34, 40, 66), HUDINK=(236, 232, 220), HUDINK2=(150, 158, 190))
+GLOW = dict(FRAME=(250, 232, 190), HUDBG=(255, 246, 222), HUDINK=INK, HUDINK2=INK2)   # midnight sun: warm golden frame
+def light_level(T, H=None):
+    """0 = night, 1 = day, 2 = midnight sun — smoothed over ±4 days so the frame fades instead of blinking"""
+    H = HT if H is None else H
+    f = (T - T0) / D; lo, hi = int(max(0, f - 4)), int(min(N - 1, f + 4))
+    v = sum(H[i] for i in range(lo, hi + 1)) / (hi - lo + 1)
+    return min(1, v / 12) + max(0, (v - 18) / 6)
+def theme_at(lv):
+    if lv <= 1:
+        t = lv; tb = 1.0 if t > 0.5 else 0.0     # boxes switch at once (sky fades): never a grey box with grey text
+        out = {"FRAME": mixc(DARK["FRAME"], LIGHT["FRAME"], t), "HUDBG": mixc(DARK["HUDBG"], LIGHT["HUDBG"], tb)}
+        ink = LIGHT if t > 0.5 else DARK
+    else:
+        t = lv - 1; out = {k: mixc(LIGHT[k], GLOW[k], t) for k in ("FRAME", "HUDBG")}; ink = LIGHT
+    out["HUDINK"], out["HUDINK2"] = ink["HUDINK"], ink["HUDINK2"]; return out
+QTHEME = theme_at(1.0)
+def set_theme(th):
+    global FRAME, HUDBG, HUDINK, HUDINK2
+    FRAME, HUDBG, HUDINK, HUDINK2 = th["FRAME"], th["HUDBG"], th["HUDINK"], th["HUDINK2"]
 DAY_TOP, DAY_BOT = (120, 186, 236), (206, 232, 250)
 NIGHT_TOP, NIGHT_BOT = (14, 20, 52), (36, 50, 96)
 if VARIANT == "dusk":
@@ -259,14 +283,23 @@ def hud(c, T):
     text(W, 336, 17, fdate(DAYS[i]), fill=HUDINK, align="r")
 
 def frame(T):
+    if DAYNIGHT != "none":
+        tt = theme_at(light_level(T)); base = theme_at(1.0)
+        set_theme(tt if DAYNIGHT in ("tromso", "split") else dict(base, FRAME=tt["FRAME"]))
     a = np.zeros((AH, AW, 3), np.uint8); a[:] = FRAME
+    if DAYNIGHT == "split": a[PANEL_Q[0] - 3:, :] = QTHEME["FRAME"]
     img = Image.fromarray(a)
     img = draw_tromso(img, T); img = draw_quito(img, T)
     c = Ctx(np.array(img))
     i = day_i(T)
     city_label(c, T, 226, "TROMSO", "69.6° N", HT[i], CORAL, tday(i))
-    city_label(c, T, 468, "QUITO", "0.2° S", HQ[i], GOLD2, tday(i))
-    graph(c, T)
+    if DAYNIGHT == "split":
+        keep = (FRAME, HUDBG, HUDINK, HUDINK2); set_theme(QTHEME)
+        city_label(c, T, 468, "QUITO", "0.2° S", HQ[i], GOLD2, tday(i)); graph(c, T)
+        set_theme(dict(zip(("FRAME", "HUDBG", "HUDINK", "HUDINK2"), keep)))
+    else:
+        city_label(c, T, 468, "QUITO", "0.2° S", HQ[i], GOLD2, tday(i))
+        graph(c, T)
     return c
 
 def sc_days(name):

@@ -15,3 +15,9 @@ Frames vues : 1.2 / 5.0 / 9.0 / 11.0 / 11.7 / 13.8 / 17.0 / 20.0 / 20.3 / 21.6 /
 - Latitudes : 69.6° N / 0.2° S (CSV : 69,6492 N ; 0,2299 S). Pas d'unités à convertir (heures).
 - Lisibilité : corrigé pendant le contrôle — date du HUD qui chevauchait la légende (légende déplacée au-dessus du graphe), montagnes qui cachaient le soleil bas, bannières qui cachaient le soleil de Quito (remontées sur le fjord), bannière « THE SUN IS BACK » placée dans le ciel pour laisser voir le soleil qui revient. Rien de coupé.
 - Aucune mention d'IA ni de fabrication.
+
+## Étape 3 retravaillée (2026-11-22, remarque de Guillaume : « Cadre jour nuit au fil de la video »)
+Nouveau réglage `PN_FRAME` : `tromso` (défaut proposé : cadre + cases suivent la durée du jour à Tromsø, lissée sur ±4 jours ; nuit = bleu marine, jour = crème, soleil de minuit = crème doré), `split` (moitié haute suit Tromsø, moitié Quito reste en jour), `edge` (seul le cadre extérieur change, cases crème), `none` (ancien rendu).
+Frames vues (3 variantes) : 1.2 / 5.0 / 8.0 / 9.0 / 11.7 / 15.0 / 20.3 / 26.0 / 31.0 / 43.0 / 49.0 / 52.0 / 61.5 / 64.5 s.
+- Les cases passent d'un coup clair ↔ sombre au seuil (~6 h de jour lissé) : une 1re version en fondu donnait ~3 s de cases grises au texte gris, corrigée. Texte lisible partout.
+- Données, chiffres, bannières, musique et durée (67,6 s) inchangés.
