@@ -16,3 +16,9 @@ Frames vues : 0.3 / 1.0 / 2.0 / 3.5 / 8.0 / 16.0 / 26.5 / 35.5 / 35.95 / 36.1 / 
 - Lisibilité : HUD, règle, écran, papier, bannières et barre du bas sans chevauchement ; les bannières masquent 2 lignes de papier pendant 1,5–2,8 s (voulu). Corrigé pendant le contrôle : compteur « RIGHT 544 » qui contredisait « 527 RIGHT » de l'outro, bannière « ALL WRONG » contredite par les chiffres dorés (→ « OFF TRACK »), chiffres de Shanks invisibles sur fond sombre (variante night).
 - Son : 1 décimale = 1 coup par voix ; silence du fond à 528 (−0,15 → +0,95 s) ; batterie coupée à l'outro, accord final.
 - Aucune mention d'IA ni de fabrication.
+
+## Étape 4/4 — rendu final, palette « nuit » (décision de Guillaume, 22 nov. 14:26 UTC)
+- Rendu `SP_PAL=night` (seule la palette change : mêmes données, même module, même musique C « Machine à calculer »).
+- Frames nuit relues à 0,8 / 8 / 27 / 36,2 / 45 / 49,5 / 58,5 / 62 / 66,5 s : lisibilité OK sur fond sombre, rien de coupé.
+- Compteurs cohérents : DIGIT n − 527 = WRONG (les « by luck » en sont un sous-ensemble) ; 595 → 68 dont 9, 632 → 105 dont 12, final 180 dont 17.
+- ffprobe : 67,23 s, 1080×1920, 30 i/s, audio AAC. Couverture « 180 wrong digits of pi » (fond à 45 s), titre lisible, centre 3:4 propre.
