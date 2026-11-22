@@ -17,8 +17,13 @@ Durée calculée : **67,2 s** (intro 4,0 · données 1957→2025 = 69 × 0,8 s =
 ## Points vérifiés sur les frames (t = 0,5 · 3,0 · 30,6 · 56,2 · 58,6 · 59,1 · 60,5 · 62,0 · 66,0 s + variante claire 57,1 / 58,6)
 - 30,6 s (1990, 0,25 de l'année) : cumul 3 976 + 42 = 4 018 = HUD ; 16,2 % ✓.
 - 56,2 s (2022) : barre « HALF » franchie, flash or, bannière « HALF · 12,433 OF 24,865 · 2022 » ✓.
-- 58,6 s (2025) : bannière « 4,510 · IN 2025 · RECORD » ✓ ; 59,1 s : cumul 24 301 = 21 455 (fin 2024) + 0,63 × 4 510 ✓.
+- 58,6 s (2025) : bannière « 4,510 · IN 2025 · RECORD » ✓ ; 59,1 s : cumul 23 196 = 20 355 (fin 2024) + 0,63 × 4 510 ✓.
 - Outro : 24 865 / 1957-2021 · 65 ans · 12 124 / 2022-2025 · 4 ans · 12 741 / 51,2 % ✓ ; question « WHAT WILL 2026 ADD? » ; sources à l'écran.
 - Frise du bas : lancements par an en échelle linéaire (le haut = plus grand), barres 2022-2025 en or. Pas d'unité physique (pas de SI/US à faire).
 - Lisibilité : HUD / compteur / bannière / frise sans chevauchement ; le label « HALF » sous le repère des 50 % ; rien de coupé. Aucun mot sur la fabrication.
 - Accroche : titre à 0,5 s, règle « EVERY BEEP = 20 OBJECTS LAUNCHED » à 1,8 s, 1er bip de Spoutnik à 0,25 s.
+
+## Rendu final (2026-11-22, étape 3 tranchée : « Ça me va », palette néon)
+- MP4 1080×1920, 67,2 s (ffprobe), piste audio OK ; 1 243 bips. Planche contact relue (1 image / 4 s) : intro, 1959 FIRST BEEP, plateau, 2024 (jauge or passée HALF), bilan, question finale — rien de coupé.
+- Correction de la note de contrôle : cumul fin 2024 = 20 355 (et non 21 455, faute de frappe ; le module et le CSV étaient justes).
+- Couverture : « HALF WENT UP AFTER 2021 » sur la frame 58,95 s (2025 en cours, points or).
