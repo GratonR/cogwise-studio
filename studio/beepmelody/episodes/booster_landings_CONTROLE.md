@@ -31,3 +31,9 @@ secondes, jamais moins de notes. Densité max : 17 notes/s (2025), proche de l'e
 - Outro : 678 / 13 sur 691 / 2015 = 1 sur 3 / 2025 = 162 (365/162 = 2,25 → « one every 2.3 days ») / 264 d'affilée : = CSV.
 - Bannières ≤ 40 caractères (assert dans le module), rien de coupé, pas de chevauchement HUD / bannière / frise.
 - Pas d'unité physique à l'écran (comptages seulement). Aucun mot sur la fabrication.
+
+## Rendu final (étape 4/4, 2026-11-22 17:18Z) — variante crépuscule (LV=dusk, choix de Guillaume à l'étape 3)
+- ffprobe : 69,87 s (couverture comprise), 1080×1920, audio AAC. Dans 62–75 s.
+- Planche contact relue (1 / 4,8 / 19,4 / 43,2 / 55 / 62,6 / 63,3 / 67 s) : tour visible dès 1 s ; 43,2 s = 347 réussis, 12 crashs
+  (2+3+2+1+2+1+1 = 12 au 28 août 2024), barre 2024 = 88 ; fin : 678 = 119 sur terre + 559 en mer, 13 crashs sur 691 ; frise finale
+  1, 5, 14, 12, 15, 23, 30, 60, 99, 131, 162, 126 = CSV. Rien de coupé, textes lisibles sur le ciel violet-orange.
