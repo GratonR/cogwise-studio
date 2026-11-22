@@ -21,3 +21,7 @@ Nouveau réglage `PN_FRAME` : `tromso` (défaut proposé : cadre + cases suivent
 Frames vues (3 variantes) : 1.2 / 5.0 / 8.0 / 9.0 / 11.7 / 15.0 / 20.3 / 26.0 / 31.0 / 43.0 / 49.0 / 52.0 / 61.5 / 64.5 s.
 - Les cases passent d'un coup clair ↔ sombre au seuil (~6 h de jour lissé) : une 1re version en fondu donnait ~3 s de cases grises au texte gris, corrigée. Texte lisible partout.
 - Données, chiffres, bannières, musique et durée (67,6 s) inchangés.
+
+## Rendu final (étape 4/4, 2026-11-22)
+Décision 3b : A · tout l'écran suit Tromsø (`PN_FRAME=tromso`). Rendu `POP_STYLE=v1 PI_FX=0.8 PN_FRAME=tromso`.
+ffprobe : 67,57 s, 1080×1920, piste audio présente. Planche contact (1 image / 4 s) relue : nuit et aurore de 11 à 20 s, soleil de minuit doré de 40 à 52 s, fin crème « ALMOST THE SAME NOTE », écran de fin avec la source ; rien de coupé. Couverture : « Two cities, one sun » sur l'image à 15 s (aurore), lisible.
