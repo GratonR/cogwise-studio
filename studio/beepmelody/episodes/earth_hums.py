@@ -6,7 +6,7 @@ so the beeps of a year are spread over its slot: 1959 = first beep, 2025 = 225 b
 1 year = 0.8 s. Sputnik 1's own radio beep opens and closes the video.
 Scene: neon pixel globe; every beep = a new dot that lights up on its orbit (cyan before 2022, gold from 2022): the shell fills,
 and by the end half the dots are gold. Bottom: launches per year (linear). HUD: year, launched that year, running total + share.
-Music (co-pilot step 2, choice B "retro telemetry"): 120 BPM, 8-bit drums, triangle bass, square chiptune bleeps
+Music (co-pilot step 2, choice B "retro telemetry", reworked r1 with a real tune Am–F–C–G → lift to Bm–G–D–A): 120 BPM, 8-bit drums, triangle bass, square chiptune bleeps
 (one per beep, rising inside each year), the bleeps turn into a buzzing carrier wave; a crash + arpeggio on the half mark.
 
     python3 earth_hums.py info out | preview out <scene>:<s> ... | at out <T> ... | audio out/music.wav | render out | final out x.mp4
@@ -73,10 +73,33 @@ def cum_at(T):
 def nbeeps(T): return int(np.searchsorted(BT, T, side="right"))
 
 # ================= music plan =================
-PENT = [0, 2, 4, 7, 9]
-def deg(i, n, y, base, span=10):
-    d = int(i / max(n, 1) * span) + (y - Y0) % 3
-    return base + 12 * (d // 5) + PENT[d % 5]
+# Rework r1 (Guillaume: "air différent, plus musicalité"): same mood B (120 BPM chiptune, 8-bit drums, triangle bass),
+# but a real tune. Progression Am–F–C–G (one chord per bar of 4 beats), a 32-beat melody played softly by a lead voice,
+# and every data bleep (still exactly on its event) sounds the melody note of that moment (sparse years) or a chord tone
+# around it (dense years). After the half mark the song lifts a whole step (Bm–G–D–A).
+CHORDS = [(57, [0, 3, 7]), (53, [0, 4, 7]), (60, [0, 4, 7]), (55, [0, 4, 7])]     # Am F C G (roots, A3 = 57)
+MEL = [  # (beat, midi, length in beats) over 32 beats
+    (0, 76, 1), (1, 72, .5), (1.5, 74, .5), (2, 76, 1.5), (3.5, 79, .5),
+    (4, 77, 1), (5, 76, .5), (5.5, 72, .5), (6, 69, 2),
+    (8, 72, 1), (9, 76, .5), (9.5, 79, .5), (10, 84, 1.5), (11.5, 83, .5),
+    (12, 79, 1), (13, 74, 1), (14, 71, 1), (15, 74, 1),
+    (16, 81, 1.5), (17.5, 79, .5), (18, 76, 1), (19, 72, 1),
+    (20, 77, .5), (20.5, 79, .5), (21, 81, 1), (22, 77, 1), (23, 72, 1),
+    (24, 76, 1), (25, 79, 1), (26, 84, 1), (27, 79, 1),
+    (28, 83, 1.5), (29.5, 81, .5), (30, 79, 2)]
+MEL_B = np.array([m[0] for m in MEL])
+def lift(t): return 2 if t >= T_HALF else 0
+def chord_at(t):
+    r, iv = CHORDS[int(t / BEAT // 4) % 4]; return r + lift(t), iv
+def mel_at(t):
+    b = (t / BEAT) % 32; k = int(np.searchsorted(MEL_B, b, side="right") - 1); return MEL[k][1] + lift(t)
+def bleep_pitch(t, i, n):
+    m = mel_at(t)
+    if n < 8: return m
+    r, iv = chord_at(t)                                 # dense years: arpeggio of chord tones around the melody note
+    tones = sorted(r + 12 * o + x for o in (2, 3) for x in iv)
+    k = int(np.argmin([abs(x - m) for x in tones]))
+    return tones[(k + [0, 1, 2, 1, 0, -1, -2, -1][i % 8]) % len(tones)]
 EV = []
 def ev(t, kind, **kw): EV.append((t, kind, kw))
 SPUT_IN = 0.25                                          # Sputnik beep in the intro
@@ -93,14 +116,21 @@ def build():
         ev(t, "kick", v=0.16)
         if b % 2: ev(t, "snare", v=0.05)
         ev(t + BEAT / 2, "hat", v=0.02)
-        root = [36, 36, 41, 43][(b // 2) % 4]
-        ev(t, "tri", m=root, v=0.08)
+        r, iv = chord_at(t)
+        ev(t, "tri", m=r - 12 + (7 if b % 4 == 2 else 0), v=0.08)          # root / fifth walking bass
+        for q in range(4):                                                 # quiet 16th chord arpeggio (chiptune pad)
+            ev(t + q * BEAT / 4, "arp16", m=r + 12 + iv[q % 3] + (12 if q == 3 else 0), v=0.018)
+    for mb, mm, ml in [(x, m, l) for k in range(int(T_END / (32 * BEAT)) + 1) for (x0, m, l) in MEL for x in [x0 + 32 * k]]:
+        t = mb * BEAT
+        if INTRO <= t < T_END: ev(t, "lead", m=mm + lift(t) - 12, d=ml * BEAT, v=0.05)
     ev(INTRO, "crash", v=0.07)
     for t, y, i, n, _ in BEEPS:
-        ev(t, "bleep", m=deg(i, n, y, 76), v=0.09 / max(1, n / 12) ** .2, d=.06 if n < 60 else .03)
+        ev(t, "bleep", m=bleep_pitch(t, i, n), v=0.09 / max(1, n / 12) ** .2, d=.07 if n < 60 else .03)
     ev(T_HALF, "crash", v=0.12)
-    for k, dd in enumerate([0, 7, 12, 16, 19, 24]): ev(T_HALF + k * 0.06, "arp", m=72 + dd, v=0.10)
-    ev(ystart(2025), "carrier", d=YEAR, v=0.05)
+    for k, dd in enumerate([0, 7, 12, 16, 19, 24]): ev(T_HALF + k * 0.06, "arp", m=71 + dd, v=0.10)
+    ev(ystart(2025), "carrier", d=YEAR, v=0.035)
+    for k, dd in enumerate([0, 7, 12, 15, 19]): ev(T_END + k * 0.09, "arp", m=59 + dd, v=0.07)   # final Bm chord rolls out
+    ev(T_END, "pad", m=47, d=3.5, v=0.06)
     EV.sort(key=lambda e: e[0])
 build()
 KICKS = sorted(t for t, k, _ in EV if k == "kick")
@@ -390,6 +420,17 @@ def render_audio(path):
             put(t, v * (2 * np.abs(2 * ((mtof(kw["m"]) * tt) % 1) - 1) - 1) * env(nn, .005, .3))
         elif k == "bleep":
             d = kw["d"]; put(t, v * lowpass(square(mtof(kw["m"]), d, .25), 5000) * env(int(d * SR), .001, d / 2))
+        elif k == "arp16":
+            put(t, v * lowpass(square(mtof(kw["m"]), .11, .125), 4000) * env(int(.11 * SR), .002, .05))
+        elif k == "lead":                               # soft flute-like lead (triangle + slight vibrato)
+            d = kw["d"]; nn = int(d * SR); tt = np.arange(nn) / SR
+            ph = np.cumsum(mtof(kw["m"]) * (1 + .004 * np.sin(2 * np.pi * 5.5 * tt) * np.minimum(1, tt / .15))) / SR
+            w = 2 * np.abs(2 * (ph % 1) - 1) - 1
+            put(t, v * w * np.minimum(1, tt / .02) * np.clip((d - tt) / .05, 0, 1) * np.exp(-tt / 1.5))
+        elif k == "pad":
+            nn = int(kw["d"] * SR); tt = np.arange(nn) / SR
+            w = sum(2 * np.abs(2 * ((mtof(kw["m"] + x) * tt) % 1) - 1) - 1 for x in (0, 7, 12, 15))
+            put(t, kw["v"] * w * np.minimum(1, tt / .05) * np.exp(-tt / 1.2))
         elif k == "arp":
             put(t, v * lowpass(square(mtof(kw["m"]), .25, .125), 5000) * env(int(.25 * SR), .002, .12))
         elif k == "sput":
@@ -398,7 +439,7 @@ def render_audio(path):
         elif k == "crash": put(t, noise(1.6, 12000, 1.8, 1234, 3000), v)
         elif k == "carrier":                            # the hum turns into a buzzing radio carrier
             nn = int(kw["d"] * SR); tt = np.arange(nn) / SR
-            s = lowpass(square(mtof(52), kw["d"], .5), 1800) + 0.5 * highpass(np.random.RandomState(9).randn(nn), 3000)
+            s = lowpass(square(mtof(47), kw["d"], .5), 1800) + 0.5 * highpass(np.random.RandomState(9).randn(nn), 3000)
             put(t, v * s * (tt / kw["d"]) * (1 - np.exp(-(kw["d"] - tt) / .02)))
     out = L.copy()
     for d, g in [(.083, .5), (.127, .42), (.191, .35), (.263, .28)]:
