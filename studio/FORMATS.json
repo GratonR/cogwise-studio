@@ -115,12 +115,12 @@
         "contenu": "Data + musique, sans voix",
         "son": [
           "Musique",
-          "Sons programmés (chaque événement fait une note)"
+          "Sons programmés : une boucle fixe, la donnée choisit les notes dans l'accord (musicalité d'abord, règle du 23/11)"
         ],
         "formats": [
           "62 à 75 s"
         ],
-        "da": "Pixel art néon (180×320 agrandi), police VT323, panneau HUD en haut, graphe en bas, chaque événement = une note"
+        "da": "Pixel art néon (180×320 agrandi), police VT323, panneau HUD en haut, graphe en bas, la donnée joue dans une boucle musicale"
       },
       "montage": {
         "stems": "python3 tools/stems.py make --video <final.mp4> --track music=<out>/music.wav --out <outbox dir>/stems",
