@@ -35,3 +35,8 @@ Frames vues : 1.2 / 2.0 / 3.0 / 5.0 / 6.0 / 9.0 / 11.7 / 12.6 / 13.0 / 15.0 / 19
 - Écart horizon mer / relief (visittromso.no : ~27 nov. → ~15 janv., ~20 mai → ~22 juil.) : l'écran affiche les chiffres du calcul, la source dit « SEA HORIZON ».
 - Corrigé pendant le contrôle : la flèche « → » n'existe pas dans la police (remplacée par « TO »), « ALL DAY » ambigu sous « NO SUNRISE » (remplacé par « 0 H OF SUN » / « 24 H OF SUN »).
 - Lisibilité : rien de coupé, pas de chevauchement HUD/bannière/compteur/graphe ; texte clair sur fond sombre la nuit. Pas d'unité à convertir (heures). Aucune mention d'IA ni de fabrication.
+
+## Rendu final du retravail (étape 4/4, 2026-11-23)
+Décision r4 : « Ça me va » (visuels Tromsø seule, bannières -9.8/+8.6 gardées). Rendu `POP_STYLE=v1 PI_FX=0.8` de `polar_night_solo.py`.
+ffprobe : 67,60 s (dont 1 image de couverture), 1080×1920, piste audio présente. Planche contact (1 image / 4 s) relue : 11 H 08 (début), 7 H 39 le 25 oct. (= CSV 7,65 h), nuit polaire et aurore de 12 à 20 s (« 48 DAYS OF NIGHT · 28 NOV TO 14 JAN »), 4 H 32 le 29 janv., +8.6 MIN EVERY DAY en mars, « 68 DAYS OF DAY · 19 MAY TO 25 JUL » à 40 s, « BACK TO 12 H · 22 SEP: 12 H 26 MIN », écran de fin 48 / 68 jours + question + sources (sea horizon). Rien de coupé.
+Couverture : « 48 days of night. then 68 days of day » sur l'image à 15 s (aurore), lisible ; la bannière « THE SUN NEVER RISES » reste visible en transparence derrière le bandeau, sans gêner le titre.

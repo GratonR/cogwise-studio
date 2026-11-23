@@ -25,3 +25,18 @@ Frames vues (3 variantes) : 1.2 / 5.0 / 8.0 / 9.0 / 11.7 / 15.0 / 20.3 / 26.0 / 
 ## Rendu final (étape 4/4, 2026-11-22)
 Décision 3b : A · tout l'écran suit Tromsø (`PN_FRAME=tromso`). Rendu `POP_STYLE=v1 PI_FX=0.8 PN_FRAME=tromso`.
 ffprobe : 67,57 s, 1080×1920, piste audio présente. Planche contact (1 image / 4 s) relue : nuit et aurore de 11 à 20 s, soleil de minuit doré de 40 à 52 s, fin crème « ALMOST THE SAME NOTE », écran de fin avec la source ; rien de coupé. Couverture : « Two cities, one sun » sur l'image à 15 s (aurore), lisible.
+
+## Retravail « One cities » — étape 3/4 Tromsø seule (2026-11-23)
+Décisions : r1 = une seule ville (Tromsø) ; r2 = B « 48 Days of Night. Then 68 Days of Day » (miroir, compteur 0 h → 24 h) ; r3 = A · Marimba claire 84 BPM (une seule voix, note tenue sous le soleil de minuit, aurore pendant le silence).
+Module : `polar_night_solo.py` (mêmes données `polar_night_draft.csv`, même horloge 6 jours/s). `info` : 67,57 s ; 254 notes de marimba + 68 ticks (soleil de minuit, note tenue) ; 48 jours muets ; cadre jour/nuit qui suit Tromsø (décision 3b conservée).
+Frames vues : 1.2 / 2.0 / 3.0 / 5.0 / 6.0 / 9.0 / 11.7 / 12.6 / 13.0 / 15.0 / 19.7 / 20.6 / 28.0 / 33.0 / 40.4 / 41.4 / 42.0 / 46.0 / 55.0 / 61.4 / 62.0 / 62.2 / 64.5 s (+ variante compteur en haut, écartée : elle cache l'arc du soleil d'été et les aurores).
+- Compteur = CSV : 26 sept. 11,83 h → « 11 H 50 MIN » ; 19 oct. 8,55 → « 8 H 33 » ; 25 oct. 7,65 → « 7 H 39 » ; 12 nov. 4,67 → « 4 H 40 » ; 15 janv. 0,62 → « 37 MIN » ; 21 janv. 2,84 → « 2 H 50 » ; 6 mars 10,27 → « 10 H 16 » ; 5 avr. 14,56 → « 14 H 34 » ; 15 août 18,11 → « 18 H 07 » ; 22 sept. 12,43 → « 12 H 26 ». 0 h → « NO SUNRISE · 0 H OF SUN », 24 h → « NO SUNSET · 24 H OF SUN ». Jauge 0 → 24 h, repère à 12 h.
+- Bannières miroir (même boîte, même taille) : « 48 DAYS OF NIGHT · 28 NOV TO 14 JAN » (48 jours à 0 h dans le CSV) / « 68 DAYS OF DAY · 19 MAY TO 25 JUL » (68 jours à 24 h). « -9.8 MIN EVERY DAY · 15 OCT TO 15 NOV » et « +8.6 MIN EVERY DAY · 2 MAR TO 1 APR » calculés sur le CSV (moyenne). « THE SUN IS BACK · 15 JAN: 37 MIN », « BACK TO 12 H · 22 SEP: 12 H 26 MIN ».
+- Écart horizon mer / relief (visittromso.no : ~27 nov. → ~15 janv., ~20 mai → ~22 juil.) : l'écran affiche les chiffres du calcul, la source dit « SEA HORIZON ».
+- Corrigé pendant le contrôle : la flèche « → » n'existe pas dans la police (remplacée par « TO »), « ALL DAY » ambigu sous « NO SUNRISE » (remplacé par « 0 H OF SUN » / « 24 H OF SUN »).
+- Lisibilité : rien de coupé, pas de chevauchement HUD/bannière/compteur/graphe ; texte clair sur fond sombre la nuit. Pas d'unité à convertir (heures). Aucune mention d'IA ni de fabrication.
+
+## Rendu final du retravail (étape 4/4, 2026-11-23)
+Décision r4 : « Ça me va » (visuels Tromsø seule, bannières -9.8/+8.6 gardées). Rendu `POP_STYLE=v1 PI_FX=0.8` de `polar_night_solo.py`.
+ffprobe : 67,60 s (dont 1 image de couverture), 1080×1920, piste audio présente. Planche contact (1 image / 4 s) relue : 11 H 08 (début), 7 H 39 le 25 oct. (= CSV 7,65 h), nuit polaire et aurore de 12 à 20 s (« 48 DAYS OF NIGHT · 28 NOV TO 14 JAN »), 4 H 32 le 29 janv., +8.6 MIN EVERY DAY en mars, « 68 DAYS OF DAY · 19 MAY TO 25 JUL » à 40 s, « BACK TO 12 H · 22 SEP: 12 H 26 MIN », écran de fin 48 / 68 jours + question + sources (sea horizon). Rien de coupé.
+Couverture : « 48 days of night. then 68 days of day » sur l'image à 15 s (aurore), lisible ; la bannière « THE SUN NEVER RISES » reste visible en transparence derrière le bandeau, sans gêner le titre.
