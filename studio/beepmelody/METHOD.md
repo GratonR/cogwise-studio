@@ -1,8 +1,9 @@
 # BeepMelody — méthode de production d'un épisode
 
 BeepMelody = chaîne anglophone de shorts **data + musique, sans voix** (pixel art, 1080×1920, 30 fps).
-Une vidéo = un phénomène, une période ou une série d'événements qu'on **entend** : chaque événement de la donnée
-est une note, donc l'image et le son restent synchrones par construction. Public visé : curieux, attention courte (TDAH).
+Une vidéo = un phénomène, une période ou une série d'événements qu'on **entend** : la donnée devient une
+CHANSON : une boucle fixe (basse + batterie, grille d'accords), la donnée choisit les notes dans l'accord et pilote
+l'arrangement ; les événements tombent sur la grille, l'image reste synchrone. Musicalité d'abord (règle du 23/11). Public visé : curieux, attention courte (TDAH).
 
 Format du registre : `data-sonification` (`studio/FORMATS.json`). Moteur réutilisé tel quel :
 `studio/this-melody-is/engine` (v2.py, pi.py, pi_audio.py). **On ne modifie pas ces fichiers** ; tout ce qui est
@@ -34,10 +35,10 @@ Dans chaque carte « Données et titre », au moins une option doit être une sc
 
 ## Son retenu (2026-11-08) — « A · Chiptune 8-bit programmé »
 - `pi_audio.py` lit la liste d'événements du module (`MOD=<module>`). Rien d'externe, pas de voix.
-- ~128 BPM, pentatonique mineure ; mélodie carrée (pulse 12,5/25 %) = la donnée, hauteur selon log(valeur) ; basse triangle ; batterie bruit blanc ; arpège montant (fondamentale, quinte, octave, douzième) sur le record final.
+- (ancien, remplacé le 23/11) hauteur selon log(valeur) → donnait des sirènes sur les courbes lisses. Désormais : boucle fixe, la valeur choisit un degré dans l'accord en cours (1,5 octave max), les courbes continues pilotent la densité et les couches, arpège sur le record.
 - Les événements se resserrent vers la fin : la musique accélère avec la donnée.
 - Variante de timbre possible selon le thème (ex. marimba pour le vivant), à valider épisode par épisode.
-- Musique : adaptée au sujet (sombre pour une guerre, haut BPM pour la vitesse…). Règle et signature constante : `studio/beepmelody/music/README.md` (section RULE). Pas de gamme imposée.
+- Musique : adaptée au sujet (sombre pour une guerre, haut BPM pour la vitesse…). Règle OBLIGATOIRE : `studio/beepmelody/music/README.md`, section « RULE (2026-11-23) — MUSICALITY FIRST » (boucle fixe, données calées sur la grille, la donnée choisit un degré dans l'accord, courbe = arrangement, les 4 temps écrits avant de produire, un élément musical propre au sujet). Au CONTRÔLE avant rendu, écoute le passage le plus chargé : s'il y a une sirène, un glissando ou un aigu strident, ce n'est pas fini.
 
 ## Structure d'un épisode (≈ 64–70 s)
 | Temps | Bloc | Contenu |

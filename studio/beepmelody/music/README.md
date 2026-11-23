@@ -1,18 +1,30 @@
 # BeepMelody — music
 
-## RULE (Guillaume, 2026-11-10) — supersedes the "one fixed style" decisions below
-BeepMelody is **data shown as music**, not one genre. The music fits the subject, episode by episode:
-- war, disasters, deaths → slow, dark, sparse (low drones, muted bells, no cute sounds);
-- speed, records, races → high BPM, punchy (house/funk, drums, stabs — like the 100 m episode);
-- climate, ice, long trends → ambient, slow build;
-- space, discoveries → wide, airy synths; the living world → warm, organic (marimba, kalimba, strings).
-A scale or key is optional: if the data reads better as pitch, rhythm, density or noise, use that.
+## RULE (Guillaume, 2026-11-23) — MUSICALITY FIRST. Supersedes the 2026-11-10 rule below.
+Why: since 10 Nov the rule "one data event = one hit, placed exactly on the event, the music follows the data" produced
+sirens: a smooth curve (e.g. day length in Tromsø) played note by note = a glissando that climbs into a shrill top.
+Guillaume: "il faut de la musicalité ; pas grave si ça ne colle pas à 100 % à la data". Our best videos (launches
+2026, births, towers, "banger" comments) have a beat, a motif and an accident.
 
-What stays constant (the channel signature, so a new beat never needs a new channel):
-1. **one data event = one audible hit** (note, drum, click…), placed exactly on the event — the listener *hears* the data;
-2. the hit gets **denser/faster when the data does** (the music follows the data, never the reverse);
-3. pixel-art visuals of the channel, light or dark palette matched to the mood.
-No fixed jingle or sting is imposed (Guillaume, 2026-11-10). Choose the mood in PHASE B and say it in one line on the validation card ("mood: dark, 70 BPM, drones + muted bell").
+1. **A song first.** A fixed loop runs from start to end: bass + drums on a chord progression of 4 bars (or 8).
+   Everything is snapped to that grid (8th or 16th notes). Fidelity is to the *shape* of the data, not the milliseconds.
+2. **The data picks, it never drives a raw frequency.** A value chooses a note *inside the current chord / the scale*,
+   over 1.5 octaves at most. No continuous pitch, no glissando, nothing shrill.
+3. **Continuous data drives the arrangement, not the pitch.** Smooth curves (temperature, day length, distance…) change
+   density (notes per bar), which layers play, the filter, or which chord comes next. Notes are for *events*.
+4. **Write the 4 beats before producing** (test of the topic): (a) a 2-bar motif you can hum, (b) the motif again with
+   a variation, (c) a break: silence, wrong note, bass change, (d) the drop: the record, with the arpeggio.
+   If (a) can't be written, the topic is not for Beep Melody — or find another reading of the data.
+5. **No template.** Each topic must bring one musical thing that comes from its data: its own tempo, harmony or
+   polyrhythm (e.g. cicadas 13 vs 17, TRAPPIST-1's intervals). Vary key, tempo, instruments from one video to the next.
+6. **Mood still fits the subject** (dark/slow for disasters, punchy for speed, airy for space, warm for living things),
+   and the listener still hears the data: events are audible, the record is the drop.
+State it in one line on the validation card: "loop: Am–F–C–G 120 BPM · data → degree in chord · curve → density · drop: record".
+
+## RULE (Guillaume, 2026-11-10) — replaced by the rule above, kept for history
+BeepMelody is **data shown as music**, not one genre. The music fits the subject (dark for disasters, high BPM for speed,
+ambient for long trends, airy for space, organic for the living world). Old signature: one data event = one audible hit
+placed exactly on the event, denser when the data is. → produced unmusical sirens on smooth data; replaced on 2026-11-23.
 
 ---
 ## History (kept for reference)
