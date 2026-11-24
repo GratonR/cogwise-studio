@@ -1,0 +1,41 @@
+{
+  "duration": 64.767,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "frozen-turkey-fryer",
+  "title": "A frozen turkey can turn a fryer into a fireball 🦃 #Shorts",
+  "beat_starts": [
+    0.15,
+    5.445,
+    9.893,
+    15.61,
+    20.888,
+    25.58,
+    30.769,
+    34.762,
+    39.221,
+    44.201,
+    49.282,
+    53.203,
+    58.821
+  ]
+}
