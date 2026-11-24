@@ -1,0 +1,30 @@
+{
+ "id": "coin-battery-lye-20261124-212253",
+ "beat_starts": [
+  0.15,
+  4.755,
+  8.24,
+  13.767,
+  18.149,
+  23.467,
+  29.287,
+  35.541,
+  39.227,
+  45.862,
+  51.628,
+  55.502,
+  63.358
+ ],
+ "duration": 67.35,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-24T22:23:53",
+ "seconds": 42.9
+}
