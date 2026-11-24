@@ -103,7 +103,7 @@ def fire(t):
     if t < B(2):
         return sstep(t, 1.15, 0.4) * reset(t)
     f = 0.32 * sstep(t, B(9) + 1.5, 0.5) + 0.68 * sstep(t, B(10) + 0.3, 0.8)
-    return f * (1 - 0.25 * sstep(t, B(11) + 0.5, 1.0))
+    return f * (1 - 0.42 * sstep(t, B(11) + 0.5, 1.0))
 
 def ice(t):
     """amount of ice left on / in the turkey."""
@@ -232,24 +232,51 @@ def burner(ctx, t):
         ctx.curve_to(x, BURN_Y - h * 0.8, x + 12, BURN_Y - h * 0.5, x + 12, BURN_Y); ctx.close_path()
         setc(ctx, hexc('#3f7fc8'), 0.9); ctx.fill()
 
+def flame_sheet(ctx, x0, x1, yb, h, t, seed, a=1.0, n=5, lean=0.0):
+    """One continuous sheet of fire: base along y = yb from x0 to x1 (soft rounded bottom),
+    n tongues whose tips point UP (smaller y). Three nested layers red > orange > yellow, ink outline.
+    lean > 0 bends the tips to the right (screen x)."""
+    if h < 4 or a <= 0.01 or x1 - x0 < 8: return
+    rr = random.Random(seed)
+    tips = [(rr.uniform(0.75, 1.0), rr.uniform(0, 6.28), rr.uniform(-0.25, 0.25)) for _ in range(n)]
+    def path(k, inset):
+        xa, xb = x0 + inset, x1 - inset
+        w = (xb - xa) / n
+        ctx.move_to(xa, yb)
+        for i, (hk, ph, jit) in enumerate(tips):
+            u = (i + 0.5) / n
+            env = 0.45 + 0.55 * math.sin(math.pi * u)
+            hh = h * k * hk * env * (1 + 0.07 * math.sin(t * 8 + ph))
+            xc = xa + (i + 0.5 + jit * 0.5) * w
+            sway = w * (0.22 * math.sin(t * 6.5 + ph) + lean)
+            xv = xa + (i + 1) * w
+            yv = yb - hh * 0.28
+            ctx.curve_to(xc - w * 0.45, yb - hh * 0.35, xc - w * 0.15 + sway * 0.5, yb - hh * 0.75, xc + sway, yb - hh)
+            ctx.curve_to(xc + w * 0.1 + sway * 0.5, yb - hh * 0.7, xc + w * 0.4, yb - hh * 0.4,
+                         xv if i < n - 1 else xb, yv if i < n - 1 else yb)
+        ctx.curve_to(xb, yb + 14 * k, xa, yb + 14 * k, xa, yb)   # soft bottom
+        ctx.close_path()
+    path(1.0, 0); setc(ctx, RED, a); ctx.fill_preserve()
+    setc(ctx, INK, 0.85 * a); ctx.set_line_width(3.5); ctx.set_line_join(cairo.LINE_JOIN_ROUND); ctx.stroke()
+    ins = (x1 - x0) * 0.12
+    path(0.72, ins); setc(ctx, ORANGE, a); ctx.fill()
+    path(0.45, ins * 2.2); setc(ctx, FL_Y, a); ctx.fill()
+
 def fireball(ctx, t, f):
+    """Burning oil: fire sits where the oil is -- the puddle on the burner, the streams on both outer walls,
+    then the oil surface in the pot. Every flame grows UP from its base."""
     if f <= 0.01: return
-    rr = random.Random(9)
-    # tongues climbing from the burner and along both outer walls, growing UP
-    for i in range(16):
-        side = -1 if i % 2 == 0 else 1
-        base_x = (XO_L - 20 if side < 0 else XO_R + 20) + rr.uniform(-60, 40) * side
-        yb = BURN_Y + 20 - rr.uniform(0, 120) * f
-        h = (120 + rr.uniform(0, 260)) * f * (1 + 0.6 * f)
-        flame(ctx, base_x, yb, 70 + 90 * f, h, t, rr.uniform(0, 6))
-    if f > 0.45:                                    # the ball above the pot
-        k = (f - 0.45) / 0.55
-        for i in range(12):
-            x = 540 + rr.uniform(-330, 330) * k
-            yb = RIM + 40 - rr.uniform(0, 140) * k
-            flame(ctx, x, yb, 120 * k + 40, (180 + rr.uniform(0, 300)) * k, t, rr.uniform(0, 6), min(1, k * 1.4))
-    # under the pot: burning puddle
-    flame(ctx, 540, BURN_Y + 28, 420 * f, 90 * f, t, 1.0)
+    g = min(1.0, f / 0.32)                       # ground fire comes first
+    flame_sheet(ctx, 330, 750, BURN_Y + 26, 110 * g + 120 * f, t, 21, n=7)
+    # sheets climbing the outside of both walls (where the oil ran down)
+    hw = (220 + 320 * f) * f
+    flame_sheet(ctx, XO_L - 105, XO_L + 50, BURN_Y + 10, hw, t, 22, n=2, lean=-0.08)
+    flame_sheet(ctx, XO_R - 50, XO_R + 105, BURN_Y + 10, hw, t, 23, n=2, lean=0.08)
+    if f > 0.45:                                 # the oil surface itself catches: the ball above the pot
+        k = ease(clamp((f - 0.45) / 0.55))
+        yb = oil_y(t) - 4
+        flame_sheet(ctx, lerp(540 - 120, XO_L - 30, k), lerp(540 + 120, XO_R + 30, k), yb,
+                    440 * k + 60, t, 24, n=6)
 
 # ---------------------------------------------------------------- pot + oil
 def pot(ctx, t):
