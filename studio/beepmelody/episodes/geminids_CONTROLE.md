@@ -46,3 +46,17 @@ Mesure : part d'énergie 2–8 kHz ≤ 2,9 % sur tous les passages (le plus char
 - Frames contrôlées : 0,8 · 3,5 · 5,5 · 7,6 · 8,5 · 10,5 · 12 · 16,6 · 17 · 22,4 · 27 · 40 · 42,8 · 47 · 50,3 · 56 · 61 · 64 · 66,5 s + planche contact du MP4 final.
 ### Identique
 Musique (music.wav identique bit à bit, md5 0df2fe48…), données (CSV identique), durée 67,5 s, tempo.
+
+## Retravail r1 (24/11, remarque : « Je n'ai pas l'impression que les visuels collent » → choix de Guillaume : « Trop compliqué à lire »)
+### Visuels (seul changement)
+- Vue fixe sur un ciel unique : plus de caméra qui tourne, plus de constellations ni de boussole, plus de graphe.
+- Radiant au centre de l'image (halo qui pulse à chaque bip) ; chaque bip = 1 étoile filante brillante (trait épais + tête) qui jaillit du radiant pile sur la note ; les autres météores du modèle = traînées pâles depuis le même point.
+- HUD réduit à l'heure et au compteur (« N SHOOTING STARS », +5 à chaque bip) ; ligne du bas « EVERY BEEP = 5 SHOOTING STARS (EXPECTED) » (modèle dit à l'écran).
+- Carte explicative raccourcie (plus de mention de caméra). Bannière lune : « DARK SKY FROM NOW ON » (la lune n'est plus dessinée). Bannières sous le radiant (y 430), au-dessus des collines.
+- Couleur du ciel toujours pilotée par la hauteur du Soleil (PyEphem) : crépuscule au début, aube à la fin.
+### Frames contrôlées
+1 · 5,5 · 8,6 · 11 · 17 · 22,5 · 27 · 42,8 · 50,4 · 51 · 56 · 61 · 66 s + planche contact du MP4 final (1 image / 4 s).
+- Compteur = 5 × bips joués (138 bips → 690 à l'aube = « ≈ 690 » de l'outro) ; heures, 94/h à 3:30, 1:55 AM 83°, 35 km/s · 22 mi/s, 8:48 PM inchangés (CSV identique).
+- Rien de coupé, pas de chevauchement HUD/bannière, aucune mention d'IA.
+### Identique
+Données (CSV), musique (music.wav md5 0df2fe48…, identique), timing, durée 67,50 s (ffprobe), textes. Couverture « One night of Geminids » à 50,3 s.
