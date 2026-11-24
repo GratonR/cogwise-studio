@@ -173,25 +173,50 @@ def draw_scene(img, T):
         if T < T0: prog = 0.0 if T >= T_RW else 1.0
         else:
             le = last_emerg(b, int(yf + 1e-6)); prog = (yf - le) / PER[b]
-        for x, o in NYMPH[b]:
-            y = int(lerp(YSOIL - 10 - o, HZ + 10 + o // 3, prog ** 1.4))
-            d.rectangle([x, y, x + 3, y + 1], fill=COL[b]); d.point((x + 4, y), fill=COL2[b])
+        for x, o in NYMPH[b][::2]:                                            # r1: little grubs with an eye
+            y = int(lerp(YSOIL - 12 - o, HZ + 8 + o // 3, prog ** 1.4))
+            put_sprite(d, min(x, AW - 8) if b == "XIII" else min(x, 82), y, GRUB, spal(b))
     return img
+
+# r1 (Guillaume, 24 nov.: « les cigales peuvent être plus mignonnes » -> piste B « kawaii qui chantent »):
+# each cicada is a small character (big eyes with highlight, pink cheeks, flapping white wings), fewer but readable,
+# and little notes float up while the swarm sings. Same data, timing, music, HUD.
+WING, WING2 = (246, 250, 255), (196, 214, 236)
+HI, BLUSH = (255, 255, 255), (255, 150, 160)
+KAWAII = [
+    ["WWW.....WWW", "WwwW...WwwW", ".WwWBBBWwW.", "..BBBBBBB..", ".BBBBBBBBB.", "BKKBBBBBKKB", "BKHBBBBBKHB", "BPPBBDBBPPB",
+     ".BBBBBBBBB.", "..BD...DB.."],
+    ["...........", "...........", "WW.BBBBB.WW", "WwWBBBBBWwW", "wBBBBBBBBBw", "BKKBBBBBKKB", "BKHBBBBBKHB", "BPPBBDBBPPB",
+     ".BBBBBBBBB.", "..BD...DB.."],
+]
+NOTE = ["..KK", "..KK", "..K.", "KKK.", "KKK."]
+GRUB = ["..BBB.", ".BBBBB", "BKHBBB", "BBBBBB", ".D.D.."]
+SW_SCALE = 0.30
+def spal(b):
+    return {"B": COL[b], "D": COL2[b], "K": INK, "H": HI, "W": WING, "w": WING2, "P": BLUSH}
+def put_sprite(d, x, y, rows, pal):
+    x, y = int(round(x)), int(round(y))
+    for j, r in enumerate(rows):
+        for i, ch in enumerate(r):
+            if ch != "." and ch in pal: d.point((x + i, y + j), fill=pal[ch])
 
 def swarm(img, T, b, te, n=36, life=2.6):
     a_ = T - te
     if a_ < 0 or a_ > life: return
     d = ImageDraw.Draw(img); rnd = random.Random(hash((b, te)) % 99991)
+    sw, sh = len(KAWAII[0][0]), len(KAWAII[0])
+    n = max(4, int(n * SW_SCALE))
     for k in range(n):
-        sx = rnd.uniform(6, 86) if b == "XIX" else rnd.uniform(94, 174)
-        tx = sx + rnd.uniform(-28, 28); ty = rnd.uniform(34, HZ - 14)
+        sx = rnd.uniform(6, 86 - sw) if b == "XIX" else rnd.uniform(94, 174 - sw)
+        tx = sx + rnd.uniform(-22, 22); ty = rnd.uniform(30, HZ - sh - 6)
+        tx = max(2, min(AW - sw - 2, tx))
         dl = rnd.uniform(0, 0.35); f = ease(min(1, max(0, (a_ - dl) / 0.7)))
         if a_ < dl: continue
         if a_ > life - 0.6 and rnd.random() < (a_ - (life - 0.6)) / 0.6: continue
-        x = sx + (tx - sx) * f + 1.5 * math.sin(a_ * 9 + k); y = HZ + (ty - HZ) * f + 1.2 * math.cos(a_ * 11 + k)
-        d.rectangle([x, y, x + 3, y + 1], fill=COL[b]); d.point((x + 3, y), fill=COL2[b])
-        if int(a_ * 20 + k) % 2: d.rectangle([x + 1, y - 1, x + 2, y - 1], fill=(250, 250, 255))
-        else: d.rectangle([x - 1, y + 2, x + 1, y + 2], fill=(236, 240, 250))
+        x = sx + (tx - sx) * f + 1.5 * math.sin(a_ * 6 + k); y = HZ + (ty - HZ) * f + 1.2 * math.cos(a_ * 7 + k)
+        put_sprite(d, x, y, KAWAII[int(a_ * 16 + k) % 2], spal(b))
+        if k % 3 == 0 and 0.4 < a_ < 2.0:
+            put_sprite(d, x + sw - 2, y - 7 - (a_ - 0.4) * 6, NOTE, {"K": COL2[b]})
 
 def swarms(img, T):
     if T < T_RW:                                       # 2024: both swarms already out

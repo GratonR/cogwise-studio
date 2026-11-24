@@ -24,3 +24,9 @@ Pas de glissando ni d'aigu strident : note max A5 (880 Hz) filtrée ; énergie >
 
 ## Rendu
 70,0 s (ffprobe), 1080×1920, vidéo + audio. Planche contact relue. Couverture « Together every 221 years » (--at 1.5).
+
+## Retravail r1 — visuel seul (24 nov. 2026)
+Remarque de Guillaume : « Les cigales peuvent être plus mignonnes ». Choix : piste B « Kawaii qui chantent ».
+- Changé : chaque cigale = sprite 11 px (gros yeux avec reflet, joues roses, ailes blanches qui battent), nuées à 30 % de la densité, petites notes ♪ au-dessus pendant le chant ; nymphes sous terre = petites larves avec un œil (1 sur 2).
+- Identique : CSV, années, couleurs (rouge = Brood XIX 13 ans, vert = Brood XIII 17 ans), HUD, jauges, frise, bannières, musique (music.wav inchangé), timing.
+- Contrôle des frames : 2024 (intro), rewind, 1803, 1854/1855, 1960, 1972/1973, drop 2024, outro : jauges et frise conformes au CSV, aucune cigale coupée par le cadre, bannières lisibles (quelques ♪ passent derrière la bannière, voulu). Durée ffprobe 70,0 s.
