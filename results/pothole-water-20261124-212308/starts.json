@@ -1,0 +1,30 @@
+{
+ "id": "pothole-water-20261124-212308",
+ "beat_starts": [
+  0.15,
+  5.897,
+  10.147,
+  15.581,
+  22.298,
+  27.225,
+  32.049,
+  36.575,
+  41.272,
+  46.022,
+  52.586,
+  57.433,
+  61.543
+ ],
+ "duration": 65.535,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-24T22:25:51",
+ "seconds": 42.4
+}
