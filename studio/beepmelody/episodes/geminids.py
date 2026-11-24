@@ -13,6 +13,10 @@ Music (rule 2026-11-23, musicality first): loop Dm9 - Bbmaj7 - Fmaj7 - C(add9), 
     (d) drop = the peak hour 3-4 AM, full kit + octave lead + arpeggio at 3:30 AM. Dawn 5:36: kit stops, D major sunrise chord.
   - subject element: each hour of the night is exactly two bars, and the clock chimes on the hour.
 
+  Rework 24/11 (Guillaume: check every number, explain the set-up at the start, check the visuals: sky rotation, angles):
+    - intro explainer card (where we are, 1 hour = 5 s, every beep = 5 shooting stars, the camera follows Gemini);
+    - sky: conformal Mercator alt/az view that pans with the radiant (ground and compass turn with it), true constellation
+      shapes, meteors on great circles from the radiant, crescent lit on the Sun's side; moonset 8:48 PM (almanac convention).
     python3 geminids.py info out | at out <T> ... | audio out/music.wav | render out | final out x.mp4
 """
 import sys, os, math, random, subprocess, csv, datetime as dt
@@ -38,7 +42,7 @@ CUM = [float(r["cumulative"]) for r in ROWS]
 ALT = [float(r["radiant_alt_deg"]) for r in ROWS]
 TOTAL_MET = CUM[-1]
 LAT, LON, TZ = "40", "-75", -5
-DUSK_H, DAWN_H, MOONSET_H = 18 + 12 / 60, 29 + 36 / 60, 20 + 45 / 60
+DUSK_H, DAWN_H, MOONSET_H = 18 + 12 / 60, 29 + 36 / 60, 20 + 48 / 60   # moonset: almanac convention (upper limb, refraction)
 HIGH_H, PEAK_H = 25 + 55 / 60, 27.5
 PEAK_RATE = max(RATE)
 
@@ -132,6 +136,10 @@ def build():
 build()
 
 # ================= sky =================
+# Camera (rework 24/11): we stand at 40 N 75 W and keep the radiant in view. The camera pans slowly with Gemini
+# (NE at dusk -> S at 2 AM -> W at dawn), so the sky turns as it really does AND the ground turns with the camera.
+# Projection = Mercator in (azimuth, altitude): conformal (true angles, true constellation shapes), straight horizon,
+# 1 px = 1 px in x and y at the horizon. Meteors follow great circles away from the radiant.
 OBS = ephem.Observer(); OBS.lat, OBS.lon, OBS.pressure = LAT, LON, 0
 SUN, MOON = ephem.Sun(), ephem.Moon()
 def ut_of(h): return ephem.Date(ephem.Date("2026/12/13 00:00") + (h - TZ) / 24)
@@ -146,35 +154,50 @@ STARS_NAMED = [  # name, RA (h), Dec (deg), mag  (J2000, Yale Bright Star values
     ("ALIOTH", 12.900, 55.96, 1.8), ("MIZAR", 13.399, 54.93, 2.2), ("ALKAID", 13.792, 49.31, 1.9), ("POLARIS", 2.530, 89.26, 2.0),
     ("ALGOL", 3.136, 40.96, 2.1), ("MIRFAK", 3.405, 49.86, 1.8), ("ALCYONE", 3.791, 24.11, 2.9), ("SPICA", 13.420, -11.16, 1.0),
 ]
-GEM_LINES = [("CASTOR", "POLLUX")]   # the twins only (the panorama stretches the sky vertically)
+# Gemini stick figure: the twins' heads Castor / Pollux, their bodies down to the feet (Propus, Tejat / Alhena)
+GEM_LINES = [("CASTOR", "POLLUX"), ("CASTOR", "MEBSUTA"), ("MEBSUTA", "TEJAT"), ("TEJAT", "PROPUS"),
+             ("POLLUX", "WASAT"), ("WASAT", "MEKBUDA"), ("MEKBUDA", "ALHENA")]
 ORI_LINES = [("BETELGEUSE", "BELLATRIX"), ("BETELGEUSE", "ALNITAK"), ("BELLATRIX", "MINTAKA"), ("MINTAKA", "ALNILAM"),
              ("ALNILAM", "ALNITAK"), ("ALNITAK", "SAIPH"), ("MINTAKA", "RIGEL")]
 _r = np.random.RandomState(13)
-NF = 260
-F_RA = _r.uniform(0, 24, NF); F_DEC = np.degrees(np.arcsin(_r.uniform(-0.5, 1, NF))); F_MAG = _r.uniform(3.5, 5.5, NF)
+NF = 420
+F_RA = _r.uniform(0, 24, NF); F_DEC = np.degrees(np.arcsin(_r.uniform(-0.5, 1, NF))); F_MAG = _r.uniform(3.5, 5.6, NF)
 S_RA = np.array([s[1] for s in STARS_NAMED] + list(F_RA)); S_DEC = np.array([s[2] for s in STARS_NAMED] + list(F_DEC))
 S_MAG = np.array([s[3] for s in STARS_NAMED] + list(F_MAG)); SIDX = {s[0]: k for k, s in enumerate(STARS_NAMED)}
 RAD_RA, RAD_DEC = 7 + 28 / 60, 33.0
 LATR = math.radians(40.0)
-HZ = 258                     # horizon (art px)
-AZ0, AZ1 = 35.0, 295.0
-def proj(alt, az):
-    x = 4 + (az - AZ0) / (AZ1 - AZ0) * (AW - 8)
-    y = HZ - np.asarray(alt) / 90 * (HZ - 62)
-    return x, y
+HZ = 258                      # horizon (art px)
+KPX = 70.0                    # px per radian at the horizon (1.22 px/deg, ~147 deg wide view)
+CX = AW / 2
+
 def altaz(ra_h, dec_d, lst_h):
     H = np.radians((lst_h - np.asarray(ra_h)) * 15); d = np.radians(np.asarray(dec_d))
     sa = np.sin(d) * math.sin(LATR) + np.cos(d) * math.cos(LATR) * np.cos(H)
     alt = np.degrees(np.arcsin(np.clip(sa, -1, 1)))
     az = np.degrees(np.arctan2(-np.cos(d) * np.sin(H), np.sin(d) * math.cos(LATR) - np.cos(d) * math.sin(LATR) * np.cos(H))) % 360
     return alt, az
+
+# camera azimuth = radiant azimuth smoothed over +-1 h of night (so it pans gently, fastest around 2 AM)
+def _lst(h): OBS.date = ut_of(h); return float(OBS.sidereal_time()) * 12 / math.pi
+_CH = np.arange(16.0, 32.01, 0.05)
+_RAZ = np.unwrap(np.radians([float(altaz(RAD_RA, RAD_DEC, _lst(h))[1]) for h in _CH]))
+_W = np.exp(-0.5 * (np.arange(-40, 41) * 0.05 / 0.9) ** 2); _W /= _W.sum()
+_CAM = np.convolve(np.pad(_RAZ, 40, mode="edge"), _W, mode="valid")
+def cam_az(h): return math.degrees(float(np.interp(h, _CH, _CAM))) % 360
+
+def proj(alt, az, cam):
+    d = (np.asarray(az) - cam + 540) % 360 - 180
+    a = np.radians(np.clip(np.asarray(alt), -30, 86))
+    return CX + KPX * np.radians(d), HZ - KPX * np.log(np.tan(math.pi / 4 + a / 2))
+
 _SKYC = {}
 def sky_state(h):
     key = round(h, 3)
     if key in _SKYC: return _SKYC[key]
     OBS.date = ut_of(h); lst = float(OBS.sidereal_time()) * 12 / math.pi
     SUN.compute(OBS); MOON.compute(OBS)
-    st = dict(lst=lst, sun=math.degrees(SUN.alt), moon=(math.degrees(MOON.alt), math.degrees(MOON.az)))
+    st = dict(lst=lst, sun=(math.degrees(SUN.alt), math.degrees(SUN.az)), moon=(math.degrees(MOON.alt), math.degrees(MOON.az)),
+              cam=cam_az(h))
     if len(_SKYC) > 4000: _SKYC.clear()
     _SKYC[key] = st; return st
 
@@ -185,54 +208,102 @@ def sky_cols(sun_alt):
     f = ease((sun_alt + 18) / 14)          # 0 at -18 (astronomical night), 1 at -4
     return mixc(NIGHT_TOP, DUSK_TOP, f), mixc(NIGHT_BOT, DUSK_BOT, f), f
 
+# ---- sphere helpers (alt/az unit vectors) ----
+def vec(alt, az):
+    a, z = math.radians(alt), math.radians(az); return np.array([math.cos(a) * math.sin(z), math.cos(a) * math.cos(z), math.sin(a)])
+def unvec(v):
+    v = v / np.linalg.norm(v); return math.degrees(math.asin(max(-1, min(1, v[2])))), math.degrees(math.atan2(v[0], v[1])) % 360
+def gc_point(R, pa, d):
+    """point at angular distance d (deg) from R, along position angle pa (rad, from the local 'up' towards the zenith)"""
+    up = np.array([0, 0, 1.0]) - R * R[2]
+    up = up / np.linalg.norm(up) if np.linalg.norm(up) > 1e-6 else np.array([0, 1.0, 0])
+    ri = np.cross(up, R); U = math.cos(pa) * up + math.sin(pa) * ri; dr = math.radians(d)
+    return R * math.cos(dr) + U * math.sin(dr)
+
 # ================= meteors (picture) =================
-METEORS = []   # (T, bright, angle, r0, length)
+METEORS = []   # (T, bright, pa, d0, length_deg)
 _rm = random.Random(14)
+def _visible_start(T, pa, d0):
+    h = min(30.0, max(18.0, h_of(T))); st = sky_state(h)
+    ra_alt, ra_az = altaz(RAD_RA, RAD_DEC, st["lst"]); R = vec(float(ra_alt), float(ra_az))
+    alt, az = unvec(gc_point(R, pa, d0)); x, y = proj(alt, az, st["cam"])
+    return alt > 4 and 6 < float(x) < AW - 6 and 50 < float(y) < HZ - 6
+def _pick(T, dmin, dmax, tries=40):
+    for _ in range(tries):
+        pa, d0 = _rm.uniform(0, 2 * math.pi), _rm.uniform(dmin, dmax)
+        if _visible_start(T, pa, d0): return pa, d0
+    return pa, d0
 for t, m, j in BEEPS_T:
-    METEORS.append((t, 1, _rm.uniform(0, 2 * math.pi), _rm.uniform(8, 50), _rm.uniform(26, 46)))
+    pa, d0 = _pick(t, 4, 32); METEORS.append((t, 1, pa, d0, _rm.uniform(9, 16)))
 hours = {}
 for hb in BEEP_H: hours[int(hb)] = hours.get(int(hb), 0) + 1
 for hh in range(18, 30):
     tot = int(round(interp(CUM, hh + 1) - interp(CUM, hh))); faint = max(0, tot - hours.get(hh, 0))
     for _ in range(faint):
-        METEORS.append((T_of(hh + _rm.random()), 0, _rm.uniform(0, 2 * math.pi), _rm.uniform(6, 50), _rm.uniform(10, 22)))
+        tm = T_of(hh + _rm.random()); pa, d0 = _pick(tm, 4, 45, 8); METEORS.append((tm, 0, pa, d0, _rm.uniform(4, 8)))
 METEORS.sort()
 MET_T = np.array([m[0] for m in METEORS])
 MLIFE = 0.45
 
-def landscape(d, sunf):
+# ground: anchored in azimuth, so it turns with the camera
+TREES = [(20, 9), (27, 12), (33, 8), (64, 10), (71, 13), (98, 9), (150, 12), (157, 9), (163, 14), (205, 10), (212, 8),
+         (238, 12), (246, 10), (290, 9), (298, 13), (305, 8), (338, 11), (345, 9)]
+CABIN_AZ = 128
+def landscape(d, sunf, cam):
     hill = mixc((14, 18, 30), (60, 52, 70), sunf * 0.6)
-    pts = [(0, HZ)] + [(x, HZ - 3 - 3 * math.sin(x / 23) - 2 * math.sin(x / 7.0)) for x in range(0, AW + 1, 4)] + [(AW, HZ)]
-    d.polygon(pts + [(AW, AH), (0, AH)], fill=hill)
+    pts = []
+    for x in range(0, AW + 1, 2):
+        az = cam + math.degrees((x - CX) / KPX)
+        pts.append((x, HZ - 2.5 - 2.5 * math.sin(math.radians(az) * 3) - 1.5 * math.sin(math.radians(az) * 11)))
+    d.polygon([(0, HZ)] + pts + [(AW, HZ), (AW, AH), (0, AH)], fill=hill)
     tree = mixc((6, 10, 18), (30, 30, 44), sunf * 0.6)
-    for tx, th in [(6, 26), (15, 34), (24, 22), (148, 30), (158, 38), (170, 26), (177, 20)]:
-        for k in range(th):
-            w = (k * 6) // th + 1; y = HZ + 6 - th + k
-            d.line([tx - w, y, tx + w, y], fill=tree)
-    # a cabin with a warm window + a person lying on a blanket, looking up
-    d.rectangle([118, HZ - 6, 132, HZ + 6], fill=tree); d.polygon([(116, HZ - 6), (125, HZ - 13), (134, HZ - 6)], fill=tree)
-    d.rectangle([122, HZ - 3, 125, HZ], fill=(255, 196, 110))
-    d.rectangle([70, HZ + 9, 96, HZ + 12], fill=(150, 60, 70))
-    d.rectangle([74, HZ + 7, 92, HZ + 8], fill=(40, 46, 70)); d.rectangle([92, HZ + 6, 95, HZ + 8], fill=(220, 190, 160))
+    def xaz(az): return CX + KPX * math.radians((az - cam + 540) % 360 - 180)
+    for taz, th in TREES:
+        tx = xaz(taz)
+        if -10 < tx < AW + 10:
+            for k in range(th):
+                w = (k * 5) // th + 1; y = HZ + 3 - th + k
+                d.line([tx - w, y, tx + w, y], fill=tree)
+    cx = xaz(CABIN_AZ)
+    if -20 < cx < AW + 20:
+        d.rectangle([cx - 7, HZ - 6, cx + 7, HZ + 4], fill=tree); d.polygon([(cx - 9, HZ - 6), (cx, HZ - 13), (cx + 9, HZ - 6)], fill=tree)
+        d.rectangle([cx - 3, HZ - 3, cx, HZ], fill=(255, 196, 110))
+
+def draw_moon(d, st, top, bot):
+    malt, maz = st["moon"]; cam = st["cam"]
+    if malt < -0.5: return None
+    mx, my = proj(malt, maz, cam); mx, my = float(mx), float(my)
+    if not (-6 < mx < AW + 6): return None
+    # bright limb faces the Sun: direction on screen from the moon towards the Sun (along the great circle)
+    M = vec(malt, maz); S = vec(*st["sun"]); g = S - M * float(np.dot(S, M)); g /= np.linalg.norm(g)
+    a2, z2 = unvec(M + 0.03 * g); sx, sy = proj(a2, z2, cam); vx, vy = float(sx) - mx, float(sy) - my; n = math.hypot(vx, vy) or 1
+    vx, vy = vx / n, vy / n; r = 3.5; ill = 0.21                                    # ~20 % lit (PyEphem 20-21 %)
+    for yy in range(-4, 5):
+        for xx in range(-4, 5):
+            if xx * xx + yy * yy > r * r: continue
+            u = xx * vx + yy * vy                                                     # coordinate towards the Sun
+            w = math.sqrt(max(0, r * r - (xx * -vy + yy * vx) ** 2))                  # half-chord at this line
+            if u > w * (1 - 2 * ill):                                                 # terminator (ellipse) -> crescent
+                d.point((mx + xx, my + yy), fill=(250, 240, 200))
+    return mx, my
 
 def draw_sky(T):
-    h = min(30.0, max(18.0, h_of(T))); st = sky_state(h)
-    top, bot, sunf = sky_cols(st["sun"])
+    h = min(30.0, max(18.0, h_of(T))); st = sky_state(h); cam = st["cam"]
+    top, bot, sunf = sky_cols(st["sun"][0])
     a = np.zeros((AH, AW, 3), np.uint8)
     for y in range(0, HZ + 1):
         a[y, :] = mixc(top, bot, (y / HZ) ** 1.6)
     img = Image.fromarray(a); d = ImageDraw.Draw(img)
-    alt, az = altaz(S_RA, S_DEC, st["lst"]); x, y = proj(alt, az)
+    alt, az = altaz(S_RA, S_DEC, st["lst"]); x, y = proj(alt, az, cam)
     vis = 1 - sunf
-    def spos(nm): k = SIDX[nm]; return (x[k], y[k]) if alt[k] > 0.5 else None
-    # constellation lines (Gemini in gold, Orion faint)
-    for lines, col, w in ((GEM_LINES, (200, 170, 90), 0.9),):
+    def spos(nm): k = SIDX[nm]; return (float(x[k]), float(y[k])) if alt[k] > 0.5 else None
+    for lines, col, w in ((ORI_LINES, (120, 130, 170), 0.35), (GEM_LINES, (200, 170, 90), 0.8)):
         for p, q in lines:
             P, Q = spos(p), spos(q)
-            if P and Q: d.line([P, Q], fill=mixc(top, col, w * vis))
+            if P and Q and abs(P[0] - Q[0]) < AW / 2: d.line([P, Q], fill=mixc(top, col, w * vis))
     tw = int(T * 6)
     for k in range(len(S_RA)):
-        if alt[k] <= 0.5 or not (0 <= x[k] < AW): continue
+        if alt[k] <= 0.5 or not (0 <= x[k] < AW) or y[k] < 0: continue
         mg = S_MAG[k]; b = max(0.0, min(1.0, (5.8 - mg) / 5)) * vis
         if b < 0.05: continue
         if (k * 7 + tw) % 23 == 0: b *= 0.6
@@ -241,36 +312,37 @@ def draw_sky(T):
         d.point((xi, yi), fill=c)
         if mg < 1.0:
             for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)): d.point((xi + dx, yi + dy), fill=mixc(top, c, 0.6))
-    # radiant marker
-    ra_alt, ra_az = altaz(RAD_RA, RAD_DEC, st["lst"]); rx, ry = proj(ra_alt, ra_az); rx, ry = float(rx), float(ry)
-    # moon (crescent, 20 % lit) until it sets
-    malt, maz = st["moon"]
-    if malt > -1:
-        mx, my = proj(malt, maz); mx, my = float(mx), float(my)
-        d.ellipse([mx - 4, my - 4, mx + 4, my + 4], fill=(250, 240, 200)); d.ellipse([mx - 5, my - 5, mx + 2, my + 3], fill=mixc(top, bot, my / HZ))
-    # meteors
-    if float(ra_alt) > 0:
+    ra_alt, ra_az = altaz(RAD_RA, RAD_DEC, st["lst"]); ra_alt, ra_az = float(ra_alt), float(ra_az)
+    rx, ry = proj(ra_alt, ra_az, cam); rx, ry = float(rx), float(ry)
+    draw_moon(d, st, top, bot)
+    # meteors: along great circles, away from the radiant; screen length capped (Mercator stretches near the zenith)
+    if ra_alt > 0:
+        R = vec(ra_alt, ra_az)
         i0 = int(np.searchsorted(MET_T, T - MLIFE)); i1 = int(np.searchsorted(MET_T, T + 1e-6))
-        for (tm, br, ang, r0, ln) in METEORS[i0:i1]:
+        for (tm, br, pa, d0, ln) in METEORS[i0:i1]:
             age = (T - tm) / MLIFE
             if not (0 <= age < 1): continue
-            prog = min(1, age / 0.45)
-            sx, sy = rx + math.cos(ang) * r0, ry + math.sin(ang) * r0 * 0.9
-            ex, ey = sx + math.cos(ang) * ln * prog, sy + math.sin(ang) * ln * prog * 0.9
-            if sy > HZ - 2: continue
-            fade = 1 - max(0, (age - 0.45) / 0.55)
-            n = 10
-            for s in range(n):
-                u0 = s / n; u1 = (s + 1) / n
-                p0 = (sx + (ex - sx) * u0, sy + (ey - sy) * u0); p1 = (sx + (ex - sx) * u1, sy + (ey - sy) * u1)
-                if p1[1] > HZ - 1: break
-                kk = (u1 ** 1.5) * fade * (1.0 if br else 0.7)
-                d.line([p0, p1], fill=mixc(top, (255, 246, 214) if br else (200, 214, 255), kk))
-                if br: d.line([(p0[0], p0[1] + 1), (p1[0], p1[1] + 1)], fill=mixc(top, (255, 220, 150), kk * 0.5))
-            if br and prog < 1 and ey < HZ - 1:
-                d.rectangle([ex - 1, ey - 1, ex + 1, ey + 1], fill=mixc(top, (255, 255, 240), fade))
-    landscape(d, sunf)
-    return img, (rx, ry, float(ra_alt)), sunf
+            prog = min(1, age / 0.45); fade = 1 - max(0, (age - 0.45) / 0.55)
+            n = 12; pts = []
+            for s in range(n + 1):
+                al, az_ = unvec(gc_point(R, pa, d0 + ln * prog * s / n))
+                if al < 0.3: break
+                px, py = proj(al, az_, cam); pts.append((float(px), float(py)))
+            if len(pts) < 2: continue
+            cap = 46 if br else 24; L = 0; cut = [pts[0]]
+            for p in pts[1:]:
+                L += math.hypot(p[0] - cut[-1][0], p[1] - cut[-1][1])
+                if L > cap: break
+                cut.append(p)
+            m_ = len(cut) - 1
+            for s in range(m_):
+                kk = (((s + 1) / max(1, m_)) ** 1.5) * fade * (1.0 if br else 0.7)
+                d.line([cut[s], cut[s + 1]], fill=mixc(top, (255, 246, 214) if br else (200, 214, 255), kk))
+                if br: d.line([(cut[s][0], cut[s][1] + 1), (cut[s + 1][0], cut[s + 1][1] + 1)], fill=mixc(top, (255, 220, 150), kk * 0.5))
+            if br and prog < 1:
+                ex, ey = cut[-1]; d.rectangle([ex - 1, ey - 1, ex + 1, ey + 1], fill=mixc(top, (255, 255, 240), fade))
+    landscape(d, sunf, cam)
+    return img, (rx, ry, ra_alt), sunf, cam
 
 # ================= HUD =================
 INK, INK2 = (236, 232, 220), (150, 160, 196)
@@ -304,10 +376,11 @@ def graph(c, T):
     for lab, hh in (("6PM", 18), ("MIDNIGHT", 24), ("6AM", 30)):
         text(W, x0 + (x1 - x0) * (hh - 18) / 12, yb - 1, lab, fill=INK2, align="c" if hh == 24 else ("l" if hh == 18 else "r"))
 
-def compass(c, T):
+def compass(c, T, cam):
     W = c.t
-    for lab, az in (("NE", 45), ("E", 90), ("SE", 135), ("S", 180), ("SW", 225), ("W", 270)):
-        x, _ = proj(0, az); text(W, float(x) * 2, HZ * 2 + 2, lab, fill=(110, 120, 160), align="c")
+    for lab, az in (("N", 0), ("NE", 45), ("E", 90), ("SE", 135), ("S", 180), ("SW", 225), ("W", 270), ("NW", 315)):
+        x, _ = proj(0, az, cam); x = float(x) * 2
+        if 14 < x < 346: text(W, x, HZ * 2 + 2, lab, fill=(140, 150, 190), align="c")
 
 def banner_box(W, yb, tt, sub, big, a, col=GOLD):
     w = (16 if big else 8) * len(tt) + 30; w = max(w, 8 * len(sub) + 30)
@@ -322,42 +395,60 @@ def banner_box(W, yb, tt, sub, big, a, col=GOLD):
         if sub and a > 0.25: text(W, 180, yb + 21, sub, fill=col, align="c")
 
 BY = 420
+BY_HI = 200    # early night and dawn: Gemini is low, keep the banners high so they never hide the radiant
 BANNERS = [   # t0, t1, title, sub, big, colour, y
-    (4.2, 8.4, "6:12 PM · DARK ENOUGH", "GEMINI RISES IN THE EAST", False, BLUE, BY),
-    (T_of(MOONSET_H), T_of(MOONSET_H) + 3.4, "8:45 PM · MOONSET", "THIN CRESCENT, ≈ 20 % LIT", False, BLUE, BY),
-    (T_of(21.3), T_of(21.3) + 5.0, "THEIR SOURCE: 3200 PHAETHON", "A ROCKY ASTEROID, NOT A COMET", False, ROSE, BY),
-    (T_of(22.5), T_of(22.5) + 4.6, "35 KM/S · 22 MI/S", "EVERY GRAIN HITS THE AIR AT THIS SPEED", False, GOLD, BY),
-    (T_of(HIGH_H), T_of(HIGH_H) + 3.2, "1:55 AM", "GEMINI AT ITS HIGHEST", True, GOLD, BY - 20),
+    (9.4, 13.6, "GEMINI RISES IN THE NORTHEAST", "EVERY METEOR FLIES OUT FROM ITS RADIANT", False, GOLD, BY_HI),
+    (T_of(MOONSET_H) - 0.4, T_of(21.3) - 0.05, "8:48 PM · THE MOON SETS", "THIN CRESCENT (≈ 20 % LIT), IN THE WEST", False, BLUE, BY_HI),
+    (T_of(21.3), T_of(21.3) + 5.0, "THEIR SOURCE: 3200 PHAETHON", "A ROCKY ASTEROID, NOT A COMET", False, ROSE, BY_HI),
+    (T_of(22.5), T_of(22.5) + 4.6, "35 KM/S · 22 MI/S", "EVERY GRAIN HITS THE AIR AT THIS SPEED", False, GOLD, BY_HI),
+    (T_of(HIGH_H), T_of(HIGH_H) + 3.2, "1:55 AM", "GEMINI ALMOST OVERHEAD (83°)", True, GOLD, BY - 20),
     (T_of(PEAK_H), T_of(PEAK_H) + 3.6, f"{int(round(PEAK_RATE))} / HOUR", "3:30 AM · THE BUSIEST HOUR", True, GOLD, BY - 20),
-    (T_of(DAWN_H), T_END + 0.01, "5:36 AM · DAWN", "THE SKY WINS", False, ROSE, BY),
+    (T_of(DAWN_H), T_END + 0.01, "5:36 AM · DAWN", "THE SKY WINS", False, ROSE, BY_HI),
 ]
 def banner(c, T):
     for t0, t1, tt, sub, big, col, y in BANNERS:
         if t0 <= T < t1: banner_box(c.t, y, tt, sub, big, T - t0, col)
 
 def frame(T):
-    img, rad, sunf = draw_sky(T)
+    img, rad, sunf, cam = draw_sky(T)
     c = Ctx(np.array(img)); W = c.t
     rx, ry, ralt = rad
-    if ralt > 1 and sunf < 0.7 and 120 < ry * 2 < 500:
+    if ralt > 1 and sunf < 0.7 and 110 < ry * 2 < 500 and 30 < rx * 2 < 330:
+        W.rectangle([rx * 2 - 1, ry * 2 - 5, rx * 2, ry * 2 - 3], fill=(200, 170, 90)); W.rectangle([rx * 2 - 1, ry * 2 + 3, rx * 2, ry * 2 + 5], fill=(200, 170, 90))
+        W.rectangle([rx * 2 - 5, ry * 2 - 1, rx * 2 - 3, ry * 2], fill=(200, 170, 90)); W.rectangle([rx * 2 + 3, ry * 2 - 1, rx * 2 + 5, ry * 2], fill=(200, 170, 90))
         text(W, rx * 2, ry * 2 + 8, "RADIANT", fill=(200, 170, 90), align="c")
-    compass(c, T)
+    compass(c, T, cam)
     return c
+
+EXPL_END = 9.2
+EXPLAIN = [  # appears line by line while the sky is still almost empty (6-7 PM): how to read the video
+    (T0 + 0.0, "WE LIE UNDER A PERFECT DARK SKY", INK),
+    (T0 + 0.0, "US EAST COAST · 40° N, 75° W", INK2),
+    (T0 + 1.3, "THE WHOLE PEAK NIGHT, DUSK TO DAWN", INK),
+    (T0 + 1.3, "1 HOUR = 5 SECONDS", GOLD),
+    (T0 + 2.6, "EVERY BEEP = 5 SHOOTING STARS", GOLD),
+    (T0 + 2.6, "(THE NUMBER EXPECTED, HOUR BY HOUR)", INK2),
+    (T0 + 3.9, "THE CAMERA FOLLOWS GEMINI", INK),
+    (T0 + 3.9, "ACROSS THE SKY: NE, THEN S, THEN W", INK2),
+]
+def explainer(c, T):
+    W = c.t; y0 = 250
+    W.rectangle([16, y0, 344, y0 + 186], fill=HUDBG); W.rectangle([16, y0, 344, y0 + 2], fill=GOLD)
+    for k, (t0, ln, col) in enumerate(EXPLAIN):
+        if T >= t0: text(W, 180, y0 + 10 + k * 20 + (k // 2) * 4, ln, fill=col, align="c")
 
 def sc_night(name):
     def f(t):
         T = START[name] + t; c = frame(min(T, T_END)); W = c.t
-        if T < 4.2:
+        if T < T0:
             W.rectangle([16, 12, 344, 170], fill=HUDBG); W.rectangle([16, 12, 344, 14], fill=GOLD)
             text(W, 28, 20, "IT COMES FROM", size=40, fill=INK)
             if T > 0.25: text(W, 28, 56, "A ROCK,", size=40, fill=GOLD)
             if T > 0.7: text(W, 28, 92, "NOT A COMET.", size=40, fill=INK)
-            if T > 1.4: text(W, 28, 138, "LISTEN TO ONE NIGHT OF GEMINIDS", fill=BLUE)
-            if T > 1.8:
-                W.rectangle([16, 548, 344, 590], fill=HUDBG); W.rectangle([16, 548, 344, 549], fill=GOLD)
-                text(W, 180, 558, "EVERY BEEP = 5 SHOOTING STARS", fill=INK, align="c")
+            if T > 1.3: text(W, 28, 138, "THE GEMINIDS. ONE NIGHT OF THEM.", fill=BLUE)
         else:
             hud(c, T); graph(c, T)
+        if T0 <= T < EXPL_END: explainer(c, T)
         banner(c, T)
         return c
     return f
@@ -368,7 +459,7 @@ def sc_outro(t):
     text(W, 180, 52, "ONE NIGHT OF GEMINIDS", fill=INK2, align="c")
     if t > 0.15:
         text(W, 180, 74, f"≈ {int(round(TOTAL_MET, -1))}", size=40, fill=GOLD, align="c")
-        text(W, 180, 112, "SHOOTING STARS, 6 PM TO DAWN", fill=INK, align="c")
+        text(W, 180, 112, "SHOOTING STARS, DUSK TO DAWN", fill=INK, align="c")
     if t > 0.7:
         text(W, 180, 144, "FROM GRAINS OF ROCK", fill=INK, align="c")
         text(W, 180, 162, "SHED BY ASTEROID 3200 PHAETHON", fill=ROSE, align="c")

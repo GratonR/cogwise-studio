@@ -23,7 +23,7 @@ def observer(horizon="0"):
 def main():
     o = observer("-18"); o.date = "2026/12/13 20:00"
     dusk = o.next_setting(ephem.Sun(), use_center=True); dawn = o.next_rising(ephem.Sun(), use_center=True)
-    om = observer(); om.date = "2026/12/13 20:00"; moonset = om.next_setting(ephem.Moon())
+    om = observer("-0:34"); om.date = "2026/12/13 20:00"; moonset = om.next_setting(ephem.Moon())   # almanac: upper limb + refraction
     mo = ephem.Moon(); mo.compute("2026/12/14 01:00")
     rad = ephem.FixedBody(); rad._ra, rad._dec, rad._epoch = ephem.hours("7:28"), ephem.degrees("33"), ephem.J2000
     rows = []; cum = 0.0
