@@ -1,0 +1,30 @@
+{
+ "id": "frozen-turkey-fryer-20261124-212401",
+ "beat_starts": [
+  0.15,
+  5.445,
+  9.893,
+  15.61,
+  20.888,
+  25.58,
+  30.769,
+  34.762,
+  39.221,
+  44.201,
+  49.282,
+  53.203,
+  58.821
+ ],
+ "duration": 62.812,
+ "sr": 24000,
+ "settings": {
+  "exaggeration": 0.5,
+  "cfg_weight": 0.5,
+  "pause": 0.4,
+  "lead": 0.15,
+  "reference": "reference_am_michael.wav",
+  "seed": 1234
+ },
+ "rendered_at": "2026-11-24T22:25:01",
+ "seconds": 40.7
+}
