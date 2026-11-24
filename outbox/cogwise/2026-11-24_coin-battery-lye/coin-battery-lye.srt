@@ -1,0 +1,51 @@
+1
+00:00:00,000 --> 00:00:04,585
+This battery isn't leaking. It's making lye, the stuff in drain cleaner.
+
+2
+00:00:04,755 --> 00:00:08,070
+And it makes it from the water in your own body.
+
+3
+00:00:08,240 --> 00:00:13,597
+A coin battery has two faces: plus on one side, minus on the other.
+
+4
+00:00:13,767 --> 00:00:17,979
+Stuck in a child's throat, both faces touch the wet lining.
+
+5
+00:00:18,149 --> 00:00:23,297
+That wet tissue conducts, so current flows from one face to the other.
+
+6
+00:00:23,467 --> 00:00:29,117
+On the minus side, electrons split water into hydrogen gas and hydroxide.
+
+7
+00:00:29,287 --> 00:00:35,371
+Hydroxide is lye. It piles up right against the tissue, on that narrow side.
+
+8
+00:00:35,541 --> 00:00:39,057
+It eats tissue the way drain cleaner eats a hair clog.
+
+9
+00:00:39,227 --> 00:00:45,692
+In animal tests, burns begin within fifteen minutes. A hole can form in two hours.
+
+10
+00:00:45,862 --> 00:00:51,458
+Lithium coin cells push three volts, twice a double-A, so they work faster.
+
+11
+00:00:51,628 --> 00:00:55,332
+A dead one still has enough voltage to keep making lye.
+
+12
+00:00:55,502 --> 00:01:03,188
+Battery plus wet tissue equals a tiny lye factory. That's why many remotes screw the battery shut.
+
+13
+00:01:03,358 --> 00:01:09,266
+Cogwise: how things work. Follow for the next one!
