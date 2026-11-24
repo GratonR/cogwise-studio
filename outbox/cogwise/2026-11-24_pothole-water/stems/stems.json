@@ -1,0 +1,41 @@
+{
+  "duration": 67.5,
+  "size": [
+    1080,
+    1920
+  ],
+  "fps": 30.0,
+  "video": "video.mp4",
+  "proxy": "preview/proxy.mp4",
+  "tracks": [
+    {
+      "id": "voice",
+      "label": "Voix off",
+      "file": "voice.m4a",
+      "preview": "preview/voice.webm"
+    },
+    {
+      "id": "sfx",
+      "label": "Bruitages",
+      "file": "sfx.m4a",
+      "preview": "preview/sfx.webm"
+    }
+  ],
+  "slug": "pothole-water",
+  "title": "Potholes are made by water, not by trucks 🕳️ #Shorts",
+  "beat_starts": [
+    0.15,
+    5.897,
+    10.147,
+    15.581,
+    22.298,
+    27.225,
+    32.049,
+    36.575,
+    41.272,
+    46.022,
+    52.586,
+    57.433,
+    61.543
+  ]
+}
