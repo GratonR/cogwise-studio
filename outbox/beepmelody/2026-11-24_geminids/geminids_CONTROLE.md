@@ -60,3 +60,15 @@ Musique (music.wav identique bit à bit, md5 0df2fe48…), données (CSV identiq
 - Rien de coupé, pas de chevauchement HUD/bannière, aucune mention d'IA.
 ### Identique
 Données (CSV), musique (music.wav md5 0df2fe48…, identique), timing, durée 67,50 s (ffprobe), textes. Couverture « One night of Geminids » à 50,3 s.
+
+## Retouche r2 (25/11, remarque : « Sky must be moving realisticly at least a little », portée : visuels seuls)
+### Visuels (seul changement)
+- Même idée de vue fixe, mais le vrai ciel : on est allongé et on regarde droit vers le haut (vue « fisheye » tout-ciel, stéréographique, zénith au centre, nord en haut, est à gauche, ouest à droite, sud en bas ; arbres tout autour de l'horizon, petites lettres N/E/S/W).
+- Étoiles brillantes réelles (RA/Dec J2000, catalogue Yale) + champ fixe d'étoiles pâles, placées avec le vrai temps sidéral (PyEphem) : le ciel tourne autour de l'étoile Polaire à la vraie vitesse (15° par heure = 15° toutes les 5 s).
+- Le radiant suit sa vraie trajectoire : se lève au NE (haut gauche, 6 PM), passe presque au zénith à 1:55 AM, file vers l'ouest à l'aube. Contrôle : hauteur calculée du radiant = colonne radiant_alt_deg du CSV à ±0,4° (18 h 2,0/1,7 · 1:55 82,9/83,0 · 4 h 64,2/64,5).
+- Chaque bip = 1 étoile filante brillante qui jaillit du radiant (là où il est à cet instant), coupée à l'horizon ; lueur du crépuscule à l'ouest, de l'aube à l'est (azimut du Soleil, PyEphem).
+### Frames contrôlées
+0,8 · 4 · 8 · 12 · 15,3 · 20 · 25 · 30 · 40,4 · 40,6 · 47,5 · 50,6 · 56 · 62 · 66 · 66,9 s + planche contact du MP4 final (1 image / 4 s).
+- Compteur = 5 × bips (690 à l'aube) ; bannières (8:48 PM, Phaethon, 35 km/s · 22 mi/s, 1:55 AM 83°, 94/h à 3:30, aube) lisibles, sous la trajectoire du radiant, rien de coupé ni de chevauché ; aucune mention d'IA.
+### Identique
+Données (CSV identique), musique (music.wav md5 0df2fe48…, identique), timing, durée 67,53 s (ffprobe), bannières, textes. Couverture « One night of Geminids » à 50,3 s.

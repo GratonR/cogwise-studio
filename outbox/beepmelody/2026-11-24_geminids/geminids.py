@@ -20,6 +20,9 @@ Music (rule 2026-11-23, musicality first): loop Dm9 - Bbmaj7 - Fmaj7 - C(add9), 
   Rework r1 24/11 (Guillaume: « les visuels ne collent pas » -> choice « trop compliqué à lire »): fixed view, one sky,
     the radiant in the middle; every beep = one bright meteor out of the radiant + flash + counter; HUD = clock + counter.
     Same data, same music, same timing.
+  Rework r2 25/11 (Guillaume: « Sky must be moving realistically at least a little »): same fixed view idea, but the
+    real sky: all-sky fisheye looking straight up (north up, east left), stars and radiant placed with the true sidereal
+    time, so the sky turns around Polaris at 15°/h and the radiant rises NE -> 83° at 1:55 AM -> west. Same data, music, timing.
     python3 geminids.py info out | at out <T> ... | audio out/music.wav | render out | final out x.mp4
 """
 import sys, os, math, random, subprocess, csv, datetime as dt
@@ -138,34 +141,74 @@ def build():
     EV.sort(key=lambda e: e[0])
 build()
 
-# ================= sky (rework r1 24/11 : « Trop compliqué à lire ») =================
-# Fixed view, one simple sky: no camera pan, no constellation figures. The radiant sits in the middle of the
-# picture and every beep is ONE bright meteor bursting out of it (+ a flash at the radiant and the counter ticking up),
-# exactly on its note. The other meteors of the model are faint streaks from the same point.
-# The sky colour follows the Sun (PyEphem): dusk glow at the start, dawn glow at the end.
+# ================= sky (rework r2 25/11 : « Sky must be moving realistically at least a little ») =================
+# One fixed view, but now the REAL sky: we lie on our back and look straight up (all-sky fisheye, stereographic,
+# zenith in the middle, north up, east left, west right, south down; the ground and trees ring the horizon).
+# Every star (real bright stars + a fixed field of faint ones) is placed by its RA/Dec and the true sidereal time
+# (PyEphem), so the whole sky turns around Polaris at the real rate (15° per hour) and the radiant really rises in the
+# NE, passes almost overhead at 1:55 AM (83°) and heads west. Every beep = ONE bright meteor bursting out of the
+# radiant (+ flash + counter), exactly on its note; the other meteors of the model are faint streaks.
+# The sky colour follows the Sun (dusk glow in the west, dawn glow in the east).
 OBS = ephem.Observer(); OBS.lat, OBS.lon, OBS.pressure = LAT, LON, 0
 SUN = ephem.Sun()
 def ut_of(h): return ephem.Date(ephem.Date("2026/12/13 00:00") + (h - TZ) / 24)
 _SUNC = {}
-def sun_alt(h):
-    key = round(h, 2)
+def sun_altaz(h):
+    key = round(h, 3)
     if key not in _SUNC:
-        OBS.date = ut_of(h); SUN.compute(OBS); _SUNC[key] = math.degrees(SUN.alt)
+        OBS.date = ut_of(h); SUN.compute(OBS)
+        _SUNC[key] = (math.degrees(SUN.alt), math.degrees(SUN.az), float(OBS.sidereal_time()))
     return _SUNC[key]
+def sun_alt(h): return sun_altaz(h)[0]
 
-RX, RY = AW / 2, 126            # radiant (art px): centre of the sky
-HZ = 262                         # horizon (art px)
-NIGHT_TOP, NIGHT_BOT = (8, 12, 34), (24, 34, 74)
+CX, CY, KR = AW / 2, 152.0, 118.0          # zenith (art px) and horizon radius (stereographic: r = KR tan(z/2))
+PHI = math.radians(float(LAT))
+RAD_RA, RAD_DEC = math.radians((7 + 28 / 60) * 15), math.radians(33.0)   # radiant 7h28 +33 (IMO)
+STARS_NAMED = [  # RA (h), Dec (deg), mag (J2000, Yale Bright Star values, rounded)
+    (7.577, 31.89, 1.6), (7.755, 28.03, 1.1), (6.629, 16.40, 1.9), (6.732, 25.13, 3.0), (6.383, 22.51, 2.9),
+    (7.335, 21.98, 3.5), (7.068, 20.57, 3.8), (6.248, 22.51, 3.3), (6.755, 12.90, 3.4), (5.919, 7.41, 0.5),
+    (5.242, -8.20, 0.1), (5.419, 6.35, 1.6), (5.796, -9.67, 2.1), (5.603, -1.20, 1.7), (5.533, -0.30, 2.2),
+    (5.679, -1.94, 1.8), (6.752, -16.72, -1.5), (7.655, 5.22, 0.4), (4.599, 16.51, 0.9), (5.278, 46.00, 0.1),
+    (10.139, 11.97, 1.4), (18.616, 38.78, 0.0), (20.690, 45.28, 1.3), (14.261, 19.18, -0.1), (11.062, 61.75, 1.8),
+    (11.031, 56.38, 2.4), (11.897, 53.69, 2.4), (12.257, 57.03, 3.3), (12.900, 55.96, 1.8), (13.399, 54.93, 2.2),
+    (13.792, 49.31, 1.9), (2.530, 89.26, 2.0), (3.136, 40.96, 2.1), (3.405, 49.86, 1.8), (3.791, 24.11, 2.9),
+    (13.420, -11.16, 1.0), (0.675, 56.54, 2.2), (0.153, 59.15, 2.3), (0.945, 60.72, 2.5), (1.430, 60.24, 2.7),
+    (1.907, 63.67, 3.4), (2.065, 42.33, 2.1), (0.140, 29.09, 2.1), (1.162, 35.62, 2.1), (23.079, 15.21, 2.5),
+    (19.846, 8.87, 0.8), (17.582, 12.56, 2.1), (16.490, -26.43, 1.0), (9.460, -8.66, 2.0), (2.120, 23.46, 2.0),
+]
+_r = np.random.RandomState(13)
+NFAINT = 420
+F_RA = _r.uniform(0, 2 * math.pi, NFAINT); F_DEC = np.arcsin(_r.uniform(-0.55, 1.0, NFAINT))
+S_RA = np.concatenate([np.radians(np.array([s[0] for s in STARS_NAMED]) * 15), F_RA])
+S_DEC = np.concatenate([np.radians([s[1] for s in STARS_NAMED]), F_DEC])
+S_B = np.concatenate([np.clip(1.15 - 0.22 * np.array([s[2] for s in STARS_NAMED]), 0.35, 1.0), _r.uniform(0.12, 0.6, NFAINT) ** 1.6])
+S_BIG = np.concatenate([np.array([s[2] for s in STARS_NAMED]) < 1.0, np.zeros(NFAINT, bool)])
+
+def altaz(ra, dec, lst):
+    ha = lst - ra
+    sa = np.sin(dec) * math.sin(PHI) + np.cos(dec) * math.cos(PHI) * np.cos(ha)
+    alt = np.arcsin(np.clip(sa, -1, 1))
+    az = np.arctan2(-np.cos(dec) * np.sin(ha), np.sin(dec) * math.cos(PHI) - np.cos(dec) * math.sin(PHI) * np.cos(ha))
+    return alt, az
+def proj(alt, az):
+    r = KR * np.tan((math.pi / 2 - alt) / 2)
+    return CX - r * np.sin(az), CY - r * np.cos(az), r
+def radiant_xy(T):
+    h = min(30.0, max(18.0, h_of(T))); lst = sun_altaz(h)[2]
+    a, z = altaz(RAD_RA, RAD_DEC, lst); x, y, _ = proj(a, z); return float(x), float(y), math.degrees(float(a))
+
+NIGHT_TOP, NIGHT_BOT = (8, 12, 34), (26, 36, 78)
 DUSK_TOP, DUSK_BOT = (40, 60, 120), (236, 150, 110)
 def mixc(a, b, t): t = max(0, min(1, t)); return tuple(int(a[j] + (b[j] - a[j]) * t) for j in range(3))
 def sky_cols(sa):
     f = ease((sa + 18) / 14)          # 0 at -18 (astronomical night), 1 at -4
     return mixc(NIGHT_TOP, DUSK_TOP, f), mixc(NIGHT_BOT, DUSK_BOT, f), f
 
-_r = np.random.RandomState(13)
-NSTAR = 230
-ST_X = _r.uniform(2, AW - 2, NSTAR); ST_Y = _r.uniform(4, HZ - 8, NSTAR) ** 1.0; ST_B = _r.uniform(0.15, 1.0, NSTAR) ** 2
-ST_BIG = _r.rand(NSTAR) < 0.05
+_YY, _XX = np.mgrid[0:AH, 0:AW].astype(np.float32)
+_DX, _DY = _XX + 0.5 - CX, _YY + 0.5 - CY
+PR = np.hypot(_DX, _DY); PAZ = np.arctan2(-_DX, -_DY)     # pixel radius and azimuth (N = 0, E = 90°)
+INSIDE = PR <= KR
+GROUND = np.array((12, 15, 26), np.float32)
 
 # meteors: (T, bright, angle, d0 px, length px)
 METEORS = []
@@ -183,56 +226,69 @@ MET_T = np.array([m[0] for m in METEORS])
 MLIFE = 0.55
 BEEP_TS = np.array(sorted(t for t, _, _ in BEEPS_T))
 
+# trees around the horizon ring, pointing to the zenith (as in a real all-sky photo): azimuth (deg), height (px)
+_rt = random.Random(5)
+TREES = [(az, _rt.uniform(7, 15)) for az in [a + _rt.uniform(-4, 4) for a in range(0, 360, 9)] if _rt.random() < 0.7]
+
 def landscape(d, sunf):
-    hill = mixc((14, 18, 30), (60, 52, 70), sunf * 0.6)
-    pts = [(x, HZ - 2.5 - 2.5 * math.sin(x * 0.05) - 1.5 * math.sin(x * 0.19)) for x in range(0, AW + 1, 2)]
-    d.polygon([(0, HZ)] + pts + [(AW, HZ), (AW, AH), (0, AH)], fill=hill)
-    tree = mixc((6, 10, 18), (30, 30, 44), sunf * 0.6)
-    for tx, th in ((14, 11), (21, 14), (27, 9), (150, 12), (157, 16), (164, 10)):
-        for k in range(th):
-            w = (k * 5) // th + 1; y = HZ + 3 - th + k; d.line([tx - w, y, tx + w, y], fill=tree)
+    tree = mixc((6, 9, 16), (30, 30, 44), sunf * 0.6)
+    for az, th in TREES:
+        a = math.radians(az); ux, uy = -math.sin(a), -math.cos(a)        # outward direction
+        bx, by = CX + ux * (KR + 1), CY + uy * (KR + 1)
+        px, py = -uy, ux
+        for k in range(int(th)):
+            w = 0.5 + 3.5 * k / th; rx, ry = bx - ux * (th - k), by - uy * (th - k)
+            d.line([rx - px * w, ry - py * w, rx + px * w, ry + py * w], fill=tree)
 
 def draw_sky(T):
-    h = min(30.0, max(18.0, h_of(T))); sa = sun_alt(h)
+    h = min(30.0, max(18.0, h_of(T))); sa, saz, lst = sun_altaz(h)
     top, bot, sunf = sky_cols(sa)
-    a = np.zeros((AH, AW, 3), np.uint8)
-    for y in range(0, HZ + 1): a[y, :] = mixc(top, bot, (y / HZ) ** 1.6)
-    img = Image.fromarray(a); d = ImageDraw.Draw(img)
+    # dome gradient (brighter to the horizon) + glow on the Sun's side at dusk / dawn
+    g = (np.clip(PR / KR, 0, 1) ** 1.6)[..., None]
+    col = np.array(top, np.float32) * (1 - g) + np.array(bot, np.float32) * g
+    glow = np.clip(np.cos(PAZ - math.radians(saz)), 0, 1) ** 2 * np.clip(PR / KR, 0, 1) ** 2 * ease((sa + 18) / 16) * 0.55
+    col = col * (1 - glow[..., None]) + np.array((250, 170, 120), np.float32) * glow[..., None]
+    col[~INSIDE] = GROUND * (1 + 0.8 * sunf)
+    img = Image.fromarray(col.astype(np.uint8)); d = ImageDraw.Draw(img)
     vis = 1 - sunf; tw = int(T * 5)
-    for k in range(NSTAR):
-        b = ST_B[k] * vis
+    alt, az = altaz(S_RA, S_DEC, lst); sx, sy, sr = proj(alt, az)
+    for k in np.nonzero((alt > 0) & (sr < KR - 1))[0]:
+        b = S_B[k] * vis * min(1.0, math.degrees(alt[k]) / 12 + 0.25)
         if b < 0.05: continue
         if (k * 7 + tw) % 19 == 0: b *= 0.55
-        c = mixc(top, (255, 250, 230), 0.25 + 0.75 * b); xi, yi = int(ST_X[k]), int(ST_Y[k]); d.point((xi, yi), fill=c)
-        if ST_BIG[k]:
+        c = mixc(top, (255, 250, 230), 0.25 + 0.75 * b); xi, yi = int(sx[k]), int(sy[k]); d.point((xi, yi), fill=c)
+        if S_BIG[k]:
             for dx, dy in ((1, 0), (-1, 0), (0, 1), (0, -1)): d.point((xi + dx, yi + dy), fill=mixc(top, c, 0.5))
+    RXp, RYp, _ = radiant_xy(T)
     # radiant: soft glow that pulses on every beep
     i = int(np.searchsorted(BEEP_TS, T + 1e-6)) - 1
     pulse = math.exp(-(T - BEEP_TS[i]) / 0.18) if i >= 0 and T - BEEP_TS[i] >= 0 else 0.0
     if T >= T0:
         for r, w in ((9, 0.10), (6, 0.18), (4, 0.30)):
-            d.ellipse([RX - r, RY - r, RX + r, RY + r], fill=mixc(top, (255, 214, 130), (w + 0.5 * pulse * w) * vis + 0.02))
-        d.rectangle([RX - 1, RY - 1, RX + 1, RY + 1], fill=mixc(top, (255, 240, 200), 0.6 + 0.4 * pulse))
+            d.ellipse([RXp - r, RYp - r, RXp + r, RYp + r], fill=mixc(top, (255, 214, 130), (w + 0.5 * pulse * w) * vis + 0.02))
+        d.rectangle([RXp - 1, RYp - 1, RXp + 1, RYp + 1], fill=mixc(top, (255, 240, 200), 0.6 + 0.4 * pulse))
         if pulse > 0.05:
             rr = 4 + 10 * (1 - pulse)
-            d.ellipse([RX - rr, RY - rr, RX + rr, RY + rr], outline=mixc(top, (255, 230, 170), pulse * 0.8))
-    # meteors flying straight out of the radiant
+            d.ellipse([RXp - rr, RYp - rr, RXp + rr, RYp + rr], outline=mixc(top, (255, 230, 170), pulse * 0.8))
+    # meteors flying straight out of the radiant (clipped at the horizon)
     i0 = int(np.searchsorted(MET_T, T - MLIFE)); i1 = int(np.searchsorted(MET_T, T + 1e-6))
     for (tm, br, ang, d0, ln) in METEORS[i0:i1]:
         age = (T - tm) / MLIFE
         if not (0 <= age < 1): continue
+        RX, RY, _ = radiant_xy(tm)
         prog = min(1, age / 0.4); fade = 1 - max(0, (age - 0.4) / 0.6)
         ca, sn = math.cos(ang), math.sin(ang)
         head = d0 + ln * prog; tail = max(d0, head - (ln * (0.75 if br else 0.6)))
         n = 10; prev = None
         for s in range(n + 1):
             rr = tail + (head - tail) * s / n; p = (RX + ca * rr, RY + sn * rr)
+            if math.hypot(p[0] - CX, p[1] - CY) > KR - 1: break
             if prev is not None:
                 kk = ((s / n) ** 1.4) * fade * (1.0 if br else 0.45)
                 if br: d.line([prev, p], fill=mixc(top, (255, 200, 120), kk * 0.5), width=3)
                 d.line([prev, p], fill=mixc(top, (255, 248, 222) if br else (190, 205, 255), kk), width=2 if br and s > n // 3 else 1)
             prev = p
-        if br and prog < 1:
+        if br and prog < 1 and prev is not None:
             ex, ey = prev; d.rectangle([ex - 1.5, ey - 1.5, ex + 1.5, ey + 1.5], fill=mixc(top, (255, 255, 240), fade))
     landscape(d, sunf)
     return img, sunf, pulse
@@ -249,6 +305,8 @@ def hud(c, T, pulse):
     n = int(np.searchsorted(BEEP_TS, T + 1e-6)) * 5
     text(W, 336, 18, f"{n}", size=40, fill=GOLD if pulse < 0.5 else (255, 240, 190), align="r")
     text(W, 336, 54, "SHOOTING STARS", fill=INK2, align="r")
+    for lx, ly, lb, al in ((180, 82, "N", "c"), (8, 296, "E", "l"), (352, 296, "W", "r"), (180, 526, "S", "c")):
+        text(W, lx, ly, lb, fill=INK2, align=al)
     W.rectangle([16, 600, 344, 632], fill=HUDBG); W.rectangle([16, 600, 344, 601], fill=GOLD)
     text(W, 180, 606, "EVERY BEEP = 5 SHOOTING STARS (EXPECTED)", fill=INK, align="c")
 
@@ -264,7 +322,7 @@ def banner_box(W, yb, tt, sub, big, a, col=GOLD):
         text(W, 180, yb + 3, tt, fill=INK, align="c")
         if sub and a > 0.25: text(W, 180, yb + 21, sub, fill=col, align="c")
 
-BY = 430          # under the radiant (radiant at y 252 on the text layer), above the hills
+BY = 430          # lower part of the dome, under the radiant's path (y 150-320 on the text layer)
 BANNERS = [   # t0, t1, title, sub, big, colour, y
     (9.4, 13.6, "THE RADIANT, IN GEMINI", "EVERY METEOR FLIES OUT FROM THIS POINT", False, GOLD, BY),
     (T_of(MOONSET_H) - 0.4, T_of(21.3) - 0.05, "8:48 PM · THE MOON SETS", "DARK SKY FROM NOW ON", False, BLUE, BY),
