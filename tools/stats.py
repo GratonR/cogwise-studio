@@ -235,6 +235,18 @@ def main():
             if "fb_reels_total_plays" in m: p["views"] = m["fb_reels_total_plays"]
             if "blue_reels_play_count" in m: p["unique_plays"] = m["blue_reels_play_count"]
             if m.get("post_video_avg_time_watched") is not None: p["avg_watch_s"] = round(m["post_video_avg_time_watched"] / 1000, 1)
+            # 25/11 (Guillaume) : comprendre pourquoi un Reel perce. Revisionnages, abonnés gagnés, et la courbe de rétention
+            # (41 points = 0 %, 2,5 %, … 100 % de la vidéo) rangée dans meta/retention sous « fb:<id de la vidéo> ».
+            if (p.get("views") or 0) >= 50:
+                ex = safe("Facebook rétention", lambda: g(f"{r['id']}/video_insights?metric=fb_reels_replay_count,post_video_followers,post_video_retention_graph")) or {}
+                xm = {d["name"]: d["values"][0]["value"] for d in ex.get("data", [])}
+                if xm.get("fb_reels_replay_count") is not None: p["replays"] = xm["fb_reels_replay_count"]
+                if xm.get("post_video_followers") is not None: p["follows"] = xm["post_video_followers"]
+                rg = xm.get("post_video_retention_graph")
+                if isinstance(rg, dict) and rg and slug:
+                    pts = [round(rg[k], 3) for k in sorted(rg, key=int)]
+                    p["ret_5s"] = pts[min(len(pts) - 1, 3)]      # ≈ 5 s sur une vidéo de ~65 s
+                    retention["fb:" + r["id"]] = {"episode": slug, "video": r["id"], "at": now.strftime("%Y-%m-%dT%H:%M:%SZ"), "pct": pts}
             posts["fb-" + r["id"]] = {k: v for k, v in p.items() if v is not None}
             if p.get("comments"):
                 own = 0
