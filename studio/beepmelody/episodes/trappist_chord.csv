@@ -1,8 +1,8 @@
-planet,period_d,period_err_d,semi_major_axis_au,ratio_to_inner,nearest_ratio,interval,source_primary,source_check
-b,1.510826,0.000006,0.01154,,,,"Agol et al. 2021 PSJ 2:1 doi:10.3847/PSJ/abd022","Gillon et al. 2017 Nature 542:456 (1.51087)"
-c,2.421937,0.000018,0.01580,1.6031,8:5,minor sixth,"Agol et al. 2021 PSJ 2:1","Gillon et al. 2017 (2.42182; ratio 8:5 stated)"
-d,4.049219,0.000026,0.02227,1.6719,5:3,major sixth,"Agol et al. 2021 PSJ 2:1","Gillon et al. 2017 (4.04961; ratio 5:3 stated)"
-e,6.101013,0.000035,0.02925,1.5067,3:2,fifth,"Agol et al. 2021 PSJ 2:1","Gillon et al. 2017 (6.09962; ratio 3:2 stated)"
-f,9.207540,0.000032,0.03849,1.5092,3:2,fifth,"Agol et al. 2021 PSJ 2:1","Gillon et al. 2017 (9.20669; ratio 3:2 stated)"
-g,12.352446,0.000054,0.04683,1.3416,4:3,fourth,"Agol et al. 2021 PSJ 2:1","Gillon et al. 2017 (12.35294; ratio 4:3 stated)"
-h,18.772866,0.000214,0.06189,1.5198,3:2,fifth,"Agol et al. 2021 PSJ 2:1","Luger et al. 2017 Nat Astron 1:0129 (18.77 d, 7-planet resonant chain)"
+planet,period_d,period_err_d,semi_major_axis_au,ratio_to_inner,nearest_ratio,interval,source_primary,source_check,t0_bjd,t0_source,t0_check
+b,1.510826,0.000006,0.01154,,,,Agol et al. 2021 PSJ 2:1 doi:10.3847/PSJ/abd022,Gillon et al. 2017 Nature 542:456 (1.51087),7257.55044,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),Gillon 2017 T0 7322.51736 -> Agol linear 7322.51596 (0.0014 d)
+c,2.421937,0.000018,0.01580,1.6031,8:5,minor sixth,Agol et al. 2021 PSJ 2:1,Gillon et al. 2017 (2.42182; ratio 8:5 stated),7258.58728,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),
+d,4.049219,0.000026,0.02227,1.6719,5:3,major sixth,Agol et al. 2021 PSJ 2:1,Gillon et al. 2017 (4.04961; ratio 5:3 stated),7257.06768,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),
+e,6.101013,0.000035,0.02925,1.5067,3:2,fifth,Agol et al. 2021 PSJ 2:1,Gillon et al. 2017 (6.09962; ratio 3:2 stated),7257.82771,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),
+f,9.207540,0.000032,0.03849,1.5092,3:2,fifth,Agol et al. 2021 PSJ 2:1,Gillon et al. 2017 (9.20669; ratio 3:2 stated),7257.07426,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),
+g,12.352446,0.000054,0.04683,1.3416,4:3,fourth,Agol et al. 2021 PSJ 2:1,Gillon et al. 2017 (12.35294; ratio 4:3 stated),7257.71462,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),
+h,18.772866,0.000214,0.06189,1.5198,3:2,fifth,Agol et al. 2021 PSJ 2:1,"Luger et al. 2017 Nat Astron 1:0129 (18.77 d, 7-planet resonant chain)",7249.60676,Agol et al. 2021 PSJ 2:1 Table 2 (BJD_TDB-2450000),Gillon 2017/Luger 2017 single transit ~7662.55 -> Agol linear 7662.55 (0.06 d)
