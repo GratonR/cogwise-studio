@@ -112,13 +112,13 @@ def build():
 build()
 
 # ================= scene (top view, neon) =================
-CX, CY = 90, 150                                   # star (art px)
-RMAX = 78
+CX, CY = 90, 178                                   # star (art px) — full-screen variant (étape 3: no score, system enlarged)
+RMAX = 86                                          # widest that fits the 180 px frame (+10 % radius vs 78)
 SC = RMAX / A_AU["h"]
 RAD = {p: A_AU[p] * SC for p in PL}
 COL = {"b": (255, 110, 190), "c": (196, 120, 255), "d": (110, 150, 255), "e": (80, 220, 255),
        "f": (90, 240, 150), "g": (250, 220, 90), "h": (255, 150, 80)}
-SIZE = {"b": 2, "c": 2, "d": 1, "e": 2, "f": 2, "g": 2, "h": 1}   # pixel half-size (d, h are the smallest planets)
+SIZE = {"b": 3, "c": 3, "d": 2, "e": 3, "f": 3, "g": 3, "h": 2}   # pixel half-size, enlarged (d, h are the smallest planets)
 BG = (5, 6, 16); INK, INK2 = (236, 234, 246), (140, 146, 190); HUDBG = (14, 14, 34); STAR = (255, 196, 150)
 _r = np.random.RandomState(1)
 NST = 160; SX = _r.uniform(0, AW, NST); SY = _r.uniform(0, AH, NST); SB = _r.uniform(.1, 1, NST) ** 2
@@ -161,7 +161,7 @@ def draw_scene(T):
         d.point((SX[k], SY[k]), fill=mix(BG, (200, 205, 255), .15 + .5 * SB[k]))
     day = day_of(min(T, TOTAL))
     # line of sight to Earth (down)
-    for y in range(CY + 4, 236, 3): d.point((CX, y), fill=(70, 80, 130))
+    for y in range(CY + 6, CY + RMAX + 14, 3): d.point((CX, y), fill=(70, 80, 130))
     # star pulse on any transit
     i = int(np.searchsorted(TR_T, T + 1e-6)) - 1
     pulse = math.exp(-(T - TR_T[i]) / 0.15) if i >= 0 else 0.0
@@ -174,9 +174,9 @@ def draw_scene(T):
         oc = mix(BG, COL[p], (0.28 + 0.55 * hit) * vis)
         r = RAD[p]; d.ellipse([CX - r, CY - r, CX + r, CY + r], outline=oc)
     # star
-    for rr, w in ((9, .10), (6, .22), (4, .45)):
+    for rr, w in ((12, .10), (8, .22), (5, .45)):
         d.ellipse([CX - rr, CY - rr, CX + rr, CY + rr], fill=mix(BG, STAR, w + .35 * pulse * w))
-    d.ellipse([CX - 2, CY - 2, CX + 2, CY + 2], fill=mix(STAR, (255, 255, 240), .5 + .5 * pulse))
+    d.ellipse([CX - 3, CY - 3, CX + 3, CY + 3], fill=mix(STAR, (255, 255, 240), .5 + .5 * pulse))
     # planets
     for p in PL:
         vis = visible(p, T)
@@ -186,7 +186,7 @@ def draw_scene(T):
         hit = math.exp(-max(0, h) / 0.25) if h >= 0 else 0.0
         s = SIZE[p] + (1 if hit > .4 else 0)
         if hit > 0.05:
-            g = 3 + 5 * hit; d.ellipse([x - g, y - g, x + g, y + g], outline=mix(BG, COL[p], hit))
+            g = 4 + 6 * hit; d.ellipse([x - g, y - g, x + g, y + g], outline=mix(BG, COL[p], hit))
         d.rectangle([x - s, y - s, x + s, y + s], fill=mix(BG, mix(COL[p], (255, 255, 255), .6 * hit), vis))
     return img, pulse
 
@@ -212,17 +212,24 @@ def draw_roll(img, T):
         d.rectangle([x - 1, y - 2, x + 3, y + 1], fill=c)
 
 def frame(T):
-    img, pulse = draw_scene(T); draw_roll(img, T)
+    img, pulse = draw_scene(T)                      # variant chosen at step 3: no piano roll
     return Ctx(np.array(img)), pulse
 
 # ================= text =================
 def box(W, y0, y1, col):
     W.rectangle([16, y0, 344, y1], fill=HUDBG); W.rectangle([16, y0, 344, y0 + 1], fill=col)
 
-def roll_labels(W, T):
-    for k, p in enumerate(ROLL_ORDER):
-        y = (ROLL_Y0 + k * LANE) * 2 - 1
-        if visible(p, T) > 0: text(W, 14, y, p, fill=COL[p])
+LBL_SIDE = {"b": 1, "c": -1, "d": 1, "e": -1, "f": -1, "g": -1, "h": -1}   # left = the way planets move after crossing; b, d right so pile-up labels never overlap
+def note_labels(W, T):
+    """the note just played, written beside the planet where it crosses the Earth line"""
+    for p in PL:
+        if visible(p, T) <= 0: continue
+        h = last_hit(p, T) if T >= T_PLAY else (T - (T_TUNE + PL.index(p) * BAR / 2))
+        if not (0 <= h < 0.45): continue
+        px, py = pos(p, T) if T < T_PLAY else (CX, CY + RAD[p])      # tuning: beside the planet; play: where it crosses the Earth line
+        sd = LBL_SIDE[p] if T >= T_PLAY else (1 if px < CX else -1)   # tuning: label toward the centre, never off-frame
+        x = (px + sd * (SIZE[p] + 13)) * 2; y = py * 2 - 8
+        text(W, x, y, f"{p} {NOTE[p]}", fill=mix(COL[p], (255, 255, 255), .5 * (1 - h / .45)), align="l" if sd > 0 else "r")
 
 def hud(W, T):
     box(W, 12, 74, (90, 240, 150))
@@ -237,7 +244,7 @@ def hud(W, T):
 def legend(W, T):
     W.rectangle([16, 604, 344, 632], fill=HUDBG)
     text(W, 180, 610, "EVERY BEEP = A PLANET CROSSING ITS STAR", fill=INK, align="c")
-    text(W, 214, 458, "TO EARTH", fill=(110, 120, 170))
+    text(W, 180, (CY + RMAX + 15) * 2, "TO EARTH", fill=(110, 120, 170), align="c")
 
 def banner_box(W, y, tt, sub, big, a, col):
     w = max((16 if big else 8) * len(tt), 8 * len(sub or "")) + 24
@@ -298,8 +305,8 @@ def sc_main(t):
         if T >= T_CHORD: chord_card(W, T)
         else: banners(W, T)
     if T >= T_PLAY: legend(W, T)
-    elif T >= T_TUNE: text(W, 214, 458, "TO EARTH", fill=(110, 120, 170))
-    roll_labels(W, T)
+    elif T >= T_TUNE: text(W, 180, (CY + RMAX + 15) * 2, "TO EARTH", fill=(110, 120, 170), align="c")
+    if T < T_OUT: note_labels(W, T)
     return c
 
 def sc_outro(t):

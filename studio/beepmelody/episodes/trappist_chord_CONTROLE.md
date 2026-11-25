@@ -22,3 +22,9 @@ Frames lues : 1,5 s (accroche) · 9,0 (présentation des voix, d) · 14,5 (débu
 ## Son (B · synthwave orbitale 112 BPM, choisie à l'étape 2)
 boucle C – G/B – Am7 – G · donnée → note fixe par planète (accord C·D·G·B) · courbe (vitesse du temps) → kick+basse, puis snare, puis hats, arpège en 16es au drop · break mesure 21 · drop = empilement 5 planètes + arpège. RMS par section 0,04 → 0,13 au drop, pic 0,86, aucune note au-dessus de B5 (988 Hz), pas de glissando.
 Durée : 32 mesures = 68,57 s.
+
+## Étape 3 tranchée : variante « orbites en plein écran » (2026-11-25, rendu final)
+- Partition (piano roll) retirée. Système agrandi : rayon de l'orbite h 78 → 86 px art (le maximum qui tient dans les 180 px de large sans couper l'orbite h, soit +10 % en rayon / +22 % en surface ; +35 % aurait coupé l'orbite h sur les bords), étoile et planètes grossies (~+50 %), système recentré (étoile y 150 → 178).
+- La note jouée s'écrit à côté de la planète, à l'endroit où elle croise la ligne TO EARTH, pendant 0,45 s : « b G5 », « h C3 »… (notes = NOTE du module, inchangées). Côté gauche = sens où la planète repart ; b et d à droite pour qu'à l'empilement aucune étiquette ne se chevauche. Pendant la présentation des voix : étiquette à côté de la planète, côté centre (jamais hors cadre).
+- Frames relues : 4,5 · 5,5 · 6,6 · 7,6 · 9,0 · 10,2 · 11,2 · 15,0 · 20,0 · 40,0 · 47,3 · 47,45 · 47,6 + planche contact (16 vignettes). Rien de coupé, pas de chevauchement HUD / bannières / carte « ONE CHORD » / légende ; « TO EARTH » sous l'orbite h.
+- Données, musique, timing, textes : identiques (136 transits, empilement h g e c b à 47,3 s, synthwave 112 BPM). Durée 68,6 s (ffprobe).
